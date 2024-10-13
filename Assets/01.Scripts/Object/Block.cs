@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using AgentManage;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+namespace BlockManage
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public class Block : MonoBehaviour
     {
-        
+        public Health HealthCompo { get; protected set; }
+
+        private void Awake()
+        {
+            HealthCompo = GetComponent<Health>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
