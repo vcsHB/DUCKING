@@ -11,11 +11,8 @@ namespace InputManage
     public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
         public event Action<Vector2> MovementEvent;
-        public Vector3 AimPosition { get; private set; }
 
-        [SerializeField] private LayerMask _whatIsGround;
-    
-        private Vector3 _lastMousePosition;
+       
         private Controls _controls;
 
         private void OnEnable()
@@ -27,17 +24,17 @@ namespace InputManage
                 _controls.Player.Enable();
             }
         }
+        
+        private void OnDisable()
+        {
+            _controls.Player.Disable();
+        }
 
         public void OnMovement(InputAction.CallbackContext context)
         {
             MovementEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
-        public void OnAim(InputAction.CallbackContext context)
-        {
-            Vector2 screenPosition = context.ReadValue<Vector2>();
-            AimPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        }
 
     }
 
