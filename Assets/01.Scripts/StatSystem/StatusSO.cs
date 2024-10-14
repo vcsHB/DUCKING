@@ -6,6 +6,8 @@ namespace StatSystem
     public class StatusSO : ScriptableObject
     {
         public Stat health;
+        public Stat corrosionResist;
+        
         
     }
 }

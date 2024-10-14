@@ -1,18 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using AgentManage;
+using StatSystem;
 using UnityEngine;
 
 namespace BlockManage
 {
     
-    public class Block : MonoBehaviour
+    public abstract class Block : MonoBehaviour
     {
         public Health HealthCompo { get; protected set; }
+        [field:SerializeField] public StatusSO Stat { get; protected set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
+            Stat = Instantiate(Stat);
             HealthCompo = GetComponent<Health>();
         }
     }
