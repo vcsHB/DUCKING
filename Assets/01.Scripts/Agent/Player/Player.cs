@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using AgentManage;
 using InputManage;
 using UnityEngine;

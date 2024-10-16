@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ed2af6ece4400882776249d4ba8c5d, type: 3}
-  m_Name: PlayerStatus
+  m_Script: {fileID: 11500000, guid: eee37552d6224a1eb26b7a53566cba06, type: 3}
+  m_Name: UIInputReader
   m_EditorClassIdentifier: 
-  health:
-    baseValue: 100
-    modifiers: 
-  moveSpeed:
-    baseValue: 4
-    modifiers: 
-  corrosionResist:
-    baseValue: 1
-    modifiers: 
+  _objectLayer:
+    serializedVersion: 2
+    m_Bits: 0

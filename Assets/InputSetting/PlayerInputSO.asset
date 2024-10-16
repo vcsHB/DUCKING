@@ -9,15 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ed2af6ece4400882776249d4ba8c5d, type: 3}
-  m_Name: PlayerStatus
+  m_Script: {fileID: 11500000, guid: 40688e6255aa5b844838d4f9c208fe52, type: 3}
+  m_Name: PlayerInputSO
   m_EditorClassIdentifier: 
-  health:
-    baseValue: 100
-    modifiers: 
-  moveSpeed:
-    baseValue: 4
-    modifiers: 
-  corrosionResist:
-    baseValue: 1
-    modifiers: 

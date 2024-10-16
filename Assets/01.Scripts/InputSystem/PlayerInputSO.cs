@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +12,8 @@ namespace InputManage
 
        
         private Controls _controls;
+        public Vector2 Movement { get; private set; }
+        public bool IsMoving { get; private set; }
 
         private void OnEnable()
         {
@@ -32,7 +32,12 @@ namespace InputManage
 
         public void OnMovement(InputAction.CallbackContext context)
         {
-            MovementEvent?.Invoke(context.ReadValue<Vector2>());
+            if (context.performed)
+                IsMoving = true;
+            else if (context.canceled)
+                IsMoving = false;
+            Movement = context.ReadValue<Vector2>();
+            MovementEvent?.Invoke(Movement);
         }
 
 
