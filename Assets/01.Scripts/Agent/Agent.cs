@@ -18,6 +18,7 @@ namespace AgentManage
             
             Stat = Instantiate(Stat);
             HealthCompo = GetComponent<Health>();
+            HealthCompo.SetMaxHealth(Stat.health.GetValue());
 
             _components = new Dictionary<Type, IAgentComponent>();
             AddComponentToDictionary();
