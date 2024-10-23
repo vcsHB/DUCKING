@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ItemSystem;
 using UI.InGame.Inventory;
 using UnityEngine;
@@ -13,34 +12,87 @@ namespace AgentManage.Player
         public UnityEvent OnItemCollectEvent;
         [SerializeField] private InventoryPanel _inventoryUI;
 
-        private List<ItemData> _inventory;
+        private List<ItemData> _inventory = new List<ItemData>();
         public int InventorySize { get; private set; } = 10;
 
 
         private void Awake()
         {
             _inventory = new List<ItemData>(InventorySize);
+
+            // 처음에 로드 한번 하고 해줘야됨
+            RefreshEmptySlot();
         }
 
 
         #region external Change Funcs
 
 
-        public void CollectItem(int id)
+        public int CollectItem(int id)
         {
-            CollectItem(new ItemData {id = id, amount = 1});
+            return CollectItem(id, 1);
         }
         
-        public void CollectItem(ItemData itemData)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="itemData"></param>
+        /// <returns>
+        /// 다 채우고 남은 아이템 개수
+        /// </returns>
+        public int CollectItem(int id, int amount)
         {
             // 1. 인벤에 공간이 충분한지 체크
             // 2. 아이템 뭉쳐지는 크기 체크
-            //    크기별로 분할해서 저장
-            //    
-            // 
-            
+            //    크기별로 분할했을때 슬롯 량이 충분한지 체크
+
+            RefreshEmptySlot();
+            ItemSO itemSO = _itemDataGroupSO.GetItemData(id);
+            int currentInsertAmount = amount;
+            while (currentInsertAmount > 0)
+            {
+                ItemData slot = GetNotFullSlot(id, itemSO.itemMaxGroupingAmount);
+                if (slot == null || currentInsertAmount <= 0) return currentInsertAmount;
+
+                
+                int leftSize = itemSO.itemMaxGroupingAmount - slot.amount;
+                if (currentInsertAmount > leftSize)
+                {
+                    currentInsertAmount -= leftSize;
+                    slot.amount += leftSize;
+                }else
+                {
+                    currentInsertAmount = 0;
+                    slot.amount += currentInsertAmount;
+                }
+            }
+            return 0;
         }
 
+        /// <summary>
+        /// 덜 찬 슬롯을 찾아 가져오는 함수
+        /// </summary>
+        /// <param name="id">덜 찬 아이템</param>
+        /// <param name="max">그 아이템의 최대 그루핑 개수</param>
+        /// <returns>덜 찬 슬롯</returns>
+        private ItemData GetNotFullSlot(int id, int max)
+        {
+            // id와 max값을 받아 id에 해당하는 슬롯의 amount값이 max값을 초과하지 않는 슬롯을 반환
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].id == id && _inventory[i].amount < max)
+                    return _inventory[i];
+            }
+            ItemData emptySlot = GetEmptySlot();
+            if (emptySlot != null) // 만만한 빈 슬롯이 하나 있으면 
+            {
+                emptySlot.id = id;
+                return emptySlot;
+            }
+            // 다 꽉찬 슬롯인.
+            return null;
+        }
+        
         public void RemoveItem(int id)
         {
             RemoveItem(new ItemData { id = id, amount = 1 });
@@ -51,12 +103,83 @@ namespace AgentManage.Player
             // 1. 인벤에 일단 존재는 하는지 체크
             // 2. 뺄수 있는 양인지 체크 (GetItemAmount 활용)
             // 3. 빼기
+            RefreshEmptySlot();
+            
+            if (GetItemAmount(itemData.id) < itemData.amount)
+            {
+                return; // 뺄 수 없음
+            }
+
+            int currentMinus = 0;
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                
+            }
         }
 
         #endregion
 
+        private void RefreshEmptySlot()
+        {
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].amount <= 0)
+                {
+                    _inventory[i].id = -1;
+                    _inventory[i].amount = 0;
+                }
+            }
+        }
+        
         #region external Check Funcs
 
+        
+        
+        public bool CheckEmptySlot()
+        {
+            int emptySlotAmount = 0;
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].amount <= 0)
+                {
+                    _inventory[i].id = -1;
+                    _inventory[i].amount = 0;
+                    emptySlotAmount++;
+                }
+            }
+            return emptySlotAmount > 0;
+        }
+
+        public int GetEmptySlotAmount()
+        {
+            int emptySlotAmount = 0;
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].amount <= 0)
+                {
+                    _inventory[i].id = -1;
+                    _inventory[i].amount = 0;
+                    emptySlotAmount++;
+                }
+            }
+            return emptySlotAmount;
+        }
+
+        private ItemData GetEmptySlot()
+        {
+            RefreshEmptySlot();
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].amount == 0)
+                {
+                    return _inventory[i];
+                }
+            }
+            
+            // 빈게 없음.
+            return null;
+        }
+        
         /**
          * <summary>
          * 특정 아이템을 가지고 있는지 체크
@@ -89,6 +212,8 @@ namespace AgentManage.Player
         }        
 
         #endregion
+        
+        
         
     }
 }

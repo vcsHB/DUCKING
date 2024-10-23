@@ -1,7 +1,7 @@
 ﻿namespace ItemSystem
 {
     [System.Serializable]
-    public struct ItemData
+    public class ItemData
     {
         public int id;
         public int amount;

@@ -15,9 +15,17 @@ namespace UI.InGame.Inventory
         [SerializeField] private int amount;
         
         
-        public void Initialize()
+        public void Initialize(ItemSO itemSO, int _amount)
         {
             // 나중에 ItemSO를 넘겨받아서 스프라이트 데이터 적용
+            _amount = amount;
+            _currentItem = itemSO;
+            _iconImage.sprite = itemSO.itemSprite;
+            if (itemSO.id == -1)
+            {
+                _amountText.text = string.Empty;
+            }
+            _amountText.text = _amount.ToString();
         }
 
     }
