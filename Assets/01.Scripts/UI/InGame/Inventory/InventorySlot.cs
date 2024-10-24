@@ -21,9 +21,11 @@ namespace UI.InGame.Inventory
             _amount = amount;
             _currentItem = itemSO;
             _iconImage.sprite = itemSO.itemSprite;
+            
             if (itemSO.id == -1)
             {
                 _amountText.text = string.Empty;
+                return;
             }
             _amountText.text = _amount.ToString();
         }

@@ -12,8 +12,8 @@ namespace AgentManage.Player
         public UnityEvent OnItemCollectEvent;
         [SerializeField] private InventoryPanel _inventoryUI;
 
-        private List<ItemData> _inventory = new List<ItemData>();
-        public int InventorySize { get; private set; } = 10;
+        [SerializeField] private List<ItemData> _inventory = new List<ItemData>();
+        [field:SerializeField] public int InventorySize { get; private set; } = 10;
 
 
         private void Awake()
@@ -53,17 +53,23 @@ namespace AgentManage.Player
             {
                 ItemData slot = GetNotFullSlot(id, itemSO.itemMaxGroupingAmount);
                 if (slot == null || currentInsertAmount <= 0) return currentInsertAmount;
-
                 
                 int leftSize = itemSO.itemMaxGroupingAmount - slot.amount;
+                print($"남은 용량 : {leftSize}, 추가할 내용량 : {currentInsertAmount}");
+
                 if (currentInsertAmount > leftSize)
                 {
+                    print("더할 양이 남은 용량보다 많음");
                     currentInsertAmount -= leftSize;
                     slot.amount += leftSize;
+                    
                 }else
                 {
-                    currentInsertAmount = 0;
+                    print("더할 양이 남은 용량보다 적거나 같음");
                     slot.amount += currentInsertAmount;
+                    currentInsertAmount = 0;
+
+                    break;
                 }
             }
             return 0;
@@ -212,7 +218,23 @@ namespace AgentManage.Player
         }        
 
         #endregion
+
+        #region Debug Func
+
         
+        [ContextMenu("DebugOpenPanel")]
+        public void OpenInventory()
+        {
+            _inventoryUI.RefreshInventory(_inventory);
+        }
+
+        [ContextMenu("DebugCollectItem")]
+        public void AddDebugItem()
+        {
+            CollectItem(0, 5);
+        }
+
+        #endregion
         
         
     }

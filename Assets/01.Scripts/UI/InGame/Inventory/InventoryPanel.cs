@@ -18,7 +18,8 @@ namespace UI.InGame.Inventory
             int size = inventoryInfo.Count;
             if (_slots.Count < size)
             {
-                for (int i = 0; i < (size - _slots.Count); i++)
+                int shortageAmount = (size - _slots.Count); 
+                for (int i = 0; i < shortageAmount; i++)
                 {
                     InventorySlot slot = Instantiate(_slotPrefab, _contentTrm);
                     _slots.Add(slot);
