@@ -1,4 +1,4 @@
-﻿namespace BlockManage.Blocks
+﻿namespace BuildingManage.Blocks
 {
     public class TestBlock : Block
     {

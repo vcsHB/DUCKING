@@ -9,14 +9,14 @@ public class FloorSO : ScriptableObject
 {
     [Header("ForDebuging")]
     [Range(-10000, 10000)]
-    [SerializeField] private float seed;
+    [SerializeField] private float _seed;
     public float scale = 1;
 
     public List<FloorTileInfo> floorTiles = new List<FloorTileInfo>();
 
     #region Noise
 
-    public float perlin(float x, float y) => Mathf.PerlinNoise((x + seed) / scale, (y + seed) / scale);
+    public float perlin(float x, float y) => Mathf.PerlinNoise((x + _seed) / scale, (y + _seed) / scale);
 
     public TileBase GetTile(float x, float y, float xSize, float ySize)
     {
@@ -47,6 +47,11 @@ public class FloorSO : ScriptableObject
         //});
 
         return tile;
+    }
+
+    public void SetSeed(int seed)
+    {
+        _seed = seed;
     }
 
 

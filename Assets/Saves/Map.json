@@ -1,0 +1,30 @@
+{
+    "floorSeed": 57916,
+    "buildings": [
+        {
+            "name": "Test",
+            "posX": 2,
+            "posY": -9
+        },
+        {
+            "name": "Test",
+            "posX": -5,
+            "posY": 9
+        },
+        {
+            "name": "Test",
+            "posX": 3,
+            "posY": 0
+        },
+        {
+            "name": "Test",
+            "posX": -5,
+            "posY": 3
+        },
+        {
+            "name": "Test",
+            "posX": 8,
+            "posY": 4
+        }
+    ]
+}
