@@ -4,9 +4,9 @@ using UI.InGame.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace AgentManage.Player
+namespace AgentManage.PlayerManage
 {
-    public class PlayerItemCollector : MonoBehaviour
+    public class PlayerItemCollector : MonoBehaviour, IAgentComponent
     {
         [SerializeField] private ItemDataGroupSO _itemDataGroupSO;
         public UnityEvent OnItemCollectEvent;
@@ -16,6 +16,8 @@ namespace AgentManage.Player
         [field:SerializeField] public int InventorySize { get; private set; } = 10;
 
 
+        private Player _player;
+
         private void Awake()
         {
             _inventory = new List<ItemData>(InventorySize);
@@ -23,6 +25,28 @@ namespace AgentManage.Player
             // 처음에 로드 한번 하고 해줘야됨
             RefreshEmptySlot();
         }
+        #region AgentCompo Func
+
+        
+        public void Initialize(Agent agent)
+        {
+            _player = agent as Player;
+
+
+        }
+
+        public void AfterInit()
+        {
+
+        }
+
+        public void Dispose()
+        {
+
+        }
+
+
+        #endregion
 
 
         #region external Change Funcs
@@ -235,7 +259,7 @@ namespace AgentManage.Player
         }
 
         #endregion
-        
-        
+
+
     }
 }

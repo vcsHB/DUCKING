@@ -11,7 +11,13 @@ namespace UI.InGame.Inventory
         [SerializeField] private RectTransform _contentTrm;
         // 정말 단순히 보여주기만 하는 기능만을 가지고 있어야 함
         private List<InventorySlot> _slots = new List<InventorySlot>();
-        
+
+
+        public void OpenInventory(List<ItemData> inventoryInfo)
+        {
+            Open();
+            RefreshInventory(inventoryInfo);
+        }
 
         public void RefreshInventory(List<ItemData> inventoryInfo)
         {

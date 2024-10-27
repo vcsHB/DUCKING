@@ -1,13 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using AgentManage.PlayerManage;
 using AgentManage;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.InGame
 {
-    
+
     public class PlayerHealthBar : MonoBehaviour
     {
         [SerializeField] private Player _player;
