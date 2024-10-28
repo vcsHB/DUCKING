@@ -40,7 +40,6 @@ namespace InputManage
             MovementEvent?.Invoke(Movement);
         }
 
-
     }
 
 }

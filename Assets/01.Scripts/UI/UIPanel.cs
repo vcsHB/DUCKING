@@ -7,10 +7,10 @@ namespace UI
     public class UIPanel : MonoBehaviour, IWindowPanel
     {
         protected CanvasGroup _canvasGroup;
-        [SerializeField] protected float _fadeDuration = 1f;
+        [SerializeField] protected float _activeDuration = 1f;
         public UnityEvent OnOpenEvent;
         public UnityEvent OnCloseEvent;
-        protected void Awake()
+        protected virtual void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
@@ -18,12 +18,19 @@ namespace UI
 
         public virtual void Open()
         {
-            _canvasGroup.DOFade(1f, _fadeDuration);
+            SetCanvasGroupActive(true);
         }
 
         public virtual void Close()
         {
-            _canvasGroup.DOFade(0f, _fadeDuration);
+            SetCanvasGroupActive(false);
+        }
+
+        protected void SetCanvasGroupActive(bool value)
+        {
+            _canvasGroup.DOFade(value ? 1f : 0, _activeDuration);
+            _canvasGroup.interactable = value;
+            _canvasGroup.blocksRaycasts = value;
         }
     }
 }

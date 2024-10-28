@@ -555,7 +555,6 @@ GameObject:
   m_Component:
   - component: {fileID: 607620089}
   - component: {fileID: 607620086}
-  - component: {fileID: 607620088}
   - component: {fileID: 607620087}
   m_Layer: 0
   m_Name: UICamera
@@ -659,14 +658,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &607620088
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607620085}
-  m_Enabled: 1
 --- !u!4 &607620089
 Transform:
   m_ObjectHideFlags: 0
@@ -6547,7 +6538,6 @@ MonoBehaviour:
   OnItemCollectEvent:
     m_PersistentCalls:
       m_Calls: []
-  _inventoryUI: {fileID: 1944417289}
   _inventory:
   - id: 0
     amount: 0
@@ -10195,6 +10185,7 @@ GameObject:
   - component: {fileID: 1944417288}
   - component: {fileID: 1944417287}
   - component: {fileID: 1944417289}
+  - component: {fileID: 1944417290}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -10281,9 +10272,23 @@ MonoBehaviour:
   OnCloseEvent:
     m_PersistentCalls:
       m_Calls: []
+  _uiInputReader: {fileID: 11400000, guid: a96e6d1ac00fb81469b27edb820c9cf6, type: 2}
+  _playerItemCollector: {fileID: 1459828900}
   _itemDataGroupSO: {fileID: 11400000, guid: 98aa430cfe470eb46a8a0efec725faa2, type: 2}
   _slotPrefab: {fileID: 7095026747429210221, guid: 91e6c3ba3d0f35a4d8304baee47ae55a, type: 3}
   _contentTrm: {fileID: 960186963}
+--- !u!225 &1944417290
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944417285}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2089504970
 GameObject:
   m_ObjectHideFlags: 0

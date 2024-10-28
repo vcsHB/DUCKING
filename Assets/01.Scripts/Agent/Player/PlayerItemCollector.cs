@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ItemSystem;
-using UI.InGame.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,9 +9,9 @@ namespace AgentManage.PlayerManage
     {
         [SerializeField] private ItemDataGroupSO _itemDataGroupSO;
         public UnityEvent OnItemCollectEvent;
-        [SerializeField] private InventoryPanel _inventoryUI;
 
-        [SerializeField] private List<ItemData> _inventory = new List<ItemData>();
+        [SerializeField] private List<ItemData> _inventory;
+        public List<ItemData> Inventory => _inventory;
         [field:SerializeField] public int InventorySize { get; private set; } = 10;
 
 
@@ -246,12 +245,6 @@ namespace AgentManage.PlayerManage
         #region Debug Func
 
         
-        [ContextMenu("DebugOpenPanel")]
-        public void OpenInventory()
-        {
-            _inventoryUI.RefreshInventory(_inventory);
-        }
-
         [ContextMenu("DebugCollectItem")]
         public void AddDebugItem()
         {
