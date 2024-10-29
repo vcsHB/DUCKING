@@ -8,6 +8,8 @@ namespace UI
     {
         protected CanvasGroup _canvasGroup;
         [SerializeField] protected float _activeDuration = 1f;
+        [SerializeField] protected bool _isActive;
+
         public UnityEvent OnOpenEvent;
         public UnityEvent OnCloseEvent;
         protected virtual void Awake()
@@ -28,7 +30,7 @@ namespace UI
 
         protected void SetCanvasGroupActive(bool value)
         {
-            _canvasGroup.DOFade(value ? 1f : 0, _activeDuration);
+            _canvasGroup.DOFade(value ? 1f : 0, _activeDuration).OnComplete(() => _isActive = value);
             _canvasGroup.interactable = value;
             _canvasGroup.blocksRaycasts = value;
         }

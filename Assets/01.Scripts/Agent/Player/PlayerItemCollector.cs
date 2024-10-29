@@ -10,7 +10,7 @@ namespace AgentManage.PlayerManage
         [SerializeField] private ItemDataGroupSO _itemDataGroupSO;
         public UnityEvent OnItemCollectEvent;
 
-        [SerializeField] private List<ItemData> _inventory;
+        [SerializeField] private List<ItemData> _inventory = new List<ItemData>(10);
         public List<ItemData> Inventory => _inventory;
         [field:SerializeField] public int InventorySize { get; private set; } = 10;
 
@@ -19,7 +19,9 @@ namespace AgentManage.PlayerManage
 
         private void Awake()
         {
-            _inventory = new List<ItemData>(InventorySize);
+            print(InventorySize + "설정된 인벤사이즈");
+
+            //_inventory = new List<ItemData>(1);
 
             // 처음에 로드 한번 하고 해줘야됨
             RefreshEmptySlot();

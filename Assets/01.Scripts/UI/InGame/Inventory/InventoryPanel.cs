@@ -17,7 +17,6 @@ namespace UI.InGame.Inventory
         // 정말 단순히 보여주기만 하는 기능만을 가지고 있어야 함
         private List<InventorySlot> _slots = new List<InventorySlot>();
 
-        private bool _isActive;
 
 
         protected override void Awake()
@@ -30,12 +29,10 @@ namespace UI.InGame.Inventory
         {
             if (!_isActive)
             {
-                _isActive = true;
                 OpenInventory(_playerItemCollector.Inventory);
             }
             else
             {
-                _isActive = false;
                 Close();
             }
         }
@@ -43,6 +40,7 @@ namespace UI.InGame.Inventory
         public void OpenInventory(List<ItemData> inventoryInfo)
         {
             Open();
+            print(inventoryInfo.Count +" 인벤 사이즈");
             RefreshInventory(inventoryInfo);
         }
 
