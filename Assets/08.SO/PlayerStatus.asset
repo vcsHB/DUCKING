@@ -19,5 +19,5 @@ MonoBehaviour:
     baseValue: 4
     modifiers: 
   corrosionResist:
-    baseValue: 1
+    baseValue: 40
     modifiers: 

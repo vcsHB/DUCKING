@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using AgentManage;
 using UnityEngine;
 
@@ -22,9 +19,9 @@ public class Corrosium : MonoBehaviour
         if (_currentTime > _damageCooltime)
         {
             _currentTime = 0;
-            if (other.transform.TryGetComponent(out IDamageable damageable))
+            if (other.transform.TryGetComponent(out ICorrosive corrosive))
             {
-                damageable.ApplyDamage(_damage);
+                corrosive.Corrode(_damage);
             }
         }
     }

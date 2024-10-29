@@ -30,7 +30,6 @@ namespace AgentManage.PlayerManage
         private void HandlePlayerMove(Vector2 movement)
         {
             _movement = movement;
-            print(movement);
         }
 
         private void FixedUpdate()

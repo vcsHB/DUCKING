@@ -9,7 +9,8 @@ namespace AgentManage
     
     public abstract class Agent : MonoBehaviour
     {
-        public Health HealthCompo { get; private set; }
+        public Health HealthCompo { get; protected set; }
+        public CorrosiveHealth CorrosiveHealth { get; protected set; }
         [field:SerializeField] public StatusSO Stat { get; protected set; }
         protected Dictionary<Type, IAgentComponent> _components;
 
@@ -19,6 +20,10 @@ namespace AgentManage
             Stat = Instantiate(Stat);
             HealthCompo = GetComponent<Health>();
             HealthCompo.SetMaxHealth(Stat.health.GetValue());
+
+            CorrosiveHealth = HealthCompo as CorrosiveHealth;
+            if(CorrosiveHealth != null)
+                CorrosiveHealth.SetMaxCorrosionResistance(Stat.corrosionResist.GetValue());
 
             _components = new Dictionary<Type, IAgentComponent>();
             AddComponentToDictionary();
