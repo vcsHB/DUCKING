@@ -12,22 +12,23 @@ namespace BuildingManage
     public class MapManager : MonoSingleton<MapManager>
     {
         [SerializeField] private Tilemap _floorTileMap;
-        [SerializeField] private BuildingSetSO _buildingSet;
+        [SerializeField] private FabricSetSO _buildingSet;
+        private List<Fabric> _buildingList = new List<Fabric>();
 
         #region ComponentRegion
 
         private RandomMapGenerator _mapGenerator;
-        private BuildingController _buildingController;
+        private FabricController _buildingController;
 
-        public BuildingController BuildingController => _buildingController;
+        public FabricController BuildingController => _buildingController;
 
         #endregion
 
         #region Save & Load
 
         private string _path = Path.Combine(Application.dataPath, "Saves/Map.json");
+        private List<BuildingSave> _buildingSave = new List<BuildingSave>();
         private int _seed;
-        private List<BuildingSave> _buildingList = new List<BuildingSave>();
 
         #endregion
 
@@ -38,11 +39,16 @@ namespace BuildingManage
             _floorTileMap.CompressBounds();
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
-            _buildingController = GetComponent<BuildingController>();
+            _buildingController = GetComponent<FabricController>();
 
             _buildingController.Init(_buildingSet);
             Load();
         }
+
+        //public bool CheckBuildingOverlap(Fabric a, Fabric b)
+        //{
+
+        //}
 
         #region PositionConvert
 
@@ -67,8 +73,50 @@ namespace BuildingManage
         /// <returns></returns>
         public Vector2 RoundToTilePos(Vector2 pos) => (Vector2)_floorTileMap.CellToWorld(_floorTileMap.WorldToCell(pos));
 
-        #endregion
+        /// <summary>
+        /// Find Fabric In World Position
+        /// </summary>
+        /// <param name="pos">World Position To Find Fabric</param>
+        /// <param name="building"></param>
+        /// <returns>Is Fabric Exsist</returns>
+        public bool TryGetBuilding(Vector2 pos, out Fabric building)
+        {
+            Vector2Int tilePos = GetTilePos(pos);
+            building = null;
 
+            for (int i = 0; i < _buildingList.Count; i++)
+            {
+                if (_buildingList[i].CheckPosition(tilePos))
+                {
+                    building = _buildingList[i];
+                }
+            }
+
+            return (building != null);
+        }
+
+        /// <summary>
+        /// Find Fabric In TileMap Position
+        /// </summary>
+        /// <param name="pos">Tile Position To Find Fabric</param>
+        /// <param name="building"></param>
+        /// <returns>Is Fabric Exsist</returns>
+        public bool TryGetBuilding(Vector2Int pos, out Fabric building)
+        {
+            building = null;
+
+            for (int i = 0; i < _buildingList.Count; i++)
+            {
+                if (_buildingList[i].CheckPosition(pos))
+                {
+                    building = _buildingList[i];
+                }
+            }
+
+            return (building != null);
+        }
+
+        #endregion
 
         #region Save & Load
 
@@ -77,7 +125,7 @@ namespace BuildingManage
             MapSave save = new MapSave();
 
             save.floorSeed = _seed;
-            save.buildings = _buildingList;
+            save.buildings = _buildingSave;
 
             string json = JsonUtility.ToJson(save, true);
             File.WriteAllText(_path, json);
@@ -98,31 +146,31 @@ namespace BuildingManage
             MapSave save = JsonUtility.FromJson<MapSave>(json);
 
             _seed = save.floorSeed;
-            _buildingList = save.buildings;
+            _buildingSave = save.buildings;
 
             _mapGenerator.SetFloor(_seed);
-            _buildingList.ForEach(building =>
+            _buildingSave.ForEach(building =>
             {
-                BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
+                FabricEnum buildingType = Enum.Parse<FabricEnum>(building.name);
                 Vector2Int position = new Vector2Int(building.posX, building.posY);
 
                 _buildingController.Build(buildingType, position);
             });
         }
 
-        public void AddBuilding(BuildingEnum buildingType, Vector2Int position)
+        public void AddBuilding(Fabric building, bool save = true)
         {
+            _buildingList.Add(building);
+
             BuildingSave buildingInfo = new BuildingSave();
-            buildingInfo.name = buildingType.ToString();
-            buildingInfo.posX = position.x;
-            buildingInfo.posY = position.y;
+            buildingInfo.name = building.BuildingType.ToString();
+            buildingInfo.posX = building.Position.x;
+            buildingInfo.posY = building.Position.y;
 
-            BuildingSave save = _buildingList.Find(
-                building => building.posX == position.x &&
-                            building.posY == position.y);
-            if (save != null) return;
-
-            _buildingList.Add(buildingInfo);
+            if (save)
+            {
+                _buildingSave.Add(buildingInfo);
+            }
         }
 
         #endregion

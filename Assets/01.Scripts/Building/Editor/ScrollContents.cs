@@ -12,22 +12,22 @@ namespace BuildingManage
 
         public new class UxmlTraits : Label.UxmlTraits { }
 
-        private BuildingSO _building;
+        private FabricSO _building;
         private InspectorView _inspector;
 
-        public BuildingSO Building => _building;
+        public FabricSO Building => _building;
 
         public ScrollContents()
         {
         }
 
-        public ScrollContents(BuildingSO building, InspectorView inspector)
+        public ScrollContents(FabricSO building, InspectorView inspector)
         {
             _building = building;
             _inspector = inspector;
 
-            Debug.Log(building.buildingType);
-            text = building.buildingType.ToString();
+            Debug.Log(building.fabricType);
+            text = building.fabricType.ToString();
             RegisterCallback<ClickEvent>(OnClick);
             name = "content";
         }

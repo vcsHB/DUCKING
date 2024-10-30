@@ -7,12 +7,12 @@ using UnityEngine.UIElements;
 
 namespace BuildingManage
 {
-    public class BuildingGenerator : EditorWindow
+    public class FabricGeneratorEditor : EditorWindow
     {
         [SerializeField]
         private VisualTreeAsset m_VisualTreeAsset = default;
 
-        private BuildingSetSO _buildingSet;
+        private FabricSetSO _buildingSet;
         private VisualElement _container;
         private ScrollView _scrollView;
         private InspectorView _inspector;
@@ -24,7 +24,7 @@ namespace BuildingManage
         [OnOpenAsset]
         public static bool OnOpenAsset(int instanceId, int line)
         {
-            if (Selection.activeObject is BuildingSetSO buildingSet)
+            if (Selection.activeObject is FabricSetSO buildingSet)
             {
                 ShowEditor();
                 return true;
@@ -32,17 +32,17 @@ namespace BuildingManage
             return false;
         }
 
-        [MenuItem("Tools/BuildingGenerator")]
+        [MenuItem("Tools/FabricGenerator")]
         public static void ShowEditor()
         {
-            BuildingGenerator wnd = GetWindow<BuildingGenerator>();
-            wnd.titleContent = new GUIContent("BuildingGenerator");
+            FabricGeneratorEditor wnd = GetWindow<FabricGeneratorEditor>();
+            wnd.titleContent = new GUIContent("FabricGenerator");
         }
 
 
         public void CreateGUI()
         {
-            if (Selection.activeObject is BuildingSetSO buildingSet)
+            if (Selection.activeObject is FabricSetSO buildingSet)
                 _buildingSet = buildingSet;
 
             VisualElement root = rootVisualElement;
@@ -67,7 +67,7 @@ namespace BuildingManage
         private void Add(ClickEvent evt)
         {
             string buildingEnum = _textField.text;
-            BuildingSO building = _buildingSet.CreateBulilding(buildingEnum);
+            FabricSO building = _buildingSet.CreateBulilding(buildingEnum);
 
             AddScrollContent(building);
         }
@@ -95,12 +95,7 @@ namespace BuildingManage
                 _container.RemoveAt(0);
             }
 
-            //foreach(VisualElement child in _container?.Children())
-            //{
-            //    child?.RemoveFromHierarchy();
-            //}
-
-            if (Selection.activeObject is BuildingSetSO buildingSet)
+            if (Selection.activeObject is FabricSetSO buildingSet)
             {
                 _buildingSet = buildingSet;
 
@@ -111,7 +106,7 @@ namespace BuildingManage
             }
         }
 
-        private void AddScrollContent(BuildingSO building)
+        private void AddScrollContent(FabricSO building)
         {
             ScrollContents contents = new ScrollContents(building, _inspector);
             contents.AddToClassList("scroll-content");

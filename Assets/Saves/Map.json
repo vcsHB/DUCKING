@@ -1,30 +1,15 @@
 {
-    "floorSeed": 57916,
+    "floorSeed": 35510,
     "buildings": [
         {
             "name": "Test",
-            "posX": 2,
-            "posY": -9
+            "posX": 6,
+            "posY": -10
         },
         {
             "name": "Test",
-            "posX": -5,
-            "posY": 9
-        },
-        {
-            "name": "Test",
-            "posX": 3,
-            "posY": 0
-        },
-        {
-            "name": "Test",
-            "posX": -5,
-            "posY": 3
-        },
-        {
-            "name": "Test",
-            "posX": 8,
-            "posY": 4
+            "posX": -10,
+            "posY": -4
         }
     ]
 }

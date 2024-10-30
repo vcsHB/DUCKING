@@ -17,7 +17,7 @@ namespace BuildingManage
     [Serializable]
     public struct BuildingInfo
     {
-        public BuildingEnum fabric;
+        public FabricEnum fabric;
         public float fabricOffset;
         public int minSpawnCnt, maxSpawnCnt;
     }

@@ -10,35 +10,36 @@ using UnityEngine;
 namespace BuildingManage
 {
     [CreateAssetMenu(menuName = "SO/BuildingSet")]
-    public class BuildingSetSO : ScriptableObject
+    public class FabricSetSO : ScriptableObject
     {
-        public List<BuildingSO> buildings;
-        private string _path = Path.Combine(Application.dataPath, "01.Scripts/Building/BuildingEnum.cs");
+        public List<FabricSO> buildings;
+        private string _path = Path.Combine(Application.dataPath, "01.Scripts/Building/FabricEnum.cs");
 
-        public void DeleteBuilding(BuildingSO building)
+        public void DeleteBuilding(FabricSO building)
         {
             buildings.Remove(building);
 
             StringBuilder sr = new StringBuilder();
-            sr.Append("public enum BuildingEnum { ");
-            foreach (BuildingEnum e in Enum.GetValues(typeof(BuildingEnum)))
+            sr.Append("public enum FabricEnum { ");
+            foreach (FabricEnum e in Enum.GetValues(typeof(FabricEnum)))
             {
-                if (e == BuildingEnum.None || 
-                    e.ToString() == building.buildingTypeStr) continue;
+                if (e == FabricEnum.None || 
+                    e.ToString() == building.fabricTypeStr) continue;
 
                 sr.Append($"{e.ToString()}, ");
             }
             sr.Append("None }");
 
             File.WriteAllText(_path, sr.ToString());
+            AssetDatabase.Refresh();
 
             AssetDatabase.RemoveObjectFromAsset(building);
             AssetDatabase.SaveAssets();
         }
 
-        public BuildingSO CreateBulilding(string name)
+        public FabricSO CreateBulilding(string name)
         {
-            BuildingSO building = ScriptableObject.CreateInstance<BuildingSO>();
+            FabricSO building = ScriptableObject.CreateInstance<FabricSO>();
             building.name = name;
 
             if (String.IsNullOrEmpty(name))
@@ -53,7 +54,7 @@ namespace BuildingManage
                 return null;
             }
 
-            if (Enum.TryParse(name, out BuildingEnum b))
+            if (Enum.TryParse(name, out FabricEnum b))
             {
                 Debug.LogError($"Building names {name} already exsist");
                 return null;
@@ -61,18 +62,19 @@ namespace BuildingManage
 
             //Enum파일에다가 Enum을 추가해주는 작업을 해줄거임
             StringBuilder sr = new StringBuilder();
-            sr.Append("public enum BuildingEnum { ");
-            foreach (BuildingEnum e in Enum.GetValues(typeof(BuildingEnum)))
+            sr.Append("public enum FabricEnum { ");
+            foreach (FabricEnum e in Enum.GetValues(typeof(FabricEnum)))
             {
-                if (e == BuildingEnum.None) continue;
+                if (e == FabricEnum.None) continue;
                 sr.Append($"{e.ToString()}, ");
             }
             sr.Append($"{name}, ");
             sr.Append("None }");
 
             File.WriteAllText(_path, sr.ToString());
+            AssetDatabase.Refresh();
 
-            building.buildingTypeStr = name;
+            building.fabricTypeStr = name;
             buildings.Add(building);
 
             AssetDatabase.AddObjectToAsset(building, this);
@@ -80,11 +82,10 @@ namespace BuildingManage
             return building;
         }
 
-        public BuildingSO FindBuilding(BuildingEnum buildingEnum)
+        public FabricSO FindBuilding(FabricEnum buildingEnum)
         {
-            BuildingSO building
-                = buildings.Find(b => b.buildingType == buildingEnum);
-
+            FabricSO building
+                = buildings.Find(b => b.fabricType == buildingEnum);
             return building;
         }
     }

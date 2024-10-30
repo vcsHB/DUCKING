@@ -14,7 +14,7 @@ namespace BuildingManage
         {
         }
 
-        public void UpdateSelection(BuildingSO building)
+        public void UpdateSelection(FabricSO building)
         {
             Clear();
 
