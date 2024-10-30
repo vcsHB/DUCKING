@@ -2,7 +2,7 @@
 {
     public interface IResourceInput
     {
-        public void InsertResource(Resource resource);
+        public bool TryInsertResource(Resource resource, out Resource remain);
         
     }
 }

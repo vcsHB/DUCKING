@@ -93,7 +93,6 @@ namespace AgentManage.PlayerManage
                     print("더할 양이 남은 용량보다 적거나 같음");
                     slot.amount += currentInsertAmount;
                     currentInsertAmount = 0;
-
                     break;
                 }
             }

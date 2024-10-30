@@ -4,6 +4,11 @@
     {
         Copper,
         Coal,
-        Water
+        Water,
+        Sand,
+        Iron,
+        Neverox,
+        Glass,
+        Lead
     }
 }
