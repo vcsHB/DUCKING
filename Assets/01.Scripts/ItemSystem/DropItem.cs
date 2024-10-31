@@ -18,7 +18,7 @@ namespace ItemSystem
         
         private void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         }
 
         public void Initialize(ItemData data, ItemInfoSO itemInfo)
