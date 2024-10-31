@@ -2,7 +2,7 @@
 {
     public interface IResourceOutput
     {
-        public Resource GetResource();
+        public void TransferResource();
 
     }
 }

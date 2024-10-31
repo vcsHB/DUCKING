@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Object
+  - Wall
+  - Item
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tilemap
+    uniqueID: 363145173
+    locked: 0
+  - name: Object
+    uniqueID: 2603005441
+    locked: 0
+  - name: Player
+    uniqueID: 2059257645
+    locked: 0
+  - name: Enemy
+    uniqueID: 1379319179
+    locked: 0
+  - name: Particle
+    uniqueID: 1095790989
     locked: 0

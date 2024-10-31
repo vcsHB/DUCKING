@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,21 +10,31 @@ namespace AgentManage
         public UnityEvent OnHealthDecreaseEvent;
         public UnityEvent OnHealthInCreaseEvent;
         public UnityEvent OnDieEvent;
+        public event Action<int, int> OnHealthChangeEvent; 
         
-        [SerializeField] internal int _currentHealth;
-        public int MaxHealth { get; private set; }
+        [SerializeField] private int _currentHealth;
+        public int CurrentHealth => _currentHealth;
+        public int MaxHealth { get; protected set; }
 
-        public void ApplyDamage(int amount)
+        internal void SetMaxHealth(int max)
+        {
+            MaxHealth = max;
+        }
+        
+        
+        public virtual void ApplyDamage(int amount)
         {
             _currentHealth -= amount;
             OnHealthDecreaseEvent?.Invoke();
+            InvokeHealthChange();
             CheckDie();
         }
 
-        public void RestoreHealth(int amount)
+        public virtual void RestoreHealth(int amount)
         {
             _currentHealth += amount;
             OnHealthInCreaseEvent?.Invoke();
+            InvokeHealthChange();
             ClampHealth();
         }
 
@@ -35,9 +46,14 @@ namespace AgentManage
             }
         }
 
-        private void ClampHealth()
+        protected void ClampHealth()
         {
             _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
+        }
+
+        private void InvokeHealthChange()
+        {
+            OnHealthChangeEvent?.Invoke(_currentHealth, MaxHealth);
         }
     }
 

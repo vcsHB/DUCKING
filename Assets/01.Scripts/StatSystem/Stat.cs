@@ -8,7 +8,7 @@ namespace StatSystem
         public int baseValue;
         public List<int> modifiers;
         private int _changedValue;
-        private bool _changed = false; 
+        private bool _changed = true; 
         
         public void AddModifier(int value)
         {

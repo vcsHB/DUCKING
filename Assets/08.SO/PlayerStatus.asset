@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
   health:
-    baseValue: 0
+    baseValue: 100
+    modifiers: 
+  moveSpeed:
+    baseValue: 4
+    modifiers: 
+  corrosionResist:
+    baseValue: 40
     modifiers: 

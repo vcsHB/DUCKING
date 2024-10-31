@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using AgentManage;
 using InputManage;
 using UnityEngine;
 
-public class Player : Agent
+namespace AgentManage.PlayerManage
 {
-    [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
-    public PlayerMovement MovementCompo { get; protected set; }
 
-    protected override void Awake()
+    public class Player : Agent
     {
-        base.Awake();
-        MovementCompo = GetComponent<PlayerMovement>();
-        
-        
+        [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
+        public PlayerMovement MovementCompo { get; protected set; }
+        public PlayerItemCollector ItemCollectCompo { get; protected set; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            MovementCompo = GetCompo<PlayerMovement>();
+            ItemCollectCompo = GetComponent<PlayerItemCollector>();
+
+
+        }
+
+
+
     }
-    
-    
-    
+
 }
