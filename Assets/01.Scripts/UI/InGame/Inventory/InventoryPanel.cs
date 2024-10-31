@@ -3,6 +3,7 @@ using AgentManage.PlayerManage;
 using InputManage;
 using ItemSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI.InGame.Inventory
 {
@@ -11,7 +12,7 @@ namespace UI.InGame.Inventory
         [Header("Setting")]
         [SerializeField] private UIInputReaderSO _uiInputReader;
         [SerializeField] private PlayerItemCollector _playerItemCollector;
-        [SerializeField] private ItemDataGroupSO _itemDataGroupSO;
+        [FormerlySerializedAs("_itemDataGroupSO")] [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
         [SerializeField] private InventorySlot _slotPrefab;
         [SerializeField] private RectTransform _contentTrm;
         // 정말 단순히 보여주기만 하는 기능만을 가지고 있어야 함
@@ -63,7 +64,7 @@ namespace UI.InGame.Inventory
                 InventorySlot slot = _slots[i];
 
                 slot.Initialize(
-                    _itemDataGroupSO.GetItemData(itemData.id),
+                    itemInfoGroupSo.GetItemData(itemData.id),
                     itemData.amount
                     );
             }

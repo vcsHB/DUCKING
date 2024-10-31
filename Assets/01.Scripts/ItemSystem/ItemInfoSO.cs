@@ -3,7 +3,7 @@
 namespace ItemSystem
 {
     [CreateAssetMenu(menuName = "SO/ItemSystem/ItemSO")]
-    public class ItemSO : ScriptableObject
+    public class ItemInfoSO : ScriptableObject
     {
         /// <summary>
         /// 아이템 고유 ID 중복불가.

@@ -3,11 +3,11 @@
 namespace ItemSystem
 {
     [CreateAssetMenu(menuName = "SO/ItemSystem/ItemDataGroup")]
-    public class ItemDataGroupSO : ScriptableObject
+    public class ItemInfoGroupSO : ScriptableObject
     {
-        public ItemSO[] itemList;
+        public ItemInfoSO[] itemList;
 
-        public ItemSO GetItemData(int id)
+        public ItemInfoSO GetItemData(int id)
         {
             for (int i = 0; i < itemList.Length; i++)
             {

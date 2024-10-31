@@ -2,12 +2,13 @@
 using ItemSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace AgentManage.PlayerManage
 {
-    public class PlayerItemCollector : MonoBehaviour, IAgentComponent
+    public class PlayerItemCollector : MonoBehaviour, IAgentComponent, IItemCollectable
     {
-        [SerializeField] private ItemDataGroupSO _itemDataGroupSO;
+        [FormerlySerializedAs("_itemDataGroupSO")] [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
         public UnityEvent OnItemCollectEvent;
 
         [SerializeField] private List<ItemData> _inventory = new List<ItemData>(10);
@@ -72,14 +73,14 @@ namespace AgentManage.PlayerManage
             //    크기별로 분할했을때 슬롯 량이 충분한지 체크
 
             RefreshEmptySlot();
-            ItemSO itemSO = _itemDataGroupSO.GetItemData(id);
+            ItemInfoSO itemInfoSo = itemInfoGroupSo.GetItemData(id);
             int currentInsertAmount = amount;
             while (currentInsertAmount > 0)
             {
-                ItemData slot = GetNotFullSlot(id, itemSO.itemMaxGroupingAmount);
+                ItemData slot = GetNotFullSlot(id, itemInfoSo.itemMaxGroupingAmount);
                 if (slot == null || currentInsertAmount <= 0) return currentInsertAmount;
                 
-                int leftSize = itemSO.itemMaxGroupingAmount - slot.amount;
+                int leftSize = itemInfoSo.itemMaxGroupingAmount - slot.amount;
                 print($"남은 용량 : {leftSize}, 추가할 내용량 : {currentInsertAmount}");
 
                 if (currentInsertAmount > leftSize)
@@ -134,16 +135,31 @@ namespace AgentManage.PlayerManage
             // 2. 뺄수 있는 양인지 체크 (GetItemAmount 활용)
             // 3. 빼기
             RefreshEmptySlot();
-            
+
             if (GetItemAmount(itemData.id) < itemData.amount)
             {
                 return; // 뺄 수 없음
             }
 
             int currentMinus = 0;
-            for (int i = 0; i < _inventory.Count; i++)
+
+            while (currentMinus < itemData.amount)
             {
-                
+                ItemData slot = GetItemSlot(itemData.id);
+                int minus = itemData.amount - currentMinus;
+                if (slot.amount > minus) // 남은 양이 뺄 양보다 많으면
+                {
+                    slot.amount -= minus;
+                    currentMinus += minus;
+                    print("뺄양이 더 많다");
+                }
+                else
+                {
+                    currentMinus += slot.amount;
+                    slot.amount = 0;
+                }
+
+
             }
         }
 
@@ -207,6 +223,19 @@ namespace AgentManage.PlayerManage
             }
             
             // 빈게 없음.
+            return null;
+        }
+
+        private ItemData GetItemSlot(int id)
+        {
+            RefreshEmptySlot();
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].id == id)
+                {
+                    return _inventory[i];
+                }
+            }
             return null;
         }
         
