@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ItemSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,6 +28,20 @@ namespace AgentManage.PlayerManage
             // 처음에 로드 한번 하고 해줘야됨
             RefreshEmptySlot();
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                print("밍");
+                RemoveItem(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                RemoveItem(1);
+            }
+        }
+
         #region AgentCompo Func
 
         
@@ -126,7 +141,8 @@ namespace AgentManage.PlayerManage
         
         public void RemoveItem(int id)
         {
-            RemoveItem(new ItemData { id = id, amount = 1 });
+            RemoveItem(new ItemData { id = id, amount = 1 }); // 이게 맞다는 사실. 
+            // 디버그 코드라 걍 쓴.
         }
 
         public void RemoveItem(ItemData itemData)
@@ -135,12 +151,13 @@ namespace AgentManage.PlayerManage
             // 2. 뺄수 있는 양인지 체크 (GetItemAmount 활용)
             // 3. 빼기
             RefreshEmptySlot();
-
+            print("GetItemAmount(itemData.id) : " +GetItemAmount(itemData.id));
+            print("itemData : " +itemData.amount);
             if (GetItemAmount(itemData.id) < itemData.amount)
             {
                 return; // 뺄 수 없음
             }
-
+            print("뺄수 있는지 체크 다함.");
             int currentMinus = 0;
 
             while (currentMinus < itemData.amount)
@@ -149,6 +166,7 @@ namespace AgentManage.PlayerManage
                 int minus = itemData.amount - currentMinus;
                 if (slot.amount > minus) // 남은 양이 뺄 양보다 많으면
                 {
+                    print(minus+"만큼 뺐다는 사실.");
                     slot.amount -= minus;
                     currentMinus += minus;
                     print("뺄양이 더 많다");
@@ -158,9 +176,8 @@ namespace AgentManage.PlayerManage
                     currentMinus += slot.amount;
                     slot.amount = 0;
                 }
-
-
             }
+            print("While 끝");
         }
 
         #endregion

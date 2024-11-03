@@ -37,6 +37,7 @@ namespace ItemSystem
         private void CheckCollector()
         {
             Collider2D hit = Physics2D.OverlapCircle(transform.position, _detectRadius, _detectMask);
+            if (hit == null) return;
             
             if (hit.transform.TryGetComponent(out IItemCollectable collectable))
             {

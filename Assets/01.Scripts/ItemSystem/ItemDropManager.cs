@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ItemSystem
 {
@@ -10,11 +12,22 @@ namespace ItemSystem
         [SerializeField] private Queue<DropItem> dropItemPool;
 
 
-        [ContextMenu("DebugGenItem")]
-        private void DebugSpawnItem()
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                DebugSpawnItem(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                DebugSpawnItem(1);
+            }
+        }
+
+        private void DebugSpawnItem(int id)
         {
             Vector2 position = new Vector2(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-            GenerateDropItem(0, 1, position);
+            GenerateDropItem(id, 1, position);
         }
         
         public void GenerateDropItem(int id, int amount, Vector2 position)

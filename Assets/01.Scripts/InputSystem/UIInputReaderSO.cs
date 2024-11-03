@@ -80,7 +80,8 @@ namespace InputManage
 
         public void OnInventory(InputAction.CallbackContext context)
         {
-            OnInventoryEvent?.Invoke();
+            if(context.performed)
+                OnInventoryEvent?.Invoke();
         }
     }
 }

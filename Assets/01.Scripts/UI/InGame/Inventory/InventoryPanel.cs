@@ -23,10 +23,10 @@ namespace UI.InGame.Inventory
         protected override void Awake()
         {
             base.Awake();
-            _uiInputReader.OnInventoryEvent += HandleOpenInventroy;
+            _uiInputReader.OnInventoryEvent += HandleOpenInventory;
         }
 
-        private void HandleOpenInventroy()
+        private void HandleOpenInventory()
         {
             if (!_isActive)
             {
@@ -57,12 +57,13 @@ namespace UI.InGame.Inventory
                     _slots.Add(slot);
                 }
             }
-
+            
             for (int i = 0; i < size; i++)
             {
+                print("갱신");
                 ItemData itemData = inventoryInfo[i];
                 InventorySlot slot = _slots[i];
-
+                print("id: "+itemData.id + " amount : "+itemData.amount);
                 slot.Initialize(
                     itemInfoGroupSo.GetItemData(itemData.id),
                     itemData.amount
