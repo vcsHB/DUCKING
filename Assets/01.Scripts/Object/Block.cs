@@ -2,13 +2,18 @@ using AgentManage;
 using StatSystem;
 using UnityEngine;
 
-namespace BlockManage
+namespace BuildingManage
 {
     
-    public abstract class Block : MonoBehaviour
+    public abstract class Block : MonoBehaviour, IDamageable
     {
         public Health HealthCompo { get; protected set; }
         [field:SerializeField] public StatusSO Stat { get; protected set; }
+
+        public void ApplyDamage(int amount)
+        {
+
+        }
 
         protected virtual void Awake()
         {

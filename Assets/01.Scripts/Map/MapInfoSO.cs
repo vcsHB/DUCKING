@@ -4,18 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(menuName = "SO/MapInfo")]
-public class MapInfoSO : ScriptableObject
+namespace BuildingManage
 {
-    public Vector2Int mapSize;
-    public FloorSO floorInfo;
-    public List<FabricInfo> fabrics;
+    [CreateAssetMenu(menuName = "SO/MapInfo")]
+    public class MapInfoSO : ScriptableObject
+    {
+        public Vector2Int mapSize;
+        public FloorSO floorInfo;
+        public List<BuildingInfo> fabrics;
+    }
+
+    [Serializable]
+    public struct BuildingInfo
+    {
+        public FabricEnum fabric;
+        public float fabricOffset;
+        public int minSpawnCnt, maxSpawnCnt;
+    }
 }
 
-[Serializable]
-public struct FabricInfo
-{
-    public GameObject fabricPf;
-    public float fabricRadius, fabricOffset;
-    public int minSpawnCnt, maxSpawnCnt;
-}
+
+

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
-namespace BlockManage
+namespace BuildingManage
 {
     public interface IBuildable
     {
-        public void Build(Vector2 position);
+        public abstract void Build(Vector2Int position, DirectionEnum direction, bool save = false);
+        public abstract void ReadyDestroy();
+        public abstract void Destroy();
     }
 }
