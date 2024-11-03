@@ -39,8 +39,6 @@ namespace BuildingManage
 
         public FabricSO CreateBulilding(string name)
         {
-            FabricSO building = ScriptableObject.CreateInstance<FabricSO>();
-            building.name = name;
 
             if (String.IsNullOrEmpty(name))
             {
@@ -54,10 +52,18 @@ namespace BuildingManage
                 return null;
             }
 
+            FabricSO building = ScriptableObject.CreateInstance<FabricSO>();
+            building.name = name;
+
             if (Enum.TryParse(name, out FabricEnum b))
             {
-                Debug.LogError($"Building names {name} already exsist");
-                return null;
+                building.fabricTypeStr = name;
+                building.fabricType = b;
+                buildings.Add(building);
+
+                AssetDatabase.AddObjectToAsset(building, this);
+                AssetDatabase.SaveAssets();
+                return building;
             }
 
             //Enum파일에다가 Enum을 추가해주는 작업을 해줄거임

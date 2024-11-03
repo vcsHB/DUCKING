@@ -66,6 +66,8 @@ namespace BuildingManage
 
         private void Add(ClickEvent evt)
         {
+            if (_buildingSet == null) return;
+
             string buildingEnum = _textField.text;
             FabricSO building = _buildingSet.CreateBulilding(buildingEnum);
 
@@ -74,6 +76,8 @@ namespace BuildingManage
 
         private void Remove(ClickEvent evt)
         {
+            if (_buildingSet == null) return;
+
             var content = _container.Q<ScrollContents>("content", "select");
             if (content == null)
             {

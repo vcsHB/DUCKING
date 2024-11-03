@@ -9,7 +9,6 @@ namespace BuildingManage
     {
         [SerializeField] private MapInfoSO _mapInfo;
 
-
         public void GenerateMap(int seed)
         {
             SetFloor(seed);
@@ -85,7 +84,7 @@ namespace BuildingManage
 
                         if (canSetFabric)
                         {
-                            MapManager.Instance.BuildingController.Build(fabricInfo.fabric, position);
+                            MapManager.Instance.BuildingController.Build(fabricInfo.fabric, position, true);
                             canNotSpawnArea.Add((position, fabricInfo.fabricOffset));
                             break;
                         }

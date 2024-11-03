@@ -1,1 +1,1 @@
-public enum FabricEnum { Test, ConveyorBelt, None }
+public enum FabricEnum { Test, ConveyorBelt, Wall, None }
