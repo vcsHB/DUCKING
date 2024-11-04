@@ -24,6 +24,11 @@ namespace UI.InGame.Build
             _materialAmountText.text = materialInfo.itemName;
             _materialImage.sprite = materialInfo.itemSprite;
         }
+
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+        }
         
     }
 }
