@@ -25,7 +25,7 @@ namespace AgentManage
             _corrosionResistance -= power;
             OnCorrosionEvent?.Invoke();
             OnCorrosionChangedEvent?.Invoke(_corrosionResistance, MaxCorrosionResistance);
-            print("부식 되는중 "+ _corrosionResistance +" /"+MaxCorrosionResistance);
+            //print("부식 되는중 "+ _corrosionResistance +" /"+MaxCorrosionResistance);
             if (_corrosionResistance <= 0)
             {
                 print("부식 딜 들어온다");

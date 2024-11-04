@@ -23,10 +23,11 @@ namespace UI.InGame.Inventory
         protected override void Awake()
         {
             base.Awake();
-            _uiInputReader.OnInventoryEvent += HandleOpenInventroy;
+            _uiInputReader.OnInventoryOpenEvent += HandleOpenInventory;
+            _uiInputReader.OnInventorySortEvent += HandleSortInventory;
         }
 
-        private void HandleOpenInventroy()
+        private void HandleOpenInventory()
         {
             if (!_isActive)
             {
@@ -45,6 +46,12 @@ namespace UI.InGame.Inventory
             RefreshInventory(inventoryInfo);
         }
 
+        public void HandleSortInventory()
+        {
+            _playerItemCollector.HandleInventorySort();
+            RefreshInventory(_playerItemCollector.Inventory);
+        }
+
         public void RefreshInventory(List<ItemData> inventoryInfo)
         {
             int size = inventoryInfo.Count;
@@ -57,12 +64,12 @@ namespace UI.InGame.Inventory
                     _slots.Add(slot);
                 }
             }
-
+            
             for (int i = 0; i < size; i++)
             {
                 ItemData itemData = inventoryInfo[i];
                 InventorySlot slot = _slots[i];
-
+                print("id: "+itemData.id + " amount : "+itemData.amount);
                 slot.Initialize(
                     itemInfoGroupSo.GetItemData(itemData.id),
                     itemData.amount

@@ -21,9 +21,10 @@ namespace ItemSystem
             _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         }
 
-        public void Initialize(ItemData data, ItemInfoSO itemInfo)
+        public void Initialize(int id, int amount, ItemInfoSO itemInfo)
         {
-            _itemData = data;
+            _itemData.id = id;
+            _itemData.amount = amount; 
             _spriteRenderer.sprite = itemInfo.itemSprite;
         }
 
@@ -36,12 +37,19 @@ namespace ItemSystem
         private void CheckCollector()
         {
             Collider2D hit = Physics2D.OverlapCircle(transform.position, _detectRadius, _detectMask);
+            if (hit == null) return;
+            
             if (hit.transform.TryGetComponent(out IItemCollectable collectable))
             {
                 collectable.CollectItem(_itemData.id, _itemData.amount);
                 Destroy(gameObject);
             }
+        }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _detectRadius);
         }
     }
 }
