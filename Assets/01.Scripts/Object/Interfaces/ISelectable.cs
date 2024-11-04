@@ -1,4 +1,4 @@
-﻿namespace BlockManage
+﻿namespace BuildingManage
 {
     public interface ISelectable
     {

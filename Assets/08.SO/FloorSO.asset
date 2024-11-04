@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211a10845ff363b48880333165d803ec, type: 3}
   m_Name: FloorSO
   m_EditorClassIdentifier: 
-  seed: 4321
+  _seed: 10000
   scale: 0.5
   floorTiles:
   - tile: {fileID: 11400000, guid: 125d28b6f1af3b94aab7fae0a62ef363, type: 2}
