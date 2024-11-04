@@ -12,7 +12,8 @@ namespace InputManage
         public event Action<ISelectable> SelectEvent;
         public event Action<bool> LeftClickEvent;
         public event Action<bool> RightClickEvent;
-        public event Action OnInventoryEvent;
+        public event Action OnInventoryOpenEvent;
+        public event Action OnInventorySortEvent;
 
         private Vector2 _mouseScreenPosition;
         public Vector2 AimPosition { get; private set; }
@@ -81,7 +82,13 @@ namespace InputManage
         public void OnInventory(InputAction.CallbackContext context)
         {
             if(context.performed)
-                OnInventoryEvent?.Invoke();
+                OnInventoryOpenEvent?.Invoke();
+        }
+
+        public void OnSortInventory(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnInventorySortEvent?.Invoke();
         }
     }
 }

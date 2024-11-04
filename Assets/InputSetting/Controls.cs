@@ -143,6 +143,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SortInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c0d2978-2dc6-49b6-895a-e98d59244935"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,6 +209,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aabded2a-6184-4b54-acef-50843cbc3671"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SortInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -233,6 +253,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_LeftClick = m_UI.FindAction("LeftClick", throwIfNotFound: true);
         m_UI_Mouse = m_UI.FindAction("Mouse", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
+        m_UI_SortInventory = m_UI.FindAction("SortInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -345,6 +366,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_LeftClick;
     private readonly InputAction m_UI_Mouse;
     private readonly InputAction m_UI_Inventory;
+    private readonly InputAction m_UI_SortInventory;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -354,6 +376,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
         public InputAction @Mouse => m_Wrapper.m_UI_Mouse;
         public InputAction @Inventory => m_Wrapper.m_UI_Inventory;
+        public InputAction @SortInventory => m_Wrapper.m_UI_SortInventory;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -378,6 +401,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @SortInventory.started += instance.OnSortInventory;
+            @SortInventory.performed += instance.OnSortInventory;
+            @SortInventory.canceled += instance.OnSortInventory;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -397,6 +423,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @SortInventory.started -= instance.OnSortInventory;
+            @SortInventory.performed -= instance.OnSortInventory;
+            @SortInventory.canceled -= instance.OnSortInventory;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -434,5 +463,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnLeftClick(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnSortInventory(InputAction.CallbackContext context);
     }
 }

@@ -23,7 +23,8 @@ namespace UI.InGame.Inventory
         protected override void Awake()
         {
             base.Awake();
-            _uiInputReader.OnInventoryEvent += HandleOpenInventory;
+            _uiInputReader.OnInventoryOpenEvent += HandleOpenInventory;
+            _uiInputReader.OnInventorySortEvent += HandleSortInventory;
         }
 
         private void HandleOpenInventory()
@@ -45,6 +46,12 @@ namespace UI.InGame.Inventory
             RefreshInventory(inventoryInfo);
         }
 
+        public void HandleSortInventory()
+        {
+            _playerItemCollector.HandleInventorySort();
+            RefreshInventory(_playerItemCollector.Inventory);
+        }
+
         public void RefreshInventory(List<ItemData> inventoryInfo)
         {
             int size = inventoryInfo.Count;
@@ -60,7 +67,6 @@ namespace UI.InGame.Inventory
             
             for (int i = 0; i < size; i++)
             {
-                print("갱신");
                 ItemData itemData = inventoryInfo[i];
                 InventorySlot slot = _slots[i];
                 print("id: "+itemData.id + " amount : "+itemData.amount);

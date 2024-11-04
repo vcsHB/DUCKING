@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ItemSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace AgentManage.PlayerManage
-{
+{   
     public class PlayerItemCollector : MonoBehaviour, IAgentComponent, IItemCollectable
     {
-        [FormerlySerializedAs("_itemDataGroupSO")] [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
+        [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
         public UnityEvent OnItemCollectEvent;
 
         [SerializeField] private List<ItemData> _inventory = new List<ItemData>(10);
@@ -18,7 +16,8 @@ namespace AgentManage.PlayerManage
 
 
         private Player _player;
-
+        private Dictionary<int, int> _itemSortingTable = new Dictionary<int, int>();
+        
         private void Awake()
         {
             print(InventorySize + "설정된 인벤사이즈");
@@ -96,17 +95,15 @@ namespace AgentManage.PlayerManage
                 if (slot == null || currentInsertAmount <= 0) return currentInsertAmount;
                 
                 int leftSize = itemInfoSo.itemMaxGroupingAmount - slot.amount;
-                print($"남은 용량 : {leftSize}, 추가할 내용량 : {currentInsertAmount}");
+                //print($"남은 용량 : {leftSize}, 추가할 내용량 : {currentInsertAmount}");
 
                 if (currentInsertAmount > leftSize)
                 {
-                    print("더할 양이 남은 용량보다 많음");
                     currentInsertAmount -= leftSize;
                     slot.amount += leftSize;
                     
                 }else
                 {
-                    print("더할 양이 남은 용량보다 적거나 같음");
                     slot.amount += currentInsertAmount;
                     currentInsertAmount = 0;
                     break;
@@ -151,8 +148,6 @@ namespace AgentManage.PlayerManage
             // 2. 뺄수 있는 양인지 체크 (GetItemAmount 활용)
             // 3. 빼기
             RefreshEmptySlot();
-            print("GetItemAmount(itemData.id) : " +GetItemAmount(itemData.id));
-            print("itemData : " +itemData.amount);
             if (GetItemAmount(itemData.id) < itemData.amount)
             {
                 return; // 뺄 수 없음
@@ -166,10 +161,8 @@ namespace AgentManage.PlayerManage
                 int minus = itemData.amount - currentMinus;
                 if (slot.amount > minus) // 남은 양이 뺄 양보다 많으면
                 {
-                    print(minus+"만큼 뺐다는 사실.");
                     slot.amount -= minus;
                     currentMinus += minus;
-                    print("뺄양이 더 많다");
                 }
                 else
                 {
@@ -177,7 +170,6 @@ namespace AgentManage.PlayerManage
                     slot.amount = 0;
                 }
             }
-            print("While 끝");
         }
 
         #endregion
@@ -191,6 +183,25 @@ namespace AgentManage.PlayerManage
                     _inventory[i].id = -1;
                     _inventory[i].amount = 0;
                 }
+            }
+        }
+
+        public void HandleInventorySort()
+        {
+            _itemSortingTable.Clear();
+            foreach (ItemData itemData in _inventory)
+            {
+                if (!_itemSortingTable.ContainsKey(itemData.id))
+                {
+                    _itemSortingTable.Add(itemData.id, 0);
+                }
+                _itemSortingTable[itemData.id] += itemData.amount;
+                itemData.amount = 0;
+            }
+            RefreshEmptySlot();
+            foreach (var pair in _itemSortingTable)
+            {
+                CollectItem(pair.Key, pair.Value);
             }
         }
         
@@ -292,12 +303,6 @@ namespace AgentManage.PlayerManage
         #region Debug Func
 
         
-        [ContextMenu("DebugCollectItem")]
-        public void AddDebugItem()
-        {
-            CollectItem(0, 5);
-        }
-
         #endregion
 
 
