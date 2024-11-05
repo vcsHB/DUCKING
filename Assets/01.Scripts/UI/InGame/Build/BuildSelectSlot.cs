@@ -9,6 +9,9 @@ namespace UI.InGame.Build
     {
         private Button _button;
         [SerializeField] private FabricSO _buildingInfo;
+        public event Action<FabricSO> OnClickEvent;
+
+        
         
         private void Awake()
         {
@@ -25,7 +28,7 @@ namespace UI.InGame.Build
 
         private void HandleButtonClick()
         {
-            
+            OnClickEvent?.Invoke(_buildingInfo);
         }
 
 

@@ -7,7 +7,7 @@ namespace UI.InGame.Build
 {
     public class BuildSelectPanel : MonoBehaviour
     {
-
+        [SerializeField] private BuildDetailPanel _detailPanel;
         [SerializeField] private BuildSelectSlot _slotPrefab;
         [SerializeField] private Transform _contentTrm;
         private List<BuildSelectSlot> _slotList = new List<BuildSelectSlot>();
@@ -27,8 +27,10 @@ namespace UI.InGame.Build
                 for (int i = 0; i < slotShortage; i++)
                 {
                     BuildSelectSlot slot = Instantiate(_slotPrefab, _contentTrm);
+                    slot.OnClickEvent += HandleBuildingSelect;
                     slot.Disable();
                     _slotList.Add(slot);
+                    
                 }
             }
 
@@ -45,6 +47,11 @@ namespace UI.InGame.Build
             {
                 slot.Disable();
             }            
+        }
+
+        public void HandleBuildingSelect(FabricSO buildingInfo)
+        {
+            _detailPanel.HandleSettingBuildDetail(buildingInfo);
         }
         
         

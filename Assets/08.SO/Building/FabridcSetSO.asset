@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fabricTypeStr: Wall
   fabricType: 2
+  buildingName: "\uC77C\uBC18 \uBCBD"
+  description: 
   building: {fileID: 4164741187280942721, guid: a8c494e42ed2874468bda552adb191bf, type: 3}
   tileSize: 3
   health: 0
+  needResource:
+  - type: 0
+    amount: 5
+  - type: 4
+    amount: 10
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,9 +54,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fabricTypeStr: Test
   fabricType: 0
+  buildingName: "TEST \uBE14\uB85D"
+  description: "\uC5B4\uB514\uAE4C\uC9C0\uB098 \uD14C\uC2A4\uD2B8\uB97C \uC704\uD568."
   building: {fileID: 5652405657584703984, guid: e086a04c87d266b4695b2518464338e4, type: 3}
   tileSize: 2
   health: 0
+  needResource:
+  - type: 0
+    amount: 5
 --- !u!114 &976958110075936494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,9 +76,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fabricTypeStr: ConveyorBelt
   fabricType: 1
+  buildingName: 
+  description: 
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
   health: 15
+  needResource: []
 --- !u!114 &6476975986015101547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fabricTypeStr: Wall
   fabricType: 2
+  buildingName: 
+  description: 
   building: {fileID: 0}
   tileSize: 0
   health: 0
+  needResource: []
