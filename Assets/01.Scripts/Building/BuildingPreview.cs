@@ -18,8 +18,9 @@ public class BuildingPreview : MonoBehaviour
 
     public void SetBuilding(int size)
     {
-        _visualTrm.localScale = Vector3.one * size;
-        _visualTrm.position = Vector3.one * (size / 2.0f);
+        _visualTrm.localScale = Vector2.one * size;
+        _visualTrm.localPosition = Vector2.one * (size / 2.0f);
+        Debug.Log(Vector2.one * (size / 2.0f));
         _visualTrm.gameObject.SetActive(true);
     }
 
