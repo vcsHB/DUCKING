@@ -1,10 +1,16 @@
 ﻿using System;
+using ObjectPooling;
 using UnityEngine;
 
 namespace ItemSystem
 {
-    public class DropItem : MonoBehaviour
+    public class DropItem : MonoBehaviour, IPoolable
     {
+        [field:SerializeField] public PoolingType type { get; set; }
+        public GameObject ObjectPrefab => gameObject;
+        public void ResetItem()
+        {
+        }
         
         [SerializeField] private ItemData _itemData;
 
@@ -42,7 +48,7 @@ namespace ItemSystem
             if (hit.transform.TryGetComponent(out IItemCollectable collectable))
             {
                 collectable.CollectItem(_itemData.id, _itemData.amount);
-                Destroy(gameObject);
+                PoolManager.Instance.Push(this);
             }
         }
 
@@ -51,5 +57,7 @@ namespace ItemSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, _detectRadius);
         }
+
+        
     }
 }
