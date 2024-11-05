@@ -66,7 +66,7 @@ namespace BuildingManage
                 return building;
             }
 
-            //EnumÆÄÀÏ¿¡´Ù°¡ EnumÀ» Ãß°¡ÇØÁÖ´Â ÀÛ¾÷À» ÇØÁÙ°ÅÀÓ
+            //EnumíŒŒì¼ì—ë‹¤ê°€ Enumì„ ì¶”ê°€í•´ì£¼ëŠ” ì‘ì—…ì„ í•´ì¤„ê±°ì„
             StringBuilder sr = new StringBuilder();
             sr.Append("public enum FabricEnum { ");
             foreach (FabricEnum e in Enum.GetValues(typeof(FabricEnum)))

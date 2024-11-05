@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ObjectPooling;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,7 +33,7 @@ namespace ItemSystem
         
         public void GenerateDropItem(int id, int amount, Vector2 position)
         {
-            DropItem dropItem = Instantiate(_dropItemPrefab, position, Quaternion.identity);
+            DropItem dropItem = PoolManager.Instance.Pop(PoolingType.DropItem, position, Quaternion.identity) as DropItem;
             dropItem.Initialize(id, amount, _itemInfoGroup.GetItemData(id));
         }
     }
