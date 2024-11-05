@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
-using BuildingManage;
+﻿using BuildingManage;
 using UnityEngine;
 
 namespace UI.InGame.Build
 {
     public enum BuildingCategoryType
     {
-        Factory,
+        Transform,
+        Mining,
         Tower,
+        Factory,
+        Wall,
+        Utility
+        
     }
 
     [System.Serializable]

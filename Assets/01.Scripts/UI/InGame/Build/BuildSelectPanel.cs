@@ -51,6 +51,7 @@ namespace UI.InGame.Build
 
         public void HandleBuildingSelect(FabricSO buildingInfo)
         {
+            _detailPanel.Open();
             _detailPanel.HandleSettingBuildDetail(buildingInfo);
         }
         
