@@ -11,17 +11,19 @@ namespace UI.InGame.Build
         [SerializeField] private Image _materialImage;
         [SerializeField] private TextMeshProUGUI _materialAmountText;
 
-        private Color _defaultColor, _lackColor = Color.red;
+        private Color _defaultColor, _shortageColor = Color.red;
 
         private void Awake()
         {
             _defaultColor = _materialAmountText.color;
         }
 
-        public void SetMaterial(ItemInfoSO materialInfo, bool isEnough)
+        public void SetMaterial(ItemInfoSO materialInfo, int needAmount, int haveAmount)
         {
-            _materialAmountText.color = isEnough ? _defaultColor : _lackColor;
-            _materialAmountText.text = materialInfo.itemName;
+            bool isEnough = haveAmount >= needAmount;
+            gameObject.SetActive(true);
+            _materialAmountText.color = isEnough ? _defaultColor : _shortageColor;
+            _materialAmountText.text = $"{haveAmount}/{needAmount}";
             _materialImage.sprite = materialInfo.itemSprite;
         }
 

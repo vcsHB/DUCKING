@@ -8800,6 +8800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8859cac9fbcc4a65abc5d9072ac36052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemInfoGroup: {fileID: 11400000, guid: 98aa430cfe470eb46a8a0efec725faa2, type: 2}
   _slotPrefab: {fileID: 4100456683103799799, guid: e7fd0a27591ff3c45a2d8aa01496cf55, type: 3}
   _contentTrm: {fileID: 1582131142}
 --- !u!1 &1702704097

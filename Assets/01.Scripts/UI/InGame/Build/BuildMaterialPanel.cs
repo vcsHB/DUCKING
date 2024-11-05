@@ -8,6 +8,7 @@ namespace UI.InGame.Build
 {
     public class BuildMaterialPanel : MonoBehaviour
     {
+        [SerializeField] private ItemInfoGroupSO _itemInfoGroup;
         [SerializeField] private BuildMaterialSlot _slotPrefab;
         private List<BuildMaterialSlot> _slotList = new List<BuildMaterialSlot>();
         [SerializeField] private Transform _contentTrm;
@@ -41,7 +42,8 @@ namespace UI.InGame.Build
             DisableAllSlot();
             for (int i = 0; i < infos.Length; i++)
             {
-                //_slotList[i].SetMaterial();
+                ItemInfoSO info = _itemInfoGroup.GetItemData((int)infos[i].type); // 자원 enum과 Item id를 동기화 시켜야함.
+                _slotList[i].SetMaterial(info, infos[i].amount, 5);
             }
             
         }
