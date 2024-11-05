@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using ItemSystem;
+using ResourceSystem;
 using UnityEngine;
 
 namespace UI.InGame.Build
 {
-    public class BuildMaterialPanel : UIPanel
+    public class BuildMaterialPanel : MonoBehaviour
     {
         [SerializeField] private BuildMaterialSlot _slotPrefab;
         private List<BuildMaterialSlot> _slotList = new List<BuildMaterialSlot>();
@@ -33,7 +34,7 @@ namespace UI.InGame.Build
          * 건물 버튼을 눌러 재료 창을 구성해주는 상태
          * </summary>
          */
-        public void HandleSetMaterialSlots(BuildMaterialInfo[] infos)
+        public void HandleSetMaterialSlots(Resource[] infos)
         {
             // 재료요구량이 앵간하면 12종을 넘지 않을테지만 설마 그렇게 넣는 경우에는 UX 사이즈에 문제 발생가능하기 때문에 걍 리턴
             if (infos.Length > _slotList.Count) return;
