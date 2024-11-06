@@ -10,6 +10,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
     protected DirectionEnum _direction;
+    protected Transform _visualTrm;
 
     protected int _health;
 
@@ -20,6 +21,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
     private void Awake()
     {
         _health = _buildingInfo.health;
+        _visualTrm = transform.GetChild(0);
     }
 
     public bool CheckPosition(Vector2Int pos) => Position.IsOverlap(pos);
@@ -55,11 +57,20 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
     {
         SetPosition(position);
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
+
+        Building fabricInstnace = Instantiate(this, worldPos, Quaternion.identity);
+        fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
+        fabricInstnace.SetRotation(direction);
+
+        MapManager.Instance.AddBuilding(fabricInstnace, save);
+    }
+
+    private void SetRotation(DirectionEnum direction)
+    {
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
-        Building fabricInstnace = Instantiate(this, worldPos, rotation);
-        fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
-        MapManager.Instance.AddBuilding(fabricInstnace, save);
+        _visualTrm.rotation = rotation;
+        _direction = direction;
     }
 }
 
