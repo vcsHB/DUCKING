@@ -1,3 +1,4 @@
+using BuildingManage;
 using ItemSystem;
 using ResourceSystem;
 using System.Collections;
@@ -11,8 +12,8 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 
     public void TransferResource()
     {
-        Vector2Int direction = Direction.GetTileDirection(_direction);
-
+        Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_direction);
+        //MapManager.Instance.
     }
 
     public bool TryInsertResource(Resource resource, out Resource remain)

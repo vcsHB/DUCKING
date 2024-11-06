@@ -18,9 +18,9 @@ namespace BuildingManage
         #region ComponentRegion
 
         private RandomMapGenerator _mapGenerator;
-        private BuildingContoller _buildingController;
+        private BuildingController _buildingController;
 
-        public BuildingContoller BuildingController => _buildingController;
+        public BuildingController BuildingController => _buildingController;
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace BuildingManage
             _floorTileMap.CompressBounds();
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
-            _buildingController = GetComponent<BuildingContoller>();
+            _buildingController = GetComponent<BuildingController>();
 
             _buildingController.Init(_buildingSet);
             Load();
