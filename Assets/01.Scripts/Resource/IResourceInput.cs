@@ -2,7 +2,7 @@
 {
     public interface IResourceInput
     {
-        public bool TryInsertResource(Resource resource, out Resource remain);
+        public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain);
         
     }
 }

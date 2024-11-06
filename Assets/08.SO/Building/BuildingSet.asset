@@ -78,7 +78,7 @@ MonoBehaviour:
   buildingType: 1
   buildingName: 
   description: 
-  building: {fileID: 4164741187280942721, guid: a8c494e42ed2874468bda552adb191bf, type: 3}
+  building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
   health: 0
   needResource:

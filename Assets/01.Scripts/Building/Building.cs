@@ -77,7 +77,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 [Serializable]
 public class BuildingSize
 {
-    public Vector2Int center;
+    public Vector2 center;
     public Vector2Int min, max;
 
     /// <summary>
@@ -101,7 +101,7 @@ public class BuildingSize
             size.max
         };
 
-        for (int i = 0; i < 4; i++) 
+        for (int i = 0; i < 4; i++)
             if (IsOverlap(edges[i])) return true;
 
         // 꼭짓점이 겹치진 않았지만, 겹친 부분이 존재할 수 있음
@@ -136,10 +136,12 @@ public class BuildingSize
 
     public BuildingSize(Vector2Int position, float size)
     {
-        center = position;
         int halfSize = (int)size - 1;
-
         min = position;
         max = position + new Vector2Int(halfSize, halfSize);
+
+        Vector2 wMax = MapManager.Instance.GetWorldPos(max + Vector2Int.one);
+        Vector2 wMin = MapManager.Instance.GetWorldPos(min);
+        center = wMin + (wMax - wMin) / 2;
     }
 }

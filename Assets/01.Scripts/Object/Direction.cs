@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,12 +25,14 @@ public static class Direction
         => directions[(int)dir];
     public static Vector2Int GetTileDirection(DirectionEnum dir)
         => directionsInt[(int)dir];
+
+    public static DirectionEnum GetOpposite(DirectionEnum dir) => (DirectionEnum)(((int)dir + 2) % 4);
 }
 
 public enum DirectionEnum
 {
-    Down,
-    Right,
-    Up,
-    Left,
+    Down = 0,
+    Right = 1,
+    Up = 2,
+    Left = 3,
 }

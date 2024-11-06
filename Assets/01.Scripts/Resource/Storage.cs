@@ -8,11 +8,11 @@ namespace ResourceSystem
         public int currentAmount;
         public int max;
     }
-    public class Storage: MonoBehaviour, IResourceInput, IResourceOutput
+    public class Storage : MonoBehaviour, IResourceInput, IResourceOutput
     {
         [SerializeField] private SerializeDictionary<ResourceType, ResourceData> _resourceDictionary;
         
-        public bool TryInsertResource(Resource resource, out Resource remain)
+        public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
         {
             if (_resourceDictionary.TryGetValue(resource.type, out ResourceData data))
             {
@@ -22,7 +22,7 @@ namespace ResourceSystem
                     data.currentAmount = data.max;
                 }
                 data.currentAmount += resource.amount;
-                
+
             }
             else
             {
@@ -33,7 +33,6 @@ namespace ResourceSystem
             remain = new Resource();
             return true;
         }
-
 
         public void TransferResource()
         {
