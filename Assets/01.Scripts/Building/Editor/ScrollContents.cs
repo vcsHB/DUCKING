@@ -12,16 +12,16 @@ namespace BuildingManage
 
         public new class UxmlTraits : Label.UxmlTraits { }
 
-        private FabricSO _building;
+        private BuildingSO _building;
         private InspectorView _inspector;
 
-        public FabricSO Building => _building;
+        public BuildingSO Building => _building;
 
         public ScrollContents()
         {
         }
 
-        public ScrollContents(FabricSO building, InspectorView inspector)
+        public ScrollContents(BuildingSO building, InspectorView inspector)
         {
             _building = building;
             _inspector = inspector;

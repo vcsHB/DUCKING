@@ -8,19 +8,21 @@ using UnityEngine.UI;
 public class BuildingPreview : MonoBehaviour
 {
     [SerializeField] private Transform _visualTrm;
-    private SpriteRenderer _sr;
+    private Material _visualMat;
+
+    [ColorUsage(true, true)]
     [SerializeField] private Color _succesColor, _failColor;
 
     private void Awake()
     {
-        _sr = _visualTrm.GetComponent<SpriteRenderer>();
+        _visualMat = _visualTrm.GetComponent<SpriteRenderer>().material;
     }
 
     public void SetBuilding(int size)
     {
         _visualTrm.localScale = Vector2.one * size;
         _visualTrm.localPosition = Vector2.one * (size / 2.0f);
-        Debug.Log(Vector2.one * (size / 2.0f));
+
         _visualTrm.gameObject.SetActive(true);
     }
 
@@ -35,9 +37,9 @@ public class BuildingPreview : MonoBehaviour
         Vector2Int tp = MapManager.Instance.GetTilePos(worldPosition);
         Vector2 tilePos = MapManager.Instance.RoundToTilePos(worldPosition);
 
-        FabricSize fabricSize = new FabricSize(tp, size);
+        BuildingSize fabricSize = new BuildingSize(tp, size);
         bool isOverlap = MapManager.Instance.CheckBuildingOverlap(fabricSize);
-        _sr.color = isOverlap ? _failColor : _succesColor;
+        _visualMat.SetColor("_Color", isOverlap ? _failColor : _succesColor);
 
         transform.position = tilePos;
     }

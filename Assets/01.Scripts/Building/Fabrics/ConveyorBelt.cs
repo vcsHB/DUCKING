@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 
-public class ConveyorBelt : Fabric, IResourceInput, IResourceOutput
+public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 {
     private Resource _container;
 

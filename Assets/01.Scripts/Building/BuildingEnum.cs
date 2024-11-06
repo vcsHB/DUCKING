@@ -1,0 +1,1 @@
+public enum BuildingEnum { Test, ConveyorBelt, Wall, None }

@@ -16,7 +16,7 @@ namespace UI.InGame.Build
         [SerializeField] private Image _buildingIcon;
         [SerializeField] private TextMeshProUGUI _buildingNameText;
         [SerializeField] private BuildMaterialPanel _buildMaterialPanel;
-        private FabricSO _buildingInfo;
+        private BuildingSO _buildingInfo;
 
         private RectTransform _rectTrm;
 
@@ -38,7 +38,7 @@ namespace UI.InGame.Build
             _rectTrm.DOAnchorPosY(_defaultYPos, _activeDuration);
         }
 
-        public void HandleSettingBuildDetail(FabricSO buildingInfo)
+        public void HandleSettingBuildDetail(BuildingSO buildingInfo)
         {
             _buildingInfo = buildingInfo;
             _buildingNameText.text = buildingInfo.buildingName;

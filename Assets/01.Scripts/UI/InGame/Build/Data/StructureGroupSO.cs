@@ -20,7 +20,7 @@ namespace UI.InGame.Build
         public Sprite categoryIconSprite;
         public string categoryName;
         public string categoryDescription;
-        public FabricSO[] buildingList;
+        public BuildingSO[] buildingList;
     }
     
     public class StructureGroupSO : ScriptableObject

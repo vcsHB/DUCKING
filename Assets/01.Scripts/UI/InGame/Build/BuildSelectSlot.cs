@@ -8,8 +8,8 @@ namespace UI.InGame.Build
     public class BuildSelectSlot : MonoBehaviour
     {
         private Button _button;
-        [SerializeField] private FabricSO _buildingInfo;
-        public event Action<FabricSO> OnClickEvent;
+        [SerializeField] private BuildingSO _buildingInfo;
+        public event Action<BuildingSO> OnClickEvent;
 
         
         
@@ -19,7 +19,7 @@ namespace UI.InGame.Build
             _button.onClick.AddListener(HandleButtonClick);
         }
 
-        public void Initialize(FabricSO buildingInfo)
+        public void Initialize(BuildingSO buildingInfo)
         {
             _buildingInfo = buildingInfo;
             gameObject.SetActive(true);

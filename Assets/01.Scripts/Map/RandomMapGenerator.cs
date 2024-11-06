@@ -43,7 +43,7 @@ namespace BuildingManage
         /// </summary>
         private void SetFabric()
         {
-            List<Fabric> fabrics = new List<Fabric>();
+            List<Building> fabrics = new List<Building>();
             _mapInfo.fabrics.ForEach(fabricInfo =>
             {
                 int minX = -_mapInfo.mapSize.x / 2;

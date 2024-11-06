@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace BuildingManage
 {
-    public class FabricController : MonoBehaviour
+    public class BuildingContoller : MonoBehaviour
     {
-        private FabricSetSO _buildingSet;
+        private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
-        [SerializeField] private FabricEnum _testBuilding;
+        [SerializeField] private BuildingEnum _testBuilding;
         [SerializeField] private DirectionEnum _curDirection;
         [SerializeField] private BuildingPreview _buildingPreview;
         private bool _tryBuild;
@@ -28,7 +28,7 @@ namespace BuildingManage
             {
                 Vector2 position = Input.mousePosition;
                 int size = _buildingSet.FindBuilding(_testBuilding).tileSize;
-                FabricSize fabricSize = new FabricSize(MapManager.Instance.GetTilePos(position), size);
+                BuildingSize fabricSize = new BuildingSize(MapManager.Instance.GetTilePos(position), size);
 
                 bool canBuild = MapManager.Instance.CheckBuildingOverlap(fabricSize);
                 _buildingPreview.UpdateBuildidng(position, size);
@@ -43,10 +43,10 @@ namespace BuildingManage
             }
         }
 
-        public bool Build(FabricEnum building, Vector2Int position, bool save)
+        public bool Build(BuildingEnum building, Vector2Int position, bool save)
         {
-            FabricSO info = _buildingSet.FindBuilding(building);
-            FabricSize size = new FabricSize(position, info.tileSize);
+            BuildingSO info = _buildingSet.FindBuilding(building);
+            BuildingSize size = new BuildingSize(position, info.tileSize);
 
             bool isOverlap = MapManager.Instance.CheckBuildingOverlap(size);
             if (isOverlap) return false;
@@ -69,7 +69,7 @@ namespace BuildingManage
             }
         }
 
-        public void Init(FabricSetSO buildingSet)
+        public void Init(BuildingSetSO buildingSet)
         {
             _buildingSet = buildingSet;
         }

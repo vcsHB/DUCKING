@@ -12,15 +12,15 @@ namespace BuildingManage
     public class MapManager : MonoSingleton<MapManager>
     {
         [SerializeField] private Tilemap _floorTileMap;
-        [SerializeField] private FabricSetSO _buildingSet;
-        private List<Fabric> _fabricList = new List<Fabric>();
+        [SerializeField] private BuildingSetSO _buildingSet;
+        private List<Building> _fabricList = new List<Building>();
 
         #region ComponentRegion
 
         private RandomMapGenerator _mapGenerator;
-        private FabricController _buildingController;
+        private BuildingContoller _buildingController;
 
-        public FabricController BuildingController => _buildingController;
+        public BuildingContoller BuildingController => _buildingController;
 
         #endregion
 
@@ -39,13 +39,13 @@ namespace BuildingManage
             _floorTileMap.CompressBounds();
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
-            _buildingController = GetComponent<FabricController>();
+            _buildingController = GetComponent<BuildingContoller>();
 
             _buildingController.Init(_buildingSet);
             Load();
         }
 
-        public bool CheckBuildingOverlap(FabricSize size)
+        public bool CheckBuildingOverlap(BuildingSize size)
         {
             bool isOverlap = false;
 
@@ -87,12 +87,12 @@ namespace BuildingManage
         public Vector2 RoundToTilePos(Vector2 pos) => (Vector2)_floorTileMap.CellToWorld(_floorTileMap.WorldToCell(pos));
 
         /// <summary>
-        /// Find Fabric In World Position
+        /// Find Building In World Position
         /// </summary>
-        /// <param name="pos">World Position To Find Fabric</param>
+        /// <param name="pos">World Position To Find Building</param>
         /// <param name="building"></param>
-        /// <returns>Is Fabric Exsist</returns>
-        public bool TryGetBuilding(Vector2 pos, out Fabric building)
+        /// <returns>Is Building Exsist</returns>
+        public bool TryGetBuilding(Vector2 pos, out Building building)
         {
             Vector2Int tilePos = GetTilePos(pos);
             building = null;
@@ -109,12 +109,12 @@ namespace BuildingManage
         }
 
         /// <summary>
-        /// Find Fabric In TileMap Position
+        /// Find Building In TileMap Position
         /// </summary>
-        /// <param name="pos">Tile Position To Find Fabric</param>
+        /// <param name="pos">Tile Position To Find Building</param>
         /// <param name="building"></param>
-        /// <returns>Is Fabric Exsist</returns>
-        public bool TryGetBuilding(Vector2Int pos, out Fabric building)
+        /// <returns>Is Building Exsist</returns>
+        public bool TryGetBuilding(Vector2Int pos, out Building building)
         {
             building = null;
 
@@ -164,14 +164,14 @@ namespace BuildingManage
             _mapGenerator.SetFloor(_seed);
             _buildingSave.ForEach(building =>
             {
-                FabricEnum buildingType = Enum.Parse<FabricEnum>(building.name);
+                BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
                 Vector2Int position = new Vector2Int(building.posX, building.posY);
 
                 _buildingController.Build(buildingType, position, false);
             });
         }
 
-        public void AddBuilding(Fabric building, bool save = true)
+        public void AddBuilding(Building building, bool save = true)
         {
             _fabricList.Add(building);
 

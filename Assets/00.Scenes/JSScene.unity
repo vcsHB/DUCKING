@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visualTrm: {fileID: 380580773}
-  _succesColor: {r: 0.5058824, g: 1, b: 0.5803922, a: 1}
+  _succesColor: {r: 0.22127534, g: 0.9198113, b: 0.32661006, a: 1}
   _failColor: {r: 0.9339623, g: 0.18503027, b: 0.32406405, a: 1}
 --- !u!1 &380580772
 GameObject:
@@ -360,7 +360,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f7a74ce80905e07489cad5fe7cf731d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

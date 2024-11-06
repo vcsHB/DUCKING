@@ -17,7 +17,7 @@ namespace UI.InGame.Build
             
         }
 
-        public void SetDisplayBuildingSlots(FabricSO[] buildingList)
+        public void SetDisplayBuildingSlots(BuildingSO[] buildingList)
         {
             DisableAllSlots();
 
@@ -49,7 +49,7 @@ namespace UI.InGame.Build
             }            
         }
 
-        public void HandleBuildingSelect(FabricSO buildingInfo)
+        public void HandleBuildingSelect(BuildingSO buildingInfo)
         {
             _detailPanel.Open();
             _detailPanel.HandleSettingBuildDetail(buildingInfo);

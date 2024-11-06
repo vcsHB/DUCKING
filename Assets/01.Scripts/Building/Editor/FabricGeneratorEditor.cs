@@ -12,7 +12,7 @@ namespace BuildingManage
         [SerializeField]
         private VisualTreeAsset m_VisualTreeAsset = default;
 
-        private FabricSetSO _buildingSet;
+        private BuildingSetSO _buildingSet;
         private VisualElement _container;
         private ScrollView _scrollView;
         private InspectorView _inspector;
@@ -24,7 +24,7 @@ namespace BuildingManage
         [OnOpenAsset]
         public static bool OnOpenAsset(int instanceId, int line)
         {
-            if (Selection.activeObject is FabricSetSO buildingSet)
+            if (Selection.activeObject is BuildingSetSO buildingSet)
             {
                 ShowEditor();
                 return true;
@@ -42,7 +42,7 @@ namespace BuildingManage
 
         public void CreateGUI()
         {
-            if (Selection.activeObject is FabricSetSO buildingSet)
+            if (Selection.activeObject is BuildingSetSO buildingSet)
                 _buildingSet = buildingSet;
 
             VisualElement root = rootVisualElement;
@@ -69,7 +69,7 @@ namespace BuildingManage
             if (_buildingSet == null) return;
 
             string buildingEnum = _textField.text;
-            FabricSO building = _buildingSet.CreateBulilding(buildingEnum);
+            BuildingSO building = _buildingSet.CreateBulilding(buildingEnum);
 
             AddScrollContent(building);
         }
@@ -99,7 +99,7 @@ namespace BuildingManage
                 _container.RemoveAt(0);
             }
 
-            if (Selection.activeObject is FabricSetSO buildingSet)
+            if (Selection.activeObject is BuildingSetSO buildingSet)
             {
                 _buildingSet = buildingSet;
 
@@ -110,7 +110,7 @@ namespace BuildingManage
             }
         }
 
-        private void AddScrollContent(FabricSO building)
+        private void AddScrollContent(BuildingSO building)
         {
             ScrollContents contents = new ScrollContents(building, _inspector);
             contents.AddToClassList("scroll-content");

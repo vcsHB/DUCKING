@@ -6,16 +6,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Fabric : MonoBehaviour, IBuildable, IDamageable
+public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 {
-    [SerializeField] protected FabricSO _buildingInfo;
+    [SerializeField] protected BuildingSO _buildingInfo;
     protected DirectionEnum _direction;
 
     protected int _health;
 
-    public FabricSize Position { get; protected set; }
-    public FabricSO BuildingInfo => _buildingInfo;
-    public FabricEnum BuildingType => _buildingInfo.fabricType;
+    public BuildingSize Position { get; protected set; }
+    public BuildingSO BuildingInfo => _buildingInfo;
+    public BuildingEnum BuildingType => _buildingInfo.fabricType;
 
     private void Awake()
     {
@@ -23,11 +23,11 @@ public abstract class Fabric : MonoBehaviour, IBuildable, IDamageable
     }
 
     public bool CheckPosition(Vector2Int pos) => Position.IsOverlap(pos);
-    public bool CheckPosition(FabricSize pos) => Position.IsOverlap(pos);
+    public bool CheckPosition(BuildingSize pos) => Position.IsOverlap(pos);
 
     public void SetPosition(Vector2Int position)
     {
-        Position = new FabricSize(position, _buildingInfo.tileSize);
+        Position = new BuildingSize(position, _buildingInfo.tileSize);
     }
 
     public virtual void ApplyDamage(int amount)
@@ -57,14 +57,14 @@ public abstract class Fabric : MonoBehaviour, IBuildable, IDamageable
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
-        Fabric fabricInstnace = Instantiate(this, worldPos, rotation);
-        fabricInstnace.Position = new FabricSize(position, _buildingInfo.tileSize);
+        Building fabricInstnace = Instantiate(this, worldPos, rotation);
+        fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
         MapManager.Instance.AddBuilding(fabricInstnace, save);
     }
 }
 
 [Serializable]
-public class FabricSize
+public class BuildingSize
 {
     public Vector2Int center;
     public Vector2Int min, max;
@@ -80,7 +80,7 @@ public class FabricSize
         return isOverlap;
     }
 
-    public bool IsOverlap(FabricSize size)
+    public bool IsOverlap(BuildingSize size)
     {
         Vector2Int[] edges = new Vector2Int[4]
         {
@@ -123,7 +123,7 @@ public class FabricSize
         return false;
     }
 
-    public FabricSize(Vector2Int position, float size)
+    public BuildingSize(Vector2Int position, float size)
     {
         center = position;
         int halfSize = (int)size - 1;
