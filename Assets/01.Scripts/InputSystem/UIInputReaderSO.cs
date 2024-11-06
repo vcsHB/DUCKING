@@ -14,6 +14,7 @@ namespace InputManage
         public event Action<bool> RightClickEvent;
         public event Action OnInventoryOpenEvent;
         public event Action OnInventorySortEvent;
+        public event Action OnPauseEvent;
 
         private Vector2 _mouseScreenPosition;
         public Vector2 AimPosition { get; private set; }
@@ -89,6 +90,12 @@ namespace InputManage
         {
             if(context.performed)
                 OnInventorySortEvent?.Invoke();
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnPauseEvent?.Invoke();
         }
     }
 }

@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using UI;
+using InputManage;
 using UnityEngine;
 
 namespace UI.InGame.Build
 {
-    
     public class BuildPanel : UIPanel
     {
+        [SerializeField] private UIInputReaderSO _uiInputReader;
         [SerializeField] private float _defaultXPos;
         [SerializeField] private float _activeXPos;
         private RectTransform _rectTrm;
@@ -16,7 +14,17 @@ namespace UI.InGame.Build
         protected override void Awake()
         {
             base.Awake();
+
+            _uiInputReader.BuildEvent += HandleToggleBuildPanel;
             _rectTrm = transform as RectTransform;
+        }
+
+        private void HandleToggleBuildPanel()
+        {
+            if(_isActive)
+                Close();
+            else 
+                Open();
         }
 
         public override void Open()
