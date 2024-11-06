@@ -9,6 +9,7 @@
         Iron,
         Neverox,
         Glass,
-        Lead
+        Lead,
+        None,
     }
 }
