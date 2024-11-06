@@ -2995,7 +2995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 300}
+  m_AnchoredPosition: {x: 399.99994, y: 300}
   m_SizeDelta: {x: 500, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065540648
@@ -3044,9 +3044,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065540646}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1065540651
 MonoBehaviour:
@@ -3060,7 +3060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e53be5889e0394283b70d9cd932306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeDuration: 1
+  _activeDuration: 0.3
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -3068,8 +3068,9 @@ MonoBehaviour:
   OnCloseEvent:
     m_PersistentCalls:
       m_Calls: []
-  _defaultXPos: 0
-  _activeXPos: 0
+  _uiInputReader: {fileID: 11400000, guid: a96e6d1ac00fb81469b27edb820c9cf6, type: 2}
+  _defaultXPos: 400
+  _activeXPos: -250
 --- !u!1 &1068056992
 GameObject:
   m_ObjectHideFlags: 0
