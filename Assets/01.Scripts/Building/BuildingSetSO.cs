@@ -1,8 +1,6 @@
-using BuildingManage;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -58,7 +56,7 @@ namespace BuildingManage
             if (Enum.TryParse(name, out BuildingEnum b))
             {
                 building.buildingTypeStr = name;
-                building.fabricType = b;
+                building.buildingType = b;
                 buildings.Add(building);
 
                 AssetDatabase.AddObjectToAsset(building, this);
@@ -68,7 +66,7 @@ namespace BuildingManage
 
             //Enum파일에다가 Enum을 추가해주는 작업을 해줄거임
             StringBuilder sr = new StringBuilder();
-            sr.Append("public enum FabricEnum { ");
+            sr.Append("public enum BuildingEnum { ");
             foreach (BuildingEnum e in Enum.GetValues(typeof(BuildingEnum)))
             {
                 if (e == BuildingEnum.None) continue;
@@ -91,7 +89,7 @@ namespace BuildingManage
         public BuildingSO FindBuilding(BuildingEnum buildingEnum)
         {
             BuildingSO building
-                = buildings.Find(b => b.fabricType == buildingEnum);
+                = buildings.Find(b => b.buildingType == buildingEnum);
             return building;
         }
     }

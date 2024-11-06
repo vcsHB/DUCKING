@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872c28ea05fb3c648a5ce9cd291e8041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testBuilding: 2
+  _buildTarget: 0
   _curDirection: 0
   _buildingPreview: {fileID: 448908480}
 --- !u!114 &548744008
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _floorTileMap: {fileID: 71179052}
-  _buildingSet: {fileID: 11400000, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
+  _buildingSet: {fileID: 11400000, guid: 199105f9bda9b934d92cbfd5d09ee25c, type: 2}
 --- !u!4 &548744010
 Transform:
   m_ObjectHideFlags: 0
@@ -3623,6 +3623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060574dcfeb4dd39087d6120aabdc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildController: {fileID: 548744007}
   _detailPanel: {fileID: 1707951793}
   _slotPrefab: {fileID: 4669485404716324293, guid: c26adfb9a636ea24abd81d718995d151, type: 3}
   _contentTrm: {fileID: 1352834209}
@@ -3694,16 +3695,21 @@ MonoBehaviour:
       categoryDescription: "2\uCC28 \uC0DD\uC0B0\uBB3C\uC744 \uB9CC\uB4E4\uAE30 \uC704\uD55C
         \uC8FC\uC694 \uC2DC\uC124\uC785\uB2C8\uB2E4"
       buildingList:
-      - {fileID: 976958110075936494, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
-    SerializedKeys: 00000000
+      - {fileID: 976958110075936494}
+    SerializedKeys: 0000000001000000
     SerializedValues:
-    - categoryIconSprite: {fileID: 21300000, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-      categoryName: "\uACF5\uC7A5"
+    - categoryIconSprite: {fileID: 21300000, guid: e6a4d14b611da554abb36bdfac5e1019, type: 3}
+      categoryName: "\uCEE8\uBCA0\uC774\uC5B4"
       categoryDescription: "2\uCC28 \uC0DD\uC0B0\uBB3C\uC744 \uB9CC\uB4E4\uAE30 \uC704\uD55C
         \uC8FC\uC694 \uC2DC\uC124\uC785\uB2C8\uB2E4"
       buildingList:
-      - {fileID: 280164609586806163, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
-      - {fileID: -4500249685125323090, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
+      - {fileID: 976958110075936494}
+      - {fileID: -4731016295275857845, guid: 199105f9bda9b934d92cbfd5d09ee25c, type: 2}
+    - categoryIconSprite: {fileID: 21300146, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+      categoryName: "\uBCBD\uBCBD"
+      categoryDescription: "\uBC0D\uC778./."
+      buildingList:
+      - {fileID: -4755823823211860928, guid: 199105f9bda9b934d92cbfd5d09ee25c, type: 2}
   _buildSelectPanel: {fileID: 1083666931}
   _descriptionPanel: {fileID: 730317035}
   _contentTrm: {fileID: 1042221940}
@@ -14205,6 +14211,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144558268}
   m_CullTransparentMesh: 1
+--- !u!114 &976958110075936494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: ConveyorBelt
+  m_EditorClassIdentifier: 
+  buildingTypeStr: 
+  buildingType: 3
+  buildingName: 
+  description: 
+  building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
+  tileSize: 1
+  health: 15
+  needResource: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

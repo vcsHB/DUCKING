@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BuildingManage
 {
-    public class BuildingController : MonoBehaviour
+    public class BuildController : MonoBehaviour
     {
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
-        [SerializeField] private BuildingEnum _testBuilding;
+        [SerializeField] private BuildingEnum _buildTarget;
         [SerializeField] private DirectionEnum _curDirection;
         [SerializeField] private BuildingPreview _buildingPreview;
         private bool _tryBuild;
@@ -27,7 +28,7 @@ namespace BuildingManage
             if (_tryBuild)
             {
                 Vector2 position = Input.mousePosition;
-                int size = _buildingSet.FindBuilding(_testBuilding).tileSize;
+                int size = _buildingSet.FindBuilding(_buildTarget).tileSize;
                 BuildingSize fabricSize = new BuildingSize(MapManager.Instance.GetTilePos(position), size);
 
                 bool canBuild = MapManager.Instance.CheckBuildingOverlap(fabricSize);
@@ -39,8 +40,15 @@ namespace BuildingManage
                 Vector2Int position
                     = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-                Build(_testBuilding, position, true);
+                Build(_buildTarget, position, true);
             }
+        }
+
+        public void SetBuildTarget(BuildingEnum buildingType)
+        {
+            _buildTarget = buildingType;
+            _tryBuild = true;
+            SetPreview(true);
         }
 
         public bool Build(BuildingEnum building, Vector2Int position, bool save)
@@ -60,7 +68,7 @@ namespace BuildingManage
         {
             if (isEnable)
             {
-                int tileSize = _buildingSet.FindBuilding(_testBuilding).tileSize;
+                int tileSize = _buildingSet.FindBuilding(_buildTarget).tileSize;
                 _buildingPreview.SetBuilding(tileSize);
             }
             else

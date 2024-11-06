@@ -16,8 +16,8 @@ namespace BuildingManage
         }
 
         /// <summary>
-        /// ½Ãµå¸¦ ¹Ş¾Æ¼­ ¹Ù´ÚÅ¸ÀÏÀ» ±ò¾ÆÁÜ
-        /// ½Ãµå °ª¿¡ µû¶ó¼­ ¹Ù´Ú ÆĞÅÏÀÌ ´Ş¶óÁö´Ï Ã³À½¿¡¸¸ ½Ãµå¸¦ ·£´ıÀ¸·ÎÇØÁÖ¸é µÊ
+        /// ì‹œë“œë¥¼ ë°›ì•„ì„œ ë°”ë‹¥íƒ€ì¼ì„ ê¹”ì•„ì¤Œ
+        /// ì‹œë“œ ê°’ì— ë”°ë¼ì„œ ë°”ë‹¥ íŒ¨í„´ì´ ë‹¬ë¼ì§€ë‹ˆ ì²˜ìŒì—ë§Œ ì‹œë“œë¥¼ ëœë¤ìœ¼ë¡œí•´ì£¼ë©´ ë¨
         /// </summary>
         /// <param name="seed"></param>
         public void SetFloor(int seed)
@@ -38,8 +38,8 @@ namespace BuildingManage
         }
 
         /// <summary>
-        /// °Ç¹°À» ·£´ıÀ¸·Î ¹èÄ¡ÇØÁÖ´Â °ÅÀÓ
-        /// ¾ê´Â ÃÖÃÊ·Î ¹èÄ¡ ÇÒ ¶§ ¸»°í´Â Àı´ë ¾È¾²ÀÏ ¿¹Á¤ÀÓ
+        /// ê±´ë¬¼ì„ ëœë¤ìœ¼ë¡œ ë°°ì¹˜í•´ì£¼ëŠ” ê±°ì„
+        /// ì–˜ëŠ” ìµœì´ˆë¡œ ë°°ì¹˜ í•  ë•Œ ë§ê³ ëŠ” ì ˆëŒ€ ì•ˆì“°ì¼ ì˜ˆì •ì„
         /// </summary>
         private void SetFabric()
         {
@@ -84,7 +84,7 @@ namespace BuildingManage
 
                         if (canSetFabric)
                         {
-                            MapManager.Instance.BuildingController.Build(fabricInfo.fabric, position, true);
+                            MapManager.Instance.BuildController.Build(fabricInfo.fabric, position, true);
                             canNotSpawnArea.Add((position, fabricInfo.fabricOffset));
                             break;
                         }

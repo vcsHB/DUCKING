@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5970073258449629711}
   - component: {fileID: 5652405657584703984}
   m_Layer: 0
-  m_Name: Fabric_Test
+  m_Name: Test_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd086094bdcadf43b27161f42624a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildingInfo: {fileID: 280164609586806163, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
+  _buildingInfo: {fileID: -7323687136420742779, guid: ba97c714619fd7947854967923f53a62, type: 2}
 --- !u!1 &7898322406073298194
 GameObject:
   m_ObjectHideFlags: 0

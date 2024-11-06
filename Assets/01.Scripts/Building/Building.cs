@@ -16,7 +16,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
-    public BuildingEnum BuildingType => _buildingInfo.fabricType;
+    public BuildingEnum BuildingType => _buildingInfo.buildingType;
 
     private void Awake()
     {
@@ -104,14 +104,14 @@ public class BuildingSize
         for (int i = 0; i < 4; i++) 
             if (IsOverlap(edges[i])) return true;
 
-        // ²ÀÁþÁ¡ÀÌ °ãÄ¡Áø ¾Ê¾ÒÁö¸¸, °ãÄ£ ºÎºÐÀÌ Á¸ÀçÇÒ ¼ö ÀÖÀ½
+        // ê¼­ì§“ì ì´ ê²¹ì¹˜ì§„ ì•Šì•˜ì§€ë§Œ, ê²¹ì¹œ ë¶€ë¶„ì´ ì¡´ìž¬í•  ìˆ˜ ìžˆìŒ
 
         int left = size.min.x,
             right = size.max.x,
             top = size.max.y,
             bottom = size.min.y;
 
-        //xÃà ¸¸ °ãÃÆÁö¸¸ yÀÇ ÃÖ¼Ú°ªÀÌ ´õ ÀÛ°í ÃÖ´ñ°ªÀÌ ´õ Å¬ °æ¿ì
+        //xì¶• ë§Œ ê²¹ì³¤ì§€ë§Œ yì˜ ìµœì†Ÿê°’ì´ ë” ìž‘ê³  ìµœëŒ“ê°’ì´ ë” í´ ê²½ìš°
         if (left >= min.x && left <= max.x && top >= max.y && bottom <= min.y)
         {
             return true;
@@ -121,7 +121,7 @@ public class BuildingSize
             return true;
         }
 
-        //¹Ý´ë·Î yÃà¸¸ °ãÃÄÁø °æ¿ì
+        //ë°˜ëŒ€ë¡œ yì¶•ë§Œ ê²¹ì³ì§„ ê²½ìš°
         if (bottom >= min.y && bottom <= max.y && right > max.x && left < min.x)
         {
             return true;
