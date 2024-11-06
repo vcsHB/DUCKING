@@ -43,7 +43,7 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 
     public bool TryInsertResource(Resource resource, out Resource remain)
     {
-        Resource
+        //Resource
         //리소스가 이미 존재할 때
         if (_container.type != ResourceType.None)
         {

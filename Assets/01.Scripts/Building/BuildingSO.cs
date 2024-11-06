@@ -26,7 +26,6 @@ namespace BuildingManage
         {
             if (buildingType == BuildingEnum.None)
             {
-                Debug.Log((name));
                 if (!Enum.TryParse(buildingTypeStr, out BuildingEnum building))
                 {
                     Debug.LogError($"Enum Named {buildingTypeStr} is Not Exist");

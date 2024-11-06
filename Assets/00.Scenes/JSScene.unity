@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _floorTileMap: {fileID: 747252969}
-  _buildingSet: {fileID: 11400000, guid: ccfbaca2b9301ac4ea19e8753192e246, type: 2}
+  _buildingSet: {fileID: 11400000, guid: ba97c714619fd7947854967923f53a62, type: 2}
 --- !u!114 &563723601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872c28ea05fb3c648a5ce9cd291e8041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testBuilding: 1
+  _buildTarget: 0
   _curDirection: 0
   _buildingPreview: {fileID: 76882475}
 --- !u!1 &747252966
