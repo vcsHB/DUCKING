@@ -26,8 +26,8 @@ namespace BuildingManage
             _building = building;
             _inspector = inspector;
 
-            Debug.Log(building.fabricType);
-            text = building.fabricType.ToString();
+            Debug.Log(building.buildingType);
+            text = building.buildingType.ToString();
             RegisterCallback<ClickEvent>(OnClick);
             name = "content";
         }

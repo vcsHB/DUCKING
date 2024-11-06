@@ -2,14 +2,15 @@
 using ResourceSystem;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BuildingManage
 {
     [CreateAssetMenu(menuName = "SO/Building")]
     public class BuildingSO : ScriptableObject
     {
-        [HideInInspector] public string buildingTypeStr;
-        [HideInInspector] public BuildingEnum fabricType = BuildingEnum.None;
+        public string buildingTypeStr;
+        public BuildingEnum buildingType = BuildingEnum.None;
 
         public string buildingName;
         public string description;
@@ -23,15 +24,16 @@ namespace BuildingManage
         
         private void OnEnable()
         {
-            if (fabricType == BuildingEnum.None)
+            if (buildingType == BuildingEnum.None)
             {
+                Debug.Log((name));
                 if (!Enum.TryParse(buildingTypeStr, out BuildingEnum building))
                 {
-                    Debug.LogError($"Enum Named {buildingTypeStr} is Not Exsist");
+                    Debug.LogError($"Enum Named {buildingTypeStr} is Not Exist");
                     return;
                 }
-
-                fabricType = building;
+                Debug.Log("파싱 성공");
+                buildingType = building;
             }
         }
     }
