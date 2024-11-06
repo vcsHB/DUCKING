@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BuildingManage
 {
-    public class BuildingController : MonoBehaviour
+    public class BuildController : MonoBehaviour
     {
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
