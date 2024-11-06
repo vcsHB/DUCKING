@@ -13,14 +13,14 @@ namespace BuildingManage
     {
         [SerializeField] private Tilemap _floorTileMap;
         [SerializeField] private BuildingSetSO _buildingSet;
-        private List<Building> _fabricList = new List<Building>();
+        private List<Building> BuildingList = new List<Building>();
 
         #region ComponentRegion
 
         private RandomMapGenerator _mapGenerator;
-        private BuildingController _buildingController;
+        private BuildController _buildController;
 
-        public BuildingController BuildingController => _buildingController;
+        public BuildController BuildController => _buildController;
 
         #endregion
 
@@ -39,9 +39,9 @@ namespace BuildingManage
             _floorTileMap.CompressBounds();
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
-            _buildingController = GetComponent<BuildingController>();
+            _buildController = GetComponent<BuildController>();
 
-            _buildingController.Init(_buildingSet);
+            _buildController.Init(_buildingSet);
             Load();
         }
 
@@ -49,8 +49,8 @@ namespace BuildingManage
         {
             bool isOverlap = false;
 
-            Debug.Log(_fabricList.Count);
-            _fabricList.ForEach(fabric =>
+            Debug.Log(BuildingList.Count);
+            BuildingList.ForEach(fabric =>
             {
                 Debug.Log(fabric.Position.min + " " + fabric.Position.max);
                 if (fabric.Position.IsOverlap(size))
@@ -97,11 +97,11 @@ namespace BuildingManage
             Vector2Int tilePos = GetTilePos(pos);
             building = null;
 
-            for (int i = 0; i < _fabricList.Count; i++)
+            for (int i = 0; i < BuildingList.Count; i++)
             {
-                if (_fabricList[i].CheckPosition(tilePos))
+                if (BuildingList[i].CheckPosition(tilePos))
                 {
-                    building = _fabricList[i];
+                    building = BuildingList[i];
                 }
             }
 
@@ -118,11 +118,11 @@ namespace BuildingManage
         {
             building = null;
 
-            for (int i = 0; i < _fabricList.Count; i++)
+            for (int i = 0; i < BuildingList.Count; i++)
             {
-                if (_fabricList[i].CheckPosition(pos))
+                if (BuildingList[i].CheckPosition(pos))
                 {
-                    building = _fabricList[i];
+                    building = BuildingList[i];
                 }
             }
 
@@ -167,13 +167,13 @@ namespace BuildingManage
                 BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
                 Vector2Int position = new Vector2Int(building.posX, building.posY);
 
-                _buildingController.Build(buildingType, position, false);
+                _buildController.Build(buildingType, position, false);
             });
         }
 
         public void AddBuilding(Building building, bool save = true)
         {
-            _fabricList.Add(building);
+            BuildingList.Add(building);
 
             if (save)
             {

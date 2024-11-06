@@ -7,6 +7,7 @@ namespace UI.InGame.Build
 {
     public class BuildSelectPanel : MonoBehaviour
     {
+        [SerializeField] private BuildController _buildController;
         [SerializeField] private BuildDetailPanel _detailPanel;
         [SerializeField] private BuildSelectSlot _slotPrefab;
         [SerializeField] private Transform _contentTrm;
@@ -38,7 +39,6 @@ namespace UI.InGame.Build
             {
                 _slotList[i].Initialize(buildingList[i]);
             }
-            
         }
 
         private void DisableAllSlots()
@@ -53,6 +53,7 @@ namespace UI.InGame.Build
         {
             _detailPanel.Open();
             _detailPanel.HandleSettingBuildDetail(buildingInfo);
+            _buildController.SetBuildTarget(buildingInfo.buildingType);
         }
         
         
