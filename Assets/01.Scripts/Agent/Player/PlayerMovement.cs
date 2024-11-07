@@ -17,6 +17,7 @@ namespace AgentManage.PlayerManage
         private void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
+            
 
         }
 

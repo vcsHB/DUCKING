@@ -725,6 +725,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &168608927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168608928}
+  m_Layer: 0
+  m_Name: TowerHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &168608928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168608927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.621, y: -0.615, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &337933776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,6 +3710,7 @@ MonoBehaviour:
       categoryDescription: "\uBC0D\uC778./."
       buildingList:
       - {fileID: -7323687136420742779, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: 1704622854546048054, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _buildSelectPanel: {fileID: 1083666931}
   _descriptionPanel: {fileID: 730317035}
   _contentTrm: {fileID: 1042221940}
@@ -14207,6 +14239,7 @@ SceneRoots:
   - {fileID: 113087639}
   - {fileID: 92929705}
   - {fileID: 804436372}
+  - {fileID: 548744010}
   - {fileID: 1238950070}
   - {fileID: 668386230}
   - {fileID: 607620089}
@@ -14214,5 +14247,5 @@ SceneRoots:
   - {fileID: 2089504972}
   - {fileID: 119632141}
   - {fileID: 836625424}
-  - {fileID: 548744010}
   - {fileID: 448908481}
+  - {fileID: 168608928}
