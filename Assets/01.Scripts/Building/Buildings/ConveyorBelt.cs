@@ -49,7 +49,7 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 
     public bool TryInsertResource(Resource resource, DirectionEnum direction, out Resource remain)
     {
-        //¸®¼Ò½º°¡ ÀÌ¹Ì Á¸ÀçÇÒ ¶§
+        //ë¦¬ì†ŒìŠ¤ê°€ ì´ë¯¸ ì¡´ì¬í•  ë•Œ
         if (_container.type != ResourceType.None)
         {
             if (_container.type == resource.type)

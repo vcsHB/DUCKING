@@ -725,6 +725,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &168608927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168608928}
+  m_Layer: 0
+  m_Name: TowerHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &168608928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168608927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.621, y: -0.615, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &337933776
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,8 +996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visualTrm: {fileID: 1083112712}
-  _succesColor: {r: 0.5058824, g: 1, b: 0.5803922, a: 1}
-  _failColor: {r: 0.9339623, g: 0.18503027, b: 0.32406405, a: 1}
+  _succesColor: {r: 0, g: 1, b: 0, a: 1}
+  _failColor: {r: 0.9339623, g: 0, b: 0, a: 1}
 --- !u!4 &448908481
 Transform:
   m_ObjectHideFlags: 0
@@ -2551,37 +2582,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &813603007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 813603008}
-  m_Layer: 0
-  m_Name: Core
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &813603008
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813603007}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815365125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,13 +3703,14 @@ MonoBehaviour:
       categoryDescription: "2\uCC28 \uC0DD\uC0B0\uBB3C\uC744 \uB9CC\uB4E4\uAE30 \uC704\uD55C
         \uC8FC\uC694 \uC2DC\uC124\uC785\uB2C8\uB2E4"
       buildingList:
-      - {fileID: 976958110075936494}
-      - {fileID: -4731016295275857845, guid: 199105f9bda9b934d92cbfd5d09ee25c, type: 2}
+      - {fileID: 3536858969314915703, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: 7920265653214434940, guid: ba97c714619fd7947854967923f53a62, type: 2}
     - categoryIconSprite: {fileID: 21300146, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
       categoryName: "\uBCBD\uBCBD"
       categoryDescription: "\uBC0D\uC778./."
       buildingList:
-      - {fileID: -4755823823211860928, guid: 199105f9bda9b934d92cbfd5d09ee25c, type: 2}
+      - {fileID: -7323687136420742779, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: 1704622854546048054, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _buildSelectPanel: {fileID: 1083666931}
   _descriptionPanel: {fileID: 730317035}
   _contentTrm: {fileID: 1042221940}
@@ -14224,7 +14225,7 @@ MonoBehaviour:
   m_Name: ConveyorBelt
   m_EditorClassIdentifier: 
   buildingTypeStr: 
-  buildingType: 3
+  buildingType: 0
   buildingName: 
   description: 
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
@@ -14238,6 +14239,7 @@ SceneRoots:
   - {fileID: 113087639}
   - {fileID: 92929705}
   - {fileID: 804436372}
+  - {fileID: 548744010}
   - {fileID: 1238950070}
   - {fileID: 668386230}
   - {fileID: 607620089}
@@ -14245,6 +14247,5 @@ SceneRoots:
   - {fileID: 2089504972}
   - {fileID: 119632141}
   - {fileID: 836625424}
-  - {fileID: 813603008}
-  - {fileID: 548744010}
   - {fileID: 448908481}
+  - {fileID: 168608928}
