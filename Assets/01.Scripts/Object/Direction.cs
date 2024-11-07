@@ -25,8 +25,30 @@ public static class Direction
         => directions[(int)dir];
     public static Vector2Int GetTileDirection(DirectionEnum dir)
         => directionsInt[(int)dir];
+    public static DirectionEnum GetDirection(Vector2Int direction)
+    {
+        DirectionEnum dir = DirectionEnum.Down;
+        for (int i = 0; i < 4; i++)
+        {
+            if (directionsInt[i] == direction) dir = (DirectionEnum)i;
+        }
+
+        return dir;
+    }
 
     public static DirectionEnum GetOpposite(DirectionEnum dir) => (DirectionEnum)(((int)dir + 2) % 4);
+
+    public static DirectionEnum GetDirection(Vector2Int min, Vector2Int max, Vector2Int np)
+    {
+        DirectionEnum direction = DirectionEnum.Down;
+
+        if (np.x < min.x) direction = DirectionEnum.Left;
+        if(np.x > max.x) direction = DirectionEnum.Right;
+        if (np.y < min.y) direction = DirectionEnum.Down;
+        if (np.y > max.y) direction = DirectionEnum.Up;
+
+        return direction;
+    }
 }
 
 public enum DirectionEnum

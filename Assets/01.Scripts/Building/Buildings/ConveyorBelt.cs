@@ -36,13 +36,17 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 
     public void TransferResource()
     {
+        //다음 위치를 가져오는 부분 1x1 사이즈 일때만 유효한 부분임
         Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_direction);
+
+        //그 부분에 건물이 있고 그 건물이 IResourceInput을 가지고 있다면
         bool buildingExsist =
             MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
-
         if (!buildingExsist || !connectedBuilding.TryGetComponent(out IResourceInput input)) return;
 
+        //방향을 반대로 돌려서 input에 TryInsertResource를 호출해줘
         DirectionEnum opposite = Direction.GetOpposite(_direction);
+
         input.TryInsertResource(_container, opposite, out _container);
         if (_container.type == ResourceType.None) _process = 0;
     }
@@ -52,15 +56,8 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
         //리소스가 이미 존재할 때
         if (_container.type != ResourceType.None)
         {
-            if (_container.type == resource.type)
-            {
-                _container.amount += resource.amount;
-            }
-            else
-            {
-                remain = resource;
-                return false;
-            }
+            remain = resource;
+            return false;
         }
         else
         {
@@ -73,8 +70,7 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
         Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(_direction) / 2;
         _beltResource.Init(Position.center, from, to, resource);
 
-        remain = new Resource();
-        remain.type = ResourceType.None;
+        remain = new Resource(ResourceType.None, 0);
         return true;
     }
 }
