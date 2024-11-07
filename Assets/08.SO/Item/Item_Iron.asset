@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8ee64d8a72c402ba079c385dd249456, type: 3}
-  m_Name: TestItem2
+  m_Name: Item_Iron
   m_EditorClassIdentifier: 
-  id: 1
-  itemName: TestItem2
-  description: "\uC124\uBA85\uC778...."
-  itemSprite: {fileID: 21300156, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  itemMaxGroupingAmount: 5
+  id: 2
+  itemName: "\uCCA0"
+  description: "\uB4E0\uB4E0\uD55C \uAE08\uC18D\uAD11\uBB3C"
+  itemSprite: {fileID: 650297835, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  itemMaxGroupingAmount: 35
