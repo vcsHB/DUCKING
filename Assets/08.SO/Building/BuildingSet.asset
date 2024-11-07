@@ -38,6 +38,27 @@ MonoBehaviour:
   - {fileID: -7323687136420742779}
   - {fileID: 7920265653214434940}
   - {fileID: 3536858969314915703}
+  - {fileID: 1704622854546048054}
+--- !u!114 &1704622854546048054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Storage
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Storage
+  buildingType: 3
+  buildingName: "\uCC3D\uACE0"
+  description: 
+  building: {fileID: 5702065197008721332, guid: b50c6a68ea53db34382ffbedbbd925ce, type: 3}
+  tileSize: 2
+  health: 0
+  needResource: []
 --- !u!114 &3536858969314915703
 MonoBehaviour:
   m_ObjectHideFlags: 0

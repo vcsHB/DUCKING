@@ -35,12 +35,28 @@ namespace BuildingManage
                 _buildingPreview.UpdateBuildidng(position, size);
             }
 
-            if (_tryBuild && Input.GetMouseButtonDown(0))
+            if (_tryBuild)
             {
                 Vector2Int position
                     = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-                Build(_buildTarget, position, true);
+                if (Input.GetMouseButton(0))
+                {
+                    Build(_buildTarget, position, true);
+                }
+                if (Input.GetMouseButton(1))
+                {
+                    bool buildingExist =
+                        MapManager.Instance.TryGetBuilding(position, out Building building);
+
+                    if (buildingExist) building.Destroy();
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    Debug.Log("È¸Àü");
+                    _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
+                }
+
             }
         }
 

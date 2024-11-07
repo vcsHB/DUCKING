@@ -8,7 +8,7 @@ namespace ResourceSystem
         public int currentAmount;
         public int max;
     }
-    public class Storage : MonoBehaviour, IResourceInput, IResourceOutput
+    public class Storage : Building, IResourceInput, IResourceOutput
     {
         [SerializeField] private SerializeDictionary<ResourceType, ResourceData> _resourceDictionary;
         
@@ -31,6 +31,8 @@ namespace ResourceSystem
             }
 
             remain = new Resource();
+            remain.type = ResourceType.None;
+            _resourceDictionary[resource.type] = data;
             return true;
         }
 

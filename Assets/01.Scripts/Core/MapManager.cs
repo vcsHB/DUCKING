@@ -186,6 +186,21 @@ namespace BuildingManage
             }
         }
 
+        public void RemoveBuilding(Building building, bool save)
+        {
+            BuildingList.Remove(building);
+
+            if(save)
+            {
+                BuildingSave buildingSave = new BuildingSave();
+                buildingSave.name = building.BuildingType.ToString();
+                buildingSave.posX = building.Position.min.x;
+                buildingSave.posY = building.Position.min.y;
+
+                _buildingSave.Remove(buildingSave);
+            }
+        }
+
         #endregion
     }
 

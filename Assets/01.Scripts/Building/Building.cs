@@ -45,7 +45,8 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 
     public void Destroy()
     {
-
+        MapManager.Instance.RemoveBuilding(this, true);
+        Destroy(gameObject);
     }
 
     public void ReadyDestroy()

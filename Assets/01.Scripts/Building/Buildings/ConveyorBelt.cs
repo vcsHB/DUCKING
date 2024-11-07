@@ -43,8 +43,8 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
         if (!buildingExsist || !connectedBuilding.TryGetComponent(out IResourceInput input)) return;
 
         DirectionEnum opposite = Direction.GetOpposite(_direction);
-        bool canInsert = input.TryInsertResource(_container, opposite, out _container);
-        if (canInsert) _process = 0;
+        input.TryInsertResource(_container, opposite, out _container);
+        if (_container.type == ResourceType.None) _process = 0;
     }
 
     public bool TryInsertResource(Resource resource, DirectionEnum direction, out Resource remain)
