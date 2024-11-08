@@ -1,1 +1,1 @@
-public enum BuildingEnum { Test_Wall, Test_ConveyorBelt, Test_BigConveyorBelt, Storage, None }
+public enum BuildingEnum { Test_Wall, Test_ConveyorBelt, Test_BigConveyorBelt, Storage, Drill, Big_Drill, None }

@@ -12,6 +12,7 @@ namespace BuildingManage
     public class MapManager : MonoSingleton<MapManager>
     {
         [SerializeField] private Tilemap _floorTileMap;
+        [SerializeField] private Tilemap _resourceTileMap;
         [SerializeField] private BuildingSetSO _buildingSet;
         private List<Building> BuildingList = new List<Building>();
 
@@ -33,6 +34,7 @@ namespace BuildingManage
         #endregion
 
         public Tilemap FloorTile => _floorTileMap;
+        public Tilemap ResourceTile => _resourceTileMap;
 
         private void Awake()
         {
@@ -49,10 +51,8 @@ namespace BuildingManage
         {
             bool isOverlap = false;
 
-            Debug.Log(BuildingList.Count);
             BuildingList.ForEach(fabric =>
             {
-                Debug.Log(fabric.Position.min + " " + fabric.Position.max);
                 if (fabric.Position.IsOverlap(size))
                 {
                     isOverlap = true;
@@ -190,7 +190,7 @@ namespace BuildingManage
         {
             BuildingList.Remove(building);
 
-            if(save)
+            if (save)
             {
                 BuildingSave buildingSave = new BuildingSave();
                 buildingSave.name = building.BuildingType.ToString();

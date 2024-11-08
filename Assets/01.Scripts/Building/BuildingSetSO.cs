@@ -88,7 +88,6 @@ namespace BuildingManage
 
         public BuildingSO FindBuilding(BuildingEnum buildingEnum)
         {
-            Debug.Log(buildingEnum);
             BuildingSO building
                 = buildings.Find(b => b.buildingType == buildingEnum);
             return building;

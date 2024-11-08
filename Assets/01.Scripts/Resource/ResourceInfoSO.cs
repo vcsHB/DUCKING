@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace ResourceSystem
 {
@@ -7,6 +8,7 @@ namespace ResourceSystem
     {
         public string resourceName;
         public string description;
-        
+
+        public TileBase resourceTile;
     }
 }

@@ -18,7 +18,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _health = _buildingInfo.health;
         _visualTrm = transform.GetChild(0);
@@ -27,9 +27,17 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
     public bool CheckPosition(Vector2Int pos) => Position.IsOverlap(pos);
     public bool CheckPosition(BuildingSize pos) => Position.IsOverlap(pos);
 
-    public void SetPosition(Vector2Int position)
+    protected virtual void SetPosition(Vector2Int position)
     {
         Position = new BuildingSize(position, _buildingInfo.tileSize);
+    }
+
+    protected void SetRotation(DirectionEnum direction)
+    {
+        Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
+
+        _visualTrm.rotation = rotation;
+        _direction = direction;
     }
 
     public virtual void ApplyDamage(int amount)
@@ -56,22 +64,15 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 
     public void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
-        SetPosition(position);
+        //SetPosition(position);
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
 
         Building fabricInstnace = Instantiate(this, worldPos, Quaternion.identity);
-        fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
+        fabricInstnace.SetPosition(position);
+        //fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
         fabricInstnace.SetRotation(direction);
 
         MapManager.Instance.AddBuilding(fabricInstnace, save);
-    }
-
-    private void SetRotation(DirectionEnum direction)
-    {
-        Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
-
-        _visualTrm.rotation = rotation;
-        _direction = direction;
     }
 }
 

@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8808720435344220265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Drill
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Drill
+  buildingType: 4
+  buildingName: 
+  description: 
+  building: {fileID: 8490163959085265431, guid: db43a39273d746f4aa47406ded65468f, type: 3}
+  tileSize: 1
+  health: 0
+  needResource: []
 --- !u!114 &-7323687136420742779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +59,28 @@ MonoBehaviour:
   - {fileID: 7920265653214434940}
   - {fileID: 3536858969314915703}
   - {fileID: 1704622854546048054}
+  - {fileID: -8808720435344220265}
+  - {fileID: 425899237081745883}
+--- !u!114 &425899237081745883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Big_Drill
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Big_Drill
+  buildingType: 5
+  buildingName: 
+  description: 
+  building: {fileID: 0}
+  tileSize: 0
+  health: 0
+  needResource: []
 --- !u!114 &1704622854546048054
 MonoBehaviour:
   m_ObjectHideFlags: 0
