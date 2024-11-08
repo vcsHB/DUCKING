@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ConveyorBeltShader
-  m_Shader: {fileID: -6465566751694194690, guid: a08b735a722c6c84eb91c8c524b7ec1e, type: 3}
+  m_Name: ConveyorBeltMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 899d8b3ca78ede54aa7560873baba580, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -45,7 +45,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _RotateDegree: 0
+    - _IsReverse: 0
+    - _IsVertical: 1
+    - _RotateDegree: 90
     - _Speed: 1.35
     m_Colors:
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
