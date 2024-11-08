@@ -14,6 +14,7 @@ public class Drill : Building, IMineable
     private List<ResourceType> _resources;
     private List<Vector2Int> _nextPositions;
     private Dictionary<ResourceType, Resource> _container;
+    private Dictionary<ResourceType, int> _maximum;
     private float _curMiningTime = 0f;
     private Tilemap _resourceTilemap;
 
@@ -32,9 +33,12 @@ public class Drill : Building, IMineable
             _curMiningTime = 0f;
             _resources.ForEach(r =>
             {
-                int amount = _miningCnt;
-                Resource resource = new Resource(r, amount);
-                _container[r] = resource;
+                if (_container[r].amount < _maximum[r])
+                {
+                    int amount = _container[r].amount + _miningCnt;
+                    Resource resource = new Resource(r, amount);
+                    _container[r] = resource;
+                }
             });
         }
     }
@@ -60,9 +64,9 @@ public class Drill : Building, IMineable
                 DirectionEnum opposite = Direction.GetOpposite(Direction.GetDirection(Position.min, Position.max, np));
                 input.TryInsertResource(resource, opposite, out resource);
 
-                Resource remain = 
+                Resource remain =
                     new Resource(resourceType, _container[resourceType].amount - 1);
-                if(resource.type != ResourceType.None) remain.amount++;
+                if (resource.type != ResourceType.None) remain.amount++;
 
                 _container[resourceType] = remain;
             }
@@ -75,6 +79,7 @@ public class Drill : Building, IMineable
 
         _resourceTilemap = MapManager.Instance.ResourceTile;
         _container = new Dictionary<ResourceType, Resource>();
+        _maximum = new Dictionary<ResourceType, int>();
         _nextPositions = new List<Vector2Int>();
         _resources = new List<ResourceType>();
         _curMiningTime = 0;
@@ -87,7 +92,12 @@ public class Drill : Building, IMineable
                 if (resourceTile == null) continue;
 
                 ResourceType resourceType = _resourceGroup.GetResourceType(resourceTile);
-                if (!_container.ContainsKey(resourceType)) _container.Add(resourceType, new Resource(resourceType, 0));
+                if (!_container.ContainsKey(resourceType))
+                {
+                    _container.Add(resourceType, new Resource(resourceType, 0));
+                    _maximum.Add(resourceType, 0);
+                }
+                _maximum[resourceType] += _miningCnt;
                 _resources.Add(resourceType);
             }
         }

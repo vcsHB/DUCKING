@@ -14,6 +14,7 @@ namespace BuildingManage
         [SerializeField] private Tilemap _floorTileMap;
         [SerializeField] private Tilemap _resourceTileMap;
         [SerializeField] private BuildingSetSO _buildingSet;
+
         private List<Building> BuildingList = new List<Building>();
 
         #region ComponentRegion
