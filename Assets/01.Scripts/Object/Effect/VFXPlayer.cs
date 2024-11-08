@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using ObjectPooling;
 using UnityEngine;
 
@@ -15,7 +13,7 @@ public class VFXPlayer : MonoBehaviour, IPoolable
         _particleSystem = GetComponent<ParticleSystem>();
     }
 
-    public void PlayVFX()
+    public virtual void PlayVFX()
     {
         _particleSystem.Play();
         StartCoroutine(PlayCoroutine());

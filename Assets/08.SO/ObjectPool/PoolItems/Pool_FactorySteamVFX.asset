@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0f71b1304eddbd47b73833d86722ee3, type: 3}
-  m_Name: table
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_FactorySteamVFX
   m_EditorClassIdentifier: 
-  datas:
-  - {fileID: 11400000, guid: be01a378bc0412448a12e479b3b49bd4, type: 2}
-  - {fileID: 11400000, guid: 7f5cc11d97c052742a1755a0be5f191e, type: 2}
+  enumName: FactorySteamVFX
+  poolingName: 
+  description: "\uACF5\uC7A5"
+  poolCount: 10
+  prefabObject: {fileID: 5440229166901458357, guid: 69b60c9d9a9975a4aaae25bc12a63173, type: 3}
