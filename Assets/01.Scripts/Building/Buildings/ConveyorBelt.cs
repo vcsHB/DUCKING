@@ -66,6 +66,7 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 
         _beltResource.gameObject.SetActive(true);
 
+        //시작 부분, 끝 부분
         Vector2 from = Position.center + (Vector2)Direction.GetTileDirection(direction) / 2;
         Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(_direction) / 2;
         _beltResource.Init(Position.center, from, to, resource);

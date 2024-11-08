@@ -1476,12 +1476,12 @@ GameObject:
   - component: {fileID: 7396716320580446647}
   - component: {fileID: 2023397687807336431}
   m_Layer: 0
-  m_Name: Drill_TEST
+  m_Name: BigDrill_TEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4287307281265193732
 GameObject:
   m_ObjectHideFlags: 0
