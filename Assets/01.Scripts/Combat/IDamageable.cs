@@ -1,4 +1,4 @@
-﻿namespace AgentManage
+﻿namespace Combat
 {
     public interface IDamageable
     {

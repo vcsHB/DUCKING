@@ -1317,6 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _floorTileMap: {fileID: 71179052}
+  _resourceTileMap: {fileID: 0}
   _buildingSet: {fileID: 11400000, guid: ba97c714619fd7947854967923f53a62, type: 2}
 --- !u!4 &548744010
 Transform:
