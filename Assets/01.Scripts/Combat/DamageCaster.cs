@@ -7,6 +7,7 @@ namespace Combat
     
     public class DamageCaster : MonoBehaviour
     {
+        public event Action OnCastEvent;
         [SerializeField] protected LayerMask _targetLayer;
         [SerializeField] protected float _detectRange;
         [SerializeField] protected int _damage;
@@ -32,6 +33,7 @@ namespace Combat
                     hit.ApplyDamage(_damage);
                     CastAllCasters(_hits[i]);
                 }
+                OnCastEvent?.Invoke();
             }
         }
 

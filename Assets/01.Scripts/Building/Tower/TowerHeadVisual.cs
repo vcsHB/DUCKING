@@ -32,11 +32,7 @@ namespace BuildingManage.Tower
             }
         }
 
-        private void FixedUpdate()
-        {
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            UpdateHeadDirection(direction.normalized);
-        }
+        
 
         internal void Initialize( float aimSpeed)
         {
