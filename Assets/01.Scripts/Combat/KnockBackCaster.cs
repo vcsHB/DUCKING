@@ -11,8 +11,11 @@ namespace Combat
         {
             Transform targetTrm = target.transform;
             Vector2 knockbackDirection = targetTrm.position - transform.position;
-            
 
+            if (target.TryGetComponent(out IKnockbackable hit))
+            {
+                hit.ApplyKnockback(knockbackDirection, _knockbackPower, _knockbackDuration);
+            }
         }
     }
 }
