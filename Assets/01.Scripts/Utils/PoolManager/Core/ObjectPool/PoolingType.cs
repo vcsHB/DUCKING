@@ -2,6 +2,6 @@ namespace ObjectPooling
 {
     public enum PoolingType
     {
-        DropItem,FactorySteamVFX,
+        DropItem,FactorySteamVFX,NormalGunFireImpact,
     }
 }

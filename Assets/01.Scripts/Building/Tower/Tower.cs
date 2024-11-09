@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+namespace BuildingManage.Tower
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public class Tower : MonoBehaviour
     {
-        
+
+        [Header("Essential Setting")]
+        [SerializeField] protected TowerHeadVisual _headVisual;
+ 
+        [Header("Tower Setting")]
+        [SerializeField] protected float _aimingSpeed;
+
+
+        protected virtual void Awake()
+        {
+            _headVisual.Initialize(_aimingSpeed);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
