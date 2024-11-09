@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -16,6 +17,7 @@ namespace BuildingManage
         [SerializeField] private BuildingSetSO _buildingSet;
 
         private List<Building> BuildingList = new List<Building>();
+        private Dictionary<Vector2Int, Building> _buildings = new();
 
         #region ComponentRegion
 
@@ -52,14 +54,22 @@ namespace BuildingManage
         {
             bool isOverlap = false;
 
-            BuildingList.ForEach(fabric =>
+            for (int i = size.min.x; i <= size.max.x; i++)
             {
-                if (fabric.Position.IsOverlap(size))
+                for (int j = size.min.y; j <= size.max.y; j++)
                 {
-                    isOverlap = true;
-                    return;
+                    if (_buildings.ContainsKey(new Vector2Int(i, j))) isOverlap = true;
                 }
-            });
+            }
+
+            //BuildingList.ForEach(fabric =>
+            //{
+            //    if (fabric.Position.IsOverlap(size))
+            //    {
+            //        isOverlap = true;
+            //        return;
+            //    }
+            //});
 
             return isOverlap;
         }
@@ -96,17 +106,27 @@ namespace BuildingManage
         public bool TryGetBuilding(Vector2 pos, out Building building)
         {
             Vector2Int tilePos = GetTilePos(pos);
-            building = null;
 
-            for (int i = 0; i < BuildingList.Count; i++)
+            if (!_buildings.ContainsKey(tilePos))
             {
-                if (BuildingList[i].CheckPosition(tilePos))
-                {
-                    building = BuildingList[i];
-                }
+                building = null;
+                return false;
             }
 
-            return (building != null);
+            building = _buildings[tilePos];
+            return true;
+
+            //building = null;
+
+            //for (int i = 0; i < BuildingList.Count; i++)
+            //{
+            //    if (BuildingList[i].CheckPosition(tilePos))
+            //    {
+            //        building = BuildingList[i];
+            //    }
+            //}
+
+            //return (building != null);
         }
 
         /// <summary>
@@ -117,17 +137,25 @@ namespace BuildingManage
         /// <returns>Is Building Exsist</returns>
         public bool TryGetBuilding(Vector2Int pos, out Building building)
         {
-            building = null;
-
-            for (int i = 0; i < BuildingList.Count; i++)
+            if (!_buildings.ContainsKey(pos))
             {
-                if (BuildingList[i].CheckPosition(pos))
-                {
-                    building = BuildingList[i];
-                }
+                building = null;
+                return false;
             }
 
-            return (building != null);
+            building = _buildings[pos];
+            return true;
+            //building = null;
+
+            //for (int i = 0; i < BuildingList.Count; i++)
+            //{
+            //    if (BuildingList[i].CheckPosition(pos))
+            //    {
+            //        building = BuildingList[i];
+            //    }
+            //}
+
+            //return (building != null);
         }
 
         #endregion
@@ -176,6 +204,15 @@ namespace BuildingManage
         {
             BuildingList.Add(building);
 
+            for (int i = building.Position.min.x; i <= building.Position.max.x; i++)
+            {
+                for (int j = building.Position.min.y; j <= building.Position.max.y; j++)
+                {
+                    Vector2Int p = new Vector2Int(i, j);
+                    if (_buildings.ContainsKey(p) == false) _buildings.Add(p, building);
+                }
+            }
+
             if (save)
             {
                 BuildingSave buildingSave = new BuildingSave();
@@ -190,6 +227,14 @@ namespace BuildingManage
         public void RemoveBuilding(Building building, bool save)
         {
             BuildingList.Remove(building);
+
+            for (int i = building.Position.min.x; i <= building.Position.max.x; i++)
+            {
+                for (int j = building.Position.min.y; j <= building.Position.max.y; j++)
+                {
+                    _buildings.Remove(new Vector2Int(i, j));
+                }
+            }
 
             if (save)
             {
