@@ -9,6 +9,8 @@ namespace BuildingManage
 {
     public class BuildController : MonoBehaviour
     {
+        public event Action OnBuildAndRemove;
+
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
@@ -46,10 +48,7 @@ namespace BuildingManage
                 }
                 if (Input.GetMouseButton(1))
                 {
-                    bool buildingExist =
-                        MapManager.Instance.TryGetBuilding(position, out Building building);
-
-                    if (buildingExist) building.Destroy();
+                    DestroyBuilding(position);
                 }
                 if (Input.GetKeyDown(KeyCode.R))
                 {
@@ -76,8 +75,21 @@ namespace BuildingManage
             if (isOverlap) return false;
 
             info.building.Build(position, _curDirection, save);
+            OnBuildAndRemove?.Invoke();
 
             return true;
+        }
+
+        public void DestroyBuilding(Vector2Int position)
+        {
+            bool buildingExist =
+                        MapManager.Instance.TryGetBuilding(position, out Building building);
+
+            if (buildingExist)
+            {
+                OnBuildAndRemove?.Invoke();
+                building.Destroy();
+            }
         }
 
         private void SetPreview(bool isEnable)

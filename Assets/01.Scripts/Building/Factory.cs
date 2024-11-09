@@ -1,0 +1,92 @@
+using BuildingManage;
+using ResourceSystem;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public abstract class Factory : Building, IResourceOutput
+{
+    protected List<Vector2Int> _connectedPositions = new List<Vector2Int>();
+    protected List<(IResourceInput, DirectionEnum)> _connectedInputs = new();
+    protected List<Resource> _container = new List<Resource>();
+
+    protected virtual void OnEnable()
+    {
+        MapManager.Instance.BuildController.OnBuildAndRemove += UpdateConnectedInput;
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (MapManager.Instance != null) MapManager.Instance.BuildController.OnBuildAndRemove -= UpdateConnectedInput;
+    }
+
+
+    public virtual void TransferResource()
+    {
+        if (_container.Count <= 0) return;
+
+        Debug.Log(_connectedInputs.Count);
+        for (int i = 0; i < _container.Count; i++)
+        {
+            for (int j = 0; j < _connectedInputs.Count; j++)
+            {
+                var input = _connectedInputs[i];
+
+                ResourceType type = _container[i].type;
+                Resource resource = new Resource(type, 1);
+                Resource containerResource = new Resource(type, _container[i].amount - 1);
+
+                bool insertable = input.Item1.TryInsertResource
+                    (resource, Direction.GetOpposite(input.Item2), out resource);
+
+                if (insertable)
+                {
+                    if (containerResource.amount > 1) _container[i] = containerResource;
+                    else
+                    {
+                        _container.RemoveAt(i--);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    protected virtual void UpdateConnectedInput()
+    {
+        Debug.Log("¾ßÈ£!");
+        _connectedInputs.Clear();
+
+        for (int i = 0; i < _connectedPositions.Count; i++)
+        {
+            bool buildingExsist =
+                MapManager.Instance.TryGetBuilding(_connectedPositions[i], out Building building);
+
+            Debug.Log($"{buildingExsist} {building?.TryGetComponent(out IResourceInput ss)}");
+            if (!buildingExsist || !building.TryGetComponent(out IResourceInput input)) continue;
+
+            Debug.Log(building.name);
+            DirectionEnum direction = Direction.GetDirection(Position.min, Position.max, _connectedPositions[i]);
+            _connectedInputs.Add((input, direction));
+        }
+    }
+
+    protected override void SetPosition(Vector2Int position)
+    {
+        base.SetPosition(position);
+
+        for (int i = Position.min.x; i <= Position.max.x; i++)
+        {
+            _connectedPositions.Add(new Vector2Int(i, Position.min.y - 1));
+            _connectedPositions.Add(new Vector2Int(i, Position.max.y + 1));
+        }
+        for (int i = Position.min.y; i <= Position.max.y; i++)
+        {
+            _connectedPositions.Add(new Vector2Int(Position.min.x - 1, i));
+            _connectedPositions.Add(new Vector2Int(Position.max.x + 1, i));
+        }
+
+        UpdateConnectedInput();
+    }
+}
