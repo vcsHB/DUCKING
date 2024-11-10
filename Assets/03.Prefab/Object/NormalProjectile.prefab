@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 128
   _detectRange: 0.3
   _damage: 2
   _maxTargetAmount: 1

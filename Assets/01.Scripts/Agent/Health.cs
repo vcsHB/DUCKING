@@ -21,6 +21,17 @@ namespace AgentManage
         {
             MaxHealth = max;
         }
+
+        internal void ResetHealth()
+        {
+            _currentHealth = MaxHealth;
+        }
+
+        internal void FillHealth(float percent)
+        {
+            _currentHealth += (int)(MaxHealth * percent);
+            OnHealthInCreaseEvent?.Invoke();
+        }
         
         
         public virtual void ApplyDamage(int amount)
