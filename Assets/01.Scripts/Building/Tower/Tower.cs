@@ -1,22 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Combat;
 using ObjectPooling;
 using UnityEngine;
 
 namespace BuildingManage.Tower
 {
-    
-    public class Tower : MonoBehaviour
+
+    public class Tower : Building
     {
 
         [Header("Essential Setting")]
         [SerializeField] protected TowerHeadVisual _headVisual;
+        [SerializeField] protected TowerTargetDetector _targetDetector;
 
         [SerializeField] private Transform[] _gunTips;
+        [SerializeField] private Vector2 _towerCenterOffset;
 
-        [Header("Tower Setting")] 
+        [Header("Tower Setting")]
         [SerializeField] private float _fireCooltime;
         [SerializeField] protected float _aimingSpeed;
 
@@ -24,43 +23,49 @@ namespace BuildingManage.Tower
         [SerializeField] private PoolingType _fireVFX;
         private int _currentGunTipIndex;
         private float _currentCoolTime;
+        private Vector2 _targetPos;
 
         private bool CanShoot => (_currentCoolTime > _fireCooltime);
 
-        protected virtual void Awake()
+
+        protected override void Awake()
         {
+            base.Awake();
             _headVisual.Initialize(_aimingSpeed);
         }
 
         private void Update()
         {
             _currentCoolTime += Time.deltaTime;
-            
+
         }
 
         private void FixedUpdate()
         {
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            _headVisual.UpdateHeadDirection(direction.normalized);
-            if (Input.GetMouseButton(0) && CanShoot)
+            bool isCheck = _targetDetector.CheckTarget(out _targetPos);
+            if (isCheck)
             {
-                Attack();
-                _currentCoolTime = 0;
+                Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
+                _headVisual.UpdateHeadDirection(direction.normalized);
+                if (CanShoot)
+                {
+                    _currentCoolTime = 0;
+                    Attack();
+                }
             }
         }
 
         protected virtual void Attack()
         {
             Transform currentGunTip = _gunTips[_currentGunTipIndex];
-            //Vector2 direction = currentGunTip.position - transform.position;
             Vector2 direction = currentGunTip.up;
 
             Projectile bullet = PoolManager.Instance.Pop(_projectile, currentGunTip.position, Quaternion.identity) as Projectile;
             VFXPlayer vfx = PoolManager.Instance.Pop(_fireVFX, currentGunTip.position, Quaternion.identity) as VFXPlayer;
             bullet.Fire(direction);
             vfx.PlayVFX();
-            
-            _currentGunTipIndex= (_currentGunTipIndex +  1) % _gunTips.Length;
+
+            _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
         }
     }
 

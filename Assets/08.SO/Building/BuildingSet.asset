@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 1704622854546048054}
   - {fileID: -8808720435344220265}
   - {fileID: 425899237081745883}
+  - {fileID: 2464152610899777844}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +104,28 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 30
+--- !u!114 &2464152610899777844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Test_Tower
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Test_Tower
+  buildingType: 6
+  buildingName: "\uAE30\uCD08 \uD3EC\uD0D1"
+  description: 
+  building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
+  tileSize: 1
+  health: 0
+  needResource:
+  - type: 0
+    amount: 35
 --- !u!114 &3536858969314915703
 MonoBehaviour:
   m_ObjectHideFlags: 0
