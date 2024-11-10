@@ -32,6 +32,7 @@ namespace AgentManage.Enemys
         public void SetMove()
         {
             _path = PathFinder.GetPath;
+            _currentPathIndex = 0;
         }
 
         private void Update()

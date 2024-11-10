@@ -4,9 +4,19 @@ namespace AgentManage.Enemys
 {
     public class EnemyMovement : MonoBehaviour, IAgentComponent
     {
+        private Rigidbody2D _rigidCompo;
+        private Enemy _enemy;
+
+
+        private void Awake()
+        {
+            _rigidCompo = GetComponent<Rigidbody2D>();
+        }
+
         public void Initialize(Agent agent)
         {
-            throw new System.NotImplementedException();
+            _enemy = agent as Enemy;
+
         }
 
         public void AfterInit()

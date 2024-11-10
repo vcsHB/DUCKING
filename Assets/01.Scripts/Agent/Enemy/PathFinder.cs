@@ -30,7 +30,7 @@ public class PathFinder
     }
 
 
-    private static void FindPath(Vector2 start, Vector2 target)
+    public static void FindPath(Vector2 start, Vector2 target)
     {
         // A* 알고리즘 초기화
         path.Clear();
