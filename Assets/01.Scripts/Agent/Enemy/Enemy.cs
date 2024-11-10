@@ -14,10 +14,9 @@ namespace AgentManage.Enemys
 
         public void ResetItem()
         {
-            throw new System.NotImplementedException();
         }
 
-        
+
     }
 
 }

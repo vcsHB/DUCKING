@@ -754,8 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bc0e7ce23b39439764ec9c05cc900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 0}
-  _currentWave: {fileID: 0}
+  _stage: {fileID: 11400000, guid: 617591df3473dc145b9576b958c879ba, type: 2}
+  _currentWave: {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
   _targetPosition: {fileID: 979566094}
 --- !u!4 &167936495
 Transform:
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floorTileMap: {fileID: 71179052}
   _resourceTileMap: {fileID: 0}
-  _wallTileMap: {fileID: 0}
+  _wallTileMap: {fileID: 1702704100}
   _buildingSet: {fileID: 11400000, guid: ba97c714619fd7947854967923f53a62, type: 2}
 --- !u!4 &548744010
 Transform:

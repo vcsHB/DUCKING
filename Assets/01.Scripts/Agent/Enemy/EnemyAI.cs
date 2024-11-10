@@ -13,30 +13,33 @@ namespace AgentManage.Enemys
         private List<Vector2> _path;
         private int _currentPathIndex = 0;
         private float _moveSpeed;
+        private bool _canMove = false;
 
         public void AfterInit()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Initialize(Agent agent)
         {
             _enemy = agent as Enemy;
+            _moveSpeed = _enemy.Stat.moveSpeed.GetValue();
         }
 
         public void SetMove()
         {
             _path = PathFinder.GetPath;
             _currentPathIndex = 0;
+            _canMove = true;
         }
 
         private void Update()
         {
+            if(!_canMove) return;
+
             if (_path.Count > 0 && _currentPathIndex < _path.Count)
             {
                 MoveAlongPath();

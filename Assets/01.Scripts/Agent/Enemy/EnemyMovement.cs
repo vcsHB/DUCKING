@@ -21,12 +21,10 @@ namespace AgentManage.Enemys
 
         public void AfterInit()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

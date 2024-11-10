@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using AgentManage.Enemys;
 using ObjectPooling;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace WaveSystem
@@ -20,6 +17,7 @@ namespace WaveSystem
             PathFinder.FindPath(transform.position, _targetPosition.position);
         }
 
+        [ContextMenu("DebugGenerateEnemy")]
         private void GenerateEnemeys()
         {
 

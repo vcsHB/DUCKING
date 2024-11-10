@@ -1,9 +1,7 @@
 using ObjectPooling;
-using UnityEngine;
-
 namespace WaveSystem
 {
-
+    [System.Serializable]
     public struct WaveInfo
     {
         public PoolingType enemyType;
