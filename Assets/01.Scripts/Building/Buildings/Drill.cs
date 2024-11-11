@@ -34,43 +34,11 @@ public class Drill : Factory, IMineable
             _curMiningTime = 0f;
             _container = new List<Resource>();
 
-            _resources.ForEach(r =>
-            {
-                _container.Add(new Resource(r, _miningCnt));
-            });
+            _resources.ForEach(r => _container.Add(new Resource(r, _miningCnt)));
         }
     }
 
-    //public void TransferResource()
-    //{
-    //    for (int i = 0; i < _nextPositions.Count; i++)
-    //    {
-    //        Vector2Int np = _nextPositions[i];
-
-    //        bool buildingExsist =
-    //            MapManager.Instance.TryGetBuilding(np, out Building connectedBuilding);
-
-    //        if (!buildingExsist || !connectedBuilding.TryGetComponent(out IResourceInput input)) continue;
-
-    //        foreach (var resourceType in _resources)
-    //        {
-    //            if (_container[resourceType].amount <= 0) continue;
-
-    //            Resource resource = _container[resourceType];
-    //            resource.amount = 1;
-
-    //            DirectionEnum opposite = Direction.GetOpposite(Direction.GetDirection(Position.min, Position.max, np));
-    //            input.TryInsertResource(resource, opposite, out resource);
-
-    //            Resource remain =
-    //                new Resource(resourceType, _container[resourceType].amount - 1);
-    //            if (resource.type != ResourceType.None) remain.amount++;
-
-    //            _container[resourceType] = remain;
-    //        }
-    //    }
-    //}
-
+    // 건물을 짓는 순간에 드릴이 채굴할 수 있는 자원은 정해져 있기 때문에 여기서 지정해주
     protected override void SetPosition(Vector2Int position)
     {
         base.SetPosition(position);

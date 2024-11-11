@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074296230287151285}
   - component: {fileID: 4164741187280942721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Test_ConveyorBelt_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,3 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingInfo: {fileID: 3536858969314915703, guid: ba97c714619fd7947854967923f53a62, type: 2}
+  _beltResource: {fileID: 0}
+  _container:
+    type: 0
+    amount: 0
+  _speed: 2
