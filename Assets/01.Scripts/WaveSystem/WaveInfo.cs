@@ -6,5 +6,6 @@ namespace WaveSystem
     {
         public PoolingType enemyType;
         public int amount;
+        public float generateTerm;
     }
 }

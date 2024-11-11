@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AgentManage.PlayerManage;
 using ItemSystem;
 using ResourceSystem;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UI.InGame.Build
         [SerializeField] private BuildMaterialSlot _slotPrefab;
         private List<BuildMaterialSlot> _slotList = new List<BuildMaterialSlot>();
         [SerializeField] private Transform _contentTrm;
+        [SerializeField] private PlayerItemCollector _playerItemCollector;
 
         private void Awake()
         {
@@ -43,7 +45,7 @@ namespace UI.InGame.Build
             for (int i = 0; i < infos.Length; i++)
             {
                 ItemInfoSO info = _itemInfoGroup.GetItemData((int)infos[i].type); // 자원 enum과 Item id를 동기화 시켜야함.
-                _slotList[i].SetMaterial(info, infos[i].amount, 5);
+                _slotList[i].SetMaterial(info, infos[i].amount, _playerItemCollector.GetItemAmount(info.id));
             }
             
         }

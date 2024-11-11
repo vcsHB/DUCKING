@@ -51,6 +51,8 @@ namespace Combat
 
         private void Destroy()
         {
+            VFXPlayer vfxPlayer = PoolManager.Instance.Pop(_projectileDestroyVFX, transform.position, Quaternion.identity) as VFXPlayer;
+            vfxPlayer.PlayVFX();
             PoolManager.Instance.Push(this);
         }
 

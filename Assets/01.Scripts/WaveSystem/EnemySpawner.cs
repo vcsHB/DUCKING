@@ -1,3 +1,4 @@
+using System.Collections;
 using AgentManage.Enemys;
 using ObjectPooling;
 using UnityEngine;
@@ -21,14 +22,21 @@ namespace WaveSystem
         private void GenerateEnemeys()
         {
 
+            StartCoroutine(GenerateEnemyCoroutine());
+        }
+
+        private IEnumerator GenerateEnemyCoroutine()
+        {
             for (int i = 0; i < _currentWave.waveInfos.Length; i++)
             {
                 WaveInfo wave = _currentWave.waveInfos[i];
                 PoolingType poolingType = wave.enemyType;
+                WaitForSeconds ws = new WaitForSeconds(wave.generateTerm);
                 for (int j = 0; j < wave.amount; j++)
                 {
                     Enemy enemy = PoolManager.Instance.Pop(poolingType, transform.position, Quaternion.identity) as Enemy;
                     enemy.GetCompo<EnemyAI>().SetMove();
+                    yield return ws;
                 }
             }
         }
