@@ -26,7 +26,6 @@ public abstract class Factory : Building, IResourceOutput
     {
         if (_container.Count <= 0) return;
 
-        Debug.Log(_connectedInputs.Count);
         for (int i = 0; i < _container.Count; i++)
         {
             for (int j = 0; j < _connectedInputs.Count; j++)
@@ -55,7 +54,6 @@ public abstract class Factory : Building, IResourceOutput
 
     protected virtual void UpdateConnectedInput()
     {
-        Debug.Log("¾ßÈ£!");
         _connectedInputs.Clear();
 
         for (int i = 0; i < _connectedPositions.Count; i++)
@@ -63,10 +61,8 @@ public abstract class Factory : Building, IResourceOutput
             bool buildingExsist =
                 MapManager.Instance.TryGetBuilding(_connectedPositions[i], out Building building);
 
-            Debug.Log($"{buildingExsist} {building?.TryGetComponent(out IResourceInput ss)}");
             if (!buildingExsist || !building.TryGetComponent(out IResourceInput input)) continue;
 
-            Debug.Log(building.name);
             DirectionEnum direction = Direction.GetDirection(Position.min, Position.max, _connectedPositions[i]);
             _connectedInputs.Add((input, direction));
         }

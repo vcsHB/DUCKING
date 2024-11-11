@@ -441,6 +441,9 @@ MonoBehaviour:
   _floorTileMap: {fileID: 747252969}
   _resourceTileMap: {fileID: 1776791372}
   _buildingSet: {fileID: 11400000, guid: ba97c714619fd7947854967923f53a62, type: 2}
+  _whatIsBuilding:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &563723601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,7 +1484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4287307281265193732
 GameObject:
   m_ObjectHideFlags: 0

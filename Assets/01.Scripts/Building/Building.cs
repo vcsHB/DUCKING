@@ -81,6 +81,7 @@ public class BuildingSize
 {
     public Vector2 center;
     public Vector2Int min, max;
+    public float size;
 
     /// <summary>
     /// Vector2Int Position is overlap
@@ -136,12 +137,14 @@ public class BuildingSize
         return false;
     }
 
-    public BuildingSize(Vector2Int position, float size)
+    public BuildingSize(Vector2Int position, int size)
     {
-        int halfSize = (int)size - 1;
+        int halfSize = size - 1;
         min = position;
         max = position + new Vector2Int(halfSize, halfSize);
 
+
+        this.size = (float)size;
         Vector2 wMax = MapManager.Instance.GetWorldPos(max + Vector2Int.one);
         Vector2 wMin = MapManager.Instance.GetWorldPos(min);
         center = wMin + (wMax - wMin) / 2;
