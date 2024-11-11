@@ -18,7 +18,7 @@ public abstract class Factory : Building, IResourceOutput
 
     protected virtual void OnDisable()
     {
-        if (MapManager.Instance != null) MapManager.Instance.BuildController.OnBuildAndRemove -= UpdateConnectedInput;
+        MapManager.Instance.BuildController.OnBuildAndRemove -= UpdateConnectedInput;
     }
 
 

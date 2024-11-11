@@ -5,13 +5,13 @@ using UnityEngine;
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance = null;
-    private static bool IsDestroyed = false;
+    private static bool isDestroyed = false;
 
     public static T Instance
     {
         get
         {
-            if(IsDestroyed)
+            if(isDestroyed)
             {
                 _instance = null;
             }
@@ -24,15 +24,16 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
                 }
                 else
                 {
-                    IsDestroyed = false;
+                    isDestroyed = false;
                 }
             }
             return _instance;
         }
     }
+    public static bool IsDestroyed => isDestroyed;
 
     private void OnDestroy()
     {
-        IsDestroyed = true;
+        isDestroyed = true;
     }
 }
