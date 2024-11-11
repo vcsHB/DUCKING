@@ -17,8 +17,10 @@ namespace BuildingManage
         [SerializeField] private Tilemap _wallTileMap;
         [SerializeField] private BuildingSetSO _buildingSet;
 
-        private List<Building> BuildingList = new List<Building>();
-        private Dictionary<Vector2Int, Building> _buildings = new();
+        private RaycastHit2D[] _hit;
+        [SerializeField] private LayerMask _whatIsBuilding;
+
+        private List<Building> _buildingList = new List<Building>();
 
         #region ComponentRegion
 
@@ -47,24 +49,30 @@ namespace BuildingManage
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
             _buildController = GetComponent<BuildController>();
+            _hit = new RaycastHit2D[1];
 
             _buildController.Init(_buildingSet);
             Load();
         }
 
+        BuildingSize s;
         public bool CheckBuildingOverlap(BuildingSize size)
         {
-            bool isOverlap = false;
+            int cnt = Physics2D.BoxCastNonAlloc(size.center, Vector2.one * (size.size - 0.1f), 0, Vector2.zero, _hit, 1, _whatIsBuilding);
+            s = size;
 
-            for (int i = size.min.x; i <= size.max.x; i++)
-            {
-                for (int j = size.min.y; j <= size.max.y; j++)
-                {
-                    if (_buildings.ContainsKey(new Vector2Int(i, j))) isOverlap = true;
-                }
-            }
+            return cnt > 0;
+            //bool isOverlap = false;
 
-            //BuildingList.ForEach(fabric =>
+            //for (int i = size.min.x; i <= size.max.x; i++)
+            //{
+            //    for (int j = size.min.y; j <= size.max.y; j++)
+            //    {
+            //        if (_buildings.ContainsKey(new Vector2Int(i, j))) isOverlap = true;
+            //    }
+            //}
+
+            //_buildingList.ForEach(fabric =>
             //{
             //    if (fabric.Position.IsOverlap(size))
             //    {
@@ -73,7 +81,7 @@ namespace BuildingManage
             //    }
             //});
 
-            return isOverlap;
+            //return isOverlap;
         }
 
         #region PositionConvert
@@ -109,22 +117,36 @@ namespace BuildingManage
         {
             Vector2Int tilePos = GetTilePos(pos);
 
-            if (!_buildings.ContainsKey(tilePos))
+            for(int i = 0; i < _buildingList.Count; i++)
             {
-                building = null;
-                return false;
+                if (_buildingList[i].CheckPosition(tilePos))
+                {
+                    building = _buildingList[i]; 
+                    return true;
+                }
             }
 
-            building = _buildings[tilePos];
-            return true;
+            building = null;
+            return false;
+
+            //_buildingList.ForEach(building => building.CheckPosition(tilePos));
+
+            //if (!_buildings.ContainsKey(tilePos))
+            //{
+            //    building = null;
+            //    return false;
+            //}
+
+            //building = _buildings[tilePos];
+            //return true;
 
             //building = null;
 
-            //for (int i = 0; i < BuildingList.Count; i++)
+            //for (int i = 0; i < _buildingList.Count; i++)
             //{
-            //    if (BuildingList[i].CheckPosition(tilePos))
+            //    if (_buildingList[i].CheckPosition(tilePos))
             //    {
-            //        building = BuildingList[i];
+            //        building = _buildingList[i];
             //    }
             //}
 
@@ -139,21 +161,33 @@ namespace BuildingManage
         /// <returns>Is Building Exsist</returns>
         public bool TryGetBuilding(Vector2Int pos, out Building building)
         {
-            if (!_buildings.ContainsKey(pos))
+            for (int i = 0; i < _buildingList.Count; i++)
             {
-                building = null;
-                return false;
+                if (_buildingList[i].CheckPosition(pos))
+                {
+                    building = _buildingList[i];
+                    return true;
+                }
             }
 
-            building = _buildings[pos];
-            return true;
+            building = null;
+            return false;
+
+            //if (!_buildings.ContainsKey(pos))
+            //{
+            //    building = null;
+            //    return false;
+            //}
+
+            //building = _buildings[pos];
+            //return true;
             //building = null;
 
-            //for (int i = 0; i < BuildingList.Count; i++)
+            //for (int i = 0; i < _buildingList.Count; i++)
             //{
-            //    if (BuildingList[i].CheckPosition(pos))
+            //    if (_buildingList[i].CheckPosition(pos))
             //    {
-            //        building = BuildingList[i];
+            //        building = _buildingList[i];
             //    }
             //}
 
@@ -204,16 +238,7 @@ namespace BuildingManage
 
         public void AddBuilding(Building building, bool save = true)
         {
-            BuildingList.Add(building);
-
-            for (int i = building.Position.min.x; i <= building.Position.max.x; i++)
-            {
-                for (int j = building.Position.min.y; j <= building.Position.max.y; j++)
-                {
-                    Vector2Int p = new Vector2Int(i, j);
-                    if (_buildings.ContainsKey(p) == false) _buildings.Add(p, building);
-                }
-            }
+            _buildingList.Add(building);
 
             if (save)
             {
@@ -228,15 +253,7 @@ namespace BuildingManage
 
         public void RemoveBuilding(Building building, bool save)
         {
-            BuildingList.Remove(building);
-
-            for (int i = building.Position.min.x; i <= building.Position.max.x; i++)
-            {
-                for (int j = building.Position.min.y; j <= building.Position.max.y; j++)
-                {
-                    _buildings.Remove(new Vector2Int(i, j));
-                }
-            }
+            _buildingList.Remove(building);
 
             if (save)
             {
@@ -250,6 +267,15 @@ namespace BuildingManage
         }
 
         #endregion
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if (s != null)
+            {
+                Gizmos.DrawWireCube(s.center, Vector2.one * s.size);
+            }
+        }
     }
 
     [Serializable]

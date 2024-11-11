@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3030653864748761624}
   - component: {fileID: 8341203505162431743}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ConveyorBeltResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
