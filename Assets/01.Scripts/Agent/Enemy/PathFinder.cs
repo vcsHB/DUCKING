@@ -6,10 +6,8 @@ public class PathFinder
     private static Tilemap _tilemap; // Tilemap 벽이 있는 레이어
     public Vector3 _targetPosition; // 목표 위치
     private static LayerMask _wallLayer;
-    private static float _moveSpeed = 2f;
 
     public static List<Vector2> path = new List<Vector2>(); // A* 경로
-    private static int pathIndex = 0;
 
 
     private void Start()
@@ -34,7 +32,7 @@ public class PathFinder
     {
         // A* 알고리즘 초기화
         path.Clear();
-        pathIndex = 0;
+        //pathIndex = 0;
 
         Vector3Int startTile = _tilemap.WorldToCell(start);
         Vector3Int targetTile = _tilemap.WorldToCell(target);
@@ -83,7 +81,7 @@ public class PathFinder
     private static bool IsWall(Vector3Int position)
     {
         Vector3 worldPosition = _tilemap.CellToWorld(position) + _tilemap.cellSize / 2;
-        return Physics2D.Raycast(worldPosition, Vector2.zero, 0.1f, _wallLayer);
+        return Physics2D.BoxCast(worldPosition, Vector2.one, 0f, Vector2.zero, 0.1f, _wallLayer); // 박스 캐스트에 Vec.one을 바꾸면 판정을 조정할 수 있다.
     }
 
     private static void ReconstructPath(Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)

@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
 using ObjectPooling;
 using UnityEngine;
 
 namespace Combat
 {
-    
+
     public class Projectile : MonoBehaviour, IPoolable
     {
         [field:SerializeField] public PoolingType type { get; set; }

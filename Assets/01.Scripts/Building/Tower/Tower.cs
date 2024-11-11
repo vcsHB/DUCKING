@@ -1,16 +1,18 @@
 using Combat;
 using ObjectPooling;
+using ResourceSystem;
 using UnityEngine;
 
 namespace BuildingManage.Tower
 {
 
-    public class Tower : Building
+    public class Tower : Building, IResourceInput
     {
 
         [Header("Essential Setting")]
         [SerializeField] protected TowerHeadVisual _headVisual;
         [SerializeField] protected TowerTargetDetector _targetDetector;
+        [SerializeField] private ResourceType _needResource;
 
         [SerializeField] private Transform[] _gunTips;
         [SerializeField] private Vector2 _towerCenterOffset;
@@ -66,6 +68,11 @@ namespace BuildingManage.Tower
             vfx.PlayVFX();
 
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
+        }
+
+        public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
+        {
+            throw new System.NotImplementedException();
         }
     }
 
