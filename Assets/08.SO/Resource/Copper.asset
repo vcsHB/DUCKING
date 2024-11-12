@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceName: 
   description: 
+  icon: {fileID: 0}
+  resourceTile: {fileID: 11400000, guid: 30814b95e0054784d8b66f85edc38ac2, type: 2}

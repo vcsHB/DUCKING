@@ -10,7 +10,7 @@ namespace BuildingManage
     public class MapInfoSO : ScriptableObject
     {
         public Vector2Int mapSize;
-        public FloorSO floorInfo;
+        public BiomSO biomInfo;
         public List<BuildingInfo> fabrics;
     }
 

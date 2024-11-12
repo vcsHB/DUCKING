@@ -9,6 +9,7 @@ namespace ResourceSystem
         public string resourceName;
         public string description;
 
+        public Sprite icon;
         public TileBase resourceTile;
     }
 }

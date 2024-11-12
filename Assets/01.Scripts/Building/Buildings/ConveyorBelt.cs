@@ -1,12 +1,16 @@
 using BuildingManage;
 using ResourceSystem;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorBelt : Building, IResourceInput, IResourceOutput
 {
     [SerializeField] private ConveyorBeltResource _beltResource;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private Resource _container;
+    [SerializeField] private List<CustomRuleTile> _rules;
     [SerializeField] private float _speed = 2f;
     private float _process = 0;
 
@@ -74,4 +78,55 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
         remain = new Resource(ResourceType.None, 0);
         return true;
     }
+
+    protected override void SetRotation(DirectionEnum direction)
+    {
+        _direction = direction;
+        CustomRuleTile selectedRule = null;
+
+        foreach (var r in _rules)
+        {
+            if (r.direction == direction || (DirectionEnum)(((int)direction + 2) % 4) == r.direction)
+            {
+                selectedRule = r;
+                break;
+            }
+        }
+
+
+        if ((int)direction % 2 == 0) _spriteRenderer.material.SetInt("_IsVertical", 1);
+        else _spriteRenderer.material.SetInt("_IsVertical", 0);
+
+        if ((int)direction < 2) _spriteRenderer.material.SetInt("_IsReverse", 0);
+        else _spriteRenderer.material.SetInt("_IsReverse", 1);
+
+
+        if (selectedRule != null)
+        {
+            _spriteRenderer.sprite = selectedRule.sprite;
+        }
+        else
+        {
+            if (_rules.Count > 0)
+                _spriteRenderer.sprite = _rules[0].sprite;
+        }
+    }
+}
+
+[Serializable]
+public class CustomRuleTile
+{
+    public DirectionEnum direction;
+    public LinkedDirection linkedDirection;
+    public Sprite sprite;
+}
+
+[Flags]
+public enum LinkedDirection
+{
+    None = 0,
+    Down = 1,
+    Right = 2,
+    Up = 4,
+    Left = 8
 }

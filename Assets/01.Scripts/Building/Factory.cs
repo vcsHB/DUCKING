@@ -13,12 +13,13 @@ public abstract class Factory : Building, IResourceOutput
 
     protected virtual void OnEnable()
     {
-        MapManager.Instance.BuildController.OnBuildAndRemove += UpdateConnectedInput;
+        MapManager.Instance.BuildController.OnBuildingChange += UpdateConnectedInput;
     }
 
     protected virtual void OnDisable()
     {
-        MapManager.Instance.BuildController.OnBuildAndRemove -= UpdateConnectedInput;
+        if (!MapManager.IsDestroyed)
+            MapManager.Instance.BuildController.OnBuildingChange -= UpdateConnectedInput;
     }
 
 

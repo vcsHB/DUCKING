@@ -78,8 +78,8 @@ MonoBehaviour:
   buildingType: 5
   buildingName: 
   description: 
-  building: {fileID: 0}
-  tileSize: 0
+  building: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
+  tileSize: 2
   health: 0
   needResource: []
 --- !u!114 &1704622854546048054
