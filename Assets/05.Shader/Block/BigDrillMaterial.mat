@@ -58,9 +58,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _RotationSpeed: 20
+    - _RotationSpeed: 6
     - _RotationSpeedTerm: -4
     m_Colors:
-    - _PanOffset: {r: 0.5, g: 0.32, b: 0, a: 0}
-    - _PanTiling: {r: 0.5, g: 0.6, b: 0, a: 0}
+    - _PanOffset: {r: 0.1, g: -0.25, b: 0, a: 0}
+    - _PanTiling: {r: 0.8, g: 1.2, b: 0, a: 0}
   m_BuildTextureStacks: []
