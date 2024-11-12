@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/01.Scripts/Building/Editor/BuildingGenerator.uss?fileID=7433441132597879392&amp;guid=71d99075b95bdee4da463e6210ed5da3&amp;type=3#BuildingGenerator" />
+    <ui:VisualElement name="container" style="flex-grow: 1;">
+        <ui:VisualElement name="top-panal" style="flex-direction: row-reverse;">
+            <ui:Button text="Remove" parse-escape-sequences="true" display-tooltip-when-elided="true" name="remove-btn" class="add-btn" style="width: 12%; margin-left: 14px;" />
+            <ui:Button text="Add" parse-escape-sequences="true" display-tooltip-when-elided="true" name="add-btn" class="add-btn" style="width: 10%;" />
+            <ui:TextField picking-mode="Ignore" value="write enum name..." name="text-field" style="width: 50%; font-size: 20px;" />
+        </ui:VisualElement>
+        <SplitView style="flex-grow: 1; border-top-width: 1px; border-left-color: rgb(89, 89, 89); border-right-color: rgb(89, 89, 89); border-top-color: rgb(89, 89, 89); border-bottom-color: rgb(89, 89, 89);">
+            <ui:VisualElement name="left-side" style="flex-grow: 1; background-color: rgb(56, 56, 56);">
+                <ui:ScrollView name="scroll-view" class="scroll-view" />
+            </ui:VisualElement>
+            <ui:VisualElement name="right-side" style="flex-grow: 1; background-color: rgb(62, 62, 62);">
+                <BuildingManage.InspectorView name="inspector-view" style="flex-grow: 1; flex-shrink: 0;" />
+            </ui:VisualElement>
+        </SplitView>
+    </ui:VisualElement>
+</ui:UXML>

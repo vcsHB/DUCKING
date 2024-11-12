@@ -1,0 +1,92 @@
+.scroll-view {
+}
+
+.add-btn {
+    -unity-font: url("project://database/Assets/09.Fonts/Silver.ttf?fileID=12800000&guid=876c428e8886ca449bb721a713b48a26&type=3#Silver");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: rgb(255, 255, 255);
+    border-left-color: rgb(32, 32, 32);
+    border-right-color: rgb(32, 32, 32);
+    border-top-color: rgb(32, 32, 32);
+    border-bottom-color: rgb(32, 32, 32);
+    background-color: rgb(32, 32, 32);
+}
+
+.add-btn:hover {
+    background-color: rgb(48, 48, 48);
+}
+
+.scroll-content {
+    height: 50px;
+    border-left-color: rgb(89, 89, 89);
+    border-right-color: rgb(89, 89, 89);
+    border-top-color: rgb(89, 89, 89);
+    border-bottom-color: rgb(89, 89, 89);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    margin-top: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    color: rgb(255, 255, 255);
+    -unity-font: url("project://database/Assets/09.Fonts/Silver.ttf?fileID=12800000&guid=876c428e8886ca449bb721a713b48a26&type=3#Silver");
+    -unity-font-definition: initial;
+    -unity-text-align: middle-center;
+    font-size: 36px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    align-items: center;
+}
+
+.content-label {
+    -unity-text-align: middle-left;
+    text-overflow: ellipsis;
+}
+
+.add-remove-btn {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(88, 88, 88);
+    border-left-color: rgb(42, 42, 42);
+    border-right-color: rgb(42, 42, 42);
+    border-top-color: rgb(42, 42, 42);
+    border-bottom-color: rgb(42, 42, 42);
+    border-top-width: 0.5px;
+    border-right-width: 0.5px;
+    border-bottom-width: 0.5px;
+    border-left-width: 0.5px;
+    margin-top: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/09.Fonts/Silver.ttf?fileID=12800000&guid=876c428e8886ca449bb721a713b48a26&type=3#Silver");
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: rgb(196, 196, 196);
+    -unity-text-align: upper-center;
+    font-size: 32px;
+}
+
+.add-remove-btn:hover {
+    background-color: rgb(62, 62, 62);
+}
+
+.select {
+    background-color: rgb(81, 81, 81);
+}
+
+.orange {
+    height: 50px;
+    background-color: rgb(255, 142, 0);
+}
