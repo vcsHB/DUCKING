@@ -8,6 +8,7 @@ namespace UI.InGame.Build
     public class BuildSelectSlot : MonoBehaviour
     {
         private Button _button;
+        [SerializeField] private Image _buildingIconImage;
         [SerializeField] private BuildingSO _buildingInfo;
         public event Action<BuildingSO> OnClickEvent;
 
@@ -22,6 +23,7 @@ namespace UI.InGame.Build
         public void Initialize(BuildingSO buildingInfo)
         {
             _buildingInfo = buildingInfo;
+            _buildingIconImage.sprite = buildingInfo.buildingIconSprite;
             gameObject.SetActive(true);
             
         }

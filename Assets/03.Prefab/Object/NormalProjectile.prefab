@@ -49,7 +49,7 @@ MonoBehaviour:
   <type>k__BackingField: 3
   _lifeTime: 5
   _speed: 6
-  _projectileDestroyVFX: 1
+  _projectileDestroyVFX: 5
 --- !u!114 &1580997979056972437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 128
   _detectRange: 0.3
   _damage: 2
   _maxTargetAmount: 1

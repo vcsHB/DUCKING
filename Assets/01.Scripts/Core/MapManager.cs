@@ -14,6 +14,7 @@ namespace BuildingManage
     {
         [SerializeField] private Tilemap _floorTileMap;
         [SerializeField] private Tilemap _resourceTileMap;
+        [SerializeField] private Tilemap _wallTileMap;
         [SerializeField] private BuildingSetSO _buildingSet;
 
         private RaycastHit2D[] _hit;
@@ -43,6 +44,7 @@ namespace BuildingManage
 
         private void Awake()
         {
+            PathFinder.Initialize(_wallTileMap);
             _floorTileMap.CompressBounds();
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
@@ -85,21 +87,21 @@ namespace BuildingManage
         #region PositionConvert
 
         /// <summary>
-        /// ¿ùµå Æ÷Áö¼ÇÀ» ¹Þ¾Æ¼­ Å¸ÀÏ¸ÊÀÇ Æ÷Áö¼ÇÀ¸·Î ¹Ù²ãÁÜ
+        /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ Å¸ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="pos">WorldPosition</param>
         /// <returns>Position in tilemap</returns>
         public Vector2Int GetTilePos(Vector2 pos) => (Vector2Int)_floorTileMap.WorldToCell(pos);
 
         /// <summary>
-        /// Å¸ÀÏ¸ÊÀÇ Æ÷Áö¼ÇÀ» ¹Þ¾Æ¼­ ¿ùµå Æ÷Áö¼ÇÀ¸·Î ¹Ù²ãÁÜ
+        /// Å¸ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="pos">Position in tilemap</param>
         /// <returns>WorldPosition</returns>
         public Vector2 GetWorldPos(Vector2Int pos) => (Vector2)_floorTileMap.CellToWorld((Vector3Int)pos);
 
         /// <summary>
-        /// º¤ÅÍ°ªÀ» ¹Þ¾Æ¼­ Å¸ÀÏ¸Ê¿¡ µüµé¾î¸Â´Â Æ÷Áö¼ÇÀ¸·Î ¹Ù²ãÁÜ
+        /// ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ Å¸ï¿½Ï¸Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="pos"></param>
         /// <returns></returns>

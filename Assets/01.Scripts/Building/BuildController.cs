@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using AgentManage.PlayerManage;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BuildingManage
 {
@@ -17,6 +14,7 @@ namespace BuildingManage
         [SerializeField] private BuildingEnum _buildTarget;
         [SerializeField] private DirectionEnum _curDirection;
         [SerializeField] private BuildingPreview _buildingPreview;
+        [SerializeField] private PlayerItemCollector _playerItemCollector;
         private bool _tryBuild;
 
         private void Update()
@@ -52,7 +50,7 @@ namespace BuildingManage
                 }
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    Debug.Log("È¸Àü");
+                    Debug.Log("È¸ï¿½ï¿½");
                     _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
                 }
 
@@ -108,6 +106,11 @@ namespace BuildingManage
         public void Init(BuildingSetSO buildingSet)
         {
             _buildingSet = buildingSet;
+        }
+
+        private bool CheckResourceEnough()
+        {
+            return false;
         }
     }
 }

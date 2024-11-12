@@ -590,6 +590,11 @@ MonoBehaviour:
   _towerCenterOffset: {x: 0, y: 0.7}
   _fireCooltime: 0.15
   _aimingSpeed: 3
+  _needResource:
+    type: 0
+    amount: 1
+  _maxResourceAmount: 10
+  _currentResourceAmount: 50
   _projectile: 3
   _fireVFX: 2
 --- !u!114 &219518202588565145

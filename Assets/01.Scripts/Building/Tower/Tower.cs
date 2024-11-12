@@ -1,11 +1,12 @@
 using Combat;
 using ObjectPooling;
+using ResourceSystem;
 using UnityEngine;
 
 namespace BuildingManage.Tower
 {
 
-    public class Tower : Building
+    public class Tower : Building, IResourceInput
     {
 
         [Header("Essential Setting")]
@@ -18,6 +19,10 @@ namespace BuildingManage.Tower
         [Header("Tower Setting")]
         [SerializeField] private float _fireCooltime;
         [SerializeField] protected float _aimingSpeed;
+        [SerializeField] private Resource _needResource;
+        [SerializeField] protected int _maxResourceAmount;
+        [SerializeField] protected int _currentResourceAmount; // 사실상 총알 수
+
 
         [SerializeField] private PoolingType _projectile;
         [SerializeField] private PoolingType _fireVFX;
@@ -25,8 +30,8 @@ namespace BuildingManage.Tower
         private float _currentCoolTime;
         private Vector2 _targetPos;
 
-        private bool CanShoot => (_currentCoolTime > _fireCooltime);
-
+        private bool CanShoot => (_currentCoolTime > _fireCooltime) && IsResourceEnough;
+        private bool IsResourceEnough => _currentResourceAmount >= _needResource.amount;
 
         protected override void Awake()
         {
@@ -45,10 +50,14 @@ namespace BuildingManage.Tower
             bool isCheck = _targetDetector.CheckTarget(out _targetPos);
             if (isCheck)
             {
-                Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
-                _headVisual.UpdateHeadDirection(direction.normalized);
+                if (IsResourceEnough)
+                {
+                    Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
+                    _headVisual.UpdateHeadDirection(direction.normalized);
+                }
                 if (CanShoot)
                 {
+
                     _currentCoolTime = 0;
                     Attack();
                 }
@@ -64,8 +73,25 @@ namespace BuildingManage.Tower
             VFXPlayer vfx = PoolManager.Instance.Pop(_fireVFX, currentGunTip.position, Quaternion.identity) as VFXPlayer;
             bullet.Fire(direction);
             vfx.PlayVFX();
-
+            _currentResourceAmount--;
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
+        }
+
+        public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
+        {
+            remain = resource;
+            if (_needResource.type != resource.type)
+                return false;
+
+            int sum = _currentResourceAmount + resource.amount;
+            if (sum > _maxResourceAmount)
+            {
+                _currentResourceAmount = _maxResourceAmount;
+                remain.amount = sum - _maxResourceAmount;
+            }
+            else
+                _currentResourceAmount = sum;
+            return true;
         }
     }
 

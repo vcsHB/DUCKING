@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
 using ObjectPooling;
 using UnityEngine;
 
 namespace Combat
 {
-    
+
     public class Projectile : MonoBehaviour, IPoolable
     {
         [field:SerializeField] public PoolingType type { get; set; }
@@ -51,6 +49,8 @@ namespace Combat
 
         private void Destroy()
         {
+            VFXPlayer vfxPlayer = PoolManager.Instance.Pop(_projectileDestroyVFX, transform.position, Quaternion.identity) as VFXPlayer;
+            vfxPlayer.PlayVFX();
             PoolManager.Instance.Push(this);
         }
 
