@@ -6,7 +6,7 @@ namespace BuildingManage
 {
     public class BuildController : MonoBehaviour
     {
-        public event Action OnBuildAndRemove;
+        public event Action OnBuildingChange;
 
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
@@ -73,7 +73,7 @@ namespace BuildingManage
             if (isOverlap) return false;
 
             info.building.Build(position, _curDirection, save);
-            OnBuildAndRemove?.Invoke();
+            OnBuildingChange?.Invoke();
 
             return true;
         }
@@ -85,7 +85,7 @@ namespace BuildingManage
 
             if (buildingExist)
             {
-                OnBuildAndRemove?.Invoke();
+                OnBuildingChange?.Invoke();
                 building.Destroy();
             }
         }

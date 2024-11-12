@@ -226,7 +226,7 @@ namespace BuildingManage
             _seed = save.floorSeed;
             _buildingSave = save.buildings;
 
-            _mapGenerator.SetFloor(_seed);
+            _mapGenerator.SetBiom(_seed);
             _buildingSave.ForEach(building =>
             {
                 BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);

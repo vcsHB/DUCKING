@@ -1,3 +1,4 @@
+using ResourceSystem;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -8,10 +9,11 @@ namespace BuildingManage
     public class RandomMapGenerator : MonoBehaviour
     {
         [SerializeField] private MapInfoSO _mapInfo;
+        [SerializeField] private ResourceInfoGroupSO _resourceInfoGroup;
 
         public void GenerateMap(int seed)
         {
-            SetFloor(seed);
+            SetBiom(seed);
             SetFabric();
         }
 
@@ -20,19 +22,32 @@ namespace BuildingManage
         /// 시드 값에 따라서 바닥 패턴이 달라지니 처음에만 시드를 랜덤으로해주면 됨
         /// </summary>
         /// <param name="seed"></param>
-        public void SetFloor(int seed)
+        public void SetBiom(int seed)
         {
-            _mapInfo.floorInfo.SetSeed(seed);
+            BiomSO biom = _mapInfo.biomInfo;
+            Vector2Int mapSize = _mapInfo.mapSize;
+            Tilemap map = MapManager.Instance.FloorTile;
 
-            for (int i = 0; i <= _mapInfo.mapSize.x; i++)
+            biom.SetSeed(seed);
+
+            //여기서부터 바닥을 깔아 주는거임
+            for (int i = 0; i <= mapSize.x; i++)
             {
-                for (int j = 0; j <= _mapInfo.mapSize.y; j++)
+                for (int j = 0; j <= mapSize.y; j++)
                 {
-                    int x = i - _mapInfo.mapSize.x / 2;
-                    int y = j - _mapInfo.mapSize.y / 2;
+                    int x = i - mapSize.x / 2;
+                    int y = j - mapSize.y / 2;
 
-                    Tilemap map = MapManager.Instance.FloorTile;
-                    map.SetTile(new Vector3Int(x, y, 0), _mapInfo.floorInfo.GetTile(x, y, _mapInfo.mapSize.x, _mapInfo.mapSize.y));
+                    map.SetTile(new Vector3Int(x, y, 0), biom.GetTile(x, y, mapSize.x, mapSize.y));
+                }
+            }
+
+            int chunkSize = biom.chunkSize;
+            for (int i = -mapSize.x / 2; i < mapSize.x / 2; i += chunkSize)
+            {
+                for (int j = -mapSize.y / 2; j < mapSize.y; j += chunkSize)
+                {
+                    SetChunkResource(biom, i, j);
                 }
             }
         }
@@ -91,6 +106,24 @@ namespace BuildingManage
                     }
                 }
             });
+        }
+
+        public void SetChunkResource(BiomSO biom, int x, int y)
+        {
+            Tilemap resourceMap = MapManager.Instance.ResourceTile;
+
+            int cx = x + GetRandomBySeed((int)biom.seed) % biom.chunkSize;
+            int cy = y + GetRandomBySeed((int)biom.seed) % biom.chunkSize;
+
+        }
+
+        private int cur = 0;
+        //시드 값으로 같은 랜덤값이 나와야해서 직접 랜덤 함수 구현을 하겠다!
+        public int GetRandomBySeed(int seed)
+        {
+            int r = (int)((seed / 1827346f + 7f * 10293871f) / (float)cur);
+            cur += (int)(((3f / 8128725f) + 93f) * 374f);
+            return r;
         }
     }
 }
