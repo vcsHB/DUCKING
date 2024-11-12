@@ -30,8 +30,8 @@ namespace BuildingManage.Tower
         private float _currentCoolTime;
         private Vector2 _targetPos;
 
-        private bool CanShoot => (_currentCoolTime > _fireCooltime) && _currentResourceAmount >= _needResource.amount;
-
+        private bool CanShoot => (_currentCoolTime > _fireCooltime) && IsResourceEnough;
+        private bool IsResourceEnough => _currentResourceAmount >= _needResource.amount;
 
         protected override void Awake()
         {
@@ -50,11 +50,14 @@ namespace BuildingManage.Tower
             bool isCheck = _targetDetector.CheckTarget(out _targetPos);
             if (isCheck)
             {
-
-                if (CanShoot)
+                if (IsResourceEnough)
                 {
                     Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
                     _headVisual.UpdateHeadDirection(direction.normalized);
+                }
+                if (CanShoot)
+                {
+
                     _currentCoolTime = 0;
                     Attack();
                 }

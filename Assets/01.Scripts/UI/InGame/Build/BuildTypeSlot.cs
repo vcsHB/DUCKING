@@ -10,6 +10,7 @@ namespace UI.InGame.Build
         [SerializeField] private BuildingCategoryType _type;
         [SerializeField] private BuildCategory _category;
         private BuildTypeGroupPanel _ownerGroupPanel;
+        [SerializeField] private Image _categoryIconImage;
         private Button _button;
 
         private void Awake()
@@ -21,6 +22,7 @@ namespace UI.InGame.Build
         public void Initialize(BuildTypeGroupPanel groupPanel, BuildingCategoryType type, BuildCategory category)
         {
             _ownerGroupPanel = groupPanel;
+            _categoryIconImage.sprite = category.categoryIconSprite;
             _type = type;
             _category = category;
             

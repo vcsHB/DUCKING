@@ -1,8 +1,6 @@
 ﻿using System;
 using ResourceSystem;
-using TMPro.EditorUtilities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BuildingManage
 {
@@ -14,7 +12,7 @@ namespace BuildingManage
 
         public string buildingName;
         public string description;
-        
+        public Sprite buildingIconSprite;        
         public Building building;
         public int tileSize;        //타일맵에서의 사이즈
 

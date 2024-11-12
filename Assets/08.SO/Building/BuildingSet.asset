@@ -16,6 +16,7 @@ MonoBehaviour:
   buildingType: 4
   buildingName: 
   description: 
+  buildingIconSprite: {fileID: -1617403245, guid: e4f941d748ddb9b4cb38f45ad5e561af, type: 3}
   building: {fileID: 8490163959085265431, guid: db43a39273d746f4aa47406ded65468f, type: 3}
   tileSize: 1
   health: 0
@@ -36,6 +37,7 @@ MonoBehaviour:
   buildingType: 0
   buildingName: 
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 5652405657584703984, guid: e086a04c87d266b4695b2518464338e4, type: 3}
   tileSize: 2
   health: 0
@@ -78,6 +80,7 @@ MonoBehaviour:
   buildingType: 5
   buildingName: 
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 0}
   tileSize: 0
   health: 0
@@ -98,6 +101,7 @@ MonoBehaviour:
   buildingType: 3
   buildingName: "\uCC3D\uACE0"
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 5702065197008721332, guid: b50c6a68ea53db34382ffbedbbd925ce, type: 3}
   tileSize: 2
   health: 0
@@ -120,6 +124,7 @@ MonoBehaviour:
   buildingType: 6
   buildingName: "\uAE30\uCD08 \uD3EC\uD0D1"
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
   tileSize: 1
   health: 0
@@ -142,6 +147,7 @@ MonoBehaviour:
   buildingType: 2
   buildingName: 
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 4164741187280942721, guid: a8c494e42ed2874468bda552adb191bf, type: 3}
   tileSize: 3
   health: 0
@@ -166,6 +172,7 @@ MonoBehaviour:
   buildingType: 1
   buildingName: 
   description: 
+  buildingIconSprite: {fileID: 0}
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
   health: 0
