@@ -21,6 +21,9 @@ public static class Direction
         new Vector2Int(-1, 0),
     };
 
+    public static int[] directionX = new int[4] { 0, 0, 1, -1 };
+    public static int[] directionY = new int[4] { 1, -1, 0, 0 };
+
     public static Vector3 GetDirection(DirectionEnum dir)
         => directions[(int)dir];
     public static Vector2Int GetTileDirection(DirectionEnum dir)
@@ -43,7 +46,7 @@ public static class Direction
         DirectionEnum direction = DirectionEnum.Down;
 
         if (np.x < min.x) direction = DirectionEnum.Left;
-        if(np.x > max.x) direction = DirectionEnum.Right;
+        if (np.x > max.x) direction = DirectionEnum.Right;
         if (np.y < min.y) direction = DirectionEnum.Down;
         if (np.y > max.y) direction = DirectionEnum.Up;
 
