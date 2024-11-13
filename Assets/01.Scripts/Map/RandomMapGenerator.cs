@@ -10,6 +10,7 @@ namespace BuildingManage
     {
         [SerializeField] private MapInfoSO _mapInfo;
         [SerializeField] private ResourceInfoGroupSO _resourceInfoGroup;
+        private System.Random _random;
 
         public void GenerateMap(int seed)
         {
@@ -24,6 +25,7 @@ namespace BuildingManage
         /// <param name="seed"></param>
         public void SetBiom(int seed)
         {
+            _random = new System.Random((int)_mapInfo.biomInfo.seed);
             BiomSO biom = _mapInfo.biomInfo;
             Vector2Int mapSize = _mapInfo.mapSize;
             Tilemap map = MapManager.Instance.FloorTile;
@@ -45,7 +47,7 @@ namespace BuildingManage
             int chunkSize = biom.chunkSize;
             for (int i = -mapSize.x / 2; i < mapSize.x / 2; i += chunkSize)
             {
-                for (int j = -mapSize.y / 2; j < mapSize.y; j += chunkSize)
+                for (int j = -mapSize.y / 2; j < mapSize.y / 2; j += chunkSize)
                 {
                     SetChunkResource(biom, i, j);
                 }
@@ -108,22 +110,100 @@ namespace BuildingManage
             });
         }
 
-        public void SetChunkResource(BiomSO biom, int x, int y)
+        public void SetChunkResource(BiomSO biomSO, int x, int y)
         {
+            Tilemap floorMap = MapManager.Instance.FloorTile;
             Tilemap resourceMap = MapManager.Instance.ResourceTile;
+            List<BiomInfo> biomList = new List<BiomInfo>();
 
-            int cx = x + GetRandomBySeed((int)biom.seed) % biom.chunkSize;
-            int cy = y + GetRandomBySeed((int)biom.seed) % biom.chunkSize;
+            //현재 바이옴이 어떤게 있는지 구하는거임
+            for (int i = 0; i < biomSO.chunkSize; i++)
+            {
+                for (int j = 0; j < biomSO.chunkSize; j++)
+                {
+                    TileBase tile = floorMap.GetTile(new Vector3Int(x + i, y + j));
 
+                    BiomInfo biomTemp = biomSO.GetBiom(tile);
+                    if (!biomList.Contains(biomTemp)) biomList.Add(biomTemp);
+                }
+            }
+
+            // 현재 확인하고 있는 청크에 있는 바이옴에서
+            biomList.ForEach(biom =>
+            {
+                //바이옴 안에 나오는 자원 광맥의 정보를 찾아서 생성을 시도해!
+                for (int i = 0; i < biom.resource.Count; i++)
+                {
+                    //이 청크에 자원이 나올 것인가?!
+                    ResourceVein vein = biom.resource[i];
+                    bool spawn = _random.Next(0, 10001) > vein.exsistPercent;
+                    //Debug.Log(GetRandomBySeed(0, 10001) + " " + vein.exsistPercent + " " + spawn);
+
+                    if (!spawn) continue;
+
+                    //대충 10번 쯤 청크안에서 찍어보는데 
+                    for (int trial = 0; trial < 10; trial++)
+                    {
+                        int currentX = x + _random.Next(0, biomSO.chunkSize + 1);
+                        int currentY = y + _random.Next(0, biomSO.chunkSize + 1);
+
+                        if (resourceMap.GetTile(new Vector3Int(currentX, currentY)) == null
+                            && floorMap.GetTile(new Vector3Int(currentX, currentY)) == biom.tile)
+                        {
+                            CreateVein(biom, vein, currentX, currentY);
+                            break;
+                        }
+                    }
+                }
+            });
         }
 
-        private int cur = 0;
-        //시드 값으로 같은 랜덤값이 나와야해서 직접 랜덤 함수 구현을 하겠다!
-        public int GetRandomBySeed(int seed)
+        private void CreateVein(BiomInfo biom, ResourceVein veinInfo, int x, int y)
         {
-            int r = (int)((seed / 1827346f + 7f * 10293871f) / (float)cur);
-            cur += (int)(((3f / 8128725f) + 93f) * 374f);
-            return r;
+            Tilemap resourceMap = MapManager.Instance.ResourceTile;
+            Tilemap floorMap = MapManager.Instance.FloorTile;
+            int spawnResourceCnt = _random.Next(veinInfo.minSpawn, veinInfo.maxSpawn + 1);
+
+            SetSingleResourceTile(veinInfo, biom.tile, x, y);
+            
+            for (int i = 1; i < spawnResourceCnt; i++)
+            {
+                int direction = _random.Next(0, 4);
+                Vector3Int nextPos =
+                    new Vector3Int(x + Direction.directionX[direction] * veinInfo.thickedness,
+                    y + Direction.directionY[direction] * veinInfo.thickedness);
+
+                //안됬을 때 다시 시도하는거 따윈 없다. 걍 다시 돌아가라 하나 날린거다.
+                //못 설치할 가능성이 있어서 이렇게 한 것인
+                if (resourceMap.GetTile(nextPos) == null &&
+                    floorMap.GetTile(nextPos) == biom.tile)
+                {
+                    x = nextPos.x;
+                    y = nextPos.y;
+                    SetSingleResourceTile(veinInfo, biom.tile, x, y);
+                }
+                else break;
+            }
+        }
+
+        private void SetSingleResourceTile(ResourceVein resource, TileBase biomTile, int x, int y)
+        {
+            Tilemap resourceMap = MapManager.Instance.ResourceTile;
+            Tilemap floorMap = MapManager.Instance.FloorTile;
+
+            for (int i = 0; i < resource.thickedness; i++)
+            {
+                for (int j = 0; j < resource.thickedness; j++)
+                {
+                    Vector3Int nextPos = new Vector3Int(x + i, y + j);
+
+                    if (resourceMap.GetTile(nextPos) == null &&
+                            floorMap.GetTile(nextPos) == biomTile)
+                    {
+                        resourceMap.SetTile(nextPos, resource.resourceInfo.resourceTile);
+                    }
+                }
+            }
         }
     }
 }

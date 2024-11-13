@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestMapInfo
   m_EditorClassIdentifier: 
   mapSize: {x: 50, y: 50}
-  floorInfo: {fileID: 11400000, guid: 830717e55eac97a45b5799b4c88e0427, type: 2}
+  biomInfo: {fileID: 11400000, guid: 830717e55eac97a45b5799b4c88e0427, type: 2}
   fabrics:
   - fabric: 2
     fabricOffset: 15
