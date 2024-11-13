@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3030653864748761624}
   - component: {fileID: 8341203505162431743}
+  - component: {fileID: 8424570424714896613}
   m_Layer: 8
   m_Name: ConveyorBeltResource
   m_TagString: Untagged
@@ -132,3 +133,29 @@ MonoBehaviour:
   _from: {x: 0, y: 0}
   _to: {x: 0, y: 0}
   _center: {x: 0, y: 0}
+--- !u!114 &8424570424714896613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080378600797314844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabe2e5aa01f40e0b62d82b336d81f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthInCreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentHealth: 0
+  OnCorrosionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _corrosionResistance: 0
