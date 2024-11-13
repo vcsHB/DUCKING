@@ -13,6 +13,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
     protected DirectionEnum _direction;
     protected Transform _visualTrm;
 
+    protected CorrosiveHealth _healthCompo;
     protected int _health;
 
     public BuildingSize Position { get; protected set; }
@@ -21,6 +22,9 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 
     protected virtual void Awake()
     {
+        _healthCompo = GetComponent<CorrosiveHealth>();
+        _healthCompo.SetMaxHealth(_buildingInfo.health);
+        _healthCompo.ResetHealth();
         _health = _buildingInfo.health;
         _visualTrm = transform.GetChild(0);
     }

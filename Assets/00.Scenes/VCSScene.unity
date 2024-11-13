@@ -1203,7 +1203,7 @@ MonoBehaviour:
   _buildingSet: {fileID: 11400000, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _whatIsBuilding:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!4 &548744010
 Transform:
   m_ObjectHideFlags: 0
@@ -8135,7 +8135,7 @@ GameObject:
   - component: {fileID: 1702704102}
   - component: {fileID: 1702704101}
   m_Layer: 9
-  m_Name: Tilemap
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
