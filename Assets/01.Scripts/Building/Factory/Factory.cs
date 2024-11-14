@@ -10,11 +10,11 @@ public class Factory : Source, IResourceInput
     [SerializeField] protected Resource[] _outputResources;
     protected Dictionary<ResourceType, int> _storage;
     [SerializeField] protected int _storageSize;
-
-    //public bool IsEnough => _requireResources.Keys.Where( type => 
-
     [SerializeField] protected float _processDuration = 2f;
+    [SerializeField] private FactoryVisual _factoryVisual;
     private float _currentTime = 0;
+
+
 
     /// <summary>
     /// 현재 제작 진행상황을 의미 (0~1f 값)
@@ -73,7 +73,20 @@ public class Factory : Source, IResourceInput
             remain.amount = 0;
         }
 
+        if (IsProcessing) return true;
+
+        foreach (var require in _requireResources) // 충분한지 체크
+        {
+            if (_storage[require.Key] < require.Value)
+            {
+                // 
+                
+                return true;
+            }
+        }
+
         HandleStartMakeProcess();
+
         return true;
     }
 
