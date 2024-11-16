@@ -36,7 +36,7 @@ public class BiomSO : ScriptableObject
         int totalRatio = 0;
         bioms.ForEach(info => totalRatio += info.ratio);
 
-        for(int i = 0; i < bioms.Count; i++)
+        for (int i = 0; i < bioms.Count; i++)
         {
             BiomInfo info = bioms[i];
 
@@ -66,15 +66,19 @@ public class BiomSO : ScriptableObject
 public struct BiomInfo
 {
     public TileBase tile;
-    public List<ResourceDistribution> resource;
+    public List<ResourceVein> resource;
     [Space(20)]
     public int ratio;
 }
 
 [Serializable]
-public struct ResourceDistribution
+public struct ResourceVein
 {
     public ResourceInfoSO resourceInfo; // 어떤 광물이
-    public int maxResourceCnt;          // 몇개까지
-    public float ratio;                 // 얼마나 나오는가?
+    public int minSpawn, maxSpawn;      // 한번에 몇개까지
+    public int thickedness;             // 광물이 얼마나 두껍게 생성되시는지(건물의 tileSize랑 같다고 생각하면 되심)
+
+    [Header("Percentage .00")]
+    [Range(0, 10000)]
+    public int exsistPercent;         // 한 청크에서의 등장 확률 인데
 }
