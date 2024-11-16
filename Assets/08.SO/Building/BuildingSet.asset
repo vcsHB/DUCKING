@@ -35,7 +35,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Test_Wall
   buildingType: 0
-  buildingName: 
+  buildingName: "\uD14C\uC2A4\uD2B8 \uBCBD"
   description: 
   buildingIconSprite: {fileID: 0}
   building: {fileID: 5652405657584703984, guid: e086a04c87d266b4695b2518464338e4, type: 3}
@@ -44,6 +44,29 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 40
+--- !u!114 &-5211785765727601851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: GlassFactory
+  m_EditorClassIdentifier: 
+  buildingTypeStr: GlassFactory
+  buildingType: 7
+  buildingName: "\uC720\uB9AC \uACF5\uC7A5"
+  description: "\uBAA8\uB798\uB97C \uB179\uC5EC \uC720\uB9AC\uB97C \uB9CC\uB4ED\uB2C8\uB2E4."
+  buildingIconSprite: {fileID: 21300000, guid: 19efc4da8d13bb64ab5435d25ba13587, type: 3}
+  building: {fileID: 2129407028445226625, guid: 54c0e29f299dd13458df4fd0769ed817, type: 3}
+  tileSize: 2
+  health: 190
+  needResource:
+  - type: 0
+    amount: 50
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +87,7 @@ MonoBehaviour:
   - {fileID: -8808720435344220265}
   - {fileID: 425899237081745883}
   - {fileID: 2464152610899777844}
+  - {fileID: -5211785765727601851}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,12 +102,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Big_Drill
   buildingType: 5
-  buildingName: "\uB300\uD615 \uAE30\uACC4\uC2DD \uB4DC\uB9B4"
-  description: 
+  buildingName: "\uAE30\uACC4\uC2DD \uB4DC\uB9B4"
+  description: "\uBE14\uB7ED \uC544\uB798\uC758 \uC790\uC6D0\uC744 \uCC44\uAD74\uC555\uB2C8\uB2E4.
+    2x2\uC0AC\uC774\uC988 \uC785\uB2C8\uB2E4."
   buildingIconSprite: {fileID: 21300000, guid: 8cb8cdf02abe1f64f8b53cd37577ed12, type: 3}
   building: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
   tileSize: 2
-  health: 0
+  health: 150
   needResource:
   - type: 0
     amount: 45
@@ -126,7 +151,7 @@ MonoBehaviour:
   buildingType: 6
   buildingName: "\uAE30\uCD08 \uD3EC\uD0D1"
   description: 
-  buildingIconSprite: {fileID: 0}
+  buildingIconSprite: {fileID: 21300000, guid: 4756ac4e8b4f9d244aa7d3db6f91cfa9, type: 3}
   building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
   tileSize: 1
   health: 0
@@ -172,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Test_ConveyorBelt
   buildingType: 1
-  buildingName: 
-  description: 
+  buildingName: "\uCEE8\uBCA0\uC774\uC5B4 \uBCA8\uD2B8"
+  description: "\uAC04\uB2E8\uD55C \uC774\uB3D9\uC218\uB2E8\uC785\uB2C8\uB2E4. "
   buildingIconSprite: {fileID: 0}
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1

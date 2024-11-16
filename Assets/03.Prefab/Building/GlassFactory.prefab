@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1784100689847194998}
   - component: {fileID: 2129407028445226625}
   - component: {fileID: 273535500129798844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GlassFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +57,7 @@ MonoBehaviour:
     amount: 2
   _storageSize: 10
   _processDuration: 0.8
+  _factoryVisual: {fileID: 121600901700045453}
 --- !u!61 &273535500129798844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +113,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4214597972341840031}
   - component: {fileID: 1916640914929911889}
-  m_Layer: 0
+  - component: {fileID: 121600901700045453}
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,3 +188,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &121600901700045453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802445344994731533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2797a2791ac4bc846bbc52df0feee117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

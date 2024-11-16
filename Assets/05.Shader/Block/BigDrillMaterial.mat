@@ -58,6 +58,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _IsActive: 1
     - _RotationSpeed: 6
     - _RotationSpeedTerm: -4
     m_Colors:
