@@ -1,3 +1,4 @@
+using System;
 using ObjectPooling;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace AgentManage.Enemys
     public class Enemy : Agent, IPoolable
     {
         [field:SerializeField] public PoolingType type { get; set; }
+        public Action<Enemy> OnEnemyDieEvent;
 
         public GameObject ObjectPrefab => gameObject;
 
@@ -24,6 +26,8 @@ namespace AgentManage.Enemys
         private void HandleDie()
         {
             PoolManager.Instance.Push(this);
+            OnEnemyDieEvent?.Invoke(this);
+            
         }
 
 

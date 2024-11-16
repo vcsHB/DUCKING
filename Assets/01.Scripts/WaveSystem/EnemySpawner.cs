@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using AgentManage.Enemys;
 using ObjectPooling;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace WaveSystem
@@ -8,19 +10,21 @@ namespace WaveSystem
 
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private StageWaveSO _stage; // 근데 나중에 뭔가 랜덤 웨이브 그런거로 갈거같음.
         [SerializeField] private WaveSO _currentWave;
 
         [SerializeField] private Transform _targetPosition;
+
+        public List<Enemy> EnemyList {get; private set; } = new List<Enemy>();
 
         private void Start()
         {
             PathFinder.FindPath(transform.position, _targetPosition.position);
         }
 
-        [ContextMenu("DebugGenerateEnemy")]
-        private void GenerateEnemeys()
+
+        public void GenerateWaveEnemys(WaveSO wave)
         {
+            _currentWave = wave;
 
             StartCoroutine(GenerateEnemyCoroutine());
         }
@@ -36,9 +40,16 @@ namespace WaveSystem
                 {
                     Enemy enemy = PoolManager.Instance.Pop(poolingType, transform.position, Quaternion.identity) as Enemy;
                     enemy.GetCompo<EnemyAI>().SetMove();
+                    EnemyList.Add(enemy);
                     yield return ws;
                 }
             }
+        }
+
+        private void HandleEnemyDie(Enemy enemy)
+        {
+            EnemyList.Remove(enemy);
+            enemy.OnEnemyDieEvent -= HandleEnemyDie;
         }
 
     }
