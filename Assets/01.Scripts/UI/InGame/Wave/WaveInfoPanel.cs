@@ -4,10 +4,13 @@ using UnityEngine;
 namespace UI.InGame.Wave
 {
 
-    public class WaveInfoPanel : MonoBehaviour
+    public class WaveInfoPanel : UIPanel
     {
         [SerializeField] private TextMeshProUGUI _currentWaveText;
         [SerializeField] private TextMeshProUGUI _leftEnemyAmountText;
+
+
+        
 
         public void SetWaveInfo (int currentWave, int leftEnemyAmount)
         {
