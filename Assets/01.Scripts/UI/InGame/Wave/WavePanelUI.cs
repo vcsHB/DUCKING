@@ -1,7 +1,4 @@
-using TMPro;
-using UnityEditor;
 using UnityEngine;
-using WaveSystem;
 
 namespace UI.InGame.Wave
 {
@@ -10,7 +7,6 @@ namespace UI.InGame.Wave
     {
         [SerializeField] private WaveLeftTimePanel _leftTimePanel;
         [SerializeField] private WaveInfoPanel _waveInfoPanel;
-        [SerializeField] private EnemySpawner _enemySpawner;
 
         public void SetWaitingWave()
         { // 웨이브 대기 상태로 전환
@@ -24,9 +20,10 @@ namespace UI.InGame.Wave
             _leftTimePanel.Close();
         }
 
-        public void HandleRefreshLeftWaitTime(float leftTime)
+        public void HandleRefreshLeftWaitTime(float currentTime, float maxTime)
         {
-            _leftTimePanel.HandleRefreshLeftTimeText((int)leftTime);
+            float leftTime = maxTime - currentTime; 
+            _leftTimePanel.HandleRefreshLeftTimeText((int)leftTime, leftTime / maxTime);
         }
 
 
@@ -35,6 +32,10 @@ namespace UI.InGame.Wave
             _waveInfoPanel.SetWaveInfo(waveIndex, enemyAmount);
         }
 
+        public void HandleStageClear()
+        {
+            // 스테이지 클리어 했을때 따로 UI띄울 것
+        }
 
     }
 }

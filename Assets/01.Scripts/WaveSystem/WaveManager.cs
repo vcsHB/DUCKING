@@ -19,6 +19,7 @@ namespace WaveSystem
 
         private void Start()
         {
+            CurrentWave = _stage.waves[CurrentWaveIndex];
         }
 
         public void StartWave()
@@ -33,7 +34,7 @@ namespace WaveSystem
             if (!IsWaveStarted) // 웨이브 진행중이 아니면. 시간 현황 띄우기 
             {
                 _currentWaitingTime += Time.deltaTime;
-                _wavePanel.HandleRefreshLeftWaitTime(CurrentWave.waveStartDelayTime - _currentWaitingTime);
+                _wavePanel.HandleRefreshLeftWaitTime(_currentWaitingTime, CurrentWave.waveStartDelayTime);
                 if (_currentWaitingTime >= CurrentWave.waveStartDelayTime)
                 {
                     _currentWaitingTime = 0;
@@ -48,12 +49,23 @@ namespace WaveSystem
                 if (_enemySpawner.EnemyList.Count > 0)
                     return;
 
-                IsWaveStarted = false;
-                _wavePanel.SetWaitingWave();
-
-
+                ContinueNextWave();
             }
 
+        }
+
+        private void ContinueNextWave()
+        {
+            CurrentWaveIndex++;
+            if(CurrentWaveIndex > _stage.waves.Length)
+            {
+                // 웨이브 전부 클리어
+
+                return;
+            }
+            CurrentWave = _stage.waves[CurrentWaveIndex];
+            IsWaveStarted = false;
+            _wavePanel.SetWaitingWave();
         }
 
 

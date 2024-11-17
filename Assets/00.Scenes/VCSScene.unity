@@ -933,7 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bc0e7ce23b39439764ec9c05cc900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 11400000, guid: 617591df3473dc145b9576b958c879ba, type: 2}
   _currentWave: {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
   _targetPosition: {fileID: 979566094}
 --- !u!4 &167936495
@@ -1116,6 +1115,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337933776}
   m_CullTransparentMesh: 1
+--- !u!1 &373083022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373083024}
+  - component: {fileID: 373083023}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &373083023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373083022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0e488b731b6974788094d52261555f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 167936494}
+  _stage: {fileID: 11400000, guid: 617591df3473dc145b9576b958c879ba, type: 2}
+  _wavePanel: {fileID: 2049777626}
+  IsWaveStarted: 0
+--- !u!4 &373083024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373083022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.304126, y: 28.63086, z: -0.18995418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &390727717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,7 +3717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 415.45004}
+  m_AnchoredPosition: {x: 0, y: 415.4501}
   m_SizeDelta: {x: 0, y: 1140.45}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &960186964
@@ -3740,7 +3787,7 @@ GameObject:
   - component: {fileID: 980780585}
   - component: {fileID: 980780584}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WaveIndexText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4042,8 +4089,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1811424230}
   - {fileID: 1290773654}
+  - {fileID: 1811424230}
   - {fileID: 118978594}
   m_Father: {fileID: 2049777623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4060,7 +4107,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015889113}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -4076,8 +4123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc18fa6ed5b14d4489efd3a80b5c71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWaveText: {fileID: 0}
-  _leftEnemyAmountText: {fileID: 0}
+  _activeDuration: 1
+  _isActive: 0
+  OnOpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentWaveText: {fileID: 980780584}
+  _leftEnemyAmountText: {fileID: 1811424231}
 --- !u!1 &1042221939
 GameObject:
   m_ObjectHideFlags: 0
@@ -41997,7 +42052,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730952569}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -42013,7 +42068,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621b1532f7c193441817c2f2799e7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftTimeText: {fileID: 0}
+  _activeDuration: 1
+  _isActive: 0
+  OnOpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _leftTimeText: {fileID: 795185953}
+  _leftTimeGaugeImage: {fileID: 905710627}
 --- !u!1 &1811424229
 GameObject:
   m_ObjectHideFlags: 0
@@ -42865,8 +42929,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d397f6802e0ad749bfef51d2abff70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftTimePanel: {fileID: 0}
-  _waveInfoPanel: {fileID: 0}
+  _leftTimePanel: {fileID: 1730952572}
+  _waveInfoPanel: {fileID: 1015889116}
 --- !u!1 &2089504970
 GameObject:
   m_ObjectHideFlags: 0
@@ -43161,6 +43225,7 @@ SceneRoots:
   - {fileID: 92929705}
   - {fileID: 804436372}
   - {fileID: 548744010}
+  - {fileID: 373083024}
   - {fileID: 1238950070}
   - {fileID: 652808816}
   - {fileID: 668386230}

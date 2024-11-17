@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pool_FactorySteamVFX
   m_EditorClassIdentifier: 
   enumName: FactorySteamVFX
-  poolingName: 
+  poolingName: FactorySteamVFX
   description: "\uACF5\uC7A5"
   poolCount: 10
   prefabObject: {fileID: 5440229166901458357, guid: 69b60c9d9a9975a4aaae25bc12a63173, type: 3}

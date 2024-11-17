@@ -39,6 +39,7 @@ namespace WaveSystem
                 {
                     Enemy enemy = PoolManager.Instance.Pop(poolingType, transform.position, Quaternion.identity) as Enemy;
                     enemy.GetCompo<EnemyAI>().SetMove();
+                    enemy.OnEnemyDieEvent += HandleEnemyDie;
                     EnemyList.Add(enemy);
                     yield return ws;
                 }
@@ -47,6 +48,7 @@ namespace WaveSystem
 
         private void HandleEnemyDie(Enemy enemy)
         {
+            print("List에서 빠짐. 근데 왜않됨?");
             EnemyList.Remove(enemy);
             enemy.OnEnemyDieEvent -= HandleEnemyDie;
         }
