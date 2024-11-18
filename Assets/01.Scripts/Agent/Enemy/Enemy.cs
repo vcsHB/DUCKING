@@ -14,6 +14,7 @@ namespace AgentManage.Enemys
 
         public void ResetItem()
         {
+            IsDead = false;
             HealthCompo.ResetHealth();
         }
 
