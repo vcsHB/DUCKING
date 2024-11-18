@@ -19,7 +19,9 @@ namespace BuildingManage
         }
 
         /// <summary>
-        /// 시드를 받아서 바닥타일을 깔아줌
+        /// 시드를 받아서 바이옴을 생성해줌
+        /// 1. 바닥타일을 깐다.
+        /// 2. 바이옴에 따라 나오는 광맥을 생성한다.
         /// 시드 값에 따라서 바닥 패턴이 달라지니 처음에만 시드를 랜덤으로해주면 됨
         /// </summary>
         /// <param name="seed"></param>
@@ -101,7 +103,7 @@ namespace BuildingManage
 
                         if (canSetFabric)
                         {
-                            MapManager.Instance.BuildController.Build(fabricInfo.fabric, position, true);
+                            MapManager.Instance.BuildController.TryBuild(fabricInfo.fabric, position, true);
                             canNotSpawnArea.Add((position, fabricInfo.fabricOffset));
                             break;
                         }
@@ -110,6 +112,7 @@ namespace BuildingManage
             });
         }
 
+        //청크에서 자원 생성
         public void SetChunkResource(BiomSO biomSO, int x, int y)
         {
             Tilemap floorMap = MapManager.Instance.FloorTile;
@@ -158,6 +161,7 @@ namespace BuildingManage
             });
         }
 
+        //광맥 생성!
         private void CreateVein(BiomInfo biom, ResourceVein veinInfo, int x, int y)
         {
             Tilemap resourceMap = MapManager.Instance.ResourceTile;
@@ -169,8 +173,8 @@ namespace BuildingManage
             for (int i = 1; i < spawnResourceCnt; i++)
             {
                 int direction = _random.Next(0, 4);
-                Vector3Int nextPos =
-                    new Vector3Int(x + Direction.directionX[direction] * veinInfo.thickedness,
+                Vector3Int nextPos = new Vector3Int(
+                    x + Direction.directionX[direction] * veinInfo.thickedness,
                     y + Direction.directionY[direction] * veinInfo.thickedness);
 
                 //안됬을 때 다시 시도하는거 따윈 없다. 걍 다시 돌아가라 하나 날린거다.
@@ -186,6 +190,7 @@ namespace BuildingManage
             }
         }
 
+        //광물 생성(두께를 적용해서)
         private void SetSingleResourceTile(ResourceVein resource, TileBase biomTile, int x, int y)
         {
             Tilemap resourceMap = MapManager.Instance.ResourceTile;
