@@ -232,7 +232,7 @@ namespace BuildingManage
                 BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
                 Vector2Int position = new Vector2Int(building.posX, building.posY);
 
-                _buildController.Build(buildingType, position, false);
+                _buildController.TryBuild(buildingType, position, false);
             });
         }
 

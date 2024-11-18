@@ -33,7 +33,7 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
         Position = new BuildingSize(position, _buildingInfo.tileSize);
     }
 
-    protected virtual void SetRotation(DirectionEnum direction)
+    public virtual void SetRotation(DirectionEnum direction)
     {
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
