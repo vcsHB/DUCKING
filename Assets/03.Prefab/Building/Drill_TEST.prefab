@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1108439750501172303}
   - component: {fileID: 8490163959085265431}
   - component: {fileID: 7891811310672053700}
+  - component: {fileID: 649015517179412854}
   m_Layer: 8
   m_Name: Drill_TEST
   m_TagString: Untagged
@@ -95,6 +96,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &649015517179412854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5091179422662856320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabe2e5aa01f40e0b62d82b336d81f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthInCreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentHealth: 0
+  OnCorrosionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _corrosionResistance: 0
 --- !u!1 &5960515311592693500
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Drill : Factory, IMineable
+public class Drill : Source, IMineable
 {
     [SerializeField] private ResourceInfoGroupSO _resourceGroup;
     [SerializeField] private float _miningTime = 3f;
@@ -38,7 +38,7 @@ public class Drill : Factory, IMineable
         }
     }
 
-    // °Ç¹°À» Áþ´Â ¼ø°£¿¡ µå¸±ÀÌ Ã¤±¼ÇÒ ¼ö ÀÖ´Â ÀÚ¿øÀº Á¤ÇØÁ® ÀÖ±â ¶§¹®¿¡ ¿©±â¼­ ÁöÁ¤ÇØÁÖ
+    // ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½å¸±ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     protected override void SetPosition(Vector2Int position)
     {
         base.SetPosition(position);
@@ -47,7 +47,7 @@ public class Drill : Factory, IMineable
         _resources = new List<ResourceType>();
         _curMiningTime = 0;
 
-        //¸®¼Ò½º Á¾·ù,ÄÁÅ×ÀÌ³Ê Init
+        //ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ Init
         for (int i = Position.min.x; i <= Position.max.x; i++)
         {
             for (int j = Position.min.y; j <= Position.max.y; j++)

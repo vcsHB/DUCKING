@@ -7,21 +7,25 @@ using System.Collections.Generic;
 using Combat;
 using UnityEngine;
 
-public abstract class Building : MonoBehaviour, IBuildable, IDamageable
+public abstract class Building : MonoBehaviour, IBuildable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
     protected DirectionEnum _direction;
     protected Transform _visualTrm;
 
-    protected int _health;
-
+    protected Health _healthCompo;
+   
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
 
     protected virtual void Awake()
     {
-        _health = _buildingInfo.health;
+        _healthCompo = GetComponent<Health>();
+        _healthCompo.OnDieEvent.AddListener(Destroy);
+        _healthCompo.SetMaxHealth(_buildingInfo.health);
+        _healthCompo.ResetHealth();
+        
         _visualTrm = transform.GetChild(0);
     }
 
@@ -39,17 +43,6 @@ public abstract class Building : MonoBehaviour, IBuildable, IDamageable
 
         _visualTrm.rotation = rotation;
         _direction = direction;
-    }
-
-    public virtual void ApplyDamage(int amount)
-    {
-        _health -= amount;
-
-        if (_health <= 0)
-        {
-            _health = 0;
-            Destroy();
-        }
     }
 
     public void Destroy()
