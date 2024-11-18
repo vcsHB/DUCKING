@@ -28,7 +28,7 @@ MonoBehaviour:
       maxSpawn: 10
       thickedness: 1
       exsistPercent: 2000
-    ratio: 1
+    ratio: 2
   - tile: {fileID: 11400000, guid: 125d28b6f1af3b94aab7fae0a62ef363, type: 2}
     resource:
     - resourceInfo: {fileID: 11400000, guid: f5b6c0c35a26af044b6737684deeb3ff, type: 2}
@@ -41,4 +41,4 @@ MonoBehaviour:
       maxSpawn: 3
       thickedness: 1
       exsistPercent: 2000
-    ratio: 2
+    ratio: 1

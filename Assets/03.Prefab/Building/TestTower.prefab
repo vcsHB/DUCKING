@@ -193,13 +193,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5069657120104386516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7927686, w: 0.60952276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961113465121686127}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -104.89}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8184325599720932748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -277,13 +277,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5374374960140425974}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7927686, w: 0.60952276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961113465121686127}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -104.89}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7315551088896967576
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5610126391599735122}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7927686, w: 0.60952276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -369,7 +369,7 @@ Transform:
   - {fileID: 3912103562185638270}
   - {fileID: 7804118830356837948}
   m_Father: {fileID: 2961113465121686127}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -104.89}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4096054330697940942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
     type: 0
     amount: 1
   _maxResourceAmount: 10
-  _currentResourceAmount: 50
+  _currentResourceAmount: 0
   _projectile: 3
   _fireVFX: 2
 --- !u!114 &219518202588565145

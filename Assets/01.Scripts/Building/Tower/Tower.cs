@@ -90,7 +90,11 @@ namespace BuildingManage.Tower
                 remain.amount = sum - _maxResourceAmount;
             }
             else
+            {
                 _currentResourceAmount = sum;
+                remain.type = ResourceType.None;
+            }
+
             return true;
         }
     }
