@@ -8,7 +8,7 @@ public class Factory : Source, IResourceInput, IOverloadable
     [Header("Factory Setting")]
     [SerializeField] protected SerializeDictionary<ResourceType, int> _requireResources;
     [SerializeField] protected Resource[] _outputResources;
-    protected Dictionary<ResourceType, int> _storage;
+    protected SerializeDictionary<ResourceType, int> _storage;
     [SerializeField] protected int _storageSize;
     [SerializeField] protected float _processDuration = 2f;
     [SerializeField] private FactoryVisual _factoryVisual;
@@ -29,6 +29,11 @@ public class Factory : Source, IResourceInput, IOverloadable
     {
         base.Awake();
         OnProgressOverEvent += HandleProgressOver;
+        _storage = new SerializeDictionary<ResourceType, int>();
+        foreach (ResourceType type in _requireResources.Keys)
+        {
+            _storage.Add(type, 0);
+        }
     }
 
     private void OnDestroy()
@@ -49,13 +54,19 @@ public class Factory : Source, IResourceInput, IOverloadable
             OnProgressOverEvent?.Invoke();
             OnProgressEvent?.Invoke(0);
         }
+
+        if(_container.Count > 0)
+            TransferResource();
     }
 
     public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
+        print($"아이템 넣기 시도 {resource.type.ToString()}, {resource.amount.ToString()}");
+
         if (!_requireResources.ContainsKey(resource.type))
         {
             remain = resource;
+            print("밍");
             return false;
         }
 
@@ -65,13 +76,17 @@ public class Factory : Source, IResourceInput, IOverloadable
         {
             _storage[resource.type] = _storageSize;
             remain.amount = plus - _storageSize;
+            TryStartProcess();
+            return false;
         }
         else
         {
             _storage[resource.type] = plus;
+            resource.type = ResourceType.None;
             remain.amount = 0;
         }
-
+        remain = new Resource();
+        remain.type = ResourceType.None;
         TryStartProcess();
         return true;
     }

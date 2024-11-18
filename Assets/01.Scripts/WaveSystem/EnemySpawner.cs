@@ -48,7 +48,6 @@ namespace WaveSystem
 
         private void HandleEnemyDie(Enemy enemy)
         {
-            print("List에서 빠짐. 근데 왜않됨?");
             EnemyList.Remove(enemy);
             enemy.OnEnemyDieEvent -= HandleEnemyDie;
         }

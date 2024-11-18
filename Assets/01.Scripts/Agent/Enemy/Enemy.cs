@@ -26,7 +26,6 @@ namespace AgentManage.Enemys
         private void HandleDie()
         {
             OnEnemyDieEvent?.Invoke(this);
-            print("Enemy 죽음");
             PoolManager.Instance.Push(this);
             
         }
