@@ -203,7 +203,7 @@ namespace BuildingManage
             MapSave save = new MapSave();
 
             save.floorSeed = _seed;
-            save.buildings = _buildingSave;
+            //save.buildings = _buildingSave;
 
             string json = JsonUtility.ToJson(save, true);
             File.WriteAllText(_path, json);
@@ -224,16 +224,16 @@ namespace BuildingManage
             MapSave save = JsonUtility.FromJson<MapSave>(json);
 
             _seed = save.floorSeed;
-            _buildingSave = save.buildings;
+            _mapGenerator.GenerateMap(_seed);
+            //_buildingSave = save.buildings;
 
-            _mapGenerator.SetBiom(_seed);
-            _buildingSave.ForEach(building =>
-            {
-                BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
-                Vector2Int position = new Vector2Int(building.posX, building.posY);
+            //_buildingSave.ForEach(building =>
+            //{
+            //    BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
+            //    Vector2Int position = new Vector2Int(building.posX, building.posY);
 
-                _buildController.TryBuild(buildingType, position, false);
-            });
+            //    _buildController.TryBuild(buildingType, position, false);
+            //});
         }
 
         public void AddBuilding(Building building, bool save = true)

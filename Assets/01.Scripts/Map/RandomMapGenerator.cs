@@ -10,12 +10,18 @@ namespace BuildingManage
     {
         [SerializeField] private MapInfoSO _mapInfo;
         [SerializeField] private ResourceInfoGroupSO _resourceInfoGroup;
+        private CorrosiumController _corrosium;
         private System.Random _random;
 
         public void GenerateMap(int seed)
         {
+            _corrosium = GetComponent<CorrosiumController>();
+
             SetBiom(seed);
-            SetFabric();
+            _corrosium.SetRandomEncorrosiveArea(seed);
+            //SetFabric();
+            //SetWall();
+
         }
 
         /// <summary>
@@ -68,7 +74,7 @@ namespace BuildingManage
                 int minX = -_mapInfo.mapSize.x / 2;
                 int minY = -_mapInfo.mapSize.y / 2;
 
-                int spawnCnt = Random.Range(fabricInfo.minSpawnCnt, fabricInfo.maxSpawnCnt);
+                int spawnCnt = _random.Next(fabricInfo.minSpawnCnt, fabricInfo.maxSpawnCnt);
 
                 List<(Vector2, float)> canNotSpawnArea = new List<(Vector2, float)>();
 
@@ -78,11 +84,11 @@ namespace BuildingManage
 
                     while (trial-- > 0)
                     {
-                        int posX = Random.Range(
+                        int posX = _random.Next(
                             minX + Mathf.CeilToInt(fabricInfo.fabricOffset),
                             -minX - Mathf.CeilToInt(fabricInfo.fabricOffset));
 
-                        int posY = Random.Range(
+                        int posY = _random.Next(
                             minY + Mathf.CeilToInt(fabricInfo.fabricOffset),
                             -minY - Mathf.CeilToInt(fabricInfo.fabricOffset));
 
@@ -209,6 +215,11 @@ namespace BuildingManage
                     }
                 }
             }
+        }
+    
+        private void SetWall()
+        {
+
         }
     }
 }

@@ -58,8 +58,10 @@ namespace BuildingManage
                     if (Mathf.Abs(dir.x + dir.y) == 1)
                     {
                         DirectionEnum dirEnum = Direction.GetDirection(dir);
-                        MapManager.Instance.TryGetBuilding(_prevPosition, out Building building);
-                        if (building != null) building.SetRotation(dirEnum);
+                        MapManager.Instance.TryGetBuilding(_prevPosition, out Building prevBuilding);
+                        MapManager.Instance.TryGetBuilding(tilePosition, out Building curBuilding);
+                        if (prevBuilding != null) prevBuilding.SetRotation(dirEnum);
+                        if (curBuilding != null) curBuilding.SetRotation(dirEnum);
                         _curDirection = dirEnum;
                     }
 
