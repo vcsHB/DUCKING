@@ -2,7 +2,7 @@ using System;
 using ObjectPooling;
 using UnityEngine;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
 
     public class Enemy : Agent, IPoolable

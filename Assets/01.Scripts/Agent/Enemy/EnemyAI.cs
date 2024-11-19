@@ -1,12 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
-
-
-
     public class EnemyAI : MonoBehaviour, IAgentComponent
     {
         private Enemy _enemy;

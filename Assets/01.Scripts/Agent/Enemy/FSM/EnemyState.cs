@@ -1,6 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
 
 
