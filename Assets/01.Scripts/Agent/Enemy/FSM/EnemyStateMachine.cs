@@ -1,19 +1,19 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
     public class EnemyStateMachine
     {
         private Enemy _owner;
         public Dictionary<string, EnemyState> stateDictionary = new Dictionary<string, EnemyState>();
         public EnemyState CurrentState { get; private set; }
-        public bool CanChangeState { get; private set; }
+        public bool CanChangeState { get; private set; } = true;
         private string firstState;
 
-        public void Initialize(string firstStateName)
+        public void Initialize(string firstStateName, Enemy owner)
         {
+            _owner = owner;
             firstState = firstStateName;
             SetState(firstStateName);// 예외 처리 필요할지도
         }
@@ -59,6 +59,11 @@ namespace AgentManage.Enemys
             }
             Debug.Log("not Exist State");
             return null;
+        }
+
+        public void UpdateState()
+        {
+            CurrentState.UpdateState();
         }
     }
 }

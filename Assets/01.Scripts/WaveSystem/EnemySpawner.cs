@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using AgentManage.Enemys;
+using AgentManage.Enemies;
 using ObjectPooling;
 using UnityEngine;
 

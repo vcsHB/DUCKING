@@ -22,6 +22,10 @@ namespace BuildingManage
 
         private void Update()
         {
+            Vector2Int tilePosition
+                = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+            if (Input.GetMouseButton(1)) TryDestroyBuilding(tilePosition);
             if (Input.GetKeyDown(KeyCode.P))
             {
                 _tryBuild = !_tryBuild;
@@ -35,10 +39,7 @@ namespace BuildingManage
 
             _buildingPreview.UpdateBuildidng(position, size);
 
-            Vector2Int tilePosition
-                = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-            if (Input.GetMouseButton(1)) TryDestroyBuilding(tilePosition);
+            
 
             if (Input.GetMouseButtonDown(0)) _isBuilding = true;
             if (Input.GetMouseButtonUp(0))
@@ -78,6 +79,11 @@ namespace BuildingManage
             SetPreview(true);
         }
 
+        public void HandleDisableBuildMode()
+        {
+            _tryBuild = false;
+        }
+
         public bool TryBuild(BuildingEnum building, Vector2Int position, bool save)
         {
             BuildingSO info = _buildingSet.FindBuilding(building);
@@ -85,8 +91,9 @@ namespace BuildingManage
 
             bool isOverlap = MapManager.Instance.CheckBuildingOverlap(size);
             if (isOverlap) return false;
+            DirectionEnum direction = info.canRotate ? _curDirection : DirectionEnum.Down;
 
-            info.building.Build(position, _curDirection, save);
+            info.building.Build(position, direction, save);
             OnBuildingChange?.Invoke();
 
             return true;
@@ -94,6 +101,7 @@ namespace BuildingManage
 
         public void TryDestroyBuilding(Vector2Int position)
         {
+            HandleDisableBuildMode();
             bool buildingExist =
                         MapManager.Instance.TryGetBuilding(position, out Building building);
 

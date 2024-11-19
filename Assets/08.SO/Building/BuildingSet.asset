@@ -19,6 +19,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 0}
   building: {fileID: 8490163959085265431, guid: db43a39273d746f4aa47406ded65468f, type: 3}
   tileSize: 1
+  canRotate: 0
   health: 0
   needResource: []
 --- !u!114 &-7323687136420742779
@@ -40,6 +41,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 0}
   building: {fileID: 5652405657584703984, guid: e086a04c87d266b4695b2518464338e4, type: 3}
   tileSize: 2
+  canRotate: 0
   health: 0
   needResource:
   - type: 0
@@ -63,6 +65,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 21300000, guid: 19efc4da8d13bb64ab5435d25ba13587, type: 3}
   building: {fileID: 2129407028445226625, guid: 54c0e29f299dd13458df4fd0769ed817, type: 3}
   tileSize: 2
+  canRotate: 0
   health: 190
   needResource:
   - type: 0
@@ -108,6 +111,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 21300000, guid: 8cb8cdf02abe1f64f8b53cd37577ed12, type: 3}
   building: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
   tileSize: 2
+  canRotate: 0
   health: 150
   needResource:
   - type: 0
@@ -131,6 +135,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 0}
   building: {fileID: 5702065197008721332, guid: b50c6a68ea53db34382ffbedbbd925ce, type: 3}
   tileSize: 2
+  canRotate: 0
   health: 0
   needResource:
   - type: 0
@@ -154,6 +159,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 21300000, guid: 4756ac4e8b4f9d244aa7d3db6f91cfa9, type: 3}
   building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
   tileSize: 1
+  canRotate: 0
   health: 0
   needResource:
   - type: 0
@@ -177,6 +183,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 0}
   building: {fileID: 4164741187280942721, guid: a8c494e42ed2874468bda552adb191bf, type: 3}
   tileSize: 3
+  canRotate: 1
   health: 0
   needResource:
   - type: 0
@@ -202,6 +209,7 @@ MonoBehaviour:
   buildingIconSprite: {fileID: 0}
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
+  canRotate: 1
   health: 0
   needResource:
   - type: 0

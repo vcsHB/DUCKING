@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
     public class EnemyMovement : MonoBehaviour, IAgentComponent
     {

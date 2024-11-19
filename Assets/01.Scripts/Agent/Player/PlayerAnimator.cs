@@ -21,7 +21,6 @@ namespace AgentManage.PlayerManage
 
         private void HandleMovement(Vector2 direction)
         {
-            print("밍미임");
             _animator.SetFloat(_walkAnimationHash, direction.magnitude);
             HandleApplyMovementDirectionRotation(direction.x);
         }
