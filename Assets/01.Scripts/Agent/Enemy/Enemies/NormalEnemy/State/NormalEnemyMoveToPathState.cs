@@ -31,10 +31,9 @@ namespace AgentManage.Enemies.State
 
         private void CheckTarget()
         {
-            
-
             if (_targetDetector.IsTargeting)
             {
+                Debug.Log("공격 스테이트로 전환");
                 _stateMachine.ChangeState(_stateMachine.GetState("Attack"));
             }
         }

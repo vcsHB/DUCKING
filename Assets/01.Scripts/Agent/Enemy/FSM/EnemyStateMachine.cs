@@ -8,12 +8,12 @@ namespace AgentManage.Enemies
         private Enemy _owner;
         public Dictionary<string, EnemyState> stateDictionary = new Dictionary<string, EnemyState>();
         public EnemyState CurrentState { get; private set; }
-        public bool CanChangeState { get; private set; }
+        public bool CanChangeState { get; private set; } = true;
         private string firstState;
 
         public void Initialize(string firstStateName, Enemy owner)
         {
-             _owner = owner;
+            _owner = owner;
             firstState = firstStateName;
             SetState(firstStateName);// 예외 처리 필요할지도
         }
