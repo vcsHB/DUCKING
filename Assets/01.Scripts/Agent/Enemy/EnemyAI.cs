@@ -9,7 +9,7 @@ namespace AgentManage.Enemies
         private List<Vector2> _path;
         private int _currentPathIndex = 0;
         private float _moveSpeed;
-        private bool _canMove = false;
+        public bool CanMove {get; private set;} = true;
 
         public void AfterInit()
         {
@@ -29,18 +29,23 @@ namespace AgentManage.Enemies
         {
             _path = PathFinder.GetPath;
             _currentPathIndex = 0;
-            _canMove = true;
+            CanMove = true;
         }
 
-        private void Update()
-        {
-            if(!_canMove) return;
+        // ========== State Handles =====================
 
+        //internal void HandleSetEnemy
+
+        internal void HandleMoveToPath()
+        {
             if (_path.Count > 0 && _currentPathIndex < _path.Count)
             {
                 MoveAlongPath();
             }
         }
+
+
+        // ===========================================
 
         private void MoveAlongPath() // Update
         {

@@ -11,8 +11,9 @@ namespace AgentManage.Enemies
         public bool CanChangeState { get; private set; }
         private string firstState;
 
-        public void Initialize(string firstStateName)
+        public void Initialize(string firstStateName, Enemy owner)
         {
+             _owner = owner;
             firstState = firstStateName;
             SetState(firstStateName);// 예외 처리 필요할지도
         }
@@ -58,6 +59,11 @@ namespace AgentManage.Enemies
             }
             Debug.Log("not Exist State");
             return null;
+        }
+
+        public void UpdateState()
+        {
+            CurrentState.UpdateState();
         }
     }
 }
