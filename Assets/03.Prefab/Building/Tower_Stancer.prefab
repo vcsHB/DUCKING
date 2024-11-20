@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 1035004246028191603}
   - component: {fileID: 6870770573776275116}
   m_Layer: 8
-  m_Name: BigTower
+  m_Name: Tower_Stancer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 7481304832853209674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.28, y: 22.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd54bc097f420542a0198c9e889fd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildingInfo: {fileID: 2464152610899777844, guid: ba97c714619fd7947854967923f53a62, type: 2}
+  _buildingInfo: {fileID: 3596597501781384540, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _headVisual: {fileID: 1878450940729943832}
   _targetDetector: {fileID: 3046562093491552545}
   _gunTips:
@@ -458,11 +458,11 @@ MonoBehaviour:
   _fireCooltime: 0.05
   _aimingSpeed: 2
   _needResource:
-    type: 0
+    type: 9
     amount: 1
   _maxResourceAmount: 25
   _currentResourceAmount: 100
-  _bulletMultiple: 3
+  _bulletMultiple: 12
   _projectile: 6
   _fireVFX: 2
 --- !u!114 &3046562093491552545
