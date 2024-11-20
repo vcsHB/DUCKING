@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074296230287151285}
   - component: {fileID: 4164741187280942721}
+  - component: {fileID: 7177563118183540783}
   m_Layer: 8
   m_Name: Test_ConveyorBelt_3
   m_TagString: Untagged
@@ -131,7 +132,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingInfo: {fileID: 3536858969314915703, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _beltResource: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
   _container:
     type: 0
     amount: 0
+  _rules: []
   _speed: 2
+--- !u!114 &7177563118183540783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189712637316236893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabe2e5aa01f40e0b62d82b336d81f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthInCreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentHealth: 0
+  OnCorrosionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _corrosionResistance: 0

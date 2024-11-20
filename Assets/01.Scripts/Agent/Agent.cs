@@ -13,6 +13,7 @@ namespace AgentManage
         public CorrosiveHealth CorrosiveHealth { get; protected set; }
         [field:SerializeField] public StatusSO Stat { get; protected set; }
         protected Dictionary<Type, IAgentComponent> _components;
+        public bool IsDead {get; protected set;} = false;
 
         protected virtual void Awake()
         {
@@ -20,6 +21,7 @@ namespace AgentManage
             Stat = Instantiate(Stat);
             HealthCompo = GetComponent<Health>();
             HealthCompo.SetMaxHealth(Stat.health.GetValue());
+            HealthCompo.OnDieEvent.AddListener(HandleSetIsDeadEvent);
 
             CorrosiveHealth = HealthCompo as CorrosiveHealth;
             if(CorrosiveHealth != null)
@@ -62,6 +64,10 @@ namespace AgentManage
 
             return default(T);
         }
+        private void HandleSetIsDeadEvent()
+        {
+            IsDead = true;
+        }
 
         private void OnDestroy()
         {
@@ -69,7 +75,5 @@ namespace AgentManage
             // 나중에 수업에서 다루며 수정
             _components.Values.ToList().ForEach(compo => compo.Dispose());
         }
-       
     }
-
 }

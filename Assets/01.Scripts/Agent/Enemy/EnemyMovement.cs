@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
     public class EnemyMovement : MonoBehaviour, IAgentComponent
     {
@@ -25,6 +25,11 @@ namespace AgentManage.Enemys
 
         public void Dispose()
         {
+        }
+
+        public void StopImmediately()
+        {
+            _rigidCompo.velocity = Vector2.zero;
         }
     }
 }

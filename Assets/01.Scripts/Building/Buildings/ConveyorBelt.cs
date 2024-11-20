@@ -71,15 +71,18 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
         _beltResource.gameObject.SetActive(true);
 
         //시작 부분, 끝 부분
-        Vector2 from = Position.center + (Vector2)Direction.GetTileDirection(direction) / 2;
-        Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(_direction) / 2;
-        _beltResource.Init(Position.center, from, to, resource);
+        Vector2 offset = Vector2.up * 0.5f;
+        Vector2 from = Position.center + (Vector2)Direction.GetTileDirection(direction) / 2f + offset;
+        Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(_direction) / 2f + offset;
+        Vector2 center = Position.center + offset;
+
+        _beltResource.Init(center, from, to, resource);
 
         remain = new Resource(ResourceType.None, 0);
         return true;
     }
 
-    protected override void SetRotation(DirectionEnum direction)
+    public override void SetRotation(DirectionEnum direction)
     {
         _direction = direction;
         CustomRuleTile selectedRule = null;

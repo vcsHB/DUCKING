@@ -1,5 +1,3 @@
-using System;
-using AgentManage;
 using StatSystem;
 using UnityEngine;
 

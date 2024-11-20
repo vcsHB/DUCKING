@@ -1,13 +1,10 @@
 using BuildingManage;
 using ResourceSystem;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public abstract class Factory : Building, IResourceOutput
-{
-    protected List<Vector2Int> _connectedPositions = new List<Vector2Int>();
+public abstract class Source : Building, IResourceOutput
+{    protected List<Vector2Int> _connectedPositions = new List<Vector2Int>();
     protected List<(IResourceInput, DirectionEnum)> _connectedInputs = new();
     protected List<Resource> _container = new List<Resource>();
 

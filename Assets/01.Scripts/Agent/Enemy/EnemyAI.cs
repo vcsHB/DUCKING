@@ -1,19 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-namespace AgentManage.Enemys
+namespace AgentManage.Enemies
 {
-
-
-
     public class EnemyAI : MonoBehaviour, IAgentComponent
     {
         private Enemy _enemy;
         private List<Vector2> _path;
         private int _currentPathIndex = 0;
         private float _moveSpeed;
-        private bool _canMove = false;
+        public bool CanMove {get; private set;} = true;
 
         public void AfterInit()
         {
@@ -33,18 +29,23 @@ namespace AgentManage.Enemys
         {
             _path = PathFinder.GetPath;
             _currentPathIndex = 0;
-            _canMove = true;
+            CanMove = true;
         }
 
-        private void Update()
-        {
-            if(!_canMove) return;
+        // ========== State Handles =====================
 
+        //internal void HandleSetEnemy
+
+        public void HandleMoveToPath()
+        {
             if (_path.Count > 0 && _currentPathIndex < _path.Count)
             {
                 MoveAlongPath();
             }
         }
+
+
+        // ===========================================
 
         private void MoveAlongPath() // Update
         {

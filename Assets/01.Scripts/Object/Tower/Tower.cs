@@ -22,6 +22,8 @@ namespace BuildingManage.Tower
         [SerializeField] private Resource _needResource;
         [SerializeField] protected int _maxResourceAmount;
         [SerializeField] protected int _currentResourceAmount; // 사실상 총알 수
+        [SerializeField] protected int _bulletMultiple = 1;
+        protected int _currentBullet = 0;
 
 
         [SerializeField] private PoolingType _projectile;
@@ -50,10 +52,10 @@ namespace BuildingManage.Tower
             bool isCheck = _targetDetector.CheckTarget(out _targetPos);
             if (isCheck)
             {
-                if (IsResourceEnough)
-                {
                     Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
                     _headVisual.UpdateHeadDirection(direction.normalized);
+                if (IsResourceEnough)
+                {
                 }
                 if (CanShoot)
                 {
@@ -73,6 +75,12 @@ namespace BuildingManage.Tower
             VFXPlayer vfx = PoolManager.Instance.Pop(_fireVFX, currentGunTip.position, Quaternion.identity) as VFXPlayer;
             bullet.Fire(direction);
             vfx.PlayVFX();
+            _currentBullet++;
+            // if(_currentBullet >= _bulletMultiple)
+            // {
+
+            // }
+
             _currentResourceAmount--;
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
         }
@@ -90,7 +98,11 @@ namespace BuildingManage.Tower
                 remain.amount = sum - _maxResourceAmount;
             }
             else
+            {
                 _currentResourceAmount = sum;
+                remain.type = ResourceType.None;
+            }
+
             return true;
         }
     }
