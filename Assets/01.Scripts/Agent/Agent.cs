@@ -75,7 +75,5 @@ namespace AgentManage
             // 나중에 수업에서 다루며 수정
             _components.Values.ToList().ForEach(compo => compo.Dispose());
         }
-       
     }
-
 }

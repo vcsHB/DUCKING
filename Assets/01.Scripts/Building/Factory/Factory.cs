@@ -85,8 +85,7 @@ public class Factory : Source, IResourceInput, IOverloadable
             resource.type = ResourceType.None;
             remain.amount = 0;
         }
-        remain = new Resource();
-        remain.type = ResourceType.None;
+        remain = new Resource(ResourceType.None, 0);
         TryStartProcess();
         return true;
     }

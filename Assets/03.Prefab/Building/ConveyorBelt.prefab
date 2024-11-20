@@ -135,8 +135,9 @@ MonoBehaviour:
   _buildingInfo: {fileID: 7920265653214434940, guid: ba97c714619fd7947854967923f53a62, type: 2}
   _beltResource: {fileID: 7833254087694804925}
   _spriteRenderer: {fileID: 7632927096286515085}
+  _speed: 2
   _container:
-    type: 8
+    type: -1
     amount: 0
   _rules:
   - direction: 0
@@ -145,7 +146,6 @@ MonoBehaviour:
   - direction: 1
     linkedDirection: 1
     sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  _speed: 2
 --- !u!61 &3890018269880957683
 BoxCollider2D:
   m_ObjectHideFlags: 0

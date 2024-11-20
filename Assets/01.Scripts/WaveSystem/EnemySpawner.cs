@@ -10,7 +10,6 @@ namespace WaveSystem
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private WaveSO _currentWave;
-
         [SerializeField] private Transform _targetPosition;
 
         public List<Enemy> EnemyList {get; private set; } = new List<Enemy>();

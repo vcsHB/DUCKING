@@ -25,7 +25,7 @@ namespace Combat
         private void Update()
         {
             _currentTime += Time.deltaTime;
-            transform.
+
             transform.position += (Vector3)(_direction * _speed * Time.deltaTime);
             if (_currentTime >= _lifeTime)
             {

@@ -52,7 +52,9 @@ namespace BuildingManage
             {
                 bool buildThisFrame = TryBuild(_buildTarget, tilePosition, true);
 
-                if (buildThisFrame)
+                if (buildThisFrame && 
+                    (_buildTarget == BuildingEnum.Test_BigConveyorBelt || 
+                    _buildTarget == BuildingEnum.Test_ConveyorBelt))
                 {
                     Vector2Int dir = tilePosition - _prevPosition;
                     if (Mathf.Abs(dir.x + dir.y) == 1)
