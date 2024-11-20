@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8ee64d8a72c402ba079c385dd249456, type: 3}
-  m_Name: Item_Iron
+  m_Name: Item_02_Water
   m_EditorClassIdentifier: 
   id: 2
-  itemName: "\uCCA0"
-  description: "\uB4E0\uB4E0\uD55C \uAE08\uC18D\uAD11\uBB3C"
-  itemSprite: {fileID: 650297835, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
-  itemMaxGroupingAmount: 35
+  itemName: "\uBB3C"
+  description: "\uB192\uC740 \uBE44\uC5F4\uC744 \uAC00\uC9C4 \uC561\uCCB4 \uBB3C\uC9C8"
+  itemSprite: {fileID: -1404935497, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  itemMaxGroupingAmount: 120

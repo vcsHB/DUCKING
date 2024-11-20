@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectRange: 7
-  _offset: {x: 0, y: 0.7}
+  _offset: {x: 0.5, y: 0.9}
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128

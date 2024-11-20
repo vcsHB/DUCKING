@@ -461,7 +461,7 @@ MonoBehaviour:
     type: 9
     amount: 1
   _maxResourceAmount: 25
-  _currentResourceAmount: 100
+  _currentResourceAmount: 0
   _bulletMultiple: 12
   _projectile: 6
   _fireVFX: 2
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectRange: 12
-  _offset: {x: 0, y: 0.4}
+  _offset: {x: 1, y: 1.75}
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
