@@ -1,7 +1,6 @@
 using UnityEngine;
 namespace AgentManage.Enemies.State
 {
-
     public class NormalEnemyMoveToPathState : EnemyState
     {
         private EnemyAI _movePathAI;
@@ -32,11 +31,8 @@ namespace AgentManage.Enemies.State
         {
             if (_targetDetector.IsTargeting)
             {
-                Debug.Log("공격 스테이트로 전환");
                 _stateMachine.ChangeState(_stateMachine.GetState("Attack"));
             }
         }
-
-
     }
 }

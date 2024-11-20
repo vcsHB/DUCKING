@@ -10,6 +10,6 @@
         Neverox,
         Glass,
         Lead,
-        None,
+        None = -1,
     }
 }
