@@ -100,6 +100,7 @@ public class Factory : Source, IResourceInput, IOverloadable
             if (_storage[require.Key] < require.Value) //  저장량이 요구량보다 적으면
             {
                 // 걍 안돌리고 나감
+                _factoryVisual.HandleSetActive(false);
                 return;
             }
         }
@@ -110,6 +111,7 @@ public class Factory : Source, IResourceInput, IOverloadable
     private void HandleStartMakeProcess()
     {
         if (IsProcessing) return;
+        _factoryVisual.HandleSetActive(true);
         IsProcessing = true;
         _currentTime = 0;
 
@@ -120,6 +122,7 @@ public class Factory : Source, IResourceInput, IOverloadable
     {
         _currentTime = 0;
         IsProcessing = false;
+        _factoryVisual.HandleSetActive(false);
         foreach (var item in _requireResources)
         {
             _storage[item.Key] -= item.Value; // 들어간 재료만큼 storage에서 차감
