@@ -2,6 +2,7 @@
 {
     public enum ResourceType
     {
+        None = -1,
         Copper,
         Coal,
         Water,
@@ -10,6 +11,8 @@
         Neverox,
         Glass,
         Lead,
-        None = -1,
+        PurifiedCopper,
+        PurifiedIron,
+        PurifiedLead,
     }
 }

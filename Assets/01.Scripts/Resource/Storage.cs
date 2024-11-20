@@ -30,8 +30,7 @@ namespace ResourceSystem
                 return false;
             }
 
-            remain = new Resource();
-            remain.type = ResourceType.None;
+            remain = new Resource(ResourceType.None, 0);
             _resourceDictionary[resource.type] = data;
             return true;
         }

@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWave: {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
-  _targetPosition: {fileID: 150626383}
+  _targetPosition: {fileID: 863836219}
 --- !u!4 &150626383
 Transform:
   m_ObjectHideFlags: 0
@@ -6813,7 +6813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 415.45007}
+  m_AnchoredPosition: {x: 0, y: 415.44995}
   m_SizeDelta: {x: 0, y: 1140.45}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1873590679
@@ -7971,8 +7971,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2062470271}
   m_HandleRect: {fileID: 2062470270}
   m_Direction: 2
-  m_Value: -0.00000029382676
-  m_Size: 0.635714
+  m_Value: 0
+  m_Size: 0.63556534
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

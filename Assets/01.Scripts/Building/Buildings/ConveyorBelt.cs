@@ -1,4 +1,3 @@
-using BuildingManage;
 using ItemSystem;
 using ResourceSystem;
 using System;
@@ -13,7 +12,7 @@ namespace BuildingManage
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _speed = 2f;
-        [SerializeField] private Resource _container;
+        [SerializeField] private Resource _container ;
         [SerializeField] private List<CustomRuleTile> _rules;
 
         private float _process = 0;
@@ -52,7 +51,19 @@ namespace BuildingManage
 
             if (!buildingExsist)
             {
-                //ItemDropManager.
+                if (_container.type != ResourceType.None)
+                {
+                    Vector2 offset = Vector2.up * 0.5f;
+                    Vector2 position =
+                        Position.center
+                        + (Vector2)Direction.GetTileDirection(_direction) / 2f
+                        + offset;
+
+                    ItemDropManager.Instance.GenerateDropItem(
+                        (int)_container.type, _container.amount, position);
+
+                    _beltResource.DisableResource();
+                }
 
                 return;
             }
