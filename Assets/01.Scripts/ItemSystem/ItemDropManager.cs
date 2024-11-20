@@ -6,11 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace ItemSystem
 {
-    public class ItemDropManager : MonoBehaviour
+    public class ItemDropManager : MonoSingleton<ItemDropManager>
     {
         [SerializeField] private ItemInfoGroupSO _itemInfoGroup;
         [SerializeField] private DropItem _dropItemPrefab;
-        [SerializeField] private Queue<DropItem> dropItemPool;
 
 
         private void Update()

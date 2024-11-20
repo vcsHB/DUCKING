@@ -21,9 +21,9 @@ namespace BuildingManage.Tower
         [SerializeField] protected float _aimingSpeed;
         [SerializeField] private Resource _needResource;
         [SerializeField] protected int _maxResourceAmount;
-        [SerializeField] protected int _currentResourceAmount; // 사실상 총알 수
-        [SerializeField] protected int _bulletMultiple = 1;
-        protected int _currentBullet = 0;
+        [SerializeField] protected int _currentResourceAmount; // 자원 수
+        [SerializeField] protected int _bulletMultiple = 1; // 1자원당 탄환 환원비율
+        protected int _currentBullet = 0; // 실질적인 현재 탄수
 
 
         [SerializeField] private PoolingType _projectile;
@@ -32,7 +32,8 @@ namespace BuildingManage.Tower
         private float _currentCoolTime;
         private Vector2 _targetPos;
 
-        private bool CanShoot => (_currentCoolTime > _fireCooltime) && IsResourceEnough;
+        private bool CanShoot => (_currentCoolTime > _fireCooltime) && IsBulletEnough;
+        private bool IsBulletEnough => _currentBullet > 0;
         private bool IsResourceEnough => _currentResourceAmount >= _needResource.amount;
 
         protected override void Awake()
@@ -52,11 +53,9 @@ namespace BuildingManage.Tower
             bool isCheck = _targetDetector.CheckTarget(out _targetPos);
             if (isCheck)
             {
-                    Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
-                    _headVisual.UpdateHeadDirection(direction.normalized);
-                if (IsResourceEnough)
-                {
-                }
+                Vector2 direction = _targetPos - ((Vector2)transform.position + _towerCenterOffset);
+                _headVisual.UpdateHeadDirection(direction.normalized);
+                RefillBullets();
                 if (CanShoot)
                 {
 
@@ -75,14 +74,21 @@ namespace BuildingManage.Tower
             VFXPlayer vfx = PoolManager.Instance.Pop(_fireVFX, currentGunTip.position, Quaternion.identity) as VFXPlayer;
             bullet.Fire(direction);
             vfx.PlayVFX();
-            _currentBullet++;
-            // if(_currentBullet >= _bulletMultiple)
-            // {
+            _currentBullet--;
 
-            // }
-
-            _currentResourceAmount--;
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
+        }
+
+        private void RefillBullets()
+        {
+            if (_currentBullet <= 0) // 탄 부족시
+            {
+                if (_currentResourceAmount > 0)
+                {
+                    _currentResourceAmount--; // 자원 땡겨서 장전
+                    _currentBullet = _bulletMultiple;
+                }
+            }
         }
 
         public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)

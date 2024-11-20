@@ -14,7 +14,6 @@ public class ConveyorBelt : Building, IResourceInput, IResourceOutput
     [SerializeField] private float _speed = 2f;
     private float _process = 0;
 
-
     private void Update()
     {
         if (_container.type == ResourceType.None)
