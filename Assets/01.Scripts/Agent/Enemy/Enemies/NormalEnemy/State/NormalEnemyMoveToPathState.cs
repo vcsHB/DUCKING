@@ -22,7 +22,6 @@ namespace AgentManage.Enemies.State
         public override void UpdateState()
         {
             base.UpdateState();
-            Debug.Log("MoveToPath Update");
             if (!_movePathAI.CanMove) return;
 
             _movePathAI.HandleMoveToPath();

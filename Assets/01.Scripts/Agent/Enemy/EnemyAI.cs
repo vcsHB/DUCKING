@@ -36,7 +36,7 @@ namespace AgentManage.Enemies
 
         //internal void HandleSetEnemy
 
-        internal void HandleMoveToPath()
+        public void HandleMoveToPath()
         {
             if (_path.Count > 0 && _currentPathIndex < _path.Count)
             {

@@ -26,5 +26,10 @@ namespace AgentManage.Enemies
         public void Dispose()
         {
         }
+
+        public void StopImmediately()
+        {
+            _rigidCompo.velocity = Vector2.zero;
+        }
     }
 }

@@ -1,9 +1,13 @@
 using AgentManage.Enemies.State;
+using ObjectPooling;
 
 namespace AgentManage.Enemies
 {
     public class NormalEnemy : StateEnemy
     {
+        public PoolingType projectile;
+        public float attackDelay;
+
         protected override void InitStates()
         {
             StateMachine.AddState("Idle", new NormalEnemyIdleState(this, StateMachine, "Idle"));

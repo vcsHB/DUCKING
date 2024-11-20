@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 506352703582538120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.34, y: -1.59, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Stat>k__BackingField: {fileID: 11400000, guid: 4934d53a4af7e874d87efcefcdab9989, type: 2}
   <type>k__BackingField: 4
+  projectile: 7
+  attackDelay: 1
 --- !u!114 &6494682954249620370
 MonoBehaviour:
   m_ObjectHideFlags: 0
