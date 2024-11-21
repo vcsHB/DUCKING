@@ -43,6 +43,13 @@ namespace UI.InGame.Build
             else
                 Close();
         }
+
+        public void SetPositionY(float y)
+        {
+            _rectTrm.anchoredPosition = 
+                new Vector2(_rectTrm.anchoredPosition.x, 
+                y - (_rectTrm.rect.height / 2));
+        }
     }
 
 }

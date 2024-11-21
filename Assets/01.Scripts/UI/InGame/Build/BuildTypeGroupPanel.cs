@@ -39,13 +39,18 @@ namespace UI.InGame.Build
 
         public void HandleOnPointerDescription(BuildCategory category)
         {
-            _descriptionPanel.ShowDescription(category.categoryDescription);
+            string description = $"{category.categoryName}\n{category.categoryDescription}";
+            _descriptionPanel.ShowDescription(description);
         }
 
         public void HandleSetDescriptionActive(bool value)
         {
             _descriptionPanel.SetPanelActive(value);
         }
-    }
 
+        public void SetDescPosition(float y)
+        {
+            _descriptionPanel.SetPositionY(y);
+        }
+    }
 }
