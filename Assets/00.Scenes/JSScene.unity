@@ -2395,6 +2395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872c28ea05fb3c648a5ce9cd291e8041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildTarget: 0
   _buildingPreview: {fileID: 76882475}
   _playerItemCollector: {fileID: 0}
   _autoRotateBuildings: 0100000002000000
@@ -7131,7 +7132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 415.44995}
+  m_AnchoredPosition: {x: 0, y: 415.45032}
   m_SizeDelta: {x: 0, y: 1140.45}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1873590679
@@ -8289,8 +8290,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2062470271}
   m_HandleRect: {fileID: 2062470270}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.63063383
+  m_Value: -0.0000008814803
+  m_Size: 0.63570285
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

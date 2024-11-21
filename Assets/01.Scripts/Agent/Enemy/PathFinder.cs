@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 public class PathFinder
@@ -17,6 +18,7 @@ public class PathFinder
 
     public static List<Vector2> GetPath { get => new List<Vector2>(path); }
 
+    static int cnt = 0;
 
     public static void FindPath(Vector2 start, Vector2 target)
     {
@@ -37,6 +39,12 @@ public class PathFinder
 
         while (openSet.Count > 0)
         {
+            cnt++;
+            if(cnt > 1000)
+            {
+                Debug.LogError("으악 심장훈 로직 문제");
+                break;
+            }
             Vector3Int current = openSet.Dequeue();
 
             if (current == targetTile)

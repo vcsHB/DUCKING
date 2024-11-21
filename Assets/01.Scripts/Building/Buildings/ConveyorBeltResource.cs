@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ConveyorBeltResource : MonoBehaviour
 {
+    [SerializeField] private ResourceInfoGroupSO _resourceGroup;
     [SerializeField] private Vector2 _from, _to, _center;
     private SpriteRenderer _visual;
 
@@ -34,7 +35,7 @@ public class ConveyorBeltResource : MonoBehaviour
     public void Init(Vector2 center, Vector2 from, Vector2 to, Resource resource)
     {
         //어떤 리소스인지 스프라이트 넣어주기
-        //_visual.sprite = 
+        _visual.sprite = _resourceGroup.GetResourceInfo(resource.type).icon;
 
         _center = center;
         _from = from;

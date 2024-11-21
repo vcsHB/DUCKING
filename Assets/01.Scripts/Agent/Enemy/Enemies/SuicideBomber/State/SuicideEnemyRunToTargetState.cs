@@ -10,6 +10,7 @@ public class SuicideEnemyRunToTargetState : EnemyState
     private BomberTimer _timer;
 
     private float _enterTimer;
+    private readonly int _bombCount = 3;
 
     public SuicideEnemyRunToTargetState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
     {
@@ -23,16 +24,18 @@ public class SuicideEnemyRunToTargetState : EnemyState
 
     public override void Enter()
     {
-        base.Enter();
+        Debug.Log("123");
 
         _timer.StartTimer();
-
         _enterTimer = Time.time;
         if (_bomber.target != null)
         {
+            Debug.Log("นึ1");
             PathFinder.FindPath(_enemyTrm.position, _bomber.target.position);
             _movePathAI.SetMove();
+            Debug.Log("นึ2");
         }
+        Debug.Log("นึ");
     }
 
     public override void UpdateState()
@@ -43,9 +46,9 @@ public class SuicideEnemyRunToTargetState : EnemyState
             _movePathAI.HandleMoveToPath();
 
 
-        _timer.SetTimer(3 - Mathf.RoundToInt(Time.time - _enterTimer));
+        _timer.SetTimer(_bombCount - Mathf.RoundToInt(Time.time - _enterTimer));
 
-        if (_enterTimer + 3 < Time.time)
+        if (_enterTimer + _bombCount < Time.time)
         {
             _stateMachine.ChangeState(_stateMachine.GetState("Bomb"));
         }

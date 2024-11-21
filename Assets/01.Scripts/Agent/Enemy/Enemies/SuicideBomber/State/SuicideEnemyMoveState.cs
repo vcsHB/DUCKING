@@ -32,7 +32,6 @@ public class SuicideEnemyMoveState : EnemyState
 
     public override void UpdateState()
     {
-        base.UpdateState();
         if (!_movePathAI.CanMove) return;
 
         _movePathAI.HandleMoveToPath();
@@ -41,10 +40,16 @@ public class SuicideEnemyMoveState : EnemyState
 
     private void CheckTarget()
     {
+        Debug.Log(_targetDetector);
+        Debug.Log(_targetDetector.IsTargeting);
+
         if (_targetDetector.IsTargeting)
         {
+            Debug.Log("밍글링1");
             bomber.SetTartget(_targetDetector.CurrentTarget);
+            Debug.Log("밍글링2");
             _stateMachine.ChangeState(_stateMachine.GetState("RunToTarget"));
+            Debug.Log("밍글링3");
         }
     }
 }

@@ -32,7 +32,7 @@ public class SuicideEnemyBombState : EnemyState
 
             if (canHit)
             {
-                damageable.ApplyDamage(3);
+                damageable.ApplyDamage(50);
             }
         }
 
