@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BuildingPreview : MonoBehaviour
 {
     [SerializeField] private Transform _visualTrm;
+    [SerializeField] private Transform _direction;
     private Material _visualMat;
 
     [ColorUsage(true, true)]
@@ -46,5 +47,19 @@ public class BuildingPreview : MonoBehaviour
             _visualMat.SetColor("_Color", isOverlap ? _failColor : _succesColor);
 
         transform.position = tilePos;
+    }
+
+    public void SetDirection(DirectionEnum direction)
+    {
+        _direction.gameObject.SetActive(true);
+        Vector3 rotation = Direction.GetDirection(direction);
+        rotation.z -= 180;
+
+        _direction.rotation = Quaternion.Euler(rotation);
+    }
+
+    public void DisableDirection()
+    {
+        _direction.gameObject.SetActive(false);
     }
 }
