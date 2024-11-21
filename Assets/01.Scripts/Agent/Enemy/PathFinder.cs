@@ -47,7 +47,7 @@ public class PathFinder
                 break;
             }
             Vector3Int current = openSet.Dequeue();
-            Debug.Log($"Current Node: {current}, OpenSet Count: {openSet.Count}");
+            //Debug.Log($"Current Node: {current}, OpenSet Count: {openSet.Count}");
 
             if (Vector3.Distance(current, targetTile) < 2f)
             {

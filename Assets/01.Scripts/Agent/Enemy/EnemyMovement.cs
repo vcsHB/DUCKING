@@ -8,6 +8,7 @@ namespace AgentManage.Enemies
         private Rigidbody2D _rigidCompo;
         private Enemy _enemy;
         private float _moveSpeed;
+        public event Action<Vector2> OnMovementEvent;
 
 
         private void Awake()
@@ -37,6 +38,7 @@ namespace AgentManage.Enemies
 
         public void Move(Vector2 moveDir)
         {
+            OnMovementEvent?.Invoke(moveDir);
             _rigidCompo.velocity = moveDir * _moveSpeed;
         }
     }
