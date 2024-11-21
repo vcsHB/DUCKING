@@ -11,10 +11,12 @@ namespace UI.InGame.Build
         private BuildTypeGroupPanel _ownerGroupPanel;
         [SerializeField] private Image _categoryIconImage;
         private Button _button;
+        private RectTransform _rectTrm;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
+            _rectTrm = transform as RectTransform;
             _button.onClick.AddListener(HandleClickCategorySelectButton);
         }
 
@@ -34,6 +36,7 @@ namespace UI.InGame.Build
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            _ownerGroupPanel.SetDescPosition(_rectTrm.anchoredPosition.y);
             _ownerGroupPanel.HandleSetDescriptionActive(true);
             _ownerGroupPanel.HandleOnPointerDescription(_category);
         }

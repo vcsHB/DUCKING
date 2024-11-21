@@ -20,7 +20,7 @@ namespace AgentManage.PlayerManage
         
         private void Awake()
         {
-            print(InventorySize + "설정된 인벤사이즈");
+            //print(InventorySize + "설정된 인벤사이즈");
 
             //_inventory = new List<ItemData>(1);
 
@@ -32,7 +32,7 @@ namespace AgentManage.PlayerManage
         {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                print("밍");
+                //print("밍");
                 RemoveItem(0);
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))

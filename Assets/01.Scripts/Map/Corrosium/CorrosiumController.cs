@@ -124,6 +124,10 @@ public class CorrosiumController : MonoBehaviour
                     _corrosiveTilemap.SetTile
                         (new Vector3Int(x, y), _corrosiumSO.corrosiumTile);
                 }
+                else
+                {
+                    _corrosiveTilemap.SetTile(new Vector3Int(x, y), null);
+                }
             }
         }
     }

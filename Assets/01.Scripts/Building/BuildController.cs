@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using AgentManage.PlayerManage;
+using ItemSystem;
+using ResourceSystem;
 using UnityEngine;
 
 namespace BuildingManage
@@ -27,8 +29,10 @@ namespace BuildingManage
             Vector2Int tilePosition
                 = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+            //이건 나중에 바꿔줘(디버깅용?)
             if (Input.GetMouseButton(1)) TryDestroyBuilding(tilePosition);
 
+            //이거도 바꿔야 함
             if (Input.GetKeyDown(KeyCode.P))
             {
                 _tryBuild = !_tryBuild;
@@ -37,10 +41,11 @@ namespace BuildingManage
 
             if (!_tryBuild || _buildTarget == BuildingEnum.None) return;
 
-            Vector2 position = Input.mousePosition;
-            int size = _buildingSet.FindBuilding(_buildTarget).tileSize;
-            _buildingPreview.UpdateBuildidng(position, size);
+            BuildingSO buildingSO = _buildingSet.FindBuilding(_buildTarget);
+            SetBulidingPreview(buildingSO);
+            RotateBuilding(buildingSO);
 
+            if (CheckResource(buildingSO) == false) return;
 
             //new input으로 바꿔 나중에
             if (Input.GetMouseButtonDown(0)) _isBuilding = true;
@@ -51,22 +56,9 @@ namespace BuildingManage
             }
 
             //회전을 하다!
-            if (Input.GetKeyDown(KeyCode.R))
-                _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
 
 
-            if (_isBuilding)
-            {
-                bool buildThisFrame = TryBuild(_buildTarget, tilePosition, true);
-
-                if (buildThisFrame)
-                {
-                    OnBuildingChange?.Invoke();
-
-                    if (_autoRotateBuildings.Contains(_buildTarget)) 
-                        AutoRotate(tilePosition);
-                }
-            }
+            if (_isBuilding) TryBuild(_buildTarget, tilePosition, true);
         }
 
         public void SetBuildTarget(BuildingEnum buildingType)
@@ -82,11 +74,20 @@ namespace BuildingManage
             BuildingSize size = new BuildingSize(position, info.tileSize);
 
             bool isOverlap = MapManager.Instance.CheckBuildingOverlap(size);
-            if (isOverlap) return false;
-            DirectionEnum direction = info.canRotate ? _curDirection : DirectionEnum.Down;
 
+            if (isOverlap) return false;
+
+            DirectionEnum direction = info.canRotate ? _curDirection : DirectionEnum.Down;
             info.building.Build(position, direction, save);
             OnBuildingChange?.Invoke();
+
+            if (_autoRotateBuildings.Contains(_buildTarget))
+                AutoRotate(position);
+
+            foreach (Resource resource in info.needResource)
+            {
+                _playerItemCollector.RemoveItem(new ItemData(resource));
+            }
 
             return true;
         }
@@ -135,6 +136,50 @@ namespace BuildingManage
             {
                 _buildingPreview.Disable();
             }
+        }
+
+        private bool CheckResource(BuildingSO buildingSO)
+        {
+            bool canInsert = true;
+
+            foreach (Resource resource in buildingSO.needResource)
+            {
+                bool exsist = _playerItemCollector.IsHaveItem((int)resource.type);
+
+                if (!exsist)
+                {
+                    canInsert = false;
+                    break;
+                }
+
+                int amount = _playerItemCollector.GetItemAmount((int)resource.type);
+
+                if (amount < resource.amount)
+                {
+                    canInsert = false;
+                    break;
+                }
+            }
+
+            return canInsert;
+        }
+
+        private void SetBulidingPreview(BuildingSO buildingSO)
+        {
+            Vector2 position = Input.mousePosition;
+            int size = _buildingSet.FindBuilding(_buildTarget).tileSize;
+
+            _buildingPreview.UpdateBuildidng(position, size);
+            if (buildingSO.canRotate) _buildingPreview.SetDirection(_curDirection);
+            else _buildingPreview.DisableDirection();
+        }
+
+        private void RotateBuilding(BuildingSO buildingSO)
+        {
+            if (buildingSO.canRotate == false) return;
+
+            if (Input.GetKeyDown(KeyCode.R))
+                _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
         }
     }
 }
