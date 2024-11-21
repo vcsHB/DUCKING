@@ -28,6 +28,7 @@ namespace BuildingManage
         private BuildController _buildController;
 
         public BuildController BuildController => _buildController;
+        public CorrosiumController CorrosiumController { get; private set; }
 
         #endregion
 
@@ -49,6 +50,7 @@ namespace BuildingManage
 
             _mapGenerator = GetComponent<RandomMapGenerator>();
             _buildController = GetComponent<BuildController>();
+            CorrosiumController = GetComponent<CorrosiumController>();
             _hit = new RaycastHit2D[1];
 
             _buildController.Init(_buildingSet);
@@ -117,11 +119,11 @@ namespace BuildingManage
         {
             Vector2Int tilePos = GetTilePos(pos);
 
-            for(int i = 0; i < _buildingList.Count; i++)
+            for (int i = 0; i < _buildingList.Count; i++)
             {
                 if (_buildingList[i].CheckPosition(tilePos))
                 {
-                    building = _buildingList[i]; 
+                    building = _buildingList[i];
                     return true;
                 }
             }
