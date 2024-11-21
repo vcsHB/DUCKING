@@ -12,7 +12,7 @@ namespace BuildingManage
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
-        private BuildingEnum _buildTarget;
+        [SerializeField] private BuildingEnum _buildTarget;
         private DirectionEnum _curDirection;
         [SerializeField] private BuildingPreview _buildingPreview;
         [SerializeField] private PlayerItemCollector _playerItemCollector;
