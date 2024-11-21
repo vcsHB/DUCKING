@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8ee64d8a72c402ba079c385dd249456, type: 3}
-  m_Name: NoneItem
+  m_Name: Item_00_Copper
   m_EditorClassIdentifier: 
-  id: -1
-  itemName: NONE
+  id: 0
+  itemName: "\uAD6C\uB9AC \uAD11\uC11D"
   description: "\uC124\uBA85\uB370\uC2A4"
-  itemSprite: {fileID: 21300144, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  itemMaxGroupingAmount: 100
+  itemSprite: {fileID: -1081133628, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  itemMaxGroupingAmount: 120
