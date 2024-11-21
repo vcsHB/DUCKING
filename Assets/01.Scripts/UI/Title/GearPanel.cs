@@ -10,6 +10,7 @@ namespace UI.TitleScene
         private void Update()
         {
 
+
             Rotate();
         }
 
