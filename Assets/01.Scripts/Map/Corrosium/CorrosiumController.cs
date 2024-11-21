@@ -1,11 +1,6 @@
 using BuildingManage;
-using JetBrains.Annotations;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -103,7 +98,7 @@ public class CorrosiumController : MonoBehaviour
         EncorrosiveAreaEdges.Add(edge);
     }
 
-    private void SetCorrosive()
+    public void SetCorrosive()
     {
         Vector2Int size = _mapInfo.mapSize;
 
