@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe4603fccba8247b7faf3c6dfacc4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Stat>k__BackingField: {fileID: 11400000, guid: 4934d53a4af7e874d87efcefcdab9989, type: 2}
+  <Stat>k__BackingField: {fileID: 11400000, guid: 58a43ab9f608ec64983bce3a606fca2b, type: 2}
   <type>k__BackingField: 4
   projectile: 7
   attackDelay: 1
