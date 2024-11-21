@@ -45,11 +45,8 @@ public class SuicideEnemyMoveState : EnemyState
 
         if (_targetDetector.IsTargeting)
         {
-            Debug.Log("밍글링1");
             bomber.SetTartget(_targetDetector.CurrentTarget);
-            Debug.Log("밍글링2");
             _stateMachine.ChangeState(_stateMachine.GetState("RunToTarget"));
-            Debug.Log("밍글링3");
         }
     }
 }

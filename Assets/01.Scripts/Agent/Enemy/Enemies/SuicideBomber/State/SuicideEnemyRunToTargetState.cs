@@ -24,18 +24,13 @@ public class SuicideEnemyRunToTargetState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("123");
-
         _timer.StartTimer();
         _enterTimer = Time.time;
         if (_bomber.target != null)
         {
-            Debug.Log("นึ1");
             PathFinder.FindPath(_enemyTrm.position, _bomber.target.position);
             _movePathAI.SetMove();
-            Debug.Log("นึ2");
         }
-        Debug.Log("นึ");
     }
 
     public override void UpdateState()
