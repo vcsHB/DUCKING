@@ -17,17 +17,17 @@ namespace AgentManage
         public int CurrentHealth => _currentHealth;
         public int MaxHealth { get; protected set; }
 
-        internal void SetMaxHealth(int max)
+        public void SetMaxHealth(int max)
         {
             MaxHealth = max;
         }
 
-        internal void ResetHealth()
+        public void ResetHealth()
         {
             _currentHealth = MaxHealth;
         }
 
-        internal void FillHealth(float percent)
+        public void FillHealth(float percent)
         {
             _currentHealth += (int)(MaxHealth * percent);
             OnHealthInCreaseEvent?.Invoke();

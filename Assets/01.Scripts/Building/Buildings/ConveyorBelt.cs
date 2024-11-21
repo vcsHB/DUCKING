@@ -61,6 +61,7 @@ namespace BuildingManage
 
                     ItemDropManager.Instance.GenerateDropItem(
                         (int)_container.type, _container.amount, position);
+                    _container = new Resource(ResourceType.None, 0);
 
                     _beltResource.DisableResource();
                 }

@@ -226,12 +226,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 2074296230287151285}
     m_Modifications:
     - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
       propertyPath: m_LocalPosition.z
@@ -268,14 +276,6 @@ PrefabInstance:
     - target: {fileID: 7080378600797314844, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
       propertyPath: m_Name
       value: ConveyorBeltResource
-      objectReference: {fileID: 0}
-    - target: {fileID: 7080378600797314844, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7080378600797314844, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

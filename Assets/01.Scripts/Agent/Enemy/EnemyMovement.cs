@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace AgentManage.Enemies
 {
@@ -6,6 +7,7 @@ namespace AgentManage.Enemies
     {
         private Rigidbody2D _rigidCompo;
         private Enemy _enemy;
+        private float _moveSpeed;
 
 
         private void Awake()
@@ -16,6 +18,7 @@ namespace AgentManage.Enemies
         public void Initialize(Agent agent)
         {
             _enemy = agent as Enemy;
+            _moveSpeed = _enemy.Stat.moveSpeed.GetValue();
 
         }
 
@@ -30,6 +33,11 @@ namespace AgentManage.Enemies
         public void StopImmediately()
         {
             _rigidCompo.velocity = Vector2.zero;
+        }
+
+        public void Move(Vector2 moveDir)
+        {
+            _rigidCompo.velocity = moveDir * _moveSpeed;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace AgentManage.Enemies.State
     public class NormalEnemyAttackState : EnemyState
     {
         private EnemyTargetDetector _targetDetector;
+        private EnemyMovement _movement;
         private Transform _enemyTrm;
         private bool _isAttacking = false;
 
@@ -17,6 +18,7 @@ namespace AgentManage.Enemies.State
 
         public NormalEnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
         {
+            _movement = enemy.GetComponent<EnemyMovement>();
             _targetDetector = enemy.GetCompo<EnemyTargetDetector>();
             _attackDelay = (enemy as NormalEnemy).attackDelay;
             _projectile = (enemy as NormalEnemy).projectile;
@@ -27,6 +29,7 @@ namespace AgentManage.Enemies.State
         {
             base.Enter();
             Debug.Log("Attack Enter");
+            _movement.StopImmediately();
             _prevAttack = Time.time;
         }
 
@@ -47,7 +50,6 @@ namespace AgentManage.Enemies.State
         {
             if (!_isAttacking && !_targetDetector.IsTargeting)
             {
-                Debug.Log("공격 스테이트로 전환");
                 _stateMachine.ChangeState(_stateMachine.GetState("MoveToPath"));
                 return;
             }
