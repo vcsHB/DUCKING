@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace UI.TitleScene
 {
     public class StageSelectPanel : MovePanel
@@ -13,7 +14,7 @@ namespace UI.TitleScene
 
         public void HandleStartStage()
         {
-            
+            SceneManager.LoadScene("VCSScene");
 
         }
 

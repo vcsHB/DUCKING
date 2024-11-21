@@ -16604,7 +16604,7 @@ MonoBehaviour:
   _isHorizontal: 0
   _defaultPostion: -1200
   _activePosition: 0
-  _auduoMixer: {fileID: 0}
+  _auduoMixer: {fileID: 24100000, guid: f0a909e8ce9255743a5f592fba955dc5, type: 2}
   _bgmSlider: {fileID: 39648459}
   _sfxSlider: {fileID: 170860108}
 --- !u!1 &310052283
