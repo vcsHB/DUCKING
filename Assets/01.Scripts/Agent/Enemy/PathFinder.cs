@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 public class PathFinder
@@ -18,16 +17,18 @@ public class PathFinder
 
     public static List<Vector2> GetPath { get => new List<Vector2>(path); }
 
-    static int cnt = 0;
 
     public static void FindPath(Vector2 start, Vector2 target)
     {
+        int errorCount = 0; // 연산 한계치
         // A* 알고리즘 초기화
         path.Clear();
         //pathIndex = 0;
 
         Vector3Int startTile = _tilemap.WorldToCell(start);
         Vector3Int targetTile = _tilemap.WorldToCell(target);
+        Vector3Int targetPosss = new Vector3Int((int)target.x, (int)target.y);
+
 
         HashSet<Vector3Int> closedSet = new HashSet<Vector3Int>();
         PriorityQueue<Vector3Int> openSet = new PriorityQueue<Vector3Int>();
@@ -39,27 +40,38 @@ public class PathFinder
 
         while (openSet.Count > 0)
         {
-            cnt++;
-            if(cnt > 1000)
+            errorCount++;
+            if (errorCount > 1000)
             {
-                Debug.LogError("으악 심장훈 로직 문제");
+                // 이쯤되면 못찾은겨
                 break;
             }
             Vector3Int current = openSet.Dequeue();
+            Debug.Log($"Current Node: {current}, OpenSet Count: {openSet.Count}");
 
-            if (current == targetTile)
+            if (Vector3.Distance(current, targetTile) < 2f)
             {
                 ReconstructPath(cameFrom, current);
                 return;
             }
-
-            closedSet.Add(current);
+            if (!closedSet.Contains(current))
+            {
+                closedSet.Add(current);
+            }
 
             foreach (Vector3Int neighbor in GetNeighbors(current))
             {
+
+                if (closedSet.Contains(neighbor) || IsWall(neighbor)) 
+                {
+                    //Debug.Log($"거긴 벽이다 애송이. {current}");
+                    continue; // 이미 처리된 노드 건너뜀
+                }
+
+
                 if (closedSet.Contains(neighbor) || IsWall(neighbor)) continue;
 
-                float tentativeGScore = gScore[current] + Vector3Int.Distance(current, neighbor);
+                float tentativeGScore = gScore[current] + 1;
 
                 if (!gScore.ContainsKey(neighbor) || tentativeGScore < gScore[neighbor])
                 {
@@ -67,13 +79,15 @@ public class PathFinder
                     gScore[neighbor] = tentativeGScore;
                     float fScore = tentativeGScore + GetHeuristic(neighbor, targetTile);
 
-                    if (!openSet.Contains(neighbor))
+                    if (!closedSet.Contains(neighbor) && !openSet.Contains(neighbor))
                     {
                         openSet.Enqueue(neighbor, fScore);
                     }
                 }
             }
         }
+        // openSet이 비었는데도 목표에 도달하지 못한 경우 (경로 없음)
+        Debug.LogWarning("Pathfinding failed : CANT GO");
     }
 
     private static bool IsWall(Vector3Int position)
@@ -102,18 +116,18 @@ public class PathFinder
     }
 
     // Get사방
-    private static Vector3Int[] GetNeighbors(Vector3Int position)
+    private static List<Vector3Int> GetNeighbors(Vector3Int position)
     {
-        Vector3Int[] neighbors = new Vector3Int[4]
+        List<Vector3Int> neighbors = new List<Vector3Int>
         {
-                position + Vector3Int.up,
-                position + Vector3Int.down,
-                position + Vector3Int.left,
-                position + Vector3Int.right
+            position + Vector3Int.up,
+            position + Vector3Int.down,
+            position + Vector3Int.left,
+            position + Vector3Int.right
         };
-
+        // 유효한 타일만 반환 (벽 필터링)
+        neighbors.RemoveAll(neighbor => IsWall(neighbor));
         return neighbors;
-        //
     }
 }
 
