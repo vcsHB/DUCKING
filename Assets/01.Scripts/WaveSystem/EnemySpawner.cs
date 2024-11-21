@@ -12,12 +12,7 @@ namespace WaveSystem
         [SerializeField] private WaveSO _currentWave;
         [SerializeField] private Transform _targetPosition;
 
-        public List<Enemy> EnemyList {get; private set; } = new List<Enemy>();
-
-        private void Start()
-        {
-            PathFinder.FindPath(transform.position, _targetPosition.position);
-        }
+        public List<Enemy> EnemyList { get; private set; } = new List<Enemy>();
 
 
         public void GenerateWaveEnemys(WaveSO wave)
@@ -34,12 +29,15 @@ namespace WaveSystem
                 WaveInfo wave = _currentWave.waveInfos[i];
                 PoolingType poolingType = wave.enemyType;
                 WaitForSeconds ws = new WaitForSeconds(wave.generateTerm);
+
                 for (int j = 0; j < wave.amount; j++)
                 {
                     Enemy enemy = PoolManager.Instance.Pop(poolingType, transform.position, Quaternion.identity) as Enemy;
-                    enemy.GetCompo<EnemyAI>().SetMove();
                     enemy.OnEnemyDieEvent += HandleEnemyDie;
+                    enemy.SetTartget(_targetPosition);
+                    enemy.Initialize();
                     EnemyList.Add(enemy);
+
                     yield return ws;
                 }
             }
@@ -50,7 +48,5 @@ namespace WaveSystem
             EnemyList.Remove(enemy);
             enemy.OnEnemyDieEvent -= HandleEnemyDie;
         }
-
     }
-
 }

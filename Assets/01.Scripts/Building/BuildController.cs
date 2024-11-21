@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AgentManage.PlayerManage;
 using UnityEngine;
 
@@ -11,10 +12,11 @@ namespace BuildingManage
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
-        [SerializeField] private BuildingEnum _buildTarget;
-        [SerializeField] private DirectionEnum _curDirection;
+        private BuildingEnum _buildTarget;
+        private DirectionEnum _curDirection;
         [SerializeField] private BuildingPreview _buildingPreview;
         [SerializeField] private PlayerItemCollector _playerItemCollector;
+        [SerializeField] private List<BuildingEnum> _autoRotateBuildings;
 
         private Vector2Int _prevPosition = new Vector2Int(int.MinValue, int.MinValue);
         private bool _isBuilding = false;
@@ -26,21 +28,21 @@ namespace BuildingManage
                 = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
             if (Input.GetMouseButton(1)) TryDestroyBuilding(tilePosition);
+
             if (Input.GetKeyDown(KeyCode.P))
             {
                 _tryBuild = !_tryBuild;
                 SetPreview(_tryBuild);
             }
 
-            if (!_tryBuild) return;
+            if (!_tryBuild || _buildTarget == BuildingEnum.None) return;
 
             Vector2 position = Input.mousePosition;
             int size = _buildingSet.FindBuilding(_buildTarget).tileSize;
-
             _buildingPreview.UpdateBuildidng(position, size);
 
-            
 
+            //new input으로 바꿔 나중에
             if (Input.GetMouseButtonDown(0)) _isBuilding = true;
             if (Input.GetMouseButtonUp(0))
             {
@@ -48,32 +50,23 @@ namespace BuildingManage
                 _isBuilding = false;
             }
 
+            //회전을 하다!
+            if (Input.GetKeyDown(KeyCode.R))
+                _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
+
+
             if (_isBuilding)
             {
                 bool buildThisFrame = TryBuild(_buildTarget, tilePosition, true);
 
-                if (buildThisFrame && 
-                    (_buildTarget == BuildingEnum.Test_BigConveyorBelt || 
-                    _buildTarget == BuildingEnum.Test_ConveyorBelt))
+                if (buildThisFrame)
                 {
-                    Vector2Int dir = tilePosition - _prevPosition;
-                    if (Mathf.Abs(dir.x + dir.y) == 1)
-                    {
-                        DirectionEnum dirEnum = Direction.GetDirection(dir);
-                        MapManager.Instance.TryGetBuilding(_prevPosition, out Building prevBuilding);
-                        MapManager.Instance.TryGetBuilding(tilePosition, out Building curBuilding);
-                        if (prevBuilding != null) prevBuilding.SetRotation(dirEnum);
-                        if (curBuilding != null) curBuilding.SetRotation(dirEnum);
-                        _curDirection = dirEnum;
-                    }
+                    OnBuildingChange?.Invoke();
 
-                    _prevPosition = tilePosition;
+                    if (_autoRotateBuildings.Contains(_buildTarget)) 
+                        AutoRotate(tilePosition);
                 }
             }
-
-            //회전을 하다!
-            if (Input.GetKeyDown(KeyCode.R))
-                _curDirection = (DirectionEnum)(((int)_curDirection + 1) % 4);
         }
 
         public void SetBuildTarget(BuildingEnum buildingType)
@@ -81,11 +74,6 @@ namespace BuildingManage
             _buildTarget = buildingType;
             _tryBuild = true;
             SetPreview(true);
-        }
-
-        public void HandleDisableBuildMode()
-        {
-            _tryBuild = false;
         }
 
         public bool TryBuild(BuildingEnum building, Vector2Int position, bool save)
@@ -105,7 +93,7 @@ namespace BuildingManage
 
         public void TryDestroyBuilding(Vector2Int position)
         {
-            HandleDisableBuildMode();
+            _tryBuild = false;
             bool buildingExist =
                         MapManager.Instance.TryGetBuilding(position, out Building building);
 
@@ -114,6 +102,26 @@ namespace BuildingManage
                 OnBuildingChange?.Invoke();
                 building.Destroy();
             }
+        }
+
+        public void Init(BuildingSetSO buildingSet) => _buildingSet = buildingSet;
+
+
+        private void AutoRotate(Vector2Int tilePosition)
+        {
+            Vector2Int dir = tilePosition - _prevPosition;
+
+            if (Mathf.Abs(dir.x + dir.y) == 1)
+            {
+                DirectionEnum dirEnum = Direction.GetDirection(dir);
+                MapManager.Instance.TryGetBuilding(_prevPosition, out Building prevBuilding);
+                MapManager.Instance.TryGetBuilding(tilePosition, out Building curBuilding);
+                if (prevBuilding != null) prevBuilding.SetRotation(dirEnum);
+                if (curBuilding != null) curBuilding.SetRotation(dirEnum);
+                _curDirection = dirEnum;
+            }
+
+            _prevPosition = tilePosition;
         }
 
         private void SetPreview(bool isEnable)
@@ -128,16 +136,5 @@ namespace BuildingManage
                 _buildingPreview.Disable();
             }
         }
-
-        public void Init(BuildingSetSO buildingSet)
-        {
-            _buildingSet = buildingSet;
-        }
-
-        private bool CheckResourceEnough()
-        {
-            return false;
-        }
     }
 }
-

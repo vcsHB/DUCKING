@@ -4,28 +4,18 @@ using UnityEngine.Tilemaps;
 public class PathFinder
 {
     private static Tilemap _tilemap; // Tilemap 벽이 있는 레이어
+    private static LayerMask _wallLayer = LayerMask.GetMask("Wall");    //부술 수 없음
+    private static LayerMask _barrier = LayerMask.GetMask("Barrier");   //부술 수 있음
     public Vector3 _targetPosition; // 목표 위치
-    private static LayerMask _wallLayer;
 
     public static List<Vector2> path = new List<Vector2>(); // A* 경로
-
-
-    private void Start()
-    {
-        //FindPath(transform.position, _targetPosition);
-    }
 
     public static void Initialize(Tilemap wallTilemap)
     {
         _tilemap = wallTilemap;
-        _wallLayer = LayerMask.GetMask("Wall");
     }
 
-    public static List<Vector2> GetPath  {
-        get {
-            return path;
-        }
-    }
+    public static List<Vector2> GetPath { get => new List<Vector2>(path); }
 
 
     public static void FindPath(Vector2 start, Vector2 target)
@@ -81,7 +71,7 @@ public class PathFinder
     private static bool IsWall(Vector3Int position)
     {
         Vector3 worldPosition = _tilemap.CellToWorld(position) + _tilemap.cellSize / 2;
-        return Physics2D.BoxCast(worldPosition, Vector2.one, 0f, Vector2.zero, 0.1f, _wallLayer); // 박스 캐스트에 Vec.one을 바꾸면 판정을 조정할 수 있다.
+        return Physics2D.BoxCast(worldPosition, _tilemap.cellSize, 0f, Vector2.zero, 0.1f, _wallLayer); // 박스 캐스트에 Vec.one을 바꾸면 판정을 조정할 수 있다.
     }
 
     private static void ReconstructPath(Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)

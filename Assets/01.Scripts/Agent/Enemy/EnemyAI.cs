@@ -34,8 +34,6 @@ namespace AgentManage.Enemies
 
         // ========== State Handles =====================
 
-        //internal void HandleSetEnemy
-
         public void HandleMoveToPath()
         {
             if (_path.Count > 0 && _currentPathIndex < _path.Count)
@@ -43,9 +41,6 @@ namespace AgentManage.Enemies
                 MoveAlongPath();
             }
         }
-
-
-        // ===========================================
 
         private void MoveAlongPath() // Update
         {

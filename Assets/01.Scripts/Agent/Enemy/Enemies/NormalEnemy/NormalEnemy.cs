@@ -18,8 +18,11 @@ namespace AgentManage.Enemies
             StateMachine.Initialize("MoveToPath", this);
         }
 
-        
+        public override void Initialize()
+        {
+            StateMachine.ChangeState(StateMachine.GetState("MoveToPath"));
+        }
 
-         
+
     }
 }
