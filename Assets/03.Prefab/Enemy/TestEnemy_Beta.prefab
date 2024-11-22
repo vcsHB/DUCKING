@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4072866716400895494}
   - component: {fileID: 5298171809441985394}
   m_Layer: 7
-  m_Name: TestEnemy_LongDistanceAttack
+  m_Name: TestEnemy_Beta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fe4603fccba8247b7faf3c6dfacc4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Stat>k__BackingField: {fileID: 11400000, guid: 4934d53a4af7e874d87efcefcdab9989, type: 2}
+  <Stat>k__BackingField: {fileID: 11400000, guid: 58a43ab9f608ec64983bce3a606fca2b, type: 2}
   <type>k__BackingField: 4
   projectile: 7
   attackDelay: 1
@@ -369,6 +369,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4210312741905792972}
   - component: {fileID: 4660451811858531719}
+  - component: {fileID: 4420610501659758242}
+  - component: {fileID: 3448224587134876560}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -411,7 +413,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 16020d0c63493604da7d5dc753a70bbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -432,8 +434,8 @@ SpriteRenderer:
   m_SortingLayerID: 1379319179
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -207361222, guid: ace748042a101e74492d3de62e3daab6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -443,6 +445,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4420610501659758242
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442275193535714709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 25a51689edaa89243bde9d41d01b0382, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3448224587134876560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442275193535714709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822fc004d6895f84f92ac0f4c560e809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5884525254373314782
 GameObject:
   m_ObjectHideFlags: 0

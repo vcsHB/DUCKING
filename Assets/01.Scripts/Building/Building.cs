@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using Combat;
 using UnityEngine;
 
-public abstract class Building : MonoBehaviour, IBuildable
+public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
     protected DirectionEnum _direction;
     protected Transform _visualTrm;
 
     protected Health _healthCompo;
+    public Health HealthCompo => _healthCompo;
    
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
@@ -67,6 +68,11 @@ public abstract class Building : MonoBehaviour, IBuildable
         fabricInstnace.SetRotation(direction);
 
         MapManager.Instance.AddBuilding(fabricInstnace, save);
+    }
+
+    public Building GetInformation()
+    {
+        return this;
     }
 }
 
