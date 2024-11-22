@@ -1,7 +1,6 @@
 using UnityEngine;
 namespace UI.InGame.BuildingInfoDisplayer
 {
-
     public class BuildingInfoDisplayPanel : MovePanel
     {
         private Building _currentBuilding;
