@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
-  - {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
-  - {fileID: 11400000, guid: 42151dc4a42e4e54c958452c7e767e8d, type: 2}
+  - {fileID: 11400000, guid: b3777e7c73dac214db6e09d94b16b91b, type: 2}
+  - {fileID: 11400000, guid: b3777e7c73dac214db6e09d94b16b91b, type: 2}
+  - {fileID: 11400000, guid: b3777e7c73dac214db6e09d94b16b91b, type: 2}
+  - {fileID: 11400000, guid: 30151e10118e2c048a059d2375dbdfa8, type: 2}
+  - {fileID: 11400000, guid: 30151e10118e2c048a059d2375dbdfa8, type: 2}
+  - {fileID: 11400000, guid: 30151e10118e2c048a059d2375dbdfa8, type: 2}
+  - {fileID: 11400000, guid: ef3381c30e0f89a4b8c93f10b607cc76, type: 2}
+  - {fileID: 11400000, guid: ef3381c30e0f89a4b8c93f10b607cc76, type: 2}
+  - {fileID: 11400000, guid: ef3381c30e0f89a4b8c93f10b607cc76, type: 2}
+  - {fileID: 11400000, guid: 3a4ca7719e2aa0541a60965a76ca193b, type: 2}
+  - {fileID: 11400000, guid: 3a4ca7719e2aa0541a60965a76ca193b, type: 2}
+  - {fileID: 11400000, guid: 3a4ca7719e2aa0541a60965a76ca193b, type: 2}
+  - {fileID: 11400000, guid: ba5b66050be30074b91b3b8248716073, type: 2}
+  - {fileID: 11400000, guid: ba5b66050be30074b91b3b8248716073, type: 2}
