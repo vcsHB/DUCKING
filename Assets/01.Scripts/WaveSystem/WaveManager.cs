@@ -48,7 +48,7 @@ namespace WaveSystem
                 _wavePanel.HandleRefreshWaveInfo(CurrentWaveIndex, _enemySpawner.EnemyList.Count);
                 if (_enemySpawner.EnemyList.Count > 0)
                     return;
-
+                IsWaveStarted = false;
                 ContinueNextWave();
             }
 

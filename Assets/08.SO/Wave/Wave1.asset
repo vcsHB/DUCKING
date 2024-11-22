@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a233207cdddd71848b2361f7b257d7e6, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  waveStartDelayTime: 3
+  waveStartDelayTime: 85
   waveInfos:
   - enemyType: 4
-    amount: 5
+    amount: 1
     generateTerm: 0.5
-  - enemyType: 8
-    amount: 3
-    generateTerm: 0.3

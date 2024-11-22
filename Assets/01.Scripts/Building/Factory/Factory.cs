@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using ResourceSystem;
 using UnityEngine;
 
@@ -9,6 +8,8 @@ public class Factory : Source, IResourceInput, IOverloadable
     [SerializeField] protected SerializeDictionary<ResourceType, int> _requireResources;
     [SerializeField] protected Resource[] _outputResources;
     protected SerializeDictionary<ResourceType, int> _storage;
+    public SerializeDictionary<ResourceType, int> Storage {get {return _storage;}}
+    public SerializeDictionary<ResourceType, int> Require {get {return _requireResources;}}
     [SerializeField] protected int _storageSize;
     [SerializeField] protected float _processDuration = 2f;
     [SerializeField] private FactoryVisual _factoryVisual;
@@ -20,8 +21,10 @@ public class Factory : Source, IResourceInput, IOverloadable
     /// </summary>
     public float CurrentProgress => _currentTime / _processDuration;
 
-    public event Action<float> OnProgressEvent;
+    public event Action<float, float> OnProgressEvent;
     public event Action OnProgressOverEvent;
+    public event Action<ResourceType, int, int> OnStorageChanged; // Type, current, need
+
     public bool IsProcessing { get; protected set; }
     float IOverloadable.OverloadLevel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -47,12 +50,12 @@ public class Factory : Source, IResourceInput, IOverloadable
 
         if (!IsProcessing) return;
         _currentTime += Time.deltaTime;
-        OnProgressEvent?.Invoke(CurrentProgress);
+        OnProgressEvent?.Invoke(_currentTime, _processDuration);
         if (CurrentProgress >= 1)
         {
 
             OnProgressOverEvent?.Invoke();
-            OnProgressEvent?.Invoke(0);
+            OnProgressEvent?.Invoke(0, 1);
         }
 
         if(_container.Count > 0)
@@ -82,9 +85,10 @@ public class Factory : Source, IResourceInput, IOverloadable
         else
         {
             _storage[resource.type] = plus;
-            resource.type = ResourceType.None;
+            remain.type = ResourceType.None;
             remain.amount = 0;
         }
+        OnStorageChanged?.Invoke(resource.type, _storage[resource.type], _requireResources[resource.type]);
         remain = new Resource(ResourceType.None, 0);
         TryStartProcess();
         return true;
