@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ItemSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +9,7 @@ namespace AgentManage.PlayerManage
     public class PlayerItemCollector : MonoBehaviour, IAgentComponent, IItemCollectable
     {
         [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
-        public UnityEvent OnItemCollectEvent;
+        public event Action OnItemValueChange;
 
         [SerializeField] private List<ItemData> _inventory = new List<ItemData>(10);
         public List<ItemData> Inventory => _inventory;

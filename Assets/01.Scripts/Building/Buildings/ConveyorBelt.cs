@@ -2,6 +2,8 @@ using ItemSystem;
 using ResourceSystem;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace BuildingManage
@@ -12,8 +14,9 @@ namespace BuildingManage
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _speed = 2f;
-        [SerializeField] private Resource _container ;
+        [SerializeField] private Resource _container;
         [SerializeField] private List<CustomRuleTile> _rules;
+        public LinkedDirection LinkedDirection;
 
         private float _process = 0;
 
@@ -80,17 +83,14 @@ namespace BuildingManage
 
         public bool TryInsertResource(Resource resource, DirectionEnum direction, out Resource remain)
         {
-            //리소스가 이미 존재할 때
-            if (_container.type != ResourceType.None)
+            //리소스가 이미 존재할 때, 반대 방향에서 올 때
+            if (direction == _direction || _container.type != ResourceType.None)
             {
                 remain = resource;
                 return false;
             }
-            else
-            {
-                _container = resource;
-            }
 
+            _container = resource;
             _beltResource.gameObject.SetActive(true);
 
             //시작 부분, 끝 부분
@@ -100,10 +100,58 @@ namespace BuildingManage
             Vector2 center = Position.center + offset;
 
             _beltResource.Init(center, from, to, resource);
-
             remain = new Resource(ResourceType.None, 0);
+
             return true;
         }
+
+        public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
+        {
+            base.Build(position, direction, save);
+
+                Debug.Log((LinkedDirection)(1 << (int)Direction.GetOpposite(_direction)));
+            Vector2Int connected = Position.min + Direction.GetTileDirection(_direction);
+            MapManager.Instance.TryGetBuilding(connected, out Building building);
+
+            if (building != null && building is ConveyorBelt belt)
+            {
+                belt.LinkedDirection |=
+                    (LinkedDirection)(1 << (int)Direction.GetOpposite(_direction));
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                connected = Position.min + Direction.GetTileDirection(_direction);
+
+                MapManager.Instance.TryGetBuilding(connected, out building);
+
+                if(building != null && building is ConveyorBelt)
+                {
+                    LinkedDirection |= (LinkedDirection)(1 << (int)_direction);
+                }
+            }
+
+        }
+
+        public override void Destroy()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Vector2Int connected = Position.min + Direction.directionsInt[i];
+                DirectionEnum connectedDir = Direction.GetDirection(connected);
+
+                MapManager.Instance.TryGetBuilding(connected, out Building building);
+
+                if (building != null && building is ConveyorBelt belt)
+                {
+                    belt.LinkedDirection &=
+                        ~(LinkedDirection)(1 << (int)Direction.GetOpposite(connectedDir));
+                }   
+            }
+
+            base.Destroy(); 
+        }
+
 
         public override void SetRotation(DirectionEnum direction)
         {
@@ -112,7 +160,8 @@ namespace BuildingManage
 
             foreach (var r in _rules)
             {
-                if (r.direction == direction || (DirectionEnum)(((int)direction + 2) % 4) == r.direction)
+                if (r.direction == direction &&
+                    (r.linkedDirection & LinkedDirection) == r.linkedDirection)
                 {
                     selectedRule = r;
                     break;

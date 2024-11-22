@@ -36,11 +36,10 @@ public class ConveyorBeltResource : MonoBehaviour
     {
         //어떤 리소스인지 스프라이트 넣어주기
         _visual.sprite = _resourceGroup.GetResourceInfo(resource.type).icon;
+        transform.position = from;
 
         _center = center;
         _from = from;
         _to = to;
-
-        transform.position = _from;
     }
 }

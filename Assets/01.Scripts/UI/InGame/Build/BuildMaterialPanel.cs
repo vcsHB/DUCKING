@@ -25,13 +25,25 @@ namespace UI.InGame.Build
             }
         }
 
+        private void Update()
+        {
+            _slotList.ForEach(slot =>
+            {
+                if (slot.ItemInfo != null)
+                {
+                    slot.UpdateHaveAmount(
+                        _playerItemCollector.GetItemAmount(slot.ItemInfo.id));
+                }
+            });
+        }
+
 
         public void SelectStructure()
         {// 건물 정보를 받아 재료에 대한 정보를 HandleSetMaterialSlots로 넘긴다
-            
-            
+
+
         }
-        
+
         /**
          * <summary>
          * 건물 버튼을 눌러 재료 창을 구성해주는 상태
@@ -47,7 +59,7 @@ namespace UI.InGame.Build
                 ItemInfoSO info = _itemInfoGroup.GetItemData((int)infos[i].type); // 자원 enum과 Item id를 동기화 시켜야함.
                 _slotList[i].SetMaterial(info, infos[i].amount, _playerItemCollector.GetItemAmount(info.id));
             }
-            
+
         }
 
         private void DisableAllSlot()

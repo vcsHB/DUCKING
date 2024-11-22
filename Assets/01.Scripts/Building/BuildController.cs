@@ -4,6 +4,7 @@ using AgentManage.PlayerManage;
 using ItemSystem;
 using ResourceSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace BuildingManage
 {
@@ -28,35 +29,32 @@ namespace BuildingManage
         {
             Vector2Int tilePosition
                 = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            bool pointerOverlapUI = EventSystem.current.IsPointerOverGameObject();
 
-            //이건 나중에 바꿔줘(디버깅용?)
-            if (Input.GetMouseButton(1)) TryDestroyBuilding(tilePosition);
+            //지워주는 친구
+            if (Input.GetMouseButton(1) && !pointerOverlapUI) TryDestroyBuilding(tilePosition);
 
-            //이거도 바꿔야 함
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                _tryBuild = !_tryBuild;
-                SetPreview(_tryBuild);
-            }
 
             if (!_tryBuild || _buildTarget == BuildingEnum.None) return;
 
             BuildingSO buildingSO = _buildingSet.FindBuilding(_buildTarget);
-            SetBulidingPreview(buildingSO);
+
+            bool canBuild = CheckResource(buildingSO);
+            SetBulidingPreview(buildingSO, canBuild);
             RotateBuilding(buildingSO);
 
-            if (CheckResource(buildingSO) == false) return;
+            if (!canBuild) return;
 
             //new input으로 바꿔 나중에
-            if (Input.GetMouseButtonDown(0)) _isBuilding = true;
-            if (Input.GetMouseButtonUp(0))
+            if(!pointerOverlapUI)
             {
-                _prevPosition = new Vector2Int(int.MinValue, int.MinValue);
-                _isBuilding = false;
+                if (Input.GetMouseButtonDown(0)) _isBuilding = true;
+                if (Input.GetMouseButtonUp(0))
+                {
+                    _prevPosition = new Vector2Int(int.MinValue, int.MinValue);
+                    _isBuilding = false;
+                }
             }
-
-            //회전을 하다!
-
 
             if (_isBuilding) TryBuild(_buildTarget, tilePosition, true);
         }
@@ -86,6 +84,7 @@ namespace BuildingManage
 
             foreach (Resource resource in info.needResource)
             {
+                //재료 소모하는 부분
                 _playerItemCollector.RemoveItem(new ItemData(resource));
             }
 
@@ -164,12 +163,13 @@ namespace BuildingManage
             return canInsert;
         }
 
-        private void SetBulidingPreview(BuildingSO buildingSO)
+        private void SetBulidingPreview(BuildingSO buildingSO, bool canBuild)
         {
             Vector2 position = Input.mousePosition;
             int size = _buildingSet.FindBuilding(_buildTarget).tileSize;
 
-            _buildingPreview.UpdateBuildidng(position, size);
+            _buildingPreview.UpdateBuildidng(position, size, !canBuild);
+
             if (buildingSO.canRotate) _buildingPreview.SetDirection(_curDirection);
             else _buildingPreview.DisableDirection();
         }
