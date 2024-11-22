@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildTarget: 0
   _buildingPreview: {fileID: 76882475}
-  _playerItemCollector: {fileID: 0}
+  _playerItemCollector: {fileID: 863836214}
   _autoRotateBuildings: 0100000002000000
 --- !u!114 &563723603
 MonoBehaviour:

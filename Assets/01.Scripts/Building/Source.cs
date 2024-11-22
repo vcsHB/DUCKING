@@ -28,7 +28,7 @@ public abstract class Source : Building, IResourceOutput
         {
             for (int j = 0; j < _connectedInputs.Count; j++)
             {
-                var input = _connectedInputs[i];
+                var input = _connectedInputs[j];
 
                 ResourceType type = _container[i].type;
                 Resource resource = new Resource(type, 1);

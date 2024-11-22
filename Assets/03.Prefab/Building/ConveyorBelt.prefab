@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1691961855
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,10 +142,31 @@ MonoBehaviour:
   _rules:
   - direction: 0
     linkedDirection: 1
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    sprite: {fileID: -452512971, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 0
+    linkedDirection: 8
+    sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 0
+    linkedDirection: 2
+    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 0
+    linkedDirection: 5
+    sprite: {fileID: -713398458, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 0
+    linkedDirection: 10
+    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - direction: 1
     linkedDirection: 1
-    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 1
+    linkedDirection: 4
+    sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 1
+    linkedDirection: 5
+    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - direction: 1
+    linkedDirection: 2
+    sprite: {fileID: -389507168, guid: 2243027af11927743bce6eb52069e209, type: 3}
 --- !u!61 &3890018269880957683
 BoxCollider2D:
   m_ObjectHideFlags: 0

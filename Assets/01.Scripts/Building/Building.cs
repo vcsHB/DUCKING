@@ -45,7 +45,7 @@ public abstract class Building : MonoBehaviour, IBuildable
         _direction = direction;
     }
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         MapManager.Instance.RemoveBuilding(this, true);
         Destroy(gameObject);
@@ -56,7 +56,7 @@ public abstract class Building : MonoBehaviour, IBuildable
 
     }
 
-    public void Build(Vector2Int position, DirectionEnum direction, bool save = false)
+    public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
         //SetPosition(position);
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
