@@ -48,7 +48,6 @@ namespace InputManage
             if (context.performed)
             {
                 RightClickEvent?.Invoke(true);
-                CheckStructure();
             }
             else if(context.canceled)
                 RightClickEvent?.Invoke(false);
@@ -57,7 +56,11 @@ namespace InputManage
         public void OnLeftClick(InputAction.CallbackContext context)
         {
             if(context.performed)
+            {
                 LeftClickEvent?.Invoke(true);
+                CheckStructure();
+
+            }
             else if(context.canceled)
                 LeftClickEvent?.Invoke(false);
         }
@@ -76,8 +79,10 @@ namespace InputManage
                 if (hit.collider.transform.TryGetComponent(out ISelectable selectedObject))
                 {
                     SelectEvent?.Invoke(selectedObject);
+                    return;
                 }
             }
+            SelectEvent?.Invoke(null);
         }
 
         public void OnInventory(InputAction.CallbackContext context)

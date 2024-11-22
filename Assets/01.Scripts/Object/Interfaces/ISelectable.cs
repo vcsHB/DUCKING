@@ -2,7 +2,7 @@
 {
     public interface ISelectable
     {
-        public void ShowInformation();
+        public Building GetInformation();
         
     }
 }
