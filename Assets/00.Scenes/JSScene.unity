@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872c28ea05fb3c648a5ce9cd291e8041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildTarget: 0
+  _inputReader: {fileID: 11400000, guid: a96e6d1ac00fb81469b27edb820c9cf6, type: 2}
   _buildingPreview: {fileID: 76882475}
   _playerItemCollector: {fileID: 863836214}
   _autoRotateBuildings: 0100000002000000

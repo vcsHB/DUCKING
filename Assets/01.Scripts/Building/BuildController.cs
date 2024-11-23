@@ -7,6 +7,7 @@ using ResourceSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 namespace BuildingManage
 {
@@ -40,8 +41,7 @@ namespace BuildingManage
 
         private void Update()
         {
-            Vector2Int tilePosition
-                = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2Int tilePosition = MapManager.Instance.GetTilePos(_inputReader.AimPosition);
             bool pointerOverlapUI = EventSystem.current.IsPointerOverGameObject();
 
             if(pointerOverlapUI)  _isBuilding = false;
@@ -95,12 +95,15 @@ namespace BuildingManage
 
         public void TryDestroyBuilding(Vector2Int position)
         {
-            _tryBuild = false;
             bool buildingExist =
                         MapManager.Instance.TryGetBuilding(position, out Building building);
 
             if (buildingExist)
             {
+                foreach(Resource resource in building.BuildingInfo.needResource)
+                {
+                    _playerItemCollector.CollectItem((int)resource.type, resource.amount);
+                }
                 OnBuildingChange?.Invoke();
                 building.Destroy();
             }
