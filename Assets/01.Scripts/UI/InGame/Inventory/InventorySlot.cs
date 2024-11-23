@@ -1,6 +1,7 @@
 using System;
 using ItemSystem;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,13 +38,15 @@ namespace UI.InGame.Inventory
             // 나중에 ItemSO를 넘겨받아서 스프라이트 데이터 적용
             _amount = amount;
             _currentItemInfo = itemInfoSo;
-            _iconImage.sprite = itemInfoSo.itemSprite;
 
             if (itemInfoSo.id == -1)
             {
+                _iconImage.enabled = false;
                 _amountText.text = string.Empty;
                 return;
             }
+            _iconImage.enabled = true;
+            _iconImage.sprite = itemInfoSo.itemSprite;
             _amountText.text = _amount.ToString();
         }
 
