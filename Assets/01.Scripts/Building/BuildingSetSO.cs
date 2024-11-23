@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace BuildingManage
@@ -13,6 +15,7 @@ namespace BuildingManage
         public List<BuildingSO> buildings;
         private string _path = Path.Combine(Application.dataPath, "01.Scripts/Building/BuildingEnum.cs");
 
+#if UNITY_EDITOR
         public void DeleteBuilding(BuildingSO building)
         {
             buildings.Remove(building);
@@ -21,7 +24,7 @@ namespace BuildingManage
             sr.Append("public enum BuildingEnum { ");
             foreach (BuildingEnum e in Enum.GetValues(typeof(BuildingEnum)))
             {
-                if (e == BuildingEnum.None || 
+                if (e == BuildingEnum.None ||
                     e.ToString() == building.buildingTypeStr) continue;
 
                 sr.Append($"{e.ToString()}, ");
@@ -85,6 +88,8 @@ namespace BuildingManage
             AssetDatabase.SaveAssets();
             return building;
         }
+#endif
+
 
         public BuildingSO FindBuilding(BuildingEnum buildingEnum)
         {

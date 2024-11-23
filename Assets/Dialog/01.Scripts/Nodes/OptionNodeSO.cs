@@ -12,11 +12,13 @@ namespace Dialog
 
         public Action OnOptionChange;
 
+#if UNITY_EDITOR
         public void AddOption()
         {
             options.Add(new Option(this));
             OnOptionChange?.Invoke();
         }
+#endif
 
         public void AddOption(NodeSO nextNode, int index)
         {
@@ -84,11 +86,13 @@ namespace Dialog
         public TextInfo option;
 
         public NodeSO nextNode;
-
+#if UNITY_EDITOR
         public Option(NodeSO node)
         {
             if (option == null) option = new TextInfo(node);
             nextNode = null;
         }
+
+#endif
     }
 }

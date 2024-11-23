@@ -315,4 +315,4 @@ MonoBehaviour:
   health: 50
   needResource:
   - type: 0
-    amount: 4
+    amount: 1

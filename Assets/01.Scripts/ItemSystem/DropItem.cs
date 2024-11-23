@@ -6,22 +6,22 @@ namespace ItemSystem
 {
     public class DropItem : MonoBehaviour, IPoolable
     {
-        [field:SerializeField] public PoolingType type { get; set; }
+        [field: SerializeField] public PoolingType type { get; set; }
         public GameObject ObjectPrefab => gameObject;
         public void ResetItem()
         {
         }
-        
+
         [SerializeField] private ItemData _itemData;
 
         [Header("Setting Values")]
         [SerializeField] private float _detectRadius = 0.4f;
 
         [SerializeField] private LayerMask _detectMask;
-        
+
         private SpriteRenderer _spriteRenderer;
         private ItemInfoSO _itemInfo;
-        
+
         private void Awake()
         {
             _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
@@ -30,7 +30,7 @@ namespace ItemSystem
         public void Initialize(int id, int amount, ItemInfoSO itemInfo)
         {
             _itemData.id = id;
-            _itemData.amount = amount; 
+            _itemData.amount = amount;
             _spriteRenderer.sprite = itemInfo.itemSprite;
         }
 
@@ -44,10 +44,15 @@ namespace ItemSystem
         {
             Collider2D hit = Physics2D.OverlapCircle(transform.position, _detectRadius, _detectMask);
             if (hit == null) return;
-            
+
             if (hit.transform.TryGetComponent(out IItemCollectable collectable))
             {
-                collectable.CollectItem(_itemData.id, _itemData.amount);
+                int remain = collectable.CollectItem(_itemData.id, _itemData.amount);
+                if (remain > 0) // 먹고도 남았으면 냄겨야됨
+                {
+                    _itemData.amount = remain;
+                    return;
+                }
                 PoolManager.Instance.Push(this);
             }
         }
@@ -58,6 +63,6 @@ namespace ItemSystem
             Gizmos.DrawWireSphere(transform.position, _detectRadius);
         }
 
-        
+
     }
 }
