@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Dialog/01.Scripts/Editor/AnimationGenerator/AnimationGenerator.uss?fileID=7433441132597879392&amp;guid=f11eb047dd0844f4eb4075c77f26d654&amp;type=3#AnimationGenerator" />
+    <Dialog.SplitView orientation="Horizontal">
+        <ui:VisualElement name="left-side" style="flex-grow: 1; background-color: rgb(62, 62, 62);" />
+        <ui:VisualElement name="right-side" style="flex-grow: 1; background-color: rgb(62, 62, 62);" />
+    </Dialog.SplitView>
+</ui:UXML>

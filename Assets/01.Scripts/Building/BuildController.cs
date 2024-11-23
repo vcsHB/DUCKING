@@ -31,6 +31,11 @@ namespace BuildingManage
                 = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             bool pointerOverlapUI = EventSystem.current.IsPointerOverGameObject();
 
+            if(pointerOverlapUI)
+            {
+                _isBuilding = false;
+            }
+
             //지워주는 친구
             if (Input.GetMouseButton(1) && !pointerOverlapUI) TryDestroyBuilding(tilePosition);
 
