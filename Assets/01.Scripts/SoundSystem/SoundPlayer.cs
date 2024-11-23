@@ -1,17 +1,21 @@
 using System.Collections;
+using ObjectPooling;
 using UnityEngine;
 using UnityEngine.Audio;
 
 namespace SoundManage
 {
 
-    public class SoundPlayer : MonoBehaviour
+    public class SoundPlayer : MonoBehaviour, IPoolable
     {
-        // 나중에 풀링 처리를 해주어야 함
-        
+        [field: SerializeField] public PoolingType type { get; set; }
+
+        public GameObject ObjectPrefab => gameObject;
+
         [SerializeField] private AudioMixerGroup _sfxGroup, _musicGroup;
 
         private AudioSource _audioSource;
+
 
         private void Awake()
         {
@@ -52,6 +56,11 @@ namespace SoundManage
         {
             yield return new WaitForSeconds(time);
             //this.Push();
+        }
+
+        public void ResetItem()
+        {
+            
         }
     }
 
