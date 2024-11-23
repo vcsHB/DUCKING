@@ -10,7 +10,7 @@ using UnityEngine;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
-    protected DirectionEnum _direction;
+    protected DirectionEnum direction;
     protected Transform _visualTrm;
 
     protected Health _healthCompo;
@@ -43,7 +43,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
         _visualTrm.rotation = rotation;
-        _direction = direction;
+        this.direction = direction;
     }
 
     public virtual void Destroy()
@@ -59,12 +59,10 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 
     public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
-        //SetPosition(position);
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
 
         Building fabricInstnace = Instantiate(this, worldPos, Quaternion.identity);
         fabricInstnace.SetPosition(position);
-        //fabricInstnace.Position = new BuildingSize(position, _buildingInfo.tileSize);
         fabricInstnace.SetRotation(direction);
 
         MapManager.Instance.AddBuilding(fabricInstnace, save);
