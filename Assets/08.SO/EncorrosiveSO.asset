@@ -23,4 +23,4 @@ MonoBehaviour:
     maxCount: 5
     minSize: 4
     maxSize: 6
-  corrosiumTile: {fileID: 11400000, guid: 847f2afe7b6e3e240a62f9b917b31584, type: 2}
+  corrosiumTile: {fileID: 11400000, guid: d7dfbd221e7404546a327eb7cbeeba6d, type: 2}
