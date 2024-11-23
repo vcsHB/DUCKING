@@ -284,7 +284,7 @@ MonoBehaviour:
   buildingType: 9
   buildingName: "\uCCA0 \uC81C\uB828\uC18C"
   description: 
-  buildingIconSprite: {fileID: 1248684083, guid: 2bc0c4efcaeff54418033759ac2398d9, type: 3}
+  buildingIconSprite: {fileID: 21300000, guid: e8c1598ecdcf9f34693d4bb249a42fb5, type: 3}
   building: {fileID: 7090670705001108193, guid: acd9b12d9c6a59d44a5030cc4247be6a, type: 3}
   tileSize: 2
   canRotate: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   buildingType: 1
   buildingName: "\uCEE8\uBCA0\uC774\uC5B4 \uBCA8\uD2B8"
   description: "\uAC04\uB2E8\uD55C \uC774\uB3D9\uC218\uB2E8\uC785\uB2C8\uB2E4. "
-  buildingIconSprite: {fileID: -713398458, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  buildingIconSprite: {fileID: 21300000, guid: bd2051cf58c01ec4ebadaaa30b3b0cb3, type: 3}
   building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
   canRotate: 1
