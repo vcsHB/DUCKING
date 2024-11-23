@@ -97,7 +97,175 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OXID_Ores_UI_Copper
+      name: OXID_Ores_UI_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d332c058e1af5534785e40b791a18d99
+      internalID: -431769547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8952349c1def9469f98458bdb3a4ee
+      internalID: 512936270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589629be9b6da9a4ebd381e68bec067f
+      internalID: -1476306858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df995554e68e6c44a98d7355448862c
+      internalID: -308875771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e2a3524b1e6bd47ac2cb7f6b756da0
+      internalID: 1652026799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a49157ffcdbe5b42998a862d4302331
+      internalID: 1545593861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ab10dd9364e3943b88f0008202868d
+      internalID: 1716461255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05cf70d0efddb148853f0c4e60e92ad
+      internalID: 100836506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OXID_Ores_UI_8
       rect:
         serializedVersion: 2
         x: 0
@@ -105,20 +273,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 269a12aeecd49d44886b76878f6e0c02
-      internalID: -1081133628
+      spriteID: db1cc4b9e7f20be41a3196963ea65264
+      internalID: 325230001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OXID_Ores_UI_Coal
+      name: OXID_Ores_UI_9
       rect:
         serializedVersion: 2
         x: 32
@@ -126,20 +294,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca789f0985110984c927bcd8c39475af
-      internalID: 1862475348
+      spriteID: fce92e234beac9e479eb34e3da57594b
+      internalID: -902532863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OXID_Ores_UI_Iron
+      name: OXID_Ores_UI_10
       rect:
         serializedVersion: 2
         x: 64
@@ -147,77 +315,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5530b01472df39749a7247b408199352
-      internalID: 650297835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OXID_Ores_UI_Water
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ef53a52789b0c84d842319cf6ffe76d
-      internalID: -435715363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OXID_Ores_UI_Sand
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd965de101bb7074a8dfb122e3b2181e
-      internalID: -1404935497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OXID_Ores_UI_Lead
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d6bd58d73a6c014498969e94cfbeb94
-      internalID: -367600832
+      spriteID: d9a1b7e91239b334f8b7b6be71c13e0b
+      internalID: -1089117156
       vertices: []
       indices: 
       edges: []
@@ -233,12 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OXID_Ores_UI_Coal: 1862475348
-      OXID_Ores_UI_Copper: -1081133628
-      OXID_Ores_UI_Iron: 650297835
-      OXID_Ores_UI_Lead: -367600832
-      OXID_Ores_UI_Sand: -1404935497
-      OXID_Ores_UI_Water: -435715363
+      OXID_Ores_UI_0: -431769547
+      OXID_Ores_UI_1: 512936270
+      OXID_Ores_UI_10: -1089117156
+      OXID_Ores_UI_2: -1476306858
+      OXID_Ores_UI_3: -308875771
+      OXID_Ores_UI_4: 1652026799
+      OXID_Ores_UI_5: 1545593861
+      OXID_Ores_UI_6: 1716461255
+      OXID_Ores_UI_7: 100836506
+      OXID_Ores_UI_8: 325230001
+      OXID_Ores_UI_9: -902532863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
