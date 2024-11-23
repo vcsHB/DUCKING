@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 namespace Objects.UsableItem
 {
-    public class UseableItem : MonoBehaviour
+    public class UsableItem : MonoBehaviour
     {
         [SerializeField] protected Vector2Int _intPosition;
         public event Action OnUseEvent;

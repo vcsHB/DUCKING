@@ -9,7 +9,7 @@ public class Factory : Source, IResourceInput, IOverloadable
     [SerializeField] protected Resource[] _outputResources;
     protected SerializeDictionary<ResourceType, int> _storage;
     public SerializeDictionary<ResourceType, int> Storage {get {return _storage;}}
-    public SerializeDictionary<ResourceType, int> Require {get {return _requireResources;}}
+    public SerializeDictionary<ResourceType, int> RequireResources {get {return _requireResources;}}
     [SerializeField] protected int _storageSize;
     [SerializeField] protected float _processDuration = 2f;
     [SerializeField] private FactoryVisual _factoryVisual;

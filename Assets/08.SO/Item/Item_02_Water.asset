@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: "\uBB3C"
   description: "\uB192\uC740 \uBE44\uC5F4\uC744 \uAC00\uC9C4 \uC561\uCCB4 \uBB3C\uC9C8"
   itemSprite: {fileID: -1404935497, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
-  itemMaxGroupingAmount: 120
+  itemMaxGroupingAmount: 240

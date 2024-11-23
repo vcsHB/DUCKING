@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -36,16 +35,18 @@ namespace Dialog
             AssetDatabase.RemoveObjectFromAsset(tagAnim);
             EditorUtility.SetDirty(_node);
             AssetDatabase.SaveAssets();
+
         }
-
-        public List<TagAnimation> GetAnimations() => tagAnimations;
-
         public TextInfo(NodeSO node)
         {
             _node = node;
             EditorUtility.SetDirty(_node);
             AssetDatabase.SaveAssets();
         }
+
 #endif
+        public List<TagAnimation> GetAnimations() => tagAnimations;
+
+
     }
 }

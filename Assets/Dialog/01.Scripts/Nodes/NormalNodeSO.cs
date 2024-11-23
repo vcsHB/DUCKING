@@ -17,7 +17,9 @@ namespace Dialog
 
         private void OnEnable()
         {
+#if UNITY_EDITOR
             if (contents == null) contents = new TextInfo(this);
+#endif
         }
 
         public override List<TagAnimation> GetAllAnimations()
