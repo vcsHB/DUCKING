@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fd5777dab64da68cc614f2e73c7f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTrm: {fileID: 0}
+  _playerTrm: {fileID: 1459828894}
   _itemInfoGroup: {fileID: 11400000, guid: 98aa430cfe470eb46a8a0efec725faa2, type: 2}
   _dropItemPrefab: {fileID: 1331168133651010943, guid: d25bc2654cca7d543aadde03566c86a6, type: 3}
 --- !u!4 &113087639
@@ -3999,6 +3999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.3
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -6366,6 +6367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 1
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -6566,6 +6568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.3
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -7344,6 +7347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.4
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -7788,8 +7792,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 363145173
-  m_SortingLayer: 1
+  m_SortingLayerID: 1095790989
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8231,6 +8235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.3
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -8648,8 +8653,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1944417289}
-        m_TargetAssemblyTypeName: UI.UIPanel, Assembly-CSharp
-        m_MethodName: Close
+        m_TargetAssemblyTypeName: UI.InGame.Inventory.InventoryPanel, Assembly-CSharp
+        m_MethodName: HandleToggleInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10279,15 +10284,15 @@ MonoBehaviour:
   itemInfoGroupSo: {fileID: 11400000, guid: 98aa430cfe470eb46a8a0efec725faa2, type: 2}
   _inventory:
   - id: 0
-    amount: 120
+    amount: 240
   - id: 0
-    amount: 0
+    amount: 240
   - id: 0
-    amount: 0
+    amount: 240
   - id: 0
-    amount: 0
-  - id: 0
-    amount: 0
+    amount: 240
+  - id: 50
+    amount: 3
   - id: 0
     amount: 0
   - id: 0
@@ -44208,6 +44213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.4
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -44296,6 +44302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 1
+  _isUnscaledTime: 0
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -45132,10 +45139,10 @@ RectTransform:
   - {fileID: 1086306986}
   m_Father: {fileID: 1944417286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.5, y: 31.5}
-  m_SizeDelta: {x: 400, y: 211.2}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 211.20001}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1905370582
 MonoBehaviour:
@@ -45183,7 +45190,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905370580}
   m_Enabled: 1
-  m_Alpha: 0.95
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -45507,6 +45514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeDuration: 0.3
+  _isUnscaledTime: 1
   _isActive: 0
   OnOpenEvent:
     m_PersistentCalls:
@@ -45516,6 +45524,7 @@ MonoBehaviour:
       m_Calls: []
   _uiInputReader: {fileID: 11400000, guid: a96e6d1ac00fb81469b27edb820c9cf6, type: 2}
   _playerItemCollector: {fileID: 1459828900}
+  _itemInfoPanel: {fileID: 1905370585}
   itemInfoGroupSo: {fileID: 11400000, guid: 98aa430cfe470eb46a8a0efec725faa2, type: 2}
   _slotPrefab: {fileID: 7095026747429210221, guid: 91e6c3ba3d0f35a4d8304baee47ae55a, type: 3}
   _contentTrm: {fileID: 960186963}
