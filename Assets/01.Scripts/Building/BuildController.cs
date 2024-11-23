@@ -57,9 +57,8 @@ namespace BuildingManage
             SetBulidingPreview(buildingSO, canBuild);
             RotateBuilding(buildingSO);
 
-            if (!canBuild) return;
-
-            if (_isBuilding) TryBuild(_buildTarget, tilePosition, true);
+            if (_isBuilding && canBuild) 
+                TryBuild(_buildTarget, tilePosition, true);
         }
 
         public void SetBuildTarget(BuildingEnum buildingType)
