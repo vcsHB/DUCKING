@@ -1,0 +1,11 @@
+#dialog-view GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 15;
+}
+
+.item-btn {
+    -unity-font-definition: url("project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&guid=84b2e21bcde2185468d10f0c57ee8950&type=3#neodgm");
+    font-size: 16px;
+}

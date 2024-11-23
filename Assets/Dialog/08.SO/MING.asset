@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3114078546357001473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a621630078b66468f5c7391fd2ffd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 3
+  animStartPos: 4
+  animLength: 3
+  _power: 5
+--- !u!114 &-1067779773621478400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 4
+  animLength: 4
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.5602037, b: 0, a: 1}
+    key2: {r: 1, g: 1, b: 0, a: 0}
+    key3: {r: 0, g: 1, b: 0, a: 0}
+    key4: {r: 0, g: 0.5679784, b: 1, a: 0}
+    key5: {r: 0, g: 0, b: 1, a: 0}
+    key6: {r: 0.63399076, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10505
+    ctime2: 20913
+    ctime3: 32286
+    ctime4: 44043
+    ctime5: 55898
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428f57e6e1463b4b8d0636e183f2213, type: 3}
+  m_Name: MING
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3835729808787371684}
+  - {fileID: 6909618346485944601}
+--- !u!114 &1994402766222670845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 4
+  animLength: 4
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0.88888884, g: 1, b: 0, a: 0}
+    key3: {r: 0, g: 1, b: 0, a: 0}
+    key4: {r: 0, g: 0.042141125, b: 0.95785886, a: 0}
+    key5: {r: 1, g: 0, b: 1, a: 0}
+    key6: {r: 1, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 11469
+    ctime2: 24287
+    ctime3: 38839
+    ctime4: 52235
+    ctime5: 65535
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+--- !u!114 &3258267593993857610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36913bfb4029da4fb34aea47baf0745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 4
+  animStartPos: 0
+  animLength: 3
+  power: 5
+--- !u!114 &3835729808787371684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: e8cbe250384441e4b86636ee1db32752
+  position: {x: 356.08228, y: 208.0518}
+  reader: NPC
+  contents:
+    text: "\uB300\uBA38\uB9AC \uB3C5\uC218\uB9AC"
+    tagAnimations:
+    - {fileID: 3258267593993857610}
+    - {fileID: -3114078546357001473}
+    _node: {fileID: 3835729808787371684}
+  nextNode: {fileID: 6909618346485944601}
+--- !u!114 &6909618346485944601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf12593a4a5d8247bdea87308ca2eb6, type: 3}
+  m_Name: OptionNodeSO
+  m_EditorClassIdentifier: 
+  guid: b677378335738234c879d7da972a35aa
+  position: {x: 674.1476, y: 207.99998}
+  options:
+  - option:
+      text: "\uC57C\uD638"
+      tagAnimations: []
+      _node: {fileID: 6909618346485944601}
+    nextNode: {fileID: 0}
+  - option:
+      text: "\uC120\uD55C\uC324 \uC0AC\uB791\uD574\uC6A9"
+      tagAnimations:
+      - {fileID: -1067779773621478400}
+      - {fileID: 1994402766222670845}
+      _node: {fileID: 6909618346485944601}
+    nextNode: {fileID: 0}
+  optionPf: {fileID: -2199068703474868929, guid: f96be568de8eb164d8af3c30b3c615e7, type: 3}

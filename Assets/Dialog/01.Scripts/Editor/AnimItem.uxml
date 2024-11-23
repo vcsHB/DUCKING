@@ -1,0 +1,10 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="txt-parent" style="align-content: stretch; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; background-color: rgb(62, 62, 62); padding-right: 5px; padding-bottom: 5px; padding-top: 5px; padding-left: 5px; -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;);">
+        <engine:Label text="Label" name="anim-type-txt" style="color: rgb(196, 196, 196); -unity-text-align: upper-center;" />
+        <Dialog.InspectorView name="anim-manage-factor" style="margin-bottom: 10px;" />
+        <engine:VisualElement name="contour" style="flex-grow: 1; background-color: rgb(228, 228, 228); height: 1px; margin-right: 0; margin-left: 0; margin-bottom: 5px;" />
+        <engine:MinMaxSlider value="0,5" low-limit="0" high-limit="5" name="anim-range" style="margin-right: 0; margin-left: 0;" />
+        <engine:Label text="Labeladsfafvc" name="selected-anim-txt" style="color: rgb(196, 196, 196); -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); font-size: 16px; max-width: 500px; min-width: 0; width: 100%; align-content: stretch;" />
+        <engine:Button text="Remove" name="remove-anim-btn" style="font-size: 12px; padding-bottom: 5px; padding-top: 5px;" />
+    </engine:VisualElement>
+</engine:UXML>
