@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using AgentManage.PlayerManage;
+using InputManage;
 using ItemSystem;
 using ResourceSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace BuildingManage
 {
@@ -15,8 +17,9 @@ namespace BuildingManage
         private BuildingSetSO _buildingSet;
         private Transform _buildingParent;
 
-        [SerializeField] private BuildingEnum _buildTarget;
+        private BuildingEnum _buildTarget;
         private DirectionEnum _curDirection;
+        [SerializeField] private UIInputReaderSO _inputReader;
         [SerializeField] private BuildingPreview _buildingPreview;
         [SerializeField] private PlayerItemCollector _playerItemCollector;
         [SerializeField] private List<BuildingEnum> _autoRotateBuildings;
@@ -25,20 +28,26 @@ namespace BuildingManage
         private bool _isBuilding = false;
         private bool _tryBuild;
 
+        private void OnEnable()
+        {
+            _inputReader.LeftClickEvent += OnBuild;
+        }
+        
+        private void OnDisable()
+        {
+            _inputReader.LeftClickEvent -= OnBuild;
+        }
+
         private void Update()
         {
             Vector2Int tilePosition
                 = MapManager.Instance.GetTilePos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             bool pointerOverlapUI = EventSystem.current.IsPointerOverGameObject();
 
-            if(pointerOverlapUI)
-            {
-                _isBuilding = false;
-            }
+            if(pointerOverlapUI)  _isBuilding = false;
 
             //지워주는 친구
             if (Input.GetMouseButton(1) && !pointerOverlapUI) TryDestroyBuilding(tilePosition);
-
 
             if (!_tryBuild || _buildTarget == BuildingEnum.None) return;
 
@@ -49,17 +58,6 @@ namespace BuildingManage
             RotateBuilding(buildingSO);
 
             if (!canBuild) return;
-
-            //new input으로 바꿔 나중에
-            if(!pointerOverlapUI)
-            {
-                if (Input.GetMouseButtonDown(0)) _isBuilding = true;
-                if (Input.GetMouseButtonUp(0))
-                {
-                    _prevPosition = new Vector2Int(int.MinValue, int.MinValue);
-                    _isBuilding = false;
-                }
-            }
 
             if (_isBuilding) TryBuild(_buildTarget, tilePosition, true);
         }
@@ -112,6 +110,22 @@ namespace BuildingManage
         public void Init(BuildingSetSO buildingSet) => _buildingSet = buildingSet;
 
 
+        private void OnBuild(bool btnDown)
+        {
+            if (!_tryBuild || _buildTarget == BuildingEnum.None) return;
+
+            bool pointerOverlapUI = EventSystem.current.IsPointerOverGameObject();
+
+            if (!pointerOverlapUI)
+            {
+                if (Input.GetMouseButtonDown(0)) _isBuilding = true;
+                if (Input.GetMouseButtonUp(0))
+                {
+                    _prevPosition = new Vector2Int(int.MinValue, int.MinValue);
+                    _isBuilding = false;
+                }
+            }
+        }
         private void AutoRotate(Vector2Int tilePosition)
         {
             Vector2Int dir = tilePosition - _prevPosition;
