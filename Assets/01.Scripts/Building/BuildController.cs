@@ -75,12 +75,12 @@ namespace BuildingManage
 
             if (isOverlap) return false;
 
+            if (_autoRotateBuildings.Contains(_buildTarget))
+                AutoRotate(position);
+
             DirectionEnum direction = info.canRotate ? _curDirection : DirectionEnum.Down;
             info.building.Build(position, direction, save);
             OnBuildingChange?.Invoke();
-
-            if (_autoRotateBuildings.Contains(_buildTarget))
-                AutoRotate(position);
 
             foreach (Resource resource in info.needResource)
             {
@@ -115,9 +115,7 @@ namespace BuildingManage
             {
                 DirectionEnum dirEnum = Direction.GetDirection(dir);
                 MapManager.Instance.TryGetBuilding(_prevPosition, out Building prevBuilding);
-                MapManager.Instance.TryGetBuilding(tilePosition, out Building curBuilding);
                 if (prevBuilding != null) prevBuilding.SetRotation(dirEnum);
-                if (curBuilding != null) curBuilding.SetRotation(dirEnum);
                 _curDirection = dirEnum;
             }
 
