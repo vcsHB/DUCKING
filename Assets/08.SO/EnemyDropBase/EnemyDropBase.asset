@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a233207cdddd71848b2361f7b257d7e6, type: 3}
-  m_Name: Wave0
+  m_Script: {fileID: 11500000, guid: ed5fcd6d4055e294988e5f3bf455e542, type: 3}
+  m_Name: EnemyDropBase
   m_EditorClassIdentifier: 
-  waveStartDelayTime: 5
-  waveInfos:
-  - enemyType: 8
-    amount: 10
-    generateTerm: 0.5
+  drops:
+  - id: 5
+    minAmount: 1
+    maxAmount: 3
+    generateRate: 0.9

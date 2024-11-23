@@ -80,7 +80,7 @@ namespace UI.InGame.Inventory
             {
                 ItemData itemData = inventoryInfo[i];
                 InventorySlot slot = _slots[i];
-                print("id: " + itemData.id + " amount : " + itemData.amount);
+                //print("id: " + itemData.id + " amount : " + itemData.amount);
                 slot.Initialize(
                     itemInfoGroupSo.GetItemData(itemData.id),
                     itemData.amount
