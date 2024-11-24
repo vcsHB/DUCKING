@@ -5,7 +5,7 @@ namespace Dialog
 {
     public class WaitTagAnimation : StopReadingAnimation
     {
-        private float _delay;
+        [SerializeField] private float _delay;
         private float _animStartTime;
 
         private bool animStartFlag = true;

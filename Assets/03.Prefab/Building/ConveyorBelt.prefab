@@ -138,53 +138,101 @@ MonoBehaviour:
   _speed: 2
   _rules:
   - outputDirection: 0
-    inputDirection: 1
+    inputDirection: ffffffff
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 0
+    inputDirection: 01000000
     sprite: {fileID: -1833161755, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 0
-    inputDirection: 3
+    inputDirection: 03000000
     sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 0
-    inputDirection: 2
+    inputDirection: 02000000
     sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 0
-    inputDirection: -1
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    inputDirection: 0300000001000000
+    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 0
+    inputDirection: 0300000002000000
+    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 0
+    inputDirection: 0100000002000000
+    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 0
+    inputDirection: 020000000100000003000000
+    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 1
-    inputDirection: 0
+    inputDirection: ffffffff
+    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 00000000
     sprite: {fileID: -1833161755, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 1
-    inputDirection: 2
+    inputDirection: 02000000
     sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 1
-    inputDirection: 3
+    inputDirection: 03000000
     sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 1
-    inputDirection: -1
-    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    inputDirection: 0200000000000000
+    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 0000000003000000
+    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 0300000002000000
+    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 000000000300000002000000
+    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
-    inputDirection: 1
-    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    inputDirection: ffffffff
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
-    inputDirection: 3
+    inputDirection: 03000000
     sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
-    inputDirection: 0
+    inputDirection: 01000000
     sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
-    inputDirection: -1
+    inputDirection: 00000000
     sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 0300000001000000
+    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 0100000000000000
+    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 0000000003000000
+    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 000000000100000003000000
+    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 3
-    inputDirection: 0
+    inputDirection: ffffffff
+    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 00000000
     sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 3
-    inputDirection: 2
+    inputDirection: 02000000
     sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 3
-    inputDirection: 1
+    inputDirection: 01000000
     sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 3
-    inputDirection: -1
-    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    inputDirection: 0000000002000000
+    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 0000000001000000
+    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 0200000001000000
+    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 020000000100000000000000
+    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
 --- !u!61 &3890018269880957683
 BoxCollider2D:
   m_ObjectHideFlags: 0
