@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0339738bc853431283e4694058c6b4c9, type: 3}
-  m_Name: Neverox
+  m_Name: PurifiedCopper
   m_EditorClassIdentifier: 
-  resourceName: 
+  resourceName: "\uC815\uC81C\uB41C \uAD6C\uB9AC"
   description: 
-  icon: {fileID: 100836506, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  icon: {fileID: 325230001, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
   resourceTile: {fileID: 0}

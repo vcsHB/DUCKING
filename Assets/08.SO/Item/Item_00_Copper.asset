@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: "\uAD6C\uB9AC \uAD11\uC11D"
-  description: "\uC124\uBA85\uB370\uC2A4"
+  description: "\uAC00\uC7A5 \uBB34\uB09C\uD55C \uAD11\uBB3C\uC785\uB2C8\uB2E4. \uBD80\uC2DD\uC5D0
+    \uCDE8\uC57D\uD569\uB2C8\uB2E4."
   itemSprite: {fileID: -431769547, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
   itemMaxGroupingAmount: 240

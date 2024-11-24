@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ResourceGroup
   m_EditorClassIdentifier: 
   resourceData:
-    TempKey: 7
+    TempKey: 10
     TempValue: {fileID: 11400000, guid: 95071c07eb0baf643a5f601f61680f5e, type: 2}
-    SerializedKeys: 0000000001000000020000000300000004000000050000000600000007000000
+    SerializedKeys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
     SerializedValues:
     - {fileID: 11400000, guid: 54a1806e3ec23ec43ba037315325ba21, type: 2}
     - {fileID: 11400000, guid: 6562cf5861c9cb141885203d329fc60d, type: 2}
@@ -25,3 +25,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 93b709f849dbe714ab59e9922f2a8502, type: 2}
     - {fileID: 11400000, guid: 7444ccf4ccb94f24c97ef565daed3712, type: 2}
     - {fileID: 11400000, guid: 95071c07eb0baf643a5f601f61680f5e, type: 2}
+    - {fileID: 11400000, guid: f530fa0d9595bfb4bb23d02335704585, type: 2}
+    - {fileID: 11400000, guid: 5bd4fb4493872bb48aefcc02ecc0360a, type: 2}
+    - {fileID: 11400000, guid: 35454506d719cae4c9710cb3cf2300da, type: 2}
