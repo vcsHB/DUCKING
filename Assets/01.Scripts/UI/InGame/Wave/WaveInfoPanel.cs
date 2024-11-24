@@ -14,7 +14,7 @@ namespace UI.InGame.Wave
 
         public void SetWaveInfo (int currentWave, int leftEnemyAmount)
         {
-            _currentWaveText.text = $"{currentWave.ToString()} 웨이브";
+            _currentWaveText.text = $"{currentWave.ToString()}";
             _leftEnemyAmountText.text = $"{leftEnemyAmount} 개체 남음";
 
         }
