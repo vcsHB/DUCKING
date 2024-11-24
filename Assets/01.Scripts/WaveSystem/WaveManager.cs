@@ -68,6 +68,13 @@ namespace WaveSystem
             _wavePanel.SetWaitingWave();
         }
 
+        public void HandleSkipWaiting()
+        {
+            if(IsWaveStarted) return;
+
+            _currentWaitingTime = CurrentWave.waveStartDelayTime;
+        }
+
 
 
     }

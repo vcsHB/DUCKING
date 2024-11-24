@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using ItemSystem;
-using Objects.UsableItem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +8,13 @@ using UnityEngine.UI;
 namespace UI.InGame.Inventory
 {
 
-    public class ItemInfoPanel : MonoBehaviour
+    public class ItemInfoPanel : UIPanel
     {
         public event Action<int> ItemDecreaseEvent;
 
         [SerializeField] private TextMeshProUGUI _descriptionText;
         [SerializeField] private TextMeshProUGUI _amountText;
+        [SerializeField] private Vector2 _offset;
 
         [SerializeField] private Button _useButton;
         [SerializeField] private Button _dropButton;
@@ -24,8 +22,9 @@ namespace UI.InGame.Inventory
         private RectTransform _rectTrm;
         private InventorySlot _currentSlot;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _rectTrm = transform as RectTransform;
 
             _useButton.onClick.AddListener(HandleUse);
@@ -36,7 +35,7 @@ namespace UI.InGame.Inventory
         public void SetItemInfo(InventorySlot slot, Vector2 position)
         {
             _currentSlot = slot;
-            _rectTrm.anchoredPosition = position;
+            _rectTrm.anchoredPosition = position + _offset;
             _currentInfo = slot.CurrentItemInfo;
             _descriptionText.text = _currentInfo.description;
             _amountText.text = $"{slot.Amount.ToString()}개";

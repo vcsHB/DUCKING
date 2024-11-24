@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 5
   itemName: "\uB124\uBC84\uB85D\uC2A4"
   description: "\uC0B0\uC18C\uC640 \uBC18\uC751\uD558\uC9C0 \uC54A\uB294 \uBE44\uBD80\uC2DD\uC131
-    \uAE08\uC18D"
+    \uAE08\uC18D. \uACE0\uC5F4\uB85C \uAE30\uD654\uC2DC \uCF54\uB85C\uC2DC\uC6C0\uACFC
+    \uC751\uCD95\uD558\uB294 \uC131\uC9C8\uC744 \uB755\uB2C8\uB2E4."
   itemSprite: {fileID: 100836506, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
   itemMaxGroupingAmount: 240
