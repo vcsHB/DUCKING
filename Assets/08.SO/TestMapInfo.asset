@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fe599ed11c6e6409a51bef80826b41, type: 3}
   m_Name: TestMapInfo
   m_EditorClassIdentifier: 
-  mapSize: {x: 50, y: 50}
+  mapSize: {x: 100, y: 100}
   biomInfo: {fileID: 11400000, guid: 830717e55eac97a45b5799b4c88e0427, type: 2}
   fabrics:
   - fabric: 2

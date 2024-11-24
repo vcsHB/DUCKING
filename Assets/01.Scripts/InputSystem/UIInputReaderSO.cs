@@ -18,6 +18,13 @@ namespace InputManage
 
         private Vector2 _mouseScreenPosition;
         public Vector2 AimPosition { get; private set; }
+        public bool CanControl { get; private set; } = true;
+
+        public void SetControl(bool value)
+        {
+            CanControl = value;
+        }
+
 
         [SerializeField] private LayerMask _objectLayer;
     
@@ -39,12 +46,14 @@ namespace InputManage
         
         public void OnBuild(InputAction.CallbackContext context)
         { // 빌드 키 : B
+            if(!CanControl) return;
             BuildEvent?.Invoke();
             
         }
 
         public void OnSelect(InputAction.CallbackContext context)
-        { // 우클릭, Select: 건물 선택
+        { 
+            if(!CanControl) return;
             if (context.performed)
             {
                 RightClickEvent?.Invoke(true);
@@ -55,6 +64,7 @@ namespace InputManage
 
         public void OnLeftClick(InputAction.CallbackContext context)
         {
+            if(!CanControl) return;
             if(context.performed)
             {
                 LeftClickEvent?.Invoke(true);
@@ -67,6 +77,7 @@ namespace InputManage
 
         public void OnMouse(InputAction.CallbackContext context)
         {
+            if(!CanControl) return;
             _mouseScreenPosition = context.ReadValue<Vector2>();
             AimPosition = Camera.main.ScreenToWorldPoint(_mouseScreenPosition);
         }
@@ -87,12 +98,14 @@ namespace InputManage
 
         public void OnInventory(InputAction.CallbackContext context)
         {
+            if(!CanControl) return;
             if(context.performed)
                 OnInventoryOpenEvent?.Invoke();
         }
 
         public void OnSortInventory(InputAction.CallbackContext context)
         {
+            if(!CanControl) return;
             if(context.performed)
                 OnInventorySortEvent?.Invoke();
         }

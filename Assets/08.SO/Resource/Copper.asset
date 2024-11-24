@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceName: 
   description: 
-  icon: {fileID: -1081133628, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  icon: {fileID: -431769547, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
   resourceTile: {fileID: 11400000, guid: 30814b95e0054784d8b66f85edc38ac2, type: 2}

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace UI.InGame.Wave
 {
 
-    public class WavePanelUI : MonoBehaviour
+    public class WavePanelUI : MovePanel
     {
         [SerializeField] private WaveLeftTimePanel _leftTimePanel;
         [SerializeField] private WaveInfoPanel _waveInfoPanel;

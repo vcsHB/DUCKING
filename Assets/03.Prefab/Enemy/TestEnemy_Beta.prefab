@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1313701301762683985}
   - component: {fileID: -4072866716400895494}
   - component: {fileID: 5298171809441985394}
+  - component: {fileID: 641408562578167528}
   m_Layer: 7
   m_Name: TestEnemy_Beta
   m_TagString: Untagged
@@ -193,6 +194,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   CurrentTarget: {fileID: 0}
+--- !u!114 &641408562578167528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506352703582538120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ea57e681560a4abcd895059e915e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropBase: {fileID: 11400000, guid: 4729b5bb125c47745ab0deee6bdfcbe4, type: 2}
 --- !u!1 &1625367477697196781
 GameObject:
   m_ObjectHideFlags: 0

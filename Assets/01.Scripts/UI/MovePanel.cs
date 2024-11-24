@@ -20,9 +20,9 @@ namespace UI
         {
             base.Open();
             if (_isHorizontal)
-                _rectTrm.DOAnchorPosX(_activePosition, _activeDuration);
+                _rectTrm.DOAnchorPosX(_activePosition, _activeDuration).SetUpdate(_isUnscaledTime);
             else
-                _rectTrm.DOAnchorPosY(_activePosition, _activeDuration);
+                _rectTrm.DOAnchorPosY(_activePosition, _activeDuration).SetUpdate(_isUnscaledTime);
 
         }
 
@@ -31,9 +31,9 @@ namespace UI
             base.Close();
 
             if (_isHorizontal)
-                _rectTrm.DOAnchorPosX(_defaultPostion, _activeDuration);
+                _rectTrm.DOAnchorPosX(_defaultPostion, _activeDuration).SetUpdate(_isUnscaledTime);
             else
-                _rectTrm.DOAnchorPosY(_defaultPostion, _activeDuration);
+                _rectTrm.DOAnchorPosY(_defaultPostion, _activeDuration).SetUpdate(_isUnscaledTime);
 
         }
 

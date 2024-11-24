@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace AgentManage.PlayerManage
-{   
+{
     public class PlayerItemCollector : MonoBehaviour, IAgentComponent, IItemCollectable
     {
         [SerializeField] private ItemInfoGroupSO itemInfoGroupSo;
@@ -13,12 +13,12 @@ namespace AgentManage.PlayerManage
 
         [SerializeField] private List<ItemData> _inventory = new List<ItemData>(10);
         public List<ItemData> Inventory => _inventory;
-        [field:SerializeField] public int InventorySize { get; private set; } = 10;
+        [field: SerializeField] public int InventorySize { get; private set; } = 10;
 
 
         private Player _player;
         private Dictionary<int, int> _itemSortingTable = new Dictionary<int, int>();
-        
+
         private void Awake()
         {
             //print(InventorySize + "설정된 인벤사이즈");
@@ -29,22 +29,11 @@ namespace AgentManage.PlayerManage
             RefreshEmptySlot();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                //print("밍");
-                RemoveItem(0);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                RemoveItem(1);
-            }
-        }
+        
 
         #region AgentCompo Func
 
-        
+
         public void Initialize(Agent agent)
         {
             _player = agent as Player;
@@ -73,7 +62,7 @@ namespace AgentManage.PlayerManage
         {
             return CollectItem(id, 1);
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -94,7 +83,7 @@ namespace AgentManage.PlayerManage
             {
                 ItemData slot = GetNotFullSlot(id, itemInfoSo.itemMaxGroupingAmount);
                 if (slot == null || currentInsertAmount <= 0) return currentInsertAmount;
-                
+
                 int leftSize = itemInfoSo.itemMaxGroupingAmount - slot.amount;
                 //print($"남은 용량 : {leftSize}, 추가할 내용량 : {currentInsertAmount}");
 
@@ -102,14 +91,16 @@ namespace AgentManage.PlayerManage
                 {
                     currentInsertAmount -= leftSize;
                     slot.amount += leftSize;
-                    
-                }else
+
+                }
+                else
                 {
                     slot.amount += currentInsertAmount;
                     currentInsertAmount = 0;
                     break;
                 }
             }
+            OnItemValueChange?.Invoke();
             return 0;
         }
 
@@ -136,10 +127,10 @@ namespace AgentManage.PlayerManage
             // 다 꽉찬 슬롯인.
             return null;
         }
-        
-        public void RemoveItem(int id)
+
+        public void RemoveItem(int id, int amount)
         {
-            RemoveItem(new ItemData { id = id, amount = 1 }); // 이게 맞다는 사실. 
+            RemoveItem(new ItemData { id = id, amount = amount }); // 이게 맞다는 사실. 
             // 디버그 코드라 걍 쓴.
         }
 
@@ -153,7 +144,7 @@ namespace AgentManage.PlayerManage
             {
                 return; // 뺄 수 없음
             }
-            print("뺄수 있는지 체크 다함.");
+            //print("뺄수 있는지 체크 다함.");
             int currentMinus = 0;
 
             while (currentMinus < itemData.amount)
@@ -171,9 +162,10 @@ namespace AgentManage.PlayerManage
                     slot.amount = 0;
                 }
             }
+            OnItemValueChange?.Invoke();
         }
 
-        #endregion
+        #endregion // 외부 변경 함수
 
         private void RefreshEmptySlot()
         {
@@ -205,11 +197,11 @@ namespace AgentManage.PlayerManage
                 CollectItem(pair.Key, pair.Value);
             }
         }
-        
+
         #region external Check Funcs
 
-        
-        
+
+
         public bool CheckEmptySlot()
         {
             int emptySlotAmount = 0;
@@ -250,7 +242,7 @@ namespace AgentManage.PlayerManage
                     return _inventory[i];
                 }
             }
-            
+
             // 빈게 없음.
             return null;
         }
@@ -267,7 +259,7 @@ namespace AgentManage.PlayerManage
             }
             return null;
         }
-        
+
         /**
          * <summary>
          * 특정 아이템을 가지고 있는지 체크
@@ -282,7 +274,7 @@ namespace AgentManage.PlayerManage
             }
             return false;
         }
-        
+
         /**
          * <summary>
          * 특정 아이템의 개수를 반환
@@ -297,13 +289,13 @@ namespace AgentManage.PlayerManage
                     total += item.amount;
             }
             return total;
-        }        
+        }
 
         #endregion
 
         #region Debug Func
 
-        
+
         #endregion
 
 

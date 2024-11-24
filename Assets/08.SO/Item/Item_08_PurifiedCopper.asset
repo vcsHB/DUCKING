@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 8
   itemName: "\uC815\uC81C\uB41C \uAD6C\uB9AC"
   description: "\uC21C\uC218\uD55C \uAD6C\uB9AC \uAE08\uC18D \uC8FC\uAD34"
-  itemSprite: {fileID: -1404935497, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
+  itemSprite: {fileID: 325230001, guid: da21a82cfb9c2e446a95262ceb4044e1, type: 3}
   itemMaxGroupingAmount: 100

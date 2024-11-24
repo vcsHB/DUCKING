@@ -13,7 +13,7 @@ namespace Objects.UsableItem
         [SerializeField] private float _destroyDelay = 3f;
         [SerializeField] private Color _blinkColor = Color.red;
         [Header("Shake Setting")]
-        [SerializeField] private int _shakeStrength = 1;
+        [SerializeField] private float _shakeStrength = 1f;
         [SerializeField] private int _shakeBivrato = 5;
         private Color _defaultColor;
         private SpriteRenderer _spriteRenderer;
