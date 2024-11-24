@@ -17,5 +17,5 @@ MonoBehaviour:
   description: "\uB124\uBC84\uB85D\uC2A4 \uAE30\uD654\uAC00\uC2A4\uB97C \uD3ED\uBC1C\uC2DC\uCF1C
     \uCF54\uB85C\uC2DC\uC6C0\uC744 \uC815\uD654\uC2DC\uD0B5\uB2C8\uB2E4."
   itemSprite: {fileID: 21300000, guid: 3adaecfe0ea8a684b943f142bd001750, type: 3}
-  itemMaxGroupingAmount: 10
+  itemMaxGroupingAmount: 99
   itemPrefab: {fileID: 170851585204375859, guid: c90887fe6a2234c4285ac98b0302e1fb, type: 3}

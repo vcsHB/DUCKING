@@ -9,6 +9,7 @@ public class CorrosiumController : MonoBehaviour
     [SerializeField] private EncorrosiumSO _corrosiumSO;
     [SerializeField] private MapInfoSO _mapInfo;
     [SerializeField] private Tilemap _corrosiveTilemap;
+    [SerializeField] private Transform _centerTrm;
     private System.Random _random;
 
     private bool[,] _isCorrosive;
@@ -35,10 +36,11 @@ public class CorrosiumController : MonoBehaviour
         int left = _random.Next(0, hSize), right = hSize - left;
         int bottom = _random.Next(0, vSize), top = vSize - bottom;
 
-        AddEncorrosive(new Vector2Int(-left, top));
-        AddEncorrosive(new Vector2Int(-left, -bottom));
-        AddEncorrosive(new Vector2Int(right, top));
-        AddEncorrosive(new Vector2Int(right, -bottom));
+        Vector2Int goalCenter = new Vector2Int((int)_centerTrm.position.x, (int)_centerTrm.position.y);
+        AddEncorrosive(goalCenter + new Vector2Int(-left, top));
+        AddEncorrosive(goalCenter + new Vector2Int(-left, -bottom));
+        AddEncorrosive(goalCenter + new Vector2Int(right, top));
+        AddEncorrosive(goalCenter + new Vector2Int(right, -bottom));
 
         _corrosiumSO.shapes.ForEach(shape =>
         {
@@ -46,7 +48,8 @@ public class CorrosiumController : MonoBehaviour
 
             while (--cnt > 0)
             {
-                Vector2Int center = Vector2Int.zero;
+                Vector2Int center = new Vector2Int((int)_centerTrm.position.x, (int)_centerTrm.position.y);
+                print(center);
                 int number = _random.Next(0, 5);
                 int sizeX = _random.Next(shape.minSize, shape.maxSize);
                 int sizeY = _random.Next(shape.minSize, shape.maxSize);
@@ -54,7 +57,7 @@ public class CorrosiumController : MonoBehaviour
                 switch (number)
                 {
                     case 0:
-                        center = new Vector2Int(-left, _random.Next(-bottom, top + 1));
+                        center = center + new Vector2Int(-left, _random.Next(-bottom, top + 1));
 
                         AddEncorrosive(center + new Vector2Int(0, sizeY / 2));
                         AddEncorrosive(center + new Vector2Int(0, -sizeY / 2));
@@ -62,7 +65,7 @@ public class CorrosiumController : MonoBehaviour
                         AddEncorrosive(center + new Vector2Int(-sizeX, -sizeY / 2));
                         break;
                     case 1:
-                        center = new Vector2Int(right, _random.Next(-bottom, top + 1));
+                        center = center + new Vector2Int(right, _random.Next(-bottom, top + 1));
 
                         AddEncorrosive(center + new Vector2Int(0, sizeY / 2));
                         AddEncorrosive(center + new Vector2Int(0, -sizeY / 2));
@@ -70,7 +73,7 @@ public class CorrosiumController : MonoBehaviour
                         AddEncorrosive(center + new Vector2Int(sizeX, -sizeY / 2));
                         break;
                     case 2:
-                        center = new Vector2Int(_random.Next(-left, right + 1), -bottom);
+                        center = center + new Vector2Int(_random.Next(-left, right + 1), -bottom);
 
                         AddEncorrosive(center + new Vector2Int(sizeX / 2, 0));
                         AddEncorrosive(center + new Vector2Int(-sizeX / 2, 0));
@@ -78,7 +81,7 @@ public class CorrosiumController : MonoBehaviour
                         AddEncorrosive(center + new Vector2Int(-sizeX / 2, -sizeY));
                         break;
                     case 3:
-                        center = new Vector2Int(_random.Next(-left, right + 1), top);
+                        center = center + new Vector2Int(_random.Next(-left, right + 1), top);
 
                         AddEncorrosive(center + new Vector2Int(sizeX / 2, 0));
                         AddEncorrosive(center + new Vector2Int(-sizeX / 2, 0));

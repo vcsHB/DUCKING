@@ -132,9 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Distributor
   buildingType: 12
-  buildingName: Distributor
-  description: "\uBD84\uBC30\uAE30\uC778"
-  buildingIconSprite: {fileID: 0}
+  buildingName: "\uBD84\uBC30\uAE30"
+  description: "\uC785\uB825\uB41C \uC790\uC6D0\uC744 \uBC29\uD5A5\uC5D0 \uB9DE\uAC8C
+    \uBD84\uBC30\uD55C\uB2E4."
+  buildingIconSprite: {fileID: -1520107309, guid: faa4ab8603f1c55479a55fbc5f9a423b, type: 3}
   building: {fileID: 3204265171450055239, guid: ddcdb894617b11846912655c3b85853a, type: 3}
   tileSize: 1
   canRotate: 0
@@ -308,9 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Intersector
   buildingType: 13
-  buildingName: Intersector
-  description: "\uAD50\uCC28\uAE30"
-  buildingIconSprite: {fileID: 0}
+  buildingName: "\uAD50\uCC28\uAE30"
+  description: "\uB4E4\uC5B4\uC628 \uC790\uC6D0\uC744 \uAD50\uCC28\uD558\uC5EC \uB0B4\uBCF4\uB0B8\uB2E4."
+  buildingIconSprite: {fileID: 1826502967, guid: faa4ab8603f1c55479a55fbc5f9a423b, type: 3}
   building: {fileID: 368495845180618876, guid: 039acc051d4ef094bae9e8bd5c182b3d, type: 3}
   tileSize: 1
   canRotate: 0
