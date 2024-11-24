@@ -57,6 +57,7 @@ public static class Direction
 
 public enum DirectionEnum
 {
+    None = -1,
     Down = 0,
     Right = 1,
     Up = 2,

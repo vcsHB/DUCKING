@@ -61,11 +61,11 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     {
         Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
 
-        Building fabricInstnace = Instantiate(this, worldPos, Quaternion.identity);
-        fabricInstnace.SetPosition(position);
-        fabricInstnace.SetRotation(direction);
+        Building buildingInstance = Instantiate(this, worldPos, Quaternion.identity);
+        buildingInstance.SetPosition(position);
+        buildingInstance.SetRotation(direction);
 
-        MapManager.Instance.AddBuilding(fabricInstnace, save);
+        MapManager.Instance.AddBuilding(buildingInstance, save);
     }
 
     public Building GetInformation()

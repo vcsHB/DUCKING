@@ -1,1 +1,1 @@
-public enum BuildingEnum { Test_Wall, Test_ConveyorBelt, Test_BigConveyorBelt, Storage, Drill, Big_Drill, Test_Tower, GlassFactory, Barrier_Copper, IronFactory, Barrier_Iron, Tower_Stancer, None }
+public enum BuildingEnum { Test_Wall, Test_ConveyorBelt, Test_BigConveyorBelt, Storage, Drill, Big_Drill, Test_Tower, GlassFactory, Barrier_Copper, IronFactory, Barrier_Iron, Tower_Stancer, Distributor, Intersector, None }
