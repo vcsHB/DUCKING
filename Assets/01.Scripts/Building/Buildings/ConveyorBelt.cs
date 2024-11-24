@@ -83,10 +83,22 @@ namespace BuildingManage
             {
                 if (r.outputDirection == direction)
                 {
+                    bool isSelected = true;
+
                     //컨베이어 벨트는 들어오는 곳이 하나라서...
                     //들어오는 곳이 없는 경우
-                    if ((_inputDirection.Count > 0 && r.inputDirection == _inputDirection[0])
-                        || (_inputDirection.Count <= 0 && r.inputDirection == DirectionEnum.None))
+                    if ((_inputDirection.Count <= 0 && r.inputDirection.Count <= 0))
+                    {
+                        selectedRule = r;
+                        break;
+                    }
+
+                    for (int i = 0; i < _inputDirection.Count; i++)
+                    {
+                        if (!r.inputDirection.Contains(_inputDirection[i])) isSelected = false;
+                    }
+
+                    if (isSelected)
                     {
                         selectedRule = r;
                         break;
@@ -140,10 +152,22 @@ namespace BuildingManage
             {
                 if (r.outputDirection == direction)
                 {
+                    bool isSelected = true;
+
                     //컨베이어 벨트는 들어오는 곳이 하나라서...
                     //들어오는 곳이 없는 경우
-                    if ((_inputDirection.Count > 0 && r.inputDirection == _inputDirection[0])
-                        || (_inputDirection.Count <= 0 && r.inputDirection == DirectionEnum.None))
+                    if ((_inputDirection.Count <= 0 && r.inputDirection.Count <= 0))
+                    {
+                        selectedRule = r;
+                        break;
+                    }
+
+                    for(int i = 0; i < _inputDirection.Count; i++)
+                    {
+                        if (!r.inputDirection.Contains(_inputDirection[i])) isSelected = false;
+                    }
+
+                    if(isSelected)
                     {
                         selectedRule = r;
                         break;
@@ -164,8 +188,6 @@ namespace BuildingManage
 
         protected override void CheckNeighbor(Vector2Int position)
         {
-            if (_inputDirection.Count > 1) return;
-
             for (int i = 0; i < 4; i++)
             {
                 Vector2Int connected = position + Direction.directionsInt[i];
@@ -199,7 +221,7 @@ namespace BuildingManage
     public class CustomRuleTile
     {
         public DirectionEnum outputDirection;
-        public DirectionEnum inputDirection;
+        public List<DirectionEnum> inputDirection;
         public Sprite sprite;
     }
 
