@@ -1,4 +1,4 @@
-using InputManage;
+//using InputManage;
 using System;
 using UnityEngine;
 
@@ -6,7 +6,8 @@ using UnityEngine;
 {
     public class TutorialInputTagAnimation : TagAnimation
     {
-        [SerializeField] private PlayerInputSO _playerInput;
+        //[SerializeField] private PlayerInputSO _playerInput;
+        
 
         [SerializeField] private InputType InputType;
         [SerializeField] private bool _state;
@@ -21,7 +22,7 @@ using UnityEngine;
         public override void Init()
         {
             base.Init();
-            _playerInput.SetControl(_state);
+            //_playerInput.SetControl(_state);
         }
 
         public override void Complete()

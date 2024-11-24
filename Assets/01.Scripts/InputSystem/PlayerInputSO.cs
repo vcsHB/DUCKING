@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 namespace InputManage
 {
-
     [CreateAssetMenu(menuName = "SO/Input/PlayerInputSO")]
     public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
