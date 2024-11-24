@@ -1,0 +1,355 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7578033821461313012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 9d16dfd1fc3cbe64ba2512bb6607218d
+  position: {x: 2097.657, y: -18.49996}
+  reader: I
+  contents:
+    text: "\uD68C\uC0AC\uB85C \uB3CC\uC544\uAC08 \uBC29\uBC95\uC744 \uCC3E\uC544\uBD10\uC57C\uACA0\uC5B4..."
+    tagAnimations: []
+    _node: {fileID: -7578033821461313012}
+  nextNode: {fileID: 9064733295729711454}
+--- !u!114 &-4777838833178425002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 6
+  animLength: 3
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.46226418, b: 0.09994906, a: 1}
+    key1: {r: 0.65110075, g: 1, b: 0.4056604, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+--- !u!114 &-4632718660059964792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 18
+  animLength: 7
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 0.26102442, g: 0, b: 0.5613208, a: 1}
+    key1: {r: 0.59944177, g: 0.3066038, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+--- !u!114 &-2472133356103755992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 335317bba7ceb04498dddf0e158ae245
+  position: {x: 1247.5, y: 157.50006}
+  reader: I
+  contents:
+    text: 
+    tagAnimations: []
+    _node: {fileID: -2472133356103755992}
+  nextNode: {fileID: 0}
+--- !u!114 &-1174040585784686693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 35f39e1d8cce3894882078fe4438312d
+  position: {x: 1801.9996, y: -18.50004}
+  reader: I
+  contents:
+    text: "\uC800\uAC74... \uC6B0\uB9AC \uD68C\uC0AC\uC5D0\uC11C \uBE44\uBC00\uB9AC\uC5D0\uC11C
+      \uC5F0\uAD6C\uD558\uB358 \uBD80\uC2DD\uC131 \uAC00\uC2A4 \uCF54\uB85C\uC2DC\uC6C0\uC796\uC544?!"
+    tagAnimations:
+    - {fileID: 2771296503648397300}
+    - {fileID: 4447268646730666555}
+    _node: {fileID: -1174040585784686693}
+  nextNode: {fileID: -7578033821461313012}
+--- !u!114 &-164899631626424433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 0dde92f32bbd64b4a859fd4386f02430
+  position: {x: 1519.7847, y: -18.5}
+  reader: I
+  contents:
+    text: "\uC2EC\uC9C0\uC5B4...\uCD08\uB85D\uC0C9\uC774\uC796\uC544?!"
+    tagAnimations:
+    - {fileID: 7536076033970391350}
+    - {fileID: -4777838833178425002}
+    _node: {fileID: -164899631626424433}
+  nextNode: {fileID: -1174040585784686693}
+--- !u!114 &-142287946470188106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a621630078b66468f5c7391fd2ffd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 3
+  animStartPos: 33
+  animLength: 2
+  _power: 3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428f57e6e1463b4b8d0636e183f2213, type: 3}
+  m_Name: TutorialDIalog
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3029320896107037809}
+  - {fileID: 2176738159204493017}
+  - {fileID: -164899631626424433}
+  - {fileID: -1174040585784686693}
+  - {fileID: -7578033821461313012}
+  - {fileID: 9064733295729711454}
+  - {fileID: -2472133356103755992}
+--- !u!114 &2176738159204493017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: b31f2b18bbdbcdf4dab4f3d1d65fd8a9
+  position: {x: 1247.6752, y: -18.574974}
+  reader: I
+  contents:
+    text: "\uC65C \uC774\uB807\uAC8C \uC548\uAC1C\uAC00 \uC9D9\uAC8C \uAE54\uB824\uC788\uB294\uAC70
+      \uAC19\uC9C0?"
+    tagAnimations: []
+    _node: {fileID: 2176738159204493017}
+  nextNode: {fileID: -164899631626424433}
+--- !u!114 &2771296503648397300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36913bfb4029da4fb34aea47baf0745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 4
+  animStartPos: 32
+  animLength: 4
+  power: 3
+--- !u!114 &3029320896107037809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 5d3abe270ddb5cd40b57093cb84d0845
+  position: {x: 957.19336, y: -18.499937}
+  reader: I
+  contents:
+    text: "\uC544~ \uC88B\uC740 \uC544\uCE68\uC778\uB370..."
+    tagAnimations: []
+    _node: {fileID: 3029320896107037809}
+  nextNode: {fileID: 2176738159204493017}
+--- !u!114 &4447268646730666555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 32
+  animLength: 4
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 0.110817775, g: 0.4811321, b: 0, a: 1}
+    key1: {r: 0, g: 1, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 0, a: 0}
+    key3: {r: 0, g: 1, b: 0, a: 0}
+    key4: {r: 0, g: 1, b: 0, a: 0}
+    key5: {r: 1, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65150
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+--- !u!114 &7536076033970391350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56df8b0698399534eb2bc749a2710036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 1
+  animStartPos: 6
+  animLength: 0
+  _delay: 1
+--- !u!114 &9064733295729711454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: bf7930bd07f90d144b71f0eb82b79a53
+  position: {x: 957.00006, y: 157.5}
+  reader: I
+  contents:
+    text: "\uD68C\uC0AC\uB85C \uB3CC\uC544\uAC08 \uAE38\uC744 \uB9CC\uB4DC\uB824\uBA74
+      \r\n\uB124\uBC84\uB85D\uC2A4 \uD3ED\uD0C4\uC73C\uB85C \uCF54\uB85C\uC2DC\uC744
+      \uC815\uD654\uC2DC\uCF1C\uC57C \uD558\uB294\uB370"
+    tagAnimations:
+    - {fileID: -142287946470188106}
+    - {fileID: -4632718660059964792}
+    _node: {fileID: 9064733295729711454}
+  nextNode: {fileID: -2472133356103755992}
