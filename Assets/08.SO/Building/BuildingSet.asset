@@ -118,6 +118,30 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 35
+--- !u!114 &-1788406485346520784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Distributor
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Distributor
+  buildingType: 12
+  buildingName: Distributor
+  description: "\uBD84\uBC30\uAE30\uC778"
+  buildingIconSprite: {fileID: 0}
+  building: {fileID: 3204265171450055239, guid: ddcdb894617b11846912655c3b85853a, type: 3}
+  tileSize: 1
+  canRotate: 0
+  health: 50
+  needResource:
+  - type: 0
+    amount: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +167,7 @@ MonoBehaviour:
   - {fileID: 5675489581358098331}
   - {fileID: -7789183211461232344}
   - {fileID: 3596597501781384540}
+  - {fileID: -1788406485346520784}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0

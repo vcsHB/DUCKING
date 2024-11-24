@@ -136,107 +136,55 @@ MonoBehaviour:
   _beltResource: {fileID: 7833254087694804925}
   _spriteRenderer: {fileID: 7632927096286515085}
   _speed: 2
-  _container:
-    type: -1
-    amount: 0
   _rules:
-  - direction: 0
-    linkedDirection: 14
-    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 6
-    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 12
-    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 10
-    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 4
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 8
-    sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 2
+  - outputDirection: 0
+    inputDirection: 1
     sprite: {fileID: -1833161755, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 0
-    linkedDirection: 0
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 13
-    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 5
-    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 12
-    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 9
-    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 4
-    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 1
-    sprite: {fileID: -1833161755, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 8
-    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 1
-    linkedDirection: 0
-    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 11
-    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 5
-    sprite: {fileID: -290586760, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 9
-    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 10
-    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 8
-    sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 2
-    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 1
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 2
-    linkedDirection: 0
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 7
-    sprite: {fileID: 1604951306, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 6
-    sprite: {fileID: 1896930493, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 3
-    sprite: {fileID: -1591674655, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 5
-    sprite: {fileID: -1197532698, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 1
+  - outputDirection: 0
+    inputDirection: 3
     sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 4
+  - outputDirection: 0
+    inputDirection: 2
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 0
+    inputDirection: -1
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 0
+    sprite: {fileID: -1833161755, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 2
+    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: 3
+    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 1
+    inputDirection: -1
+    sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 1
+    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: 3
     sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 2
+  - outputDirection: 2
+    inputDirection: 0
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 2
+    inputDirection: -1
+    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 0
+    sprite: {fileID: 1504274725, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 2
+    sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
+  - outputDirection: 3
+    inputDirection: 1
     sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  - direction: 3
-    linkedDirection: 0
+  - outputDirection: 3
+    inputDirection: -1
     sprite: {fileID: 1894844467, guid: 2243027af11927743bce6eb52069e209, type: 3}
-  LinkedDirection: 0
 --- !u!61 &3890018269880957683
 BoxCollider2D:
   m_ObjectHideFlags: 0
