@@ -7243,12 +7243,14 @@ MonoBehaviour:
         \uC704\uD55C 1\uCC28 \uC0DD\uC0B0\uACF5\uC815 \uC7A5\uCE58\uC785\uB2C8\uB2E4."
       buildingList:
       - {fileID: 425899237081745883, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: -787399723527794349, guid: ba97c714619fd7947854967923f53a62, type: 2}
     - categoryIconSprite: {fileID: -1459141907, guid: 9474c31c111e4664c9636987574f5ee7, type: 3}
       categoryName: "\uACF5\uC7A5"
       categoryDescription: "2\uCC28 \uC0DD\uC0B0\uBB3C\uC744 \uB9CC\uB4E4\uAE30 \uC704\uD55C
         \uC8FC\uC694 \uC2DC\uC124\uC785\uB2C8\uB2E4"
       buildingList:
       - {fileID: -5211785765727601851, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: -2621741454662930447, guid: ba97c714619fd7947854967923f53a62, type: 2}
       - {fileID: 5675489581358098331, guid: ba97c714619fd7947854967923f53a62, type: 2}
     - categoryIconSprite: {fileID: -481905759, guid: 9474c31c111e4664c9636987574f5ee7, type: 3}
       categoryName: "\uD3EC\uD0D1"

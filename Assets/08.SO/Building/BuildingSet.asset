@@ -94,6 +94,30 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 50
+--- !u!114 &-2621741454662930447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: CopperFactory
+  m_EditorClassIdentifier: 
+  buildingTypeStr: CopperFactory
+  buildingType: 15
+  buildingName: "\uAD6C\uB9AC \uC81C\uB828\uC18C"
+  description: 
+  buildingIconSprite: {fileID: 725686317, guid: 2bc0c4efcaeff54418033759ac2398d9, type: 3}
+  building: {fileID: 6643892704037689786, guid: 76d17708092d4ae4daf439f0965ec066, type: 3}
+  tileSize: 0
+  canRotate: 0
+  health: 180
+  needResource:
+  - type: 0
+    amount: 65
 --- !u!114 &-2560932269139074954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +167,32 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 5
+--- !u!114 &-787399723527794349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: IronDrill
+  m_EditorClassIdentifier: 
+  buildingTypeStr: IronDrill
+  buildingType: 14
+  buildingName: "\uACE0\uAE09 \uB3D9\uB825\uB4DC\uB9B4"
+  description: 
+  buildingIconSprite: {fileID: 21300000, guid: aad97f0f018e86846b6fe98709611d86, type: 3}
+  building: {fileID: 408926812933309879, guid: c11397c124f10cd49ac2aaa890dc9bf0, type: 3}
+  tileSize: 2
+  canRotate: 0
+  health: 460
+  needResource:
+  - type: 8
+    amount: 130
+  - type: 9
+    amount: 150
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +220,8 @@ MonoBehaviour:
   - {fileID: 3596597501781384540}
   - {fileID: -1788406485346520784}
   - {fileID: 4927787034152436895}
+  - {fileID: -787399723527794349}
+  - {fileID: -2621741454662930447}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +239,7 @@ MonoBehaviour:
   buildingName: "\uAE30\uACC4\uC2DD \uB4DC\uB9B4"
   description: "\uBE14\uB7ED \uC544\uB798\uC758 \uC790\uC6D0\uC744 \uCC44\uAD74\uC555\uB2C8\uB2E4.
     2x2\uC0AC\uC774\uC988 \uC785\uB2C8\uB2E4."
-  buildingIconSprite: {fileID: 21300000, guid: 8cb8cdf02abe1f64f8b53cd37577ed12, type: 3}
+  buildingIconSprite: {fileID: 21300000, guid: 0b78f9c9b43726a48b3651877617e70c, type: 3}
   building: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
   tileSize: 2
   canRotate: 0
@@ -233,8 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypeStr: Test_Tower
   buildingType: 6
-  buildingName: "\uAE30\uCD08 \uD3EC\uD0D1"
-  description: 
+  buildingName: "\uBAA8\uB178"
+  description: "\uB2E8\uBC1C\uD615 \uB300\uD3EC\uC785\uB2C8\uB2E4."
   buildingIconSprite: {fileID: 21300000, guid: 4756ac4e8b4f9d244aa7d3db6f91cfa9, type: 3}
   building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
   tileSize: 1
@@ -339,10 +391,12 @@ MonoBehaviour:
   building: {fileID: 7090670705001108193, guid: acd9b12d9c6a59d44a5030cc4247be6a, type: 3}
   tileSize: 2
   canRotate: 0
-  health: 230
+  health: 280
   needResource:
   - type: 0
     amount: 150
+  - type: 8
+    amount: 25
 --- !u!114 &7920265653214434940
 MonoBehaviour:
   m_ObjectHideFlags: 0
