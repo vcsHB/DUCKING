@@ -29,7 +29,9 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
     public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
         base.Build(position, direction, save);
-        CheckNeighbor(position);
+        MapManager.Instance.TryGetBuilding(position, out Building buildingInstance);
+        Transfortation transfortation = (buildingInstance as Transfortation);
+        transfortation.CheckNeighbor(position);
     }
 
     public override void Destroy()
@@ -117,7 +119,7 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
             _outputDirection.Add(outputDir);
     }
 
-    public void RemoveInputDirection(DirectionEnum directionEnum)
+    public virtual void RemoveInputDirection(DirectionEnum directionEnum)
     {
         _inputDirection.Remove(directionEnum);
     }
@@ -132,7 +134,7 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
         return _outputDirection.Contains(directionEnum);
     }
 
-    internal bool ContainInput(DirectionEnum directionEnum)
+    public bool ContainInput(DirectionEnum directionEnum)
     {
         return _inputDirection.Contains(directionEnum);
     }

@@ -739,6 +739,7 @@ MonoBehaviour:
       buildingList:
       - {fileID: 7920265653214434940, guid: ba97c714619fd7947854967923f53a62, type: 2}
       - {fileID: -1788406485346520784, guid: ba97c714619fd7947854967923f53a62, type: 2}
+      - {fileID: 4927787034152436895, guid: ba97c714619fd7947854967923f53a62, type: 2}
     - categoryIconSprite: {fileID: -764605320, guid: 9474c31c111e4664c9636987574f5ee7, type: 3}
       categoryName: "\uCC44\uAD74"
       categoryDescription: "\uC790\uC6D0\uC744 \uCC44\uAD11\uD558\uACE0 \uCD94\uCD9C\uD558\uAE30

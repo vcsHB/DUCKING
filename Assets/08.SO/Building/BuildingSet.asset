@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: -7789183211461232344}
   - {fileID: 3596597501781384540}
   - {fileID: -1788406485346520784}
+  - {fileID: 4927787034152436895}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,30 @@ MonoBehaviour:
     amount: 120
   - type: 9
     amount: 30
+--- !u!114 &4927787034152436895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: Intersector
+  m_EditorClassIdentifier: 
+  buildingTypeStr: Intersector
+  buildingType: 13
+  buildingName: Intersector
+  description: "\uAD50\uCC28\uAE30"
+  buildingIconSprite: {fileID: 0}
+  building: {fileID: 368495845180618876, guid: 039acc051d4ef094bae9e8bd5c182b3d, type: 3}
+  tileSize: 1
+  canRotate: 0
+  health: 50
+  needResource:
+  - type: 0
+    amount: 5
 --- !u!114 &5675489581358098331
 MonoBehaviour:
   m_ObjectHideFlags: 0
