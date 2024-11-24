@@ -54,7 +54,7 @@ namespace BuildingManage
             if (result)
             {
                 _container = new Resource(resource.type, 1);
-                if (resource.amount > 1) 
+                if (resource.amount > 1)
                     remain = new Resource(resource.type, resource.amount - 1);
 
                 _beltResource.gameObject.SetActive(true);
@@ -162,12 +162,12 @@ namespace BuildingManage
                         break;
                     }
 
-                    for(int i = 0; i < _inputDirection.Count; i++)
+                    for (int i = 0; i < _inputDirection.Count; i++)
                     {
                         if (!r.inputDirection.Contains(_inputDirection[i])) isSelected = false;
                     }
 
-                    if(isSelected)
+                    if (isSelected)
                     {
                         selectedRule = r;
                         break;
@@ -197,21 +197,19 @@ namespace BuildingManage
                 bool buildingExsist =
                     MapManager.Instance.TryGetBuilding(connected, out Building building);
 
-                if (buildingExsist)
-                {
-                    if (building is Transfortation transfortation)
-                    {
-                        if (!transfortation.ContainOutput(Direction.GetOpposite((DirectionEnum)i))
-                            || ContainOutput((DirectionEnum)i)) continue;
+                if (!buildingExsist) continue;
 
-                        SetInputDirection((DirectionEnum)i);
-                        break;
-                    }
-                    else if (building.TryGetComponent(out IResourceOutput output))
-                    {
-                        beltInstance.SetInputDirection((DirectionEnum)i);
-                        break;
-                    }
+                if (building is Transfortation transfortation)
+                {
+                    //연결된놈, 현재 컨베이어 벨트의 방향확인
+                    if (!transfortation.ContainOutput(Direction.GetOpposite((DirectionEnum)i))
+                        || ContainOutput((DirectionEnum)i)) continue;
+
+                    beltInstance.SetInputDirection((DirectionEnum)i);
+                }
+                else if (building.TryGetComponent(out IResourceOutput output))
+                {
+                    beltInstance.SetInputDirection((DirectionEnum)i);
                 }
             }
         }

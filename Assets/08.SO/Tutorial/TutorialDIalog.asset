@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: 9d16dfd1fc3cbe64ba2512bb6607218d
-  position: {x: 2097.657, y: -18.49996}
+  position: {x: 2107.187, y: -18.499805}
   reader: I
   contents:
     text: "\uD68C\uC0AC\uB85C \uB3CC\uC544\uAC08 \uBC29\uBC95\uC744 \uCC3E\uC544\uBD10\uC57C\uACA0\uC5B4..."
@@ -123,13 +123,13 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: 335317bba7ceb04498dddf0e158ae245
-  position: {x: 1247.5, y: 157.50006}
+  position: {x: 1245, y: 157.50009}
   reader: I
   contents:
-    text: 
+    text: "\uC6B0\uC120 \uC8FC\uBCC0\uC744 \uB458\uB7EC\uBD10\uC57C\uACA0\uC5B4"
     tagAnimations: []
     _node: {fileID: -2472133356103755992}
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 7525970922254907249}
 --- !u!114 &-1174040585784686693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: 35f39e1d8cce3894882078fe4438312d
-  position: {x: 1801.9996, y: -18.50004}
+  position: {x: 1813.687, y: -18.499805}
   reader: I
   contents:
     text: "\uC800\uAC74... \uC6B0\uB9AC \uD68C\uC0AC\uC5D0\uC11C \uBE44\uBC00\uB9AC\uC5D0\uC11C
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: 0dde92f32bbd64b4a859fd4386f02430
-  position: {x: 1519.7847, y: -18.5}
+  position: {x: 1529.6869, y: -18.499805}
   reader: I
   contents:
     text: "\uC2EC\uC9C0\uC5B4...\uCD08\uB85D\uC0C9\uC774\uC796\uC544?!"
@@ -211,6 +211,7 @@ MonoBehaviour:
   - {fileID: -7578033821461313012}
   - {fileID: 9064733295729711454}
   - {fileID: -2472133356103755992}
+  - {fileID: 7525970922254907249}
 --- !u!114 &2176738159204493017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: b31f2b18bbdbcdf4dab4f3d1d65fd8a9
-  position: {x: 1247.6752, y: -18.574974}
+  position: {x: 1245.1869, y: -18.499805}
   reader: I
   contents:
     text: "\uC65C \uC774\uB807\uAC8C \uC548\uAC1C\uAC00 \uC9D9\uAC8C \uAE54\uB824\uC788\uB294\uAC70
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: 5d3abe270ddb5cd40b57093cb84d0845
-  position: {x: 957.19336, y: -18.499937}
+  position: {x: 954.68695, y: -18.499805}
   reader: I
   contents:
     text: "\uC544~ \uC88B\uC740 \uC544\uCE68\uC778\uB370..."
@@ -313,6 +314,27 @@ MonoBehaviour:
     m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &7525970922254907249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 9303a0a26c9e63441994a61ca457ff30
+  position: {x: 1529.5, y: 157.50009}
+  reader: System
+  contents:
+    text: "[ WASD \uD0A4\uB97C \uB20C\uB7EC \uB3CC\uC544\uB2E4\uB140\uBCF4\uC790!
+      ]"
+    tagAnimations: []
+    _node: {fileID: 7525970922254907249}
+  nextNode: {fileID: 0}
 --- !u!114 &7536076033970391350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,12 +364,12 @@ MonoBehaviour:
   m_Name: NormalNodeSO
   m_EditorClassIdentifier: 
   guid: bf7930bd07f90d144b71f0eb82b79a53
-  position: {x: 957.00006, y: 157.5}
+  position: {x: 954.68695, y: 157.50015}
   reader: I
   contents:
     text: "\uD68C\uC0AC\uB85C \uB3CC\uC544\uAC08 \uAE38\uC744 \uB9CC\uB4DC\uB824\uBA74
       \r\n\uB124\uBC84\uB85D\uC2A4 \uD3ED\uD0C4\uC73C\uB85C \uCF54\uB85C\uC2DC\uC744
-      \uC815\uD654\uC2DC\uCF1C\uC57C \uD558\uB294\uB370"
+      \uC815\uD654\uC2DC\uCF1C\uC57C \uD560\uAC70\uC57C"
     tagAnimations:
     - {fileID: -142287946470188106}
     - {fileID: -4632718660059964792}

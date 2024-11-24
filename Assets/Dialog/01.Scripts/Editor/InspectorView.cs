@@ -59,6 +59,12 @@ namespace Dialog
             try
             {
                 Type t = Type.GetType($"Dialog.{anim}TagAnimation");
+                if(t == null) 
+                {
+                    Debug.Log(t);
+                    t = Type.GetType($"{anim}TagAnimation");
+                }
+                Debug.Log($"{anim}TagAnimation");
                 tagAnim = Activator.CreateInstance(t) as TagAnimation;
 
                 UnityEngine.Object.DestroyImmediate(editor);

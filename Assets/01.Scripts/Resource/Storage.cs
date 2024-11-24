@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BuildingManage;
+using UnityEngine;
 
 namespace ResourceSystem
 {

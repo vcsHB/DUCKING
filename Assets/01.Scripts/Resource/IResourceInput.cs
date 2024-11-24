@@ -1,4 +1,6 @@
-﻿namespace ResourceSystem
+﻿using BuildingManage;
+
+namespace ResourceSystem
 {
     public interface IResourceInput
     {

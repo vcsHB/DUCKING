@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AgentManage.PlayerManage;
+using Dialog;
 using InputManage;
 using ItemSystem;
 using ResourceSystem;
@@ -31,6 +32,8 @@ namespace BuildingManage
 
         private void OnEnable()
         {
+            Debug.Log(typeof(TutorialInputTagAnimation).FullName);
+            Debug.Log(typeof(WaitTagAnimation).FullName);
             _inputReader.LeftClickEvent += OnBuild;
         }
         
