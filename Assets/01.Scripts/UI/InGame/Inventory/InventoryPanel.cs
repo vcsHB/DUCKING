@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AgentManage.PlayerManage;
 using InputManage;
 using ItemSystem;
@@ -40,6 +39,7 @@ namespace UI.InGame.Inventory
             {
                 Close();
                 Time.timeScale = 1;
+                _itemInfoPanel.Close();
             }
         }
 
@@ -91,6 +91,7 @@ namespace UI.InGame.Inventory
         private void HandleItemSelect(InventorySlot slot)
         {
             _selectedSlot = slot;
+            _itemInfoPanel.Open();
             _itemInfoPanel.SetItemInfo(slot, (slot.transform as RectTransform).anchoredPosition);
         }
 
