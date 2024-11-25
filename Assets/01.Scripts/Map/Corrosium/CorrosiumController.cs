@@ -1,11 +1,14 @@
 using BuildingManage;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class CorrosiumController : MonoBehaviour
 {
+    private string _path;
+
     [SerializeField] private EncorrosiumSO _corrosiumSO;
     [SerializeField] private MapInfoSO _mapInfo;
     [SerializeField] private Tilemap _corrosiveTilemap;
@@ -16,13 +19,15 @@ public class CorrosiumController : MonoBehaviour
 
     public List<Vector2Int> EncorrosiveAreaEdges { get; private set; }
 
-    //private void Awake()
-    //{
-    //    SetRandomEncorrosiveArea(363482);
-    //}
-
     public void SetRandomEncorrosiveArea(int seed)
     {
+        _path = Path.Combine(Application.dataPath, "Saves/Corrosive");
+
+        if (File.Exists(_path))
+        {
+
+        }
+
         _random = new System.Random(seed);
 
         Vector2Int size = _mapInfo.mapSize;
@@ -157,5 +162,17 @@ public class CorrosiumController : MonoBehaviour
                 _isCorrosive[x, y] = false;
             }
         }
+    }
+
+    public void Save()
+    {
+
+    }
+
+    public void Load()
+    {
+        
+
+        
     }
 }

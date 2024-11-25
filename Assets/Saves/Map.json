@@ -1,4 +1,55 @@
 {
     "floorSeed": 24564,
-    "buildings": []
+    "buildings": [
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 2,
+            "posY": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 2,
+            "posY": 1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 2,
+            "posY": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 2,
+            "posY": -1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 2,
+            "posY": -2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 3,
+            "posY": -2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 3,
+            "posY": -1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 3,
+            "posY": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 3,
+            "posY": 1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 3,
+            "posY": 2
+        }
+    ]
 }
