@@ -68,8 +68,10 @@ namespace BuildingManage
             SetPreview(true);
         }
 
-        public bool TryBuild(BuildingEnum building, Vector2Int position, bool save)
+        public bool TryBuild(BuildingEnum building, Vector2Int position, bool save, DirectionEnum dir = DirectionEnum.None)
         {
+            if (dir != DirectionEnum.None) _curDirection = dir;
+
             BuildingSO info = _buildingSet.FindBuilding(building);
             BuildingSize size = new BuildingSize(position, info.tileSize);
 
