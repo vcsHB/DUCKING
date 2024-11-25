@@ -52,7 +52,8 @@ namespace UI.TitleScene
 
         public void Load()
         {
-            _path = Application.dataPath + "/Saves/AudioSetting.json";
+            _path = Path.Combine(Application.dataPath, "Saves/AudioSetting.json");
+            //_path = Application.dataPath + "/Saves/AudioSetting.json";
 
             if (!File.Exists(_path))
             {
