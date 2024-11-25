@@ -210,7 +210,7 @@ namespace BuildingManage
 
         public void Load()
         {
-            _path = Application.dataPath + "/Saves/Map.json";
+            _path = Path.Combine(Application.dataPath, "Saves/Map.json");
 
             if (!File.Exists(_path))
             {
@@ -228,7 +228,7 @@ namespace BuildingManage
             _mapGenerator.GenerateMap(_seed);
 
             _buildingSave = save.buildings;
-            Debug.Log(_buildingSave.Count);
+
             _buildingSave.ForEach(building =>
             {
                 BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);

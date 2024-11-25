@@ -1,4 +1,5 @@
 using BuildingManage;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,19 +22,19 @@ public class CorrosiumController : MonoBehaviour
 
     public void SetRandomEncorrosiveArea(int seed)
     {
-        _path = Path.Combine(Application.dataPath, "Saves/Corrosive");
+        Vector2Int size = _mapInfo.mapSize;
+        _isCorrosive = new bool[size.x + 1, size.y + 1];
+        EncorrosiveAreaEdges = new List<Vector2Int>();
+
+        _path = Path.Combine(Application.dataPath, "Saves/Corrosive.json");
 
         if (File.Exists(_path))
         {
-
+            Load();
+            return;
         }
 
         _random = new System.Random(seed);
-
-        Vector2Int size = _mapInfo.mapSize;
-        _isCorrosive = new bool[size.x + 1, size.y + 1];
-
-        EncorrosiveAreaEdges = new List<Vector2Int>();
 
         int hSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
         int vSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
@@ -104,6 +105,7 @@ public class CorrosiumController : MonoBehaviour
     {
         if (EncorrosiveAreaEdges.Contains(edge)) return;
         EncorrosiveAreaEdges.Add(edge);
+        Save();
     }
 
     public void SetCorrosive()
@@ -166,13 +168,26 @@ public class CorrosiumController : MonoBehaviour
 
     public void Save()
     {
+        CorrosiumSave save = new CorrosiumSave();
+        save.edges = EncorrosiveAreaEdges;
 
+        string json = JsonUtility.ToJson(save, true);
+        File.WriteAllText(_path, json);
     }
 
     public void Load()
     {
-        
+        string json = File.ReadAllText(_path);
+        CorrosiumSave save = JsonUtility.FromJson<CorrosiumSave>(json);
 
-        
+        EncorrosiveAreaEdges = new List<Vector2Int>();
+        save.edges.ForEach(e => EncorrosiveAreaEdges.Add(e));
+        SetCorrosive();
     }
+}
+
+[Serializable]
+public class CorrosiumSave
+{
+    public List<Vector2Int> edges = new();
 }
