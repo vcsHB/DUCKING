@@ -2,6 +2,7 @@ using Combat;
 using ObjectPooling;
 using ResourceSystem;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BuildingManage.Tower
 {
@@ -24,7 +25,7 @@ namespace BuildingManage.Tower
         [SerializeField] protected int _currentResourceAmount; // 자원 수
         [SerializeField] protected int _bulletMultiple = 1; // 1자원당 탄환 환원비율
         protected int _currentBullet = 0; // 실질적인 현재 탄수
-
+        public UnityEvent OnFireEvent;
 
         [SerializeField] private PoolingType _projectile;
         [SerializeField] private PoolingType _fireVFX;
@@ -74,6 +75,7 @@ namespace BuildingManage.Tower
             VFXPlayer vfx = PoolManager.Instance.Pop(_fireVFX, currentGunTip.position, Quaternion.identity) as VFXPlayer;
             bullet.Fire(direction);
             vfx.PlayVFX();
+            OnFireEvent?.Invoke();
             _currentBullet--;
 
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;

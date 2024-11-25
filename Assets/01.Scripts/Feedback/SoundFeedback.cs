@@ -1,7 +1,7 @@
 using ObjectPooling;
 using SoundManage;
 using UnityEngine;
-using UnityEngine.Events;
+
 namespace FeedbackSystem
 {
 
@@ -12,8 +12,8 @@ namespace FeedbackSystem
 
         public override void CreateFeedback()
         {
-            //PoolManager.Instance.Pop(PoolingType.)
-
+            SoundPlayer soundPlayer = PoolManager.Instance.Pop(PoolingType.SoundPlayer) as SoundPlayer;
+            soundPlayer.PlaySound(_soundSO);
         }
 
         public override void FinishFeedback()
