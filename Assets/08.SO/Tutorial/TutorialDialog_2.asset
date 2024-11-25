@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4038886269113080948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 3eb04dac84c5f5a4a840d5f73e8ed635
+  position: {x: 839.011, y: -187.99995}
+  isFirstNode: 1
+  reader: System
+  contents:
+    text: "\uCC38 \uC798\uD588\uC5B4\uC694~ "
+    tagAnimations: []
+    _node: {fileID: -4038886269113080948}
+  nextNode: {fileID: 7891077280291362899}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428f57e6e1463b4b8d0636e183f2213, type: 3}
+  m_Name: TutorialDialog_2
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4038886269113080948}
+  - {fileID: 7891077280291362899}
+  - {fileID: 9083141405721555797}
+--- !u!114 &139867023289983292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecf41bbb6152cd4ea4e2b3e39cb2cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 5
+  animStartPos: 3
+  animLength: 8
+  _rainbow:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.88888884, g: 1, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 1, a: 0}
+    key4: {r: 1, g: 0, b: 1, a: 0}
+    key5: {r: 1, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 15420
+    ctime2: 30744
+    ctime3: 48091
+    ctime4: 65535
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
+--- !u!114 &7891077280291362899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 01bbe5acf9a438141b1dda0f850701df
+  position: {x: 1138.6759, y: -188}
+  isFirstNode: 0
+  reader: System
+  contents:
+    text: "\uC774\uC81C \uAC74\uBB3C\uC744 \uAC74\uC124\uD558\uB294 \uBC29\uBC95\uC744
+      \uC54C\uC544\uBD05\uC2DC\uB2E4."
+    tagAnimations: []
+    _node: {fileID: 7891077280291362899}
+  nextNode: {fileID: 9083141405721555797}
+--- !u!114 &9083141405721555797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: a57ca418d425d1e458be69612bee31d5
+  position: {x: 1490.7783, y: -188}
+  isFirstNode: 0
+  reader: System
+  contents:
+    text: "\uC6B0\uC120 SpaceBar\uB97C \uB20C\uB7EC \uAC74\uC124 \uD328\uB110\uC744
+      \uC5F4\uC5B4\uC8FC\uC138\uC694"
+    tagAnimations:
+    - {fileID: 139867023289983292}
+    _node: {fileID: 9083141405721555797}
+  nextNode: {fileID: 0}
