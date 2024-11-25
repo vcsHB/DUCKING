@@ -7,6 +7,7 @@ using ObjectPooling;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
+    public event Action OnDestroyEvent;
     protected DirectionEnum direction;
     protected Transform _visualTrm;
 
@@ -58,6 +59,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         }
         VFXPlayer vfxPlayer = PoolManager.Instance.Pop(destroyVFXType, transform.position, Quaternion.identity) as VFXPlayer;
         vfxPlayer.PlayVFX();
+        OnDestroyEvent?.Invoke();
         Destroy(gameObject);
     }
 

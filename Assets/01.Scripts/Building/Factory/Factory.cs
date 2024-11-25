@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BuildingManage;
 using ResourceSystem;
 using UnityEngine;
@@ -8,8 +9,9 @@ public class Factory : Source, IResourceInput, IOverloadable
     [Header("Factory Setting")]
     [SerializeField] protected SerializeDictionary<ResourceType, int> _requireResources;
     [SerializeField] protected Resource[] _outputResources;
-    protected SerializeDictionary<ResourceType, int> _storage;
-    public SerializeDictionary<ResourceType, int> Storage {get {return _storage;}}
+    public Resource[] OutPut => _outputResources;
+    protected Dictionary<ResourceType, int> _storage;
+    public Dictionary<ResourceType, int> Storage => _storage;
     public SerializeDictionary<ResourceType, int> RequireResources {get {return _requireResources;}}
     [SerializeField] protected int _storageSize;
     [SerializeField] protected float _processDuration = 2f;
@@ -24,7 +26,7 @@ public class Factory : Source, IResourceInput, IOverloadable
 
     public event Action<float, float> OnProgressEvent;
     public event Action OnProgressOverEvent;
-    public event Action<ResourceType, int, int> OnStorageChanged; // Type, current, need
+    public event Action OnStorageChanged; // Type, current, need
 
     public bool IsProcessing { get; protected set; }
     float IOverloadable.OverloadLevel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -65,7 +67,7 @@ public class Factory : Source, IResourceInput, IOverloadable
 
     public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
-        print($"아이템 넣기 시도 {resource.type.ToString()}, {resource.amount.ToString()}");
+        //print($"아이템 넣기 시도 {resource.type.ToString()}, {resource.amount.ToString()}");
 
         if (!_requireResources.ContainsKey(resource.type))
         {
@@ -89,7 +91,7 @@ public class Factory : Source, IResourceInput, IOverloadable
             remain.type = ResourceType.None;
             remain.amount = 0;
         }
-        OnStorageChanged?.Invoke(resource.type, _storage[resource.type], _requireResources[resource.type]);
+        OnStorageChanged?.Invoke();
         remain = new Resource(ResourceType.None, 0);
         TryStartProcess();
         return true;

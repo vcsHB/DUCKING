@@ -1,3 +1,4 @@
+using System;
 using Combat;
 using ObjectPooling;
 using ResourceSystem;
@@ -21,11 +22,15 @@ namespace BuildingManage.Tower
         [SerializeField] private float _fireCooltime;
         [SerializeField] protected float _aimingSpeed;
         [SerializeField] private Resource _needResource;
+        public Resource NeedResource => _needResource;
         [SerializeField] protected int _maxResourceAmount;
+        public int MaxResourceAmount => _maxResourceAmount;
         [SerializeField] protected int _currentResourceAmount; // 자원 수
+        public int CurrentResourceAmount => _currentResourceAmount;
         [SerializeField] protected int _bulletMultiple = 1; // 1자원당 탄환 환원비율
         protected int _currentBullet = 0; // 실질적인 현재 탄수
         public UnityEvent OnFireEvent;
+        public event Action<int, int> OnResourceChangedEvent;
 
         [SerializeField] private PoolingType _projectile;
         [SerializeField] private PoolingType _fireVFX;
@@ -77,7 +82,7 @@ namespace BuildingManage.Tower
             vfx.PlayVFX();
             OnFireEvent?.Invoke();
             _currentBullet--;
-
+            OnResourceChangedEvent?.Invoke(_currentResourceAmount, _maxResourceAmount);
             _currentGunTipIndex = (_currentGunTipIndex + 1) % _gunTips.Length;
         }
 
@@ -110,7 +115,7 @@ namespace BuildingManage.Tower
                 _currentResourceAmount = sum;
                 remain.type = ResourceType.None;
             }
-
+            OnResourceChangedEvent?.Invoke(_currentResourceAmount, _maxResourceAmount);
             return true;
         }
     }
