@@ -108,6 +108,32 @@ public class CorrosiumController : MonoBehaviour
         Save();
     }
 
+    public void AddEncorrosive(Vector2Int min, Vector2Int max)
+    {
+        Vector2Int size = _mapInfo.mapSize;
+        Vector2Int leftUp = new Vector2Int(min.x, max.y);
+        Vector2Int rightDown = new Vector2Int(max.x, min.y);
+
+        if (!EncorrosiveAreaEdges.Contains(min)) EncorrosiveAreaEdges.Add(min);
+        if (!EncorrosiveAreaEdges.Contains(max)) EncorrosiveAreaEdges.Add(max);
+        if (!EncorrosiveAreaEdges.Contains(leftUp)) EncorrosiveAreaEdges.Add(leftUp);
+        if (!EncorrosiveAreaEdges.Contains(rightDown)) EncorrosiveAreaEdges.Add(rightDown);
+
+        Vector2Int position;
+        for (int i = min.x; i < max.x; i++)
+        {
+            for (int j = min.y; j < max.y; j++)
+            {
+                position = new Vector2Int(i + size.x / 2, j + size.y / 2);
+                _isCorrosive[position.x, position.y] = true;
+
+                _corrosiveTilemap.SetTile(new Vector3Int(i, j), null);
+            }
+        }
+
+        Save();
+    }
+
     public void SetCorrosive()
     {
         Vector2Int size = _mapInfo.mapSize;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -55,7 +56,7 @@ namespace BuildingManage
             _buildController.Init(_buildingSet);
             Load();
         }
-        
+
         public bool CheckBuildingOverlap(BuildingSize size)
         {
             int cnt = Physics2D.BoxCastNonAlloc(size.center, Vector2.one * (size.size - 0.1f), 0, Vector2.zero, _hit, 1, _whatIsBuilding);
@@ -233,8 +234,9 @@ namespace BuildingManage
             {
                 BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
                 Vector2Int position = new Vector2Int(building.posX, building.posY);
+                DirectionEnum direction = (DirectionEnum)building.direction;
 
-                _buildController.TryBuild(buildingType, position, false);
+                _buildController.TryBuild(buildingType, position, false, direction);
             });
         }
 
@@ -248,6 +250,7 @@ namespace BuildingManage
                 buildingSave.name = building.BuildingType.ToString();
                 buildingSave.posX = building.Position.min.x;
                 buildingSave.posY = building.Position.min.y;
+                buildingSave.direction = (int)building.BuildingDirection;
 
                 _buildingSave.Add(buildingSave);
                 Save();
@@ -269,6 +272,15 @@ namespace BuildingManage
             }
         }
 
+        public void RotateBuilding(Vector2Int position, DirectionEnum direction)
+        {
+            BuildingSave save =
+                _buildingSave.Find(b => b.posX == position.x && b.posY == position.y);
+            if (save != null) save.direction = (int)direction;
+
+            Save();
+        }
+
         #endregion
     }
 
@@ -284,5 +296,6 @@ namespace BuildingManage
     {
         public string name;
         public int posX, posY;
+        public int direction;
     }
 }

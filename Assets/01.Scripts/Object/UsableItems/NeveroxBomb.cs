@@ -52,11 +52,10 @@ namespace Objects.UsableItem
             _explodeVFX.Play();
             int x = _intPosition.x;
             int y = _intPosition.y;
-            MapManager.Instance.CorrosiumController.AddEncorrosive(new Vector2Int(x + _explodeRange, y + _explodeRange));
-            MapManager.Instance.CorrosiumController.AddEncorrosive(new Vector2Int(x - _explodeRange, y + _explodeRange));
-            MapManager.Instance.CorrosiumController.AddEncorrosive(new Vector2Int(x + _explodeRange, y - _explodeRange));
-            MapManager.Instance.CorrosiumController.AddEncorrosive(new Vector2Int(x - _explodeRange, y - _explodeRange));
-            MapManager.Instance.CorrosiumController.SetCorrosive();
+
+            MapManager.Instance.CorrosiumController.AddEncorrosive(
+                new Vector2Int(x - _explodeRange, y - _explodeRange),
+                new Vector2Int(x + _explodeRange, y + _explodeRange));
         }
     }
 }

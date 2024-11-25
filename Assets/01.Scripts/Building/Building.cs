@@ -17,6 +17,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
+    public DirectionEnum BuildingDirection =>direction;
 
     protected virtual void Awake()
     {
@@ -42,6 +43,8 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 
         _visualTrm.rotation = rotation;
         this.direction = direction;
+
+        MapManager.Instance.RotateBuilding(Position.min, direction);
     }
 
     public virtual void Destroy()
