@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Combat;
 using UnityEngine;
+using ObjectPooling;
 
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
@@ -49,6 +50,15 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     public virtual void Destroy()
     {
         MapManager.Instance.RemoveBuilding(this, true);
+        PoolingType destroyVFXType = PoolingType.BuildingDestroVFX_1;
+        switch(_buildingInfo.tileSize)
+        {
+            case 2:
+            destroyVFXType = PoolingType.BuildingDestroVFX_4;
+            break;
+        }
+        VFXPlayer vfxPlayer = PoolManager.Instance.Pop(destroyVFXType, transform.position, Quaternion.identity) as VFXPlayer;
+        vfxPlayer.PlayVFX();
         Destroy(gameObject);
     }
 

@@ -10,7 +10,7 @@ public class VFXPlayer : MonoBehaviour, IPoolable
     [SerializeField] private float _lifeTime;
     private void Awake()
     {
-        _particleSystem = GetComponent<ParticleSystem>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     public virtual void PlayVFX()

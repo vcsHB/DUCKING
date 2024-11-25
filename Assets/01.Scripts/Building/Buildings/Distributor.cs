@@ -1,8 +1,5 @@
 using BuildingManage;
 using ResourceSystem;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Distributor : Transfortation
