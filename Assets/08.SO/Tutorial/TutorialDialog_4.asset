@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7586093104093532234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: d8c37184765fa2f40a891ea4d0af0eb7
+  position: {x: 222.50002, y: 196}
+  isFirstNode: 1
+  reader: System
+  contents:
+    text: "\uC124\uCE58\uD55C \uAC74\uBB3C\uC740 \uC6B0\uD074\uB9AD\uC73C\uB85C \uC81C\uAC70\uD560
+      \uC218 \uC788\uB2F5\uB2C8\uB2E4."
+    tagAnimations:
+    - {fileID: 2545395772187082467}
+    _node: {fileID: -7586093104093532234}
+  nextNode: {fileID: 2054087987296575277}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428f57e6e1463b4b8d0636e183f2213, type: 3}
+  m_Name: TutorialDialog_4
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7586093104093532234}
+  - {fileID: 2054087987296575277}
+  - {fileID: 8326263853915743209}
+--- !u!114 &2054087987296575277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 6ff3a135656e3fe47b2dbc5b3bcee2a7
+  position: {x: 482, y: 196}
+  isFirstNode: 0
+  reader: System
+  contents:
+    text: "\uACF5\uC7A5\uACFC \uCEE8\uBCA0\uC774\uC5B4 \uBCA8\uD2B8\uB97C \uC5F0\uACB0\uD558\uBA74
+      \n\uACF5\uC7A5\uC5D0\uC11C \uB098\uC624\uB294 \uC544\uC774\uD15C\uC774 \uBC14\uB2E5\uC5D0
+      \uB5A8\uC5B4\uC9C0\uAC8C \uB429\uB2C8\uB2E4."
+    tagAnimations: []
+    _node: {fileID: 2054087987296575277}
+  nextNode: {fileID: 8326263853915743209}
+--- !u!114 &2545395772187082467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a621630078b66468f5c7391fd2ffd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagType: 3
+  animStartPos: 8
+  animLength: 3
+  _power: 3
+--- !u!114 &8326263853915743209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030378e15185f7041a92926a73b061f1, type: 3}
+  m_Name: NormalNodeSO
+  m_EditorClassIdentifier: 
+  guid: 2a272f757ea9acc42aa726b4dced728e
+  position: {x: 761.5, y: 196}
+  isFirstNode: 0
+  reader: System
+  contents:
+    text: "\uB610 \uB2E4\uB978 \uAC74\uBB3C\uB4E4\uACFC \uC5F0\uACB0\uD558\uBA70
+      \uACF5\uC7A5\uB4E4\uC744 \uCCB4\uACC4\uC801\uC73C\uB85C \uB9CC\uB4E4\uC5B4\uBCF4\uC138\uC694"
+    tagAnimations: []
+    _node: {fileID: 8326263853915743209}
+  nextNode: {fileID: 0}

@@ -12,6 +12,8 @@ namespace InputManage
 
         public void SetControl(bool value)
         {
+            Movement = Vector2.zero;
+            MovementEvent?.Invoke(Movement);
             CanControl = value;
         }
 

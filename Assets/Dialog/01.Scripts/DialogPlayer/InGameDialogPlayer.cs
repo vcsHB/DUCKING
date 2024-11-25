@@ -21,6 +21,7 @@ namespace Dialog
         private List<OptionButton> _optionBtns;
         private NodeSO _nextNode;
 
+
         private void Awake()
         {
             _animPlayer = GetComponent<AnimationPlayer>();
@@ -51,6 +52,7 @@ namespace Dialog
         public override void EndDialog()
         {
             characters.ForEach((c) => c.talkbubble.TurnOffTalkbubble());
+            OnCompleteDialog?.Invoke();
             _isReadingDialog = false;
         }
 

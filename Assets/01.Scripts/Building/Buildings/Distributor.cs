@@ -39,6 +39,7 @@ public class Distributor : Transfortation
         _inputDirection.Clear();
         //if (_inputDirection.Count > 1) return;
 
+        _inputDirection.Clear();
         for (int i = 0; i < 4; i++)
         {
             Vector2Int connected = position + Direction.directionsInt[i];

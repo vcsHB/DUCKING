@@ -1,21 +1,21 @@
-<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Dialog/01.Scripts/Editor/AnimationInserter.uss?fileID=7433441132597879392&amp;guid=a704c410777172e4b866b5d4107467f9&amp;type=3#AnimationInserter" />
-    <engine:ScrollView mode="Horizontal" name="animation-inserter" class="animation-inserter" style="flex-direction: column; margin-top: 5px;">
-        <engine:VisualElement name="parent" style="flex-grow: 1;">
-            <engine:VisualElement name="generate" style="flex-grow: 1; height: auto;">
-                <engine:Label text="애니메이션" name="name" style="color: rgb(187, 187, 187); font-size: 24px; -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); margin-left: 5px; margin-bottom: 5px; margin-top: 5px; margin-right: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
-                <engine:VisualElement name="contour" style="flex-grow: 1; background-color: rgb(228, 228, 228); height: 1px; margin-right: 3px; margin-left: 3px;" />
-                <engine:VisualElement name="txt-parent" style="align-content: stretch; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
-                    <engine:EnumField label="AnimType" value="None" type="Dialog.TagEnum, Dialog" name="anim-type" style="-unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); color: rgb(196, 196, 196); margin-bottom: 5px;" />
+    <ui:ScrollView mode="Horizontal" name="animation-inserter" class="animation-inserter" style="flex-direction: column; margin-top: 5px;">
+        <ui:VisualElement name="parent" style="flex-grow: 1;">
+            <ui:VisualElement name="generate" style="flex-grow: 1; height: auto;">
+                <ui:Label text="애니메이션" name="name" style="color: rgb(187, 187, 187); font-size: 24px; -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); margin-left: 5px; margin-bottom: 5px; margin-top: 5px; margin-right: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                <ui:VisualElement name="contour" style="flex-grow: 1; background-color: rgb(228, 228, 228); height: 1px; margin-right: 3px; margin-left: 3px;" />
+                <ui:VisualElement name="txt-parent" style="align-content: stretch; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+                    <ui:EnumField label="AnimType" value="None" type="Dialog.TagEnum, Dialog" name="anim-type" style="-unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); color: rgb(196, 196, 196); margin-bottom: 5px;" />
                     <Dialog.InspectorView name="anim-factor" style="margin-bottom: 10px;" />
-                    <engine:VisualElement name="contour" style="flex-grow: 1; background-color: rgb(228, 228, 228); height: 1px; margin-right: 0; margin-left: 0; margin-bottom: 5px;" />
-                    <engine:Label text="Labeladsfafvc" name="anim-txt" style="color: rgb(196, 196, 196); -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); font-size: 16px; max-width: 500px; min-width: 0; width: 100%; align-content: stretch;" />
-                    <engine:MinMaxSlider value="0,5" low-limit="0" high-limit="5" name="min-max-slider" style="margin-right: 0; margin-left: 0;" />
-                    <engine:Label text="Labeladsfafvc" name="anim-apply-txt" style="color: rgb(196, 196, 196); -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); font-size: 16px; max-width: 500px; min-width: 0; width: 100%; align-content: stretch;" />
-                </engine:VisualElement>
-                <engine:Button text="Add" name="add-anim-btn" style="font-size: 16px; -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); width: 0; height: 0; padding-left: 20px; padding-right: 20px; align-items: flex-end; align-self: flex-end; padding-top: 10px; padding-bottom: 10px;" />
-            </engine:VisualElement>
-            <engine:Label text="애니메이션 관리" name="label" style="-unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); font-size: 16px; -unity-text-align: upper-center; background-color: rgba(187, 187, 187, 0); color: rgb(187, 187, 187); margin-top: 10px;" />
-        </engine:VisualElement>
-    </engine:ScrollView>
-</engine:UXML>
+                    <ui:VisualElement name="contour" style="flex-grow: 1; background-color: rgb(228, 228, 228); height: 1px; margin-right: 0; margin-left: 0; margin-bottom: 5px;" />
+                    <ui:Label name="anim-txt" style="color: rgb(196, 196, 196); -unity-font-definition: initial; font-size: 16px; max-width: 500px; min-width: 0; width: 100%; align-content: stretch; -unity-font: url(&quot;project://database/Assets/09.Fonts/Silver.ttf?fileID=12800000&amp;guid=876c428e8886ca449bb721a713b48a26&amp;type=3#Silver&quot;);" />
+                    <ui:MinMaxSlider value="0,5" low-limit="0" high-limit="5" name="min-max-slider" style="margin-right: 0; margin-left: 0;" />
+                    <ui:Label text="Labeladsfafvc" name="anim-apply-txt" style="color: rgb(196, 196, 196); -unity-font-definition: initial; font-size: 16px; max-width: 500px; min-width: 0; width: 100%; align-content: stretch; -unity-font: url(&quot;project://database/Assets/09.Fonts/Silver.ttf?fileID=12800000&amp;guid=876c428e8886ca449bb721a713b48a26&amp;type=3#Silver&quot;);" />
+                </ui:VisualElement>
+                <ui:Button text="Add" name="add-anim-btn" style="font-size: 16px; -unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); width: 0; height: 0; padding-left: 20px; padding-right: 20px; align-items: flex-end; align-self: flex-end; padding-top: 10px; padding-bottom: 10px;" />
+            </ui:VisualElement>
+            <ui:Label text="애니메이션 관리" name="label" style="-unity-font-definition: url(&quot;project://database/Assets/Dialog/10.Font/neodgm.ttf?fileID=12800000&amp;guid=84b2e21bcde2185468d10f0c57ee8950&amp;type=3#neodgm&quot;); font-size: 16px; -unity-text-align: upper-center; background-color: rgba(187, 187, 187, 0); color: rgb(187, 187, 187); margin-top: 10px;" />
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>

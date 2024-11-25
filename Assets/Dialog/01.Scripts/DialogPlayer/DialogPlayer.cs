@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dialog
@@ -6,6 +7,7 @@ namespace Dialog
     public abstract class DialogPlayer : MonoBehaviour
     {
         public DialogSO dialog;
+        public Action OnCompleteDialog;
         [HideInInspector]public bool stopReading = false;
         protected NodeSO _curReadingNode;
         protected Coroutine _readingNodeRoutine;
