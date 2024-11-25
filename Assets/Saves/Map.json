@@ -400,6 +400,116 @@
             "name": "Test_ConveyorBelt",
             "posX": 28,
             "posY": -18
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 26,
+            "posY": -11
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 26,
+            "posY": -11
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 27,
+            "posY": -10
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 29,
+            "posY": -14
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 23,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 30,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 29,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 27,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 25,
+            "posY": -16
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -16
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 29,
+            "posY": -15
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 29,
+            "posY": -15
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 29,
+            "posY": -13
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 29,
+            "posY": -15
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 22,
+            "posY": -17
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 22,
+            "posY": -18
+        },
+        {
+            "name": "Distributor",
+            "posX": 28,
+            "posY": -13
+        },
+        {
+            "name": "Distributor",
+            "posX": 28,
+            "posY": -14
+        },
+        {
+            "name": "Distributor",
+            "posX": 28,
+            "posY": -15
+        },
+        {
+            "name": "Distributor",
+            "posX": 28,
+            "posY": -16
         }
     ]
 }

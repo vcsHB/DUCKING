@@ -1,3 +1,4 @@
+using BuildingManage.Tower;
 using UnityEngine;
 
 namespace UI.InGame.BuildingInfoDisplayer
@@ -7,6 +8,7 @@ namespace UI.InGame.BuildingInfoDisplayer
         private Building _currentBuilding;
         [SerializeField] private BuildingStatusTitlePanel _buildingStatusPanel;
         [SerializeField] private FactoryBuildingDetailInfoPanel _factoryBuildingDetailInfoPanel;
+        [SerializeField] private TowerBuildingDetailInfoPanel _towerBuildingDetailInfoPanel;
 
         public void SelectBuilding(Building building)
         {
@@ -21,11 +23,16 @@ namespace UI.InGame.BuildingInfoDisplayer
             _buildingStatusPanel.SetBuildingInfo(building.BuildingInfo.buildingName, building.BuildingInfo.buildingIconSprite);
             
             _factoryBuildingDetailInfoPanel.Close();
+            _towerBuildingDetailInfoPanel.Close();
             if(building is Factory)
             {
                 
                 _factoryBuildingDetailInfoPanel.Initialize(building as Factory);
             }        
+            if(building is Tower)
+            {
+                _towerBuildingDetailInfoPanel.Initialize(building as Tower);
+            }
 
         }
     }

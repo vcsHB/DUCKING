@@ -23,6 +23,7 @@ namespace UI.InGame.BuildingInfoDisplayer
             {
                 _owner.OnProgressEvent -= HandleProgress;
                 _owner.OnStorageChanged -= HandleStorageChanged;
+                _owner.OnDestroyEvent -= Close;
             }
             Open();
             _owner = factory;
@@ -30,6 +31,7 @@ namespace UI.InGame.BuildingInfoDisplayer
             _outputAmountText.text = _owner.OutPut[0].amount.ToString();
             _owner.OnProgressEvent += HandleProgress;
             _owner.OnStorageChanged += HandleStorageChanged;
+            _owner.OnDestroyEvent += Close;
             // for(int i = 0; i < _owner.RequireResources.Keys.Count; i++)
             // {
             //     HandleStorageChanged()
@@ -51,7 +53,7 @@ namespace UI.InGame.BuildingInfoDisplayer
             {
                 ItemInfoSO itemInfo = _itemInfoGroupSO.GetItemData((int)(slot.Key));
                 _requireMaterialSlots[index].HandleRefreshSlot(itemInfo.itemSprite, slot.Value, _owner.RequireResources[slot.Key]);
-                index ++;
+                index++;
             }
 
         }
