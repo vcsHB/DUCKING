@@ -1,16 +1,15 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace AgentManage
 {
     public class CorrosiveHealth : Health, ICorrosive
     {
         public UnityEvent OnCorrosionEvent;
-        public event Action<int, int> OnCorrosionChangedEvent; 
-        
-        [SerializeField] private int _corrosionResistance;
+        public event Action<int, int> OnCorrosionChangedEvent;
+
+        [SerializeField] protected int _corrosionResistance;
         public int MaxCorrosionResistance { get; private set; }
 
 
@@ -19,8 +18,8 @@ namespace AgentManage
             MaxCorrosionResistance = max;
             _corrosionResistance = max;
         }
-        
-        public void Corrode(int power)
+
+        public virtual void Corrode(int power)
         {
             _corrosionResistance -= power;
             OnCorrosionEvent?.Invoke();
@@ -33,7 +32,15 @@ namespace AgentManage
                 damage = (int)(damage + damage * ((float)power / 10));
                 ApplyDamage(damage);
             }
-            
+
+        }
+
+        public void RestoreCorrosion(int amount)
+        {
+            _corrosionResistance += amount;
+            _corrosionResistance = Mathf.Clamp(_corrosionResistance, 0, MaxCorrosionResistance);
+            OnCorrosionEvent?.Invoke();
+            OnCorrosionChangedEvent?.Invoke(_corrosionResistance, MaxCorrosionResistance);
         }
     }
 }

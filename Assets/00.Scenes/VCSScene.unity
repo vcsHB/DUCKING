@@ -15444,8 +15444,8 @@ GameObject:
   - component: {fileID: 1459828896}
   - component: {fileID: 1459828897}
   - component: {fileID: 1459828898}
-  - component: {fileID: 1459828901}
   - component: {fileID: 1459828900}
+  - component: {fileID: 1459828901}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -15602,7 +15602,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1459828893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabe2e5aa01f40e0b62d82b336d81f3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b1c3913f361e047abda2c0a2a56ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnHealthDecreaseEvent:
@@ -15614,11 +15614,13 @@ MonoBehaviour:
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
-  _currentHealth: 100
+  _currentHealth: 0
   OnCorrosionEvent:
     m_PersistentCalls:
       m_Calls: []
   _corrosionResistance: 0
+  _damagedTime: 10
+  _healAmountPerSecond: 20
 --- !u!1 &1467910890
 GameObject:
   m_ObjectHideFlags: 0

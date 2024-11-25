@@ -16,11 +16,7 @@ namespace AgentManage.PlayerManage
             MovementCompo = GetCompo<PlayerMovement>();
             ItemCollectCompo = GetComponent<PlayerItemCollector>();
 
-
         }
 
-
-
     }
-
 }
