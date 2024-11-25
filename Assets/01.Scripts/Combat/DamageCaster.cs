@@ -1,6 +1,7 @@
 using System;
 using AgentManage;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Combat
 {
@@ -8,6 +9,7 @@ namespace Combat
     public class DamageCaster : MonoBehaviour
     {
         public event Action OnCastEvent;
+        public UnityEvent OnCastUnityEvent;
         [SerializeField] protected LayerMask _targetLayer;
         [SerializeField] protected float _detectRange;
         [SerializeField] protected int _damage;
@@ -34,6 +36,7 @@ namespace Combat
                     CastAllCasters(_hits[i]);
                 }
                 OnCastEvent?.Invoke();
+                OnCastUnityEvent?.Invoke();
             }
         }
 

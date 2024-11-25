@@ -15,9 +15,11 @@ namespace AgentManage.Enemies.State
         private PoolingType _projectile;
         private float _attackDelay;
         private float _prevAttack;
+        private NormalEnemy _enemy;
 
         public NormalEnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolHash) : base(enemy, stateMachine, animBoolHash)
         {
+            _enemy = enemy as NormalEnemy;
             _movement = enemy.GetComponent<EnemyMovement>();
             _targetDetector = enemy.GetCompo<EnemyTargetDetector>();
             _attackDelay = (enemy as NormalEnemy).attackDelay;
@@ -60,7 +62,7 @@ namespace AgentManage.Enemies.State
                 Projectile projectile =
                     PoolManager.Instance.Pop(_projectile, _enemyTrm.position, Quaternion.identity)
                     as Projectile;
-
+                _enemy.HandleAttackEvent();
                 projectile.Fire(_targetDetector.TargetDirection);
             }
         }
