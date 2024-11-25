@@ -12,9 +12,17 @@ namespace UI.InGame.BuildingInfoDisplayer.FactoryDetail
         [SerializeField] private Image _materialIconIamge;
         [SerializeField] private TextMeshProUGUI _materialAmountText;
 
-        public void HandleRefreshSlot(Resource resource)
+        public void SetEnable(bool value)
         {
+            gameObject.SetActive(value);
+        }
 
+        public void HandleRefreshSlot(Sprite sprite, int amount, int require)
+        {
+            SetEnable(true);
+            _materialIconIamge.sprite = sprite;
+            _materialAmountText.color = amount < require ? Color.red : Color.white;
+            _materialAmountText.text = $"{amount.ToString()}/{require.ToString()}";
         }
     }
 }
