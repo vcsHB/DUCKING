@@ -1,3 +1,4 @@
+using UI.InGame.GameSystem;
 using UI.InGame.Wave;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace WaveSystem
 
         public bool IsWaveStarted = false;
         private float _currentWaitingTime = 0;
+
+        public bool IsCleared { get; private set; } = false;
 
         private void Start()
         {
@@ -56,11 +59,13 @@ namespace WaveSystem
 
         private void ContinueNextWave()
         {
+            if(IsCleared) return;
             CurrentWaveIndex++;
-            if(CurrentWaveIndex > _stage.waves.Length)
+            if (CurrentWaveIndex > _stage.waves.Length)
             {
                 // 웨이브 전부 클리어
-
+                IsCleared = true;
+                UIManager.Instance.ShowSuccessPanel();
                 return;
             }
             CurrentWave = _stage.waves[CurrentWaveIndex];
@@ -70,7 +75,7 @@ namespace WaveSystem
 
         public void HandleSkipWaiting()
         {
-            if(IsWaveStarted) return;
+            if (IsWaveStarted) return;
 
             _currentWaitingTime = CurrentWave.waveStartDelayTime;
         }

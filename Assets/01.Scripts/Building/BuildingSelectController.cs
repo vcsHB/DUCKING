@@ -15,6 +15,10 @@ namespace BuildingManage
             _uiInputReader.SelectEvent += HandleSelectBuilding;
         }
 
+        private void OnDestroy() {
+            _uiInputReader.SelectEvent -= HandleSelectBuilding;
+        }
+
         public void HandleSelectBuilding(ISelectable selectedBuilding)
         {
             if(selectedBuilding == null)

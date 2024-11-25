@@ -28,6 +28,14 @@ namespace UI.InGame.Inventory
             _itemInfoPanel.ItemDecreaseEvent += HandleDecreaseSelectedItem;
         }
 
+        private void OnDestroy() {
+            
+            _uiInputReader.OnInventoryOpenEvent -= HandleToggleInventory;
+            _uiInputReader.OnInventorySortEvent -= HandleSortInventory;
+            _playerItemCollector.OnItemValueChange -= HandleInventoryChanged;
+            _itemInfoPanel.ItemDecreaseEvent -= HandleDecreaseSelectedItem;
+        }
+
         public void HandleToggleInventory()
         {
             if (!_isActive)

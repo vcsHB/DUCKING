@@ -19,6 +19,10 @@ namespace UI.InGame.Build
             _rectTrm = transform as RectTransform;
         }
 
+        private void OnDestroy() {
+            _uiInputReader.BuildEvent -= HandleToggleBuildPanel;
+        }
+
         private void HandleToggleBuildPanel()
         {
             if(_isActive)

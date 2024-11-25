@@ -16,6 +16,10 @@ namespace AgentManage.Enemies
             _enemy.GetCompo<EnemyMovement>().OnMovementEvent += HandleMovement;
 
         }
+
+        private void OnDestroy() {
+            _enemy.GetCompo<EnemyMovement>().OnMovementEvent -= HandleMovement;
+        }
     }
 
 }
