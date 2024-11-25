@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -34,7 +33,7 @@ namespace BuildingManage
 
         #region Save & Load
 
-        private string _path = Path.Combine(Application.dataPath, "Saves/Map.json");
+        private string _path;
         private List<BuildingSave> _buildingSave = new List<BuildingSave>();
         private int _seed;
 
@@ -56,12 +55,11 @@ namespace BuildingManage
             _buildController.Init(_buildingSet);
             Load();
         }
-
-        BuildingSize s;
+        
         public bool CheckBuildingOverlap(BuildingSize size)
         {
             int cnt = Physics2D.BoxCastNonAlloc(size.center, Vector2.one * (size.size - 0.1f), 0, Vector2.zero, _hit, 1, _whatIsBuilding);
-            s = size;
+            BuildingSize s = size;
 
             return cnt > 0;
             //bool isOverlap = false;
@@ -203,9 +201,8 @@ namespace BuildingManage
         public void Save()
         {
             MapSave save = new MapSave();
-
             save.floorSeed = _seed;
-            //save.buildings = _buildingSave;
+            save.buildings = _buildingSave;
 
             string json = JsonUtility.ToJson(save, true);
             File.WriteAllText(_path, json);
@@ -213,6 +210,8 @@ namespace BuildingManage
 
         public void Load()
         {
+            _path = Application.dataPath + "/Saves/Map.json";
+
             if (!File.Exists(_path))
             {
                 _seed = Random.Range(-10000, 100001);
@@ -227,15 +226,16 @@ namespace BuildingManage
 
             _seed = save.floorSeed;
             _mapGenerator.GenerateMap(_seed);
-            //_buildingSave = save.buildings;
 
-            //_buildingSave.ForEach(building =>
-            //{
-            //    BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
-            //    Vector2Int position = new Vector2Int(building.posX, building.posY);
+            _buildingSave = save.buildings;
+            Debug.Log(_buildingSave.Count);
+            _buildingSave.ForEach(building =>
+            {
+                BuildingEnum buildingType = Enum.Parse<BuildingEnum>(building.name);
+                Vector2Int position = new Vector2Int(building.posX, building.posY);
 
-            //    _buildController.TryBuild(buildingType, position, false);
-            //});
+                _buildController.TryBuild(buildingType, position, false);
+            });
         }
 
         public void AddBuilding(Building building, bool save = true)
@@ -250,6 +250,7 @@ namespace BuildingManage
                 buildingSave.posY = building.Position.min.y;
 
                 _buildingSave.Add(buildingSave);
+                Save();
             }
         }
 
@@ -269,15 +270,6 @@ namespace BuildingManage
         }
 
         #endregion
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            if (s != null)
-            {
-                Gizmos.DrawWireCube(s.center, Vector2.one * s.size);
-            }
-        }
     }
 
     [Serializable]
