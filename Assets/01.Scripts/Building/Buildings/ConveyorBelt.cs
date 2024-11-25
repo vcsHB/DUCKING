@@ -123,6 +123,8 @@ namespace BuildingManage
                 if (_rules.Count > 0)
                     _spriteRenderer.sprite = _rules[0].sprite;
             }
+
+            MapManager.Instance.RotateBuilding(Position.min, direction);
         }
 
         protected override void OnGenerateDropItem()

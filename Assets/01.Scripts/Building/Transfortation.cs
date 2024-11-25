@@ -32,6 +32,8 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
         MapManager.Instance.TryGetBuilding(position, out Building buildingInstance);
         Transfortation transfortation = (buildingInstance as Transfortation);
         transfortation.CheckNeighbor(position);
+
+        MapManager.Instance.RotateBuilding(Position.min, direction);
     }
 
     public override void Destroy()
