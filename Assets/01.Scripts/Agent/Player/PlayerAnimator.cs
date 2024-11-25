@@ -13,6 +13,11 @@ namespace AgentManage.PlayerManage
             _player = agent as Player;
             _player.PlayerInput.MovementEvent += HandleMovement;
         }
+
+        private void OnDestroy()
+        {
+            _player.PlayerInput.MovementEvent -= HandleMovement;
+        }
     }
 
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5c5d528e14db64ab5fbfcd2ca342f9, type: 3}
+  m_Name: SFXTable
+  m_EditorClassIdentifier: 
+  audioType: 0
+  soundSOList:
+  - {fileID: 11400000, guid: 6f1fce80a28b1754b8b5839590c09c49, type: 2}
+  - {fileID: 11400000, guid: 93264e1fccf7d054495ae2c11e315c12, type: 2}
+  - {fileID: 11400000, guid: 8af29a75abd7d0f449d64f796d2b15bf, type: 2}
+  - {fileID: 11400000, guid: 8bf608312966fa749a1b080bf3f0c28c, type: 2}
+  - {fileID: 11400000, guid: 74860d7c5f9972244b17df3340de2fdf, type: 2}
+  - {fileID: 11400000, guid: ecca0afeec7907f4888e9dc8e298d5ae, type: 2}
+  - {fileID: 11400000, guid: e436b64e216cb7c41838c65298672661, type: 2}
+  - {fileID: 11400000, guid: f07a5e98a87b2c8479c6bc88c250c860, type: 2}

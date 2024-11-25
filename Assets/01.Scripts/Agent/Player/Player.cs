@@ -1,4 +1,5 @@
 using InputManage;
+using UI.InGame.GameSystem;
 using UnityEngine;
 
 namespace AgentManage.PlayerManage
@@ -15,12 +16,13 @@ namespace AgentManage.PlayerManage
             base.Awake();
             MovementCompo = GetCompo<PlayerMovement>();
             ItemCollectCompo = GetComponent<PlayerItemCollector>();
-
-
+            HealthCompo.OnDieEvent.AddListener(HandleGameOver);
         }
 
-
+        private void HandleGameOver()
+        {
+            UIManager.Instance.ShowFailedPanel();
+        }
 
     }
-
 }

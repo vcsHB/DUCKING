@@ -1,10 +1,12 @@
 using AgentManage.Enemies.State;
 using ObjectPooling;
+using UnityEngine.Events;
 
 namespace AgentManage.Enemies
 {
     public class NormalEnemy : StateEnemy
     {
+        public UnityEvent OnEnemyAttackEvent;
         public PoolingType projectile;
         public float attackDelay;
 
@@ -21,6 +23,11 @@ namespace AgentManage.Enemies
         public override void Initialize()
         {
             StateMachine.ChangeState(StateMachine.GetState("MoveToPath"));
+        }
+
+        internal void HandleAttackEvent()
+        {
+            OnEnemyAttackEvent?.Invoke();
         }
 
 

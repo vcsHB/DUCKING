@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UI.TitleScene;
 using UnityEngine;
@@ -20,6 +18,11 @@ namespace TitleScene
         {
             _fadePanel.Open();
             DOVirtual.DelayedCall(1f, () => SceneManager.LoadScene("VCSScene"));
+        }
+
+        public void HandleQuitGame()
+        {
+            Application.Quit();
         }
     }
 

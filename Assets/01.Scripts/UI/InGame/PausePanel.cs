@@ -19,6 +19,12 @@ namespace UI.InGame
             _inputReader.OnPauseEvent += HandleTogglePausePanel;
         }
 
+        private void OnDestroy()
+        {
+            _inputReader.OnPauseEvent -= HandleTogglePausePanel;
+
+        }
+
         public void HandleTogglePausePanel()
         {
             if (_isActive)
@@ -47,15 +53,15 @@ namespace UI.InGame
 
         public void HandleSelectSetting()
         {
-            
+
         }
 
         public void HandleSelectExit()
         {
-            
+
         }
-        
-        
+
+
     }
 
 }

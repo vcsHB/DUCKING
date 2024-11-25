@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class TutorialController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private PlayerInputSO _playerInput;
     private bool _isPlaying = false;
 
-    //ÀÏ´Ü ÀÓ½Ã·Î ÇÏ´Â °ÅÀÓ
+    //ï¿½Ï´ï¿½ ï¿½Ó½Ã·ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void OnEnable()
     {
         if (!PlayerPrefs.HasKey("Tutorial"))
@@ -64,6 +65,11 @@ public class TutorialController : MonoBehaviour
             case 3:
                 _goal.SetBuildGoal();
                 _goal.OnBuildGoal += OnBuild;
+                break;
+
+            case 4:
+                _uiInput.SetControl(true);
+                _playerInput.SetControl(true);
                 break;
         }
     }

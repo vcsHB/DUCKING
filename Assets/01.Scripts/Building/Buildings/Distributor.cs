@@ -1,8 +1,5 @@
 using BuildingManage;
 using ResourceSystem;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Distributor : Transfortation
@@ -39,7 +36,8 @@ public class Distributor : Transfortation
 
     protected override void CheckNeighbor(Vector2Int position)
     {
-        if (_inputDirection.Count > 1) return;
+        _inputDirection.Clear();
+        //if (_inputDirection.Count > 1) return;
 
         _inputDirection.Clear();
         for (int i = 0; i < 4; i++)

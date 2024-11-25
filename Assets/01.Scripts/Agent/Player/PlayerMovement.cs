@@ -26,6 +26,10 @@ namespace AgentManage.PlayerManage
             _player.PlayerInput.MovementEvent += HandlePlayerMove;
         }
 
+        private void OnDestroy() {
+             _player.PlayerInput.MovementEvent -= HandlePlayerMove;
+        }
+
         private void HandlePlayerMove(Vector2 movement)
         {
             _movement = movement;
