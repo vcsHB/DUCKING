@@ -39,7 +39,8 @@ public class Distributor : Transfortation
 
     protected override void CheckNeighbor(Vector2Int position)
     {
-        if (_inputDirection.Count > 1) return;
+        _inputDirection.Clear();
+        //if (_inputDirection.Count > 1) return;
 
         for (int i = 0; i < 4; i++)
         {

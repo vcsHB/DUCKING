@@ -112,7 +112,7 @@ MonoBehaviour:
   description: 
   buildingIconSprite: {fileID: 725686317, guid: 2bc0c4efcaeff54418033759ac2398d9, type: 3}
   building: {fileID: 6643892704037689786, guid: 76d17708092d4ae4daf439f0965ec066, type: 3}
-  tileSize: 0
+  tileSize: 2
   canRotate: 0
   health: 180
   needResource:

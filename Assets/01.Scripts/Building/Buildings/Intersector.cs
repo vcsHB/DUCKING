@@ -2,6 +2,7 @@ using BuildingManage;
 using ResourceSystem;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Intersector : Transfortation
@@ -36,7 +37,7 @@ public class Intersector : Transfortation
             }
         }
 
-        if(_secondaryContainer.type == ResourceType.None)
+        if (_secondaryContainer.type == ResourceType.None)
         {
             _secondaryProcess = 0;
         }
@@ -53,7 +54,7 @@ public class Intersector : Transfortation
             }
         }
 
-        
+
     }
 
     public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
@@ -76,22 +77,36 @@ public class Intersector : Transfortation
 
     public override void TransferResource()
     {
-        for (int i = 0; i < 2; i++)
+        if (_process >= 1)
         {
-            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[i]);
+            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[0]);
             bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+            if (buildingExist)
+            {
+                if (connectedBuilding.TryGetComponent(out IResourceInput input))
+                {
+                    DirectionEnum opposite = Direction.GetOpposite(_outputDirection[0]);
+                    input.TryInsertResource(_container, opposite, out _container);
+                }
+            }
+        }
 
-            if (!connectedBuilding.TryGetComponent(out IResourceInput input)) return;
-
-            DirectionEnum opposite = Direction.GetOpposite(_outputDirection[i]);
-
-            if (i == 0)
-                input.TryInsertResource(_container, opposite, out _container);
-            else
-                input.TryInsertResource(_secondaryContainer, opposite, out _secondaryContainer);
+        if (_secondaryProcess >= 1)
+        {
+            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[1]);
+            bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+            if (buildingExist)
+            {
+                if (connectedBuilding.TryGetComponent(out IResourceInput input))
+                {
+                    DirectionEnum opposite = Direction.GetOpposite(_outputDirection[1]);
+                    input.TryInsertResource(_secondaryContainer, opposite, out _secondaryContainer);
+                }
+            }
         }
 
         if (_container.type == ResourceType.None) _process = 0;
+        if (_secondaryContainer.type == ResourceType.None) _secondaryProcess = 0;
     }
 
     public override bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
@@ -188,7 +203,7 @@ public class Intersector : Transfortation
 
     public override void RemoveInputDirection(DirectionEnum directionEnum)
     {
-        if(_inputDirection.Contains(directionEnum))
+        if (_inputDirection.Contains(directionEnum))
         {
             int idx = _inputDirection.IndexOf(directionEnum);
             _inputDirection[idx] = DirectionEnum.None;
