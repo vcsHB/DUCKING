@@ -33,7 +33,7 @@ public class CorrosiumController : MonoBehaviour
             Load();
             return;
         }
-
+        Debug.Log("นึ...");
         _random = new System.Random(seed);
 
         int hSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
@@ -55,7 +55,6 @@ public class CorrosiumController : MonoBehaviour
             while (--cnt > 0)
             {
                 Vector2Int center = new Vector2Int((int)_centerTrm.position.x, (int)_centerTrm.position.y);
-                print(center);
                 int number = _random.Next(0, 5);
                 int sizeX = _random.Next(shape.minSize, shape.maxSize);
                 int sizeY = _random.Next(shape.minSize, shape.maxSize);
@@ -99,6 +98,7 @@ public class CorrosiumController : MonoBehaviour
         });
 
         SetCorrosive();
+        Save();
     }
 
     public void AddEncorrosive(Vector2Int edge)

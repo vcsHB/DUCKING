@@ -1,515 +1,1259 @@
 {
-    "floorSeed": 24564,
+    "floorSeed": 87798,
     "buildings": [
         {
             "name": "Big_Drill",
             "posX": 28,
-            "posY": -12
+            "posY": -24,
+            "direction": 0
         },
         {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -14
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -22,
+            "direction": 2
         },
         {
-            "name": "Big_Drill",
-            "posX": 25,
-            "posY": -15
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -21,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -20,
+            "direction": 2
         },
         {
             "name": "CopperFactory",
             "posX": 27,
-            "posY": -14
+            "posY": -18,
+            "direction": 0
         },
         {
             "name": "Test_ConveyorBelt",
             "posX": 28,
-            "posY": -15
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -16
+            "posY": -19,
+            "direction": 2
         },
         {
             "name": "Big_Drill",
-            "posX": 24,
-            "posY": -6
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 25,
-            "posY": -7
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 31,
-            "posY": 0
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 11,
-            "posY": 3
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 25,
-            "posY": -9
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 26,
-            "posY": -11
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 25,
-            "posY": -13
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 21,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 23,
-            "posY": -14
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 32,
-            "posY": -2
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 22,
-            "posY": -9
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 32,
-            "posY": -18
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 28,
-            "posY": -19
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 26,
-            "posY": -20
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 22,
-            "posY": -17
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 22,
-            "posY": -19
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -24
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -26
-        },
-        {
-            "name": "IronFactory",
-            "posX": 25,
-            "posY": -21
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 24,
-            "posY": -17
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 24,
-            "posY": -18
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 24,
-            "posY": -19
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 25,
-            "posY": -19
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -24
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -23
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -22
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -21
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -20
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 27,
-            "posY": -20
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 26,
-            "posY": -22
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 26,
-            "posY": -23
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 26,
-            "posY": -24
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 26,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 25,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 24,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 23,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 22,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 21,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 19,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 18,
-            "posY": -25
-        },
-        {
-            "name": "Test_ConveyorBelt",
             "posX": 20,
-            "posY": -25
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 28,
-            "posY": -12
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -14
-        },
-        {
-            "name": "Big_Drill",
-            "posX": 25,
-            "posY": -15
-        },
-        {
-            "name": "CopperFactory",
-            "posX": 27,
-            "posY": -14
+            "posY": -18,
+            "direction": 0
         },
         {
             "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -15
+            "posX": 22,
+            "posY": -17,
+            "direction": 1
         },
         {
             "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -17
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -18
-        },
-        {
-            "name": "Test_Tower",
-            "posX": 26,
-            "posY": -11
-        },
-        {
-            "name": "Test_Tower",
-            "posX": 26,
-            "posY": -11
-        },
-        {
-            "name": "Test_Tower",
-            "posX": 27,
-            "posY": -10
-        },
-        {
-            "name": "Test_Tower",
-            "posX": 29,
-            "posY": -14
-        },
-        {
-            "name": "Test_Tower",
             "posX": 23,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 30,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 29,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 28,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 27,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 26,
-            "posY": -16
-        },
-        {
-            "name": "Test_ConveyorBelt",
-            "posX": 25,
-            "posY": -16
+            "posY": -17,
+            "direction": 1
         },
         {
             "name": "Test_ConveyorBelt",
             "posX": 24,
-            "posY": -16
+            "posY": -17,
+            "direction": 1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 25,
+            "posY": -17,
+            "direction": 1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -17,
+            "direction": 1
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -16,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 29,
+            "posY": -4,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -5,
+            "direction": 0
         },
         {
             "name": "Big_Drill",
-            "posX": 29,
-            "posY": -15
+            "posX": 30,
+            "posY": -4,
+            "direction": 0
         },
         {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -15
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -15,
+            "direction": 2
         },
         {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -13
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -14,
+            "direction": 2
         },
         {
-            "name": "Big_Drill",
-            "posX": 29,
-            "posY": -15
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -13,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -6,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -8,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -9,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -10,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -12,
+            "direction": 2
         },
         {
             "name": "Test_Tower",
-            "posX": 22,
-            "posY": -17
+            "posX": 15,
+            "posY": -19,
+            "direction": 0
         },
         {
             "name": "Test_Tower",
-            "posX": 22,
-            "posY": -18
+            "posX": 15,
+            "posY": -20,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 15,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 15,
+            "posY": -22,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 15,
+            "posY": -23,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 15,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -20,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -22,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -23,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 16,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -23,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -25,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -27,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 12,
+            "posY": -17,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 16,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 16,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 16,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 16,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 13,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 9,
+            "posY": -17,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 7,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -18,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -20,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -22,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -23,
+            "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 8,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 8,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 8,
+            "posY": -22,
+            "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 8,
+            "posY": -23,
+            "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 7,
+            "posY": -20,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 7,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 7,
+            "posY": -22,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 7,
+            "posY": -23,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -22,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -23,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -22,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -22,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 8,
+            "posY": -22,
+            "direction": 3
+        },
+        {
+            "name": "Intersector",
+            "posX": 9,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Intersector",
+            "posX": 9,
+            "posY": -22,
+            "direction": 0
         },
         {
             "name": "Distributor",
-            "posX": 28,
-            "posY": -13
+            "posX": 9,
+            "posY": -21,
+            "direction": 0
         },
         {
             "name": "Distributor",
-            "posX": 28,
-            "posY": -14
+            "posX": 9,
+            "posY": -22,
+            "direction": 0
         },
         {
-            "name": "Distributor",
-            "posX": 28,
-            "posY": -15
+            "name": "Test_Tower",
+            "posX": 7,
+            "posY": -22,
+            "direction": 0
         },
         {
-            "name": "Distributor",
-            "posX": 28,
-            "posY": -16
+            "name": "Big_Drill",
+            "posX": 7,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 9,
+            "posY": -23,
+            "direction": 3
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 4,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Barrier_Copper",
+            "posX": 4,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -12,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -6,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -6,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -3,
+            "posY": -7,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -6,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -6,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -5,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -4,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -4,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -5,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -6,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -6,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -6,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -6,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -8,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -3,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
+        },
+        {
+            "name": "Test_Tower",
+            "posX": -7,
+            "posY": -2,
+            "direction": 0
         }
     ]
 }
