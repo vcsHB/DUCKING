@@ -27,9 +27,9 @@ public abstract class Source : Building, IResourceOutput
     {
         if (_container.Count <= 0 || _prevTransfer + _transferDelay > Time.time) return;
 
-        for (int i = 0; i < _container.Count; i++)
+        for (int j = 0; j < _connectedInputs.Count; j++)
         {
-            for (int j = 0; j < _connectedInputs.Count; j++)
+            for (int i = 0; i < _container.Count; i++)
             {
                 _prevTransfer = Time.time;
                 var input = _connectedInputs[j];
@@ -47,10 +47,10 @@ public abstract class Source : Building, IResourceOutput
                     else
                     {
                         _container.RemoveAt(i--);
-                        return;
+                        break;
                     }
                 }
-                return;
+                break;
             }
         }
     }

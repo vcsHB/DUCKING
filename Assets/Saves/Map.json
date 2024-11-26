@@ -65,7 +65,7 @@
             "name": "Big_Drill",
             "posX": 0,
             "posY": 0,
-            "direction": 0
+            "direction": 2
         },
         {
             "name": "Big_Drill",
@@ -221,7 +221,7 @@
             "name": "Big_Drill",
             "posX": 25,
             "posY": -15,
-            "direction": 3
+            "direction": 0
         },
         {
             "name": "Big_Drill",
@@ -377,7 +377,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 22,
             "posY": -10,
-            "direction": 0
+            "direction": 2
         },
         {
             "name": "Test_ConveyorBelt",
@@ -389,7 +389,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 22,
             "posY": -11,
-            "direction": 1
+            "direction": 2
         },
         {
             "name": "Test_ConveyorBelt",
@@ -413,13 +413,13 @@
             "name": "Test_ConveyorBelt",
             "posX": 23,
             "posY": -11,
-            "direction": 0
+            "direction": 2
         },
         {
             "name": "Test_ConveyorBelt",
             "posX": 23,
             "posY": -12,
-            "direction": 1
+            "direction": 2
         },
         {
             "name": "Test_ConveyorBelt",
@@ -725,7 +725,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 20,
             "posY": -18,
-            "direction": 3
+            "direction": 2
         },
         {
             "name": "Distributor",
@@ -1631,7 +1631,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 24,
             "posY": -18,
-            "direction": 3
+            "direction": 0
         },
         {
             "name": "Test_ConveyorBelt",
@@ -1643,7 +1643,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 22,
             "posY": -18,
-            "direction": 3
+            "direction": 0
         },
         {
             "name": "Test_ConveyorBelt",
@@ -1655,7 +1655,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 21,
             "posY": -17,
-            "direction": 2
+            "direction": 3
         },
         {
             "name": "Test_ConveyorBelt",
@@ -1733,19 +1733,19 @@
             "name": "Test_ConveyorBelt",
             "posX": 17,
             "posY": -17,
-            "direction": 2
+            "direction": 3
         },
         {
             "name": "Test_ConveyorBelt",
             "posX": 17,
             "posY": -16,
-            "direction": 1
+            "direction": 3
         },
         {
             "name": "Test_ConveyorBelt",
             "posX": 18,
             "posY": -16,
-            "direction": 1
+            "direction": 3
         },
         {
             "name": "Test_ConveyorBelt",
@@ -1865,7 +1865,7 @@
             "name": "Test_ConveyorBelt",
             "posX": 27,
             "posY": -22,
-            "direction": 3
+            "direction": 2
         },
         {
             "name": "Test_ConveyorBelt",
@@ -2718,6 +2718,378 @@
             "posX": 27,
             "posY": -13,
             "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -16,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -15,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -14,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -13,
+            "direction": 2
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 22,
+            "posY": -18,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 29,
+            "posY": -24,
+            "direction": 0
+        },
+        {
+            "name": "CopperFactory",
+            "posX": 24,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -17,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -18,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -19,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 27,
+            "posY": -22,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 27,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -21,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 20,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 19,
+            "posY": -21,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -20,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -20,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -20,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 29,
+            "posY": -18,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 28,
+            "posY": -18,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 27,
+            "posY": -18,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -18,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -18,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 26,
+            "posY": -18,
+            "direction": 2
+        },
+        {
+            "name": "CopperFactory",
+            "posX": 24,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -21,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 27,
+            "posY": -16,
+            "direction": 0
+        },
+        {
+            "name": "CopperFactory",
+            "posX": 24,
+            "posY": -21,
+            "direction": 0
+        },
+        {
+            "name": "IronFactory",
+            "posX": 19,
+            "posY": -17,
+            "direction": 0
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 22,
+            "posY": -18,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 21,
+            "posY": -17,
+            "direction": 3
+        },
+        {
+            "name": "Big_Drill",
+            "posX": 25,
+            "posY": -15,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -15,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -15,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -15,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -16,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 21,
+            "posY": -16,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 17,
+            "posY": -17,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 16,
+            "posY": -17,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 18,
+            "posY": -17,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 17,
+            "posY": -17,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 18,
+            "posY": -16,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 17,
+            "posY": -16,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -16,
+            "direction": 3
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 19,
+            "posY": -18,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 20,
+            "posY": -18,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -11,
+            "direction": 2
+        },
+        {
+            "name": "Distributor",
+            "posX": 23,
+            "posY": -10,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -10,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 23,
+            "posY": -12,
+            "direction": 2
+        },
+        {
+            "name": "Distributor",
+            "posX": 23,
+            "posY": -13,
+            "direction": 0
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -13,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -12,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -11,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 24,
+            "posY": -10,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -13,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -12,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -11,
+            "direction": 2
+        },
+        {
+            "name": "Test_ConveyorBelt",
+            "posX": 22,
+            "posY": -10,
+            "direction": 2
         }
     ]
 }

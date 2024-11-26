@@ -48,22 +48,19 @@ public class Factory : Source, IResourceInput, IOverloadable
 
     private void Update()
     {
-
         if (!IsProcessing) return;
+        
         _currentTime += Time.deltaTime;
         OnProgressEvent?.Invoke(_currentTime, _processDuration);
+        
         if (CurrentProgress >= 1)
         {
-
             OnProgressOverEvent?.Invoke();
             OnProgressEvent?.Invoke(0, 1);
         }
 
-        if (_prevTransfer + _transferDelay < Time.time)
-        {
-            if (_container.Count > 0)
-                TransferResource();
-        }
+        if (_container.Count > 0)
+            TransferResource();
     }
 
     public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
