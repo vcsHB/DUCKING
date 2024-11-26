@@ -195,8 +195,6 @@ namespace BuildingManage
             for (int i = 0; i < 4; i++)
             {
                 Vector2Int connected = position + Direction.directionsInt[i];
-                MapManager.Instance.TryGetBuilding(position, out Building belt);
-                ConveyorBelt beltInstance = belt as ConveyorBelt;
 
                 bool buildingExsist =
                     MapManager.Instance.TryGetBuilding(connected, out Building building);
@@ -209,12 +207,12 @@ namespace BuildingManage
                     if (!transfortation.ContainOutput(Direction.GetOpposite((DirectionEnum)i))
                         || ContainOutput((DirectionEnum)i)) continue;
 
-                    beltInstance.SetInputDirection((DirectionEnum)i);
+                    SetInputDirection((DirectionEnum)i);
                 }
                 else if (building.TryGetComponent(out IResourceOutput output))
                 {
                     if (ContainOutput((DirectionEnum)i)) continue;
-                    beltInstance.SetInputDirection((DirectionEnum)i);
+                    SetInputDirection((DirectionEnum)i);
                 }
             }
         }

@@ -146,8 +146,6 @@ namespace BuildingManage
                     //이 청크에 자원이 나올 것인가?!
                     ResourceVein vein = biom.resource[i];
                     bool spawn = _random.Next(0, 10001) > vein.exsistPercent;
-                    //Debug.Log(GetRandomBySeed(0, 10001) + " " + vein.exsistPercent + " " + spawn);
-
                     if (!spawn) continue;
 
                     //대충 10번 쯤 청크안에서 찍어보는데 

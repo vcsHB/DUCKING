@@ -70,19 +70,16 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 
     public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
-        Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
+        transform.position = MapManager.Instance.GetWorldPos(position);
+        transform.rotation = Quaternion.identity;
 
-        Building buildingInstance = Instantiate(this, worldPos, Quaternion.identity);
-        buildingInstance.SetPosition(position);
-        buildingInstance.SetRotation(direction);
+        SetPosition(position);
+        SetRotation(direction);
 
-        MapManager.Instance.AddBuilding(buildingInstance, save);
+        MapManager.Instance.AddBuilding(this, save);
     }
 
-    public Building GetInformation()
-    {
-        return this;
-    }
+    public Building GetInformation() => this;
 }
 
 [Serializable]

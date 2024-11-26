@@ -193,7 +193,7 @@ MonoBehaviour:
     sprite: {fileID: -906502970, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
     inputDirection: 01000000
-    sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}
+    sprite: {fileID: -766112065, guid: 2243027af11927743bce6eb52069e209, type: 3}
   - outputDirection: 2
     inputDirection: 00000000
     sprite: {fileID: 420428988, guid: 2243027af11927743bce6eb52069e209, type: 3}

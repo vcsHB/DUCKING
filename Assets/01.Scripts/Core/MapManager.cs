@@ -129,28 +129,28 @@ namespace BuildingManage
             building = null;
             return false;
 
-            //_buildingList.ForEach(building => building.CheckPosition(tilePos));
+            //_buildingList.ForEach(buildingPf => buildingPf.CheckPosition(tilePos));
 
             //if (!_buildings.ContainsKey(tilePos))
             //{
-            //    building = null;
+            //    buildingPf = null;
             //    return false;
             //}
 
-            //building = _buildings[tilePos];
+            //buildingPf = _buildings[tilePos];
             //return true;
 
-            //building = null;
+            //buildingPf = null;
 
             //for (int i = 0; i < _buildingList.Count; i++)
             //{
             //    if (_buildingList[i].CheckPosition(tilePos))
             //    {
-            //        building = _buildingList[i];
+            //        buildingPf = _buildingList[i];
             //    }
             //}
 
-            //return (building != null);
+            //return (buildingPf != null);
         }
 
         /// <summary>
@@ -175,23 +175,23 @@ namespace BuildingManage
 
             //if (!_buildings.ContainsKey(pos))
             //{
-            //    building = null;
+            //    buildingPf = null;
             //    return false;
             //}
 
-            //building = _buildings[pos];
+            //buildingPf = _buildings[pos];
             //return true;
-            //building = null;
+            //buildingPf = null;
 
             //for (int i = 0; i < _buildingList.Count; i++)
             //{
             //    if (_buildingList[i].CheckPosition(pos))
             //    {
-            //        building = _buildingList[i];
+            //        buildingPf = _buildingList[i];
             //    }
             //}
 
-            //return (building != null);
+            //return (buildingPf != null);
         }
 
         #endregion
@@ -239,6 +239,14 @@ namespace BuildingManage
             });
         }
 
+        public void ResetSaveData()
+        {
+            if(File.Exists(_path)) 
+                File.Delete(_path);
+
+            CorrosiumController.ResetSaveData();
+        }
+
         public void AddBuilding(Building building, bool save = true)
         {
             _buildingList.Add(building);
@@ -262,12 +270,14 @@ namespace BuildingManage
 
             if (save)
             {
-                BuildingSave buildingSave = new BuildingSave();
-                buildingSave.name = building.BuildingType.ToString();
-                buildingSave.posX = building.Position.min.x;
-                buildingSave.posY = building.Position.min.y;
+                Vector2Int position = building.Position.min;
+
+                BuildingSave buildingSave = 
+                    _buildingSave.Find(save => save.posX == position.x 
+                                            && save.posY == position.y);
 
                 _buildingSave.Remove(buildingSave);
+                Save();
             }
         }
 

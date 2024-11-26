@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211a10845ff363b48880333165d803ec, type: 3}
   m_Name: BiomSO
   m_EditorClassIdentifier: 
-  seed: 10000
+  seed: 54628
   scale: 0.5
   chunkSize: 10
   bioms:
@@ -22,23 +22,23 @@ MonoBehaviour:
       minSpawn: 3
       maxSpawn: 10
       thickedness: 1
-      exsistPercent: 5000
+      exsistPercent: 4000
     - resourceInfo: {fileID: 11400000, guid: 54a1806e3ec23ec43ba037315325ba21, type: 2}
       minSpawn: 4
       maxSpawn: 10
       thickedness: 1
       exsistPercent: 2000
-    ratio: 2
+    ratio: 1
   - tile: {fileID: 11400000, guid: 125d28b6f1af3b94aab7fae0a62ef363, type: 2}
     resource:
+    - resourceInfo: {fileID: 11400000, guid: 6562cf5861c9cb141885203d329fc60d, type: 2}
+      minSpawn: 5
+      maxSpawn: 10
+      thickedness: 1
+      exsistPercent: 4000
     - resourceInfo: {fileID: 11400000, guid: f5b6c0c35a26af044b6737684deeb3ff, type: 2}
       minSpawn: 4
       maxSpawn: 6
       thickedness: 2
-      exsistPercent: 3881
-    - resourceInfo: {fileID: 11400000, guid: 93b709f849dbe714ab59e9922f2a8502, type: 2}
-      minSpawn: 1
-      maxSpawn: 3
-      thickedness: 1
-      exsistPercent: 2000
+      exsistPercent: 3000
     ratio: 1

@@ -210,6 +210,12 @@ public class CorrosiumController : MonoBehaviour
         save.edges.ForEach(e => EncorrosiveAreaEdges.Add(e));
         SetCorrosive();
     }
+
+    public void ResetSaveData()
+    {
+        if(File.Exists(_path))
+            File.Delete(_path);
+    }
 }
 
 [Serializable]

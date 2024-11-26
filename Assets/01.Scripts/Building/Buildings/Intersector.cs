@@ -36,23 +36,20 @@ public class Intersector : Transfortation
     {
         base.Build(position, direction, save);
 
-        MapManager.Instance.TryGetBuilding(position, out Building buildingInstance);
-        Intersector intersector = (buildingInstance as Intersector);
-
-        intersector._inputDirection.Clear();
-        intersector._outputDirection.Clear();
-        intersector._container.Clear();
-        intersector._processes.Clear();
+        _inputDirection.Clear();
+        _outputDirection.Clear();
+        _container.Clear();
+        _processes.Clear();
 
         for (int i = 0; i < 2; i++)
         {
-            intersector._inputDirection.Add(DirectionEnum.None);
-            intersector._outputDirection.Add(DirectionEnum.None);
-            intersector._container.Add(new Resource(ResourceType.None, 0));
-            intersector._processes.Add(0);
+            _inputDirection.Add(DirectionEnum.None);
+            _outputDirection.Add(DirectionEnum.None);
+            _container.Add(new Resource(ResourceType.None, 0));
+            _processes.Add(0);
         }
 
-        intersector.CheckNeighbor(position);
+        CheckNeighbor(position);
     }
 
     public override void TransferResource()
