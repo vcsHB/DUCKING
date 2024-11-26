@@ -5,46 +5,37 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Windows;
 
 namespace BuildingManage
 {
     public class ConveyorBelt : Transfortation
     {
-        [SerializeField] private ConveyorBeltResource _beltResource;
+        [SerializeField] private ConveyorBeltResource _beltResourcePf;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _speed = 2f;
         [SerializeField] private List<CustomRuleTile> _rules;
 
-        private float _process = 0;
-
         private void Update()
         {
-            if (_container.type == ResourceType.None)
+            for (int i = 0; i < _processes.Count; i++)
             {
-                _process = 0;
-                return;
-            }
-
-            if (_process >= 1)
-            {
-                _process = 1;
-                TransferResource();
-
-                if (_container.type == ResourceType.None)
-                    _beltResource.DisableResource();
-            }
-            else
-            {
-                _process += Time.deltaTime * _speed;
-                _beltResource?.Move(_process);
+                if (_processes[i] >= 1)
+                {
+                    _processes[i] = 1;
+                    TransferResource();
+                }
+                else
+                {
+                    _processes[i] += Time.deltaTime * _speed;
+                }
             }
         }
 
         public override void TransferResource()
         {
             base.TransferResource();
-            if (_container.type == ResourceType.None) _process = 0;
         }
 
         public override bool TryInsertResource(Resource resource, DirectionEnum direction, out Resource remain)
@@ -53,21 +44,29 @@ namespace BuildingManage
 
             if (result)
             {
-                _container = new Resource(resource.type, 1);
+                _container[^1] = new Resource(resource.type, 1);
                 if (resource.amount > 1)
                     remain = new Resource(resource.type, resource.amount - 1);
 
-                _beltResource.gameObject.SetActive(true);
+                ConveyorBeltResource beltResource = Instantiate(_beltResourcePf);
 
                 //시작 부분, 끝 부분
                 Vector2 offset = Vector2.up * 0.5f;
                 Vector2 from = Position.center + (Vector2)Direction.GetTileDirection(direction) / 2f + offset;
                 Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(base.direction) / 2f + offset;
                 Vector2 center = Position.center + offset;
+                bool isLastBelt = true;
 
-                _beltResource.Init(center, from, to, resource);
+                _outputDirection.ForEach(dir =>
+                {
+                    Vector2Int nextPosition = Position.min + Direction.GetTileDirection(dir);
+
+                    if (MapManager.Instance.TryGetBuilding(nextPosition, out Building building)
+                        && building.TryGetComponent(out IResourceInput input)) isLastBelt = false;
+                });
+
+                beltResource.Init(center, from, to, resource, _speed, isLastBelt);
             }
-
             return result;
         }
 
@@ -129,20 +128,23 @@ namespace BuildingManage
 
         protected override void OnGenerateDropItem()
         {
-            if (_container.type != ResourceType.None)
-            {
-                Vector2 offset = Vector2.up * 0.5f;
-                Vector2 position =
-                    Position.center
-                    + (Vector2)Direction.GetTileDirection(direction) / 2f
-                    + offset;
+            //Vector2 offset = Vector2.up * 0.5f;
+            //Vector2 position =
+            //    Position.center
+            //    + (Vector2)Direction.GetTileDirection(direction) / 2f
+            //    + offset;
 
-                ItemDropManager.Instance.GenerateDropItem(
-                    (int)_container.type, _container.amount, position);
-                _container = new Resource(ResourceType.None, 0);
+            //for (int i = 0; i < _processes.Count; i++)
+            //{
+            //    if (_processes[i] < 1) continue;
 
-                _beltResource.DisableResource();
-            }
+            //    ItemDropManager.Instance.GenerateDropItem(
+            //       (int)_container[i].type, _container[i].amount, position);
+
+            //    _processes.RemoveAt(i);
+            //    _container.RemoveAt(i);
+            //    i--;
+            //}
         }
 
         protected override void UpdateInputs()
@@ -211,6 +213,7 @@ namespace BuildingManage
                 }
                 else if (building.TryGetComponent(out IResourceOutput output))
                 {
+                    if (ContainOutput((DirectionEnum)i)) continue;
                     beltInstance.SetInputDirection((DirectionEnum)i);
                 }
             }

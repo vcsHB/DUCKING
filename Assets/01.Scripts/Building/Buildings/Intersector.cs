@@ -7,54 +7,29 @@ using UnityEngine;
 
 public class Intersector : Transfortation
 {
-    private Resource _secondaryContainer;
     [SerializeField] private float _speed;
-    private float _process = 0;
-    private float _secondaryProcess = 0;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        _secondaryContainer = new Resource(ResourceType.None, 0);
     }
 
     private void Update()
     {
-        if (_container.type == ResourceType.None)
+        for (int i = 0; i < _processes.Count; i++)
         {
-            _process = 0;
-        }
-        else
-        {
-            if (_process >= 1)
+            if (_container[i].type == ResourceType.None) continue;
+
+            if (_processes[i] >= 1)
             {
-                _process = 1;
+                _processes[i] = 1;
                 TransferResource();
             }
             else
             {
-                _process += Time.deltaTime * _speed;
+                _processes[i] += Time.deltaTime * _speed;
             }
         }
-
-        if (_secondaryContainer.type == ResourceType.None)
-        {
-            _secondaryProcess = 0;
-        }
-        else
-        {
-            if (_secondaryProcess >= 1)
-            {
-                _secondaryProcess = 1;
-                TransferResource();
-            }
-            else
-            {
-                _secondaryProcess += Time.deltaTime * _speed;
-            }
-        }
-
-
     }
 
     public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
@@ -66,10 +41,15 @@ public class Intersector : Transfortation
 
         intersector._inputDirection.Clear();
         intersector._outputDirection.Clear();
+        intersector._container.Clear();
+        intersector._processes.Clear();
+
         for (int i = 0; i < 2; i++)
         {
             intersector._inputDirection.Add(DirectionEnum.None);
             intersector._outputDirection.Add(DirectionEnum.None);
+            intersector._container.Add(new Resource(ResourceType.None, 0));
+            intersector._processes.Add(0);
         }
 
         intersector.CheckNeighbor(position);
@@ -77,40 +57,69 @@ public class Intersector : Transfortation
 
     public override void TransferResource()
     {
-        if (_process >= 1)
+        for(int i = 0; i < 2; i++)
         {
-            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[0]);
-            bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
-            if (buildingExist)
+            DirectionEnum dir = _outputDirection[i];
+            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(dir);
+
+            bool buildingExsist =
+                MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+
+            if (!connectedBuilding.TryGetComponent(out IResourceInput input)) return;
+
+            DirectionEnum opposite = Direction.GetOpposite(dir);
+
+            if (_processes[i] < 1) continue;
+            
+            input.TryInsertResource(_container[i], opposite, out Resource remain);
+            
+            if (remain.type == ResourceType.None)
             {
-                if (connectedBuilding.TryGetComponent(out IResourceInput input))
-                {
-                    DirectionEnum opposite = Direction.GetOpposite(_outputDirection[0]);
-                    input.TryInsertResource(_container, opposite, out _container);
-                }
+                _container[i] = remain;
+                _processes[i] = 0;
+            }
+            else
+            {
+                _container[i] = remain;
             }
         }
 
-        if (_secondaryProcess >= 1)
-        {
-            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[1]);
-            bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
-            if (buildingExist)
-            {
-                if (connectedBuilding.TryGetComponent(out IResourceInput input))
-                {
-                    DirectionEnum opposite = Direction.GetOpposite(_outputDirection[1]);
-                    input.TryInsertResource(_secondaryContainer, opposite, out _secondaryContainer);
-                }
-            }
-        }
 
-        if (_container.type == ResourceType.None) _process = 0;
-        if (_secondaryContainer.type == ResourceType.None) _secondaryProcess = 0;
+        //if (_process >= 1)
+        //{
+        //    Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[0]);
+        //    bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+        //    if (buildingExist)
+        //    {
+        //        if (connectedBuilding.TryGetComponent(out IResourceInput input))
+        //        {
+        //            DirectionEnum opposite = Direction.GetOpposite(_outputDirection[0]);
+        //            input.TryInsertResource(_container, opposite, out _container);
+        //        }
+        //    }
+        //}
+
+        //if (_secondaryProcess >= 1)
+        //{
+        //    Vector2Int nextPosition = Position.min + Direction.GetTileDirection(_outputDirection[1]);
+        //    bool buildingExist = MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+        //    if (buildingExist)
+        //    {
+        //        if (connectedBuilding.TryGetComponent(out IResourceInput input))
+        //        {
+        //            DirectionEnum opposite = Direction.GetOpposite(_outputDirection[1]);
+        //            input.TryInsertResource(_secondaryContainer, opposite, out _secondaryContainer);
+        //        }
+        //    }
+        //}
+
+        //if (_container.type == ResourceType.None) _process = 0;
+        //if (_secondaryContainer.type == ResourceType.None) _secondaryProcess = 0;
     }
 
     public override bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
+        base.TryInsertResource(resource, inputDir, out remain);
         if (!_inputDirection.Contains(inputDir))
         {
             remain = resource;
@@ -119,33 +128,15 @@ public class Intersector : Transfortation
 
         int idx = _inputDirection.IndexOf(inputDir);
 
-        if (idx == 0)
+        if (_container[idx].type  != ResourceType.None)
         {
-            if (_container.type != ResourceType.None)
-            {
-                remain = resource;
-                return false;
-            }
-
-            remain = new Resource(ResourceType.None, 0);
-            _container = resource;
-            return true;
-        }
-        else if (idx == 1)
-        {
-            if (_secondaryContainer.type != ResourceType.None)
-            {
-                remain = resource;
-                return false;
-            }
-
-            remain = new Resource(ResourceType.None, 0);
-            _secondaryContainer = resource;
-            return true;
+            remain = resource;
+            return false;
         }
 
-        remain = resource;
-        return false;
+        remain = remain = new Resource(ResourceType.None, 0);
+        _container[idx] = resource;
+        return true;
     }
 
     protected override void CheckNeighbor(Vector2Int position)

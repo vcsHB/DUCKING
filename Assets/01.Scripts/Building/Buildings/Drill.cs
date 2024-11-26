@@ -20,7 +20,10 @@ public class Drill : Source, IMineable
     private void Update()
     {
         Mine();
-        TransferResource();
+        if (_prevTransfer + _transferDelay < Time.time)
+        {
+            TransferResource();
+        }
     }
 
     public void Mine()

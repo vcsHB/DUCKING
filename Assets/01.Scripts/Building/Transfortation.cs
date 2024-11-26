@@ -4,14 +4,15 @@ using ResourceSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Transfortation : Building, IResourceInput, IResourceOutput
 {
     public event Action OnTransferResource;
-    protected Resource _container = new Resource(ResourceType.None, 0);
+    protected List<Resource> _container = new List<Resource>(); //(ResourceType.None, 0);
+    protected List<float> _processes = new List<float>();
 
     protected List<DirectionEnum> _inputDirection = new List<DirectionEnum>();
     protected List<DirectionEnum> _outputDirection = new List<DirectionEnum>();
@@ -65,7 +66,7 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
 
             if (!buildingExsist)
             {
-                OnGenerateDropItem();
+                //OnGenerateDropItem();
                 return;
             }
 
@@ -73,22 +74,34 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
 
             //방향을 반대로 돌려서 input에 TryInsertResource를 호출해줘
             DirectionEnum opposite = Direction.GetOpposite(dir);
-            input.TryInsertResource(_container, opposite, out _container);
 
-            if (_container.type == ResourceType.None) return;
+            for (int i = 0; i < _processes.Count; i++)
+            {
+                if (_processes[i] < 1) continue;
+
+                input.TryInsertResource(_container[i], opposite, out Resource remain);
+                if (remain.type == ResourceType.None)
+                {
+                    _processes.RemoveAt(i);
+                    _container.RemoveAt(i);
+                    i--;
+                }
+            }
         });
     }
 
     public virtual bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
-        if (!_inputDirection.Contains(inputDir) || _container.type != ResourceType.None)
+        if (!_inputDirection.Contains(inputDir))
         {
             remain = resource;
             return false;
         }
 
         remain = new Resource(ResourceType.None, 0);
-        _container = resource;
+        _container.Add(resource);
+        _processes.Add(0);
+        Debug.Log("밍?");
         return true;
     }
 

@@ -9,8 +9,8 @@ public class Factory : Source, IResourceInput, IOverloadable
     [SerializeField] protected SerializeDictionary<ResourceType, int> _requireResources;
     [SerializeField] protected Resource[] _outputResources;
     protected SerializeDictionary<ResourceType, int> _storage;
-    public SerializeDictionary<ResourceType, int> Storage {get {return _storage;}}
-    public SerializeDictionary<ResourceType, int> RequireResources {get {return _requireResources;}}
+    public SerializeDictionary<ResourceType, int> Storage { get { return _storage; } }
+    public SerializeDictionary<ResourceType, int> RequireResources { get { return _requireResources; } }
     [SerializeField] protected int _storageSize;
     [SerializeField] protected float _processDuration = 2f;
     [SerializeField] private FactoryVisual _factoryVisual;
@@ -59,18 +59,18 @@ public class Factory : Source, IResourceInput, IOverloadable
             OnProgressEvent?.Invoke(0, 1);
         }
 
-        if(_container.Count > 0)
-            TransferResource();
+        if (_prevTransfer + _transferDelay < Time.time)
+        {
+            if (_container.Count > 0)
+                TransferResource();
+        }
     }
 
     public bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
-        print($"아이템 넣기 시도 {resource.type.ToString()}, {resource.amount.ToString()}");
-
         if (!_requireResources.ContainsKey(resource.type))
         {
             remain = resource;
-            print("밍");
             return false;
         }
 
