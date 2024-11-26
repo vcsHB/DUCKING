@@ -9,6 +9,7 @@ public class Factory : Source, IResourceInput, IOverloadable
     [SerializeField] protected SerializeDictionary<ResourceType, int> _requireResources;
     [SerializeField] protected Resource[] _outputResources;
     protected SerializeDictionary<ResourceType, int> _storage;
+    public Resource[] OutPut => _outputResources;
     public SerializeDictionary<ResourceType, int> Storage { get { return _storage; } }
     public SerializeDictionary<ResourceType, int> RequireResources { get { return _requireResources; } }
     [SerializeField] protected int _storageSize;
@@ -24,7 +25,7 @@ public class Factory : Source, IResourceInput, IOverloadable
 
     public event Action<float, float> OnProgressEvent;
     public event Action OnProgressOverEvent;
-    public event Action<ResourceType, int, int> OnStorageChanged; // Type, current, need
+    public event Action OnStorageChanged; // Type, current, need
 
     public bool IsProcessing { get; protected set; }
     float IOverloadable.OverloadLevel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -86,7 +87,7 @@ public class Factory : Source, IResourceInput, IOverloadable
             remain.type = ResourceType.None;
             remain.amount = 0;
         }
-        OnStorageChanged?.Invoke(resource.type, _storage[resource.type], _requireResources[resource.type]);
+        OnStorageChanged?.Invoke();
         remain = new Resource(ResourceType.None, 0);
         TryStartProcess();
         return true;
