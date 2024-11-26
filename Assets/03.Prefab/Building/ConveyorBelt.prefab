@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingInfo: {fileID: 7920265653214434940, guid: ba97c714619fd7947854967923f53a62, type: 2}
-  _beltResource: {fileID: 7833254087694804925}
+  _beltResourcePf: {fileID: 8341203505162431743, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
   _spriteRenderer: {fileID: 7632927096286515085}
   _speed: 2
   _rules:
@@ -313,14 +313,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2074296230287151285}
     m_Modifications:
     - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.53
       objectReference: {fileID: 0}
@@ -364,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConveyorBeltResource
       objectReference: {fileID: 0}
+    - target: {fileID: 7080378600797314844, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -374,14 +370,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3030653864748761624, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
   m_PrefabInstance: {fileID: 2266620628329024322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7833254087694804925 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8341203505162431743, guid: 558108e70f8f31748bffb613f78c9297, type: 3}
-  m_PrefabInstance: {fileID: 2266620628329024322}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622b62c1ca678e34983d240b176d0727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

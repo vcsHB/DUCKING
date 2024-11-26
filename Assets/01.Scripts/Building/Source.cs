@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Source : Building, IResourceOutput
-{    protected List<Vector2Int> _connectedPositions = new List<Vector2Int>();
+{
+    protected List<Vector2Int> _connectedPositions = new List<Vector2Int>();
     protected List<(IResourceInput, DirectionEnum)> _connectedInputs = new();
     protected List<Resource> _container = new List<Resource>();
+    [SerializeField] protected float _transferDelay = 1;
+    protected float _prevTransfer;
 
     protected virtual void OnEnable()
     {
@@ -22,12 +25,13 @@ public abstract class Source : Building, IResourceOutput
 
     public virtual void TransferResource()
     {
-        if (_container.Count <= 0) return;
+        if (_container.Count <= 0 || _prevTransfer + _transferDelay > Time.time) return;
 
-        for (int i = 0; i < _container.Count; i++)
+        for (int j = 0; j < _connectedInputs.Count; j++)
         {
-            for (int j = 0; j < _connectedInputs.Count; j++)
+            for (int i = 0; i < _container.Count; i++)
             {
+                _prevTransfer = Time.time;
                 var input = _connectedInputs[j];
 
                 ResourceType type = _container[i].type;
@@ -46,6 +50,7 @@ public abstract class Source : Building, IResourceOutput
                         break;
                     }
                 }
+                break;
             }
         }
     }
