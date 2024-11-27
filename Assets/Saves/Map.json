@@ -1313,7 +1313,7 @@
             "name": "IronFactory",
             "posX": 24,
             "posY": -30,
-            "direction": 3
+            "direction": 1
         },
         {
             "name": "IronFactory",
@@ -1434,6 +1434,12 @@
             "posX": 14,
             "posY": -28,
             "direction": 3
+        },
+        {
+            "name": "Test_Tower",
+            "posX": 23,
+            "posY": -25,
+            "direction": 0
         }
     ]
 }

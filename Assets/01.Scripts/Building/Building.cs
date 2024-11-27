@@ -7,6 +7,7 @@ using ObjectPooling;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
+    public event Action<bool> OnSelectEvent;
     public event Action OnDestroyEvent;
     protected DirectionEnum direction;
     protected Transform _visualTrm;
@@ -81,7 +82,13 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 
     public Building GetInformation()
     {
+        OnSelectEvent?.Invoke(true);
         return this;
+    }
+
+    public void UnSelect()
+    {
+        OnSelectEvent?.Invoke(false);
     }
 }
 

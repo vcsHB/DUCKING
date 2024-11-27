@@ -46,6 +46,7 @@ namespace BuildingManage.Tower
         {
             base.Awake();
             _headVisual.Initialize(_aimingSpeed);
+            OnSelectEvent += _targetDetector.HandleSetRangeVisualActive;
         }
 
         private void Update()
