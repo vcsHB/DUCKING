@@ -17,7 +17,7 @@ MonoBehaviour:
   buildingName: 
   description: 
   buildingIconSprite: {fileID: 0}
-  building: {fileID: 8490163959085265431, guid: db43a39273d746f4aa47406ded65468f, type: 3}
+  buildingPf: {fileID: 0}
   tileSize: 1
   canRotate: 0
   health: 50
@@ -39,7 +39,7 @@ MonoBehaviour:
   buildingName: "\uCCA0\uC81C \uBC29\uBCBD"
   description: "\uAC15\uCCA0\uC7AC\uC9C8 \uBC29\uC5B4\uBCBD\uC785\uB2C8\uB2E4"
   buildingIconSprite: {fileID: 1129367381, guid: 2829796c03157754dac423827d6fc3d4, type: 3}
-  building: {fileID: 0}
+  buildingPf: {fileID: 8242482584385513912, guid: 72b818e4e02a24244b9cd32febf8c620, type: 3}
   tileSize: 0
   canRotate: 0
   health: 1150
@@ -63,7 +63,7 @@ MonoBehaviour:
   buildingName: "\uD14C\uC2A4\uD2B8 \uBCBD"
   description: 
   buildingIconSprite: {fileID: 0}
-  building: {fileID: 5652405657584703984, guid: e086a04c87d266b4695b2518464338e4, type: 3}
+  buildingPf: {fileID: 0}
   tileSize: 2
   canRotate: 0
   health: 350
@@ -87,7 +87,7 @@ MonoBehaviour:
   buildingName: "\uC720\uB9AC \uACF5\uC7A5"
   description: "\uBAA8\uB798\uB97C \uB179\uC5EC \uC720\uB9AC\uB97C \uB9CC\uB4ED\uB2C8\uB2E4."
   buildingIconSprite: {fileID: 21300000, guid: 19efc4da8d13bb64ab5435d25ba13587, type: 3}
-  building: {fileID: 2129407028445226625, guid: 54c0e29f299dd13458df4fd0769ed817, type: 3}
+  buildingPf: {fileID: 2129407028445226625, guid: 54c0e29f299dd13458df4fd0769ed817, type: 3}
   tileSize: 2
   canRotate: 0
   health: 190
@@ -111,7 +111,7 @@ MonoBehaviour:
   buildingName: "\uAD6C\uB9AC \uC81C\uB828\uC18C"
   description: 
   buildingIconSprite: {fileID: 725686317, guid: 2bc0c4efcaeff54418033759ac2398d9, type: 3}
-  building: {fileID: 6643892704037689786, guid: 76d17708092d4ae4daf439f0965ec066, type: 3}
+  buildingPf: {fileID: 6643892704037689786, guid: 76d17708092d4ae4daf439f0965ec066, type: 3}
   tileSize: 2
   canRotate: 0
   health: 180
@@ -135,7 +135,7 @@ MonoBehaviour:
   buildingName: "\uAD6C\uB9AC \uBC29\uBCBD"
   description: "\uAD6C\uB9AC\uC7AC\uC9C8 \uBC29\uC5B4\uBCBD\uC785\uB2C8\uB2E4"
   buildingIconSprite: {fileID: -1834130446, guid: 2829796c03157754dac423827d6fc3d4, type: 3}
-  building: {fileID: 9082875270208620844, guid: 5aa61e958563a5a42adc00506c6d1492, type: 3}
+  buildingPf: {fileID: 9082875270208620844, guid: 5aa61e958563a5a42adc00506c6d1492, type: 3}
   tileSize: 2
   canRotate: 0
   health: 350
@@ -160,7 +160,7 @@ MonoBehaviour:
   description: "\uC785\uB825\uB41C \uC790\uC6D0\uC744 \uBC29\uD5A5\uC5D0 \uB9DE\uAC8C
     \uBD84\uBC30\uD55C\uB2E4."
   buildingIconSprite: {fileID: -1520107309, guid: faa4ab8603f1c55479a55fbc5f9a423b, type: 3}
-  building: {fileID: 3204265171450055239, guid: ddcdb894617b11846912655c3b85853a, type: 3}
+  buildingPf: {fileID: 3204265171450055239, guid: ddcdb894617b11846912655c3b85853a, type: 3}
   tileSize: 1
   canRotate: 0
   health: 50
@@ -184,7 +184,7 @@ MonoBehaviour:
   buildingName: "\uACE0\uAE09 \uB3D9\uB825\uB4DC\uB9B4"
   description: 
   buildingIconSprite: {fileID: 21300000, guid: aad97f0f018e86846b6fe98709611d86, type: 3}
-  building: {fileID: 408926812933309879, guid: c11397c124f10cd49ac2aaa890dc9bf0, type: 3}
+  buildingPf: {fileID: 408926812933309879, guid: c11397c124f10cd49ac2aaa890dc9bf0, type: 3}
   tileSize: 2
   canRotate: 0
   health: 460
@@ -240,7 +240,7 @@ MonoBehaviour:
   description: "\uBE14\uB7ED \uC544\uB798\uC758 \uC790\uC6D0\uC744 \uCC44\uAD74\uC555\uB2C8\uB2E4.
     2x2\uC0AC\uC774\uC988 \uC785\uB2C8\uB2E4."
   buildingIconSprite: {fileID: 21300000, guid: 0b78f9c9b43726a48b3651877617e70c, type: 3}
-  building: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
+  buildingPf: {fileID: 3171187549787022350, guid: 5d062ab0fa0f6dd4ca1dddadc6827747, type: 3}
   tileSize: 2
   canRotate: 0
   health: 150
@@ -264,7 +264,7 @@ MonoBehaviour:
   buildingName: "\uCC3D\uACE0"
   description: 
   buildingIconSprite: {fileID: 0}
-  building: {fileID: 5702065197008721332, guid: b50c6a68ea53db34382ffbedbbd925ce, type: 3}
+  buildingPf: {fileID: 0}
   tileSize: 2
   canRotate: 0
   health: 560
@@ -288,7 +288,7 @@ MonoBehaviour:
   buildingName: "\uBAA8\uB178"
   description: "\uB2E8\uBC1C\uD615 \uB300\uD3EC\uC785\uB2C8\uB2E4."
   buildingIconSprite: {fileID: 21300000, guid: 4756ac4e8b4f9d244aa7d3db6f91cfa9, type: 3}
-  building: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
+  buildingPf: {fileID: 5197036307275557307, guid: 39deb4ec4496c874794211642acf6931, type: 3}
   tileSize: 1
   canRotate: 0
   health: 150
@@ -312,7 +312,7 @@ MonoBehaviour:
   buildingName: 
   description: 
   buildingIconSprite: {fileID: 0}
-  building: {fileID: 4164741187280942721, guid: a8c494e42ed2874468bda552adb191bf, type: 3}
+  buildingPf: {fileID: 0}
   tileSize: 3
   canRotate: 1
   health: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   buildingName: "\uC2A4\uD0E0\uC11C"
   description: 
   buildingIconSprite: {fileID: 21300000, guid: 22eb1e5ff7744b049b544e465f47b203, type: 3}
-  building: {fileID: 9010411509647730382, guid: 410efa95206d56a4d9f35c91dea953d1, type: 3}
+  buildingPf: {fileID: 9010411509647730382, guid: 410efa95206d56a4d9f35c91dea953d1, type: 3}
   tileSize: 2
   canRotate: 0
   health: 450
@@ -364,7 +364,7 @@ MonoBehaviour:
   buildingName: "\uAD50\uCC28\uAE30"
   description: "\uB4E4\uC5B4\uC628 \uC790\uC6D0\uC744 \uAD50\uCC28\uD558\uC5EC \uB0B4\uBCF4\uB0B8\uB2E4."
   buildingIconSprite: {fileID: 1826502967, guid: faa4ab8603f1c55479a55fbc5f9a423b, type: 3}
-  building: {fileID: 368495845180618876, guid: 039acc051d4ef094bae9e8bd5c182b3d, type: 3}
+  buildingPf: {fileID: 368495845180618876, guid: 039acc051d4ef094bae9e8bd5c182b3d, type: 3}
   tileSize: 1
   canRotate: 0
   health: 50
@@ -388,7 +388,7 @@ MonoBehaviour:
   buildingName: "\uCCA0 \uC81C\uB828\uC18C"
   description: "\uC815\uC81C\uB41C \uCCA0\uC744 \uC8FC\uC870\uD569\uB2C8\uB2E4."
   buildingIconSprite: {fileID: -168943326, guid: e8c1598ecdcf9f34693d4bb249a42fb5, type: 3}
-  building: {fileID: 7090670705001108193, guid: acd9b12d9c6a59d44a5030cc4247be6a, type: 3}
+  buildingPf: {fileID: 7090670705001108193, guid: acd9b12d9c6a59d44a5030cc4247be6a, type: 3}
   tileSize: 2
   canRotate: 0
   health: 280
@@ -414,7 +414,7 @@ MonoBehaviour:
   buildingName: "\uCEE8\uBCA0\uC774\uC5B4 \uBCA8\uD2B8"
   description: "\uAC04\uB2E8\uD55C \uC774\uB3D9\uC218\uB2E8\uC785\uB2C8\uB2E4. "
   buildingIconSprite: {fileID: 21300000, guid: bd2051cf58c01ec4ebadaaa30b3b0cb3, type: 3}
-  building: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
+  buildingPf: {fileID: 4164741187280942721, guid: 2fbb4be0116a13446ba72c063d91375d, type: 3}
   tileSize: 1
   canRotate: 1
   health: 50

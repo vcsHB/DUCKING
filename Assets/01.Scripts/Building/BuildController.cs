@@ -83,7 +83,10 @@ namespace BuildingManage
                 AutoRotate(position);
 
             DirectionEnum direction = info.canRotate ? _curDirection : DirectionEnum.Down;
-            info.building.Build(position, direction, save);
+
+            Debug.Log($"{info.buildingName}");
+            Building buildingInstance = Instantiate(info.buildingPf);
+            buildingInstance.Build(position, direction, save);
             OnBuildingChange?.Invoke();
 
             foreach (Resource resource in info.needResource)

@@ -30,9 +30,7 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
     public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
         base.Build(position, direction, save);
-        MapManager.Instance.TryGetBuilding(position, out Building buildingInstance);
-        Transfortation transfortation = (buildingInstance as Transfortation);
-        transfortation.CheckNeighbor(position);
+        CheckNeighbor(position);
 
         MapManager.Instance.RotateBuilding(Position.min, direction);
     }

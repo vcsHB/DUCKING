@@ -20,7 +20,9 @@ public class BiomSO : ScriptableObject
     public BiomInfo GetBiom(TileBase tile)
     {
         BiomInfo biom = bioms.Find(b => b.tile == tile);
+        Mathf.Sin(30);
         return biom;
+
     }
 
     #region Noise
