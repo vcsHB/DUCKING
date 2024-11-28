@@ -12,7 +12,7 @@ namespace ResourceSystem
             => resourceData[resourceType];
 
         /// <summary>
-        /// Get resource type by resource's name
+        /// Get _container type by _container's name
         /// </summary>
         /// <param name="resourceName"></param>
         /// <returns></returns>
@@ -33,7 +33,7 @@ namespace ResourceSystem
         }
 
         /// <summary>
-        /// Get resource type by resource's tile
+        /// Get _container type by _container's tile
         /// </summary>
         /// <param name="tile"></param>
         /// <returns></returns>

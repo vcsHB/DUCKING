@@ -7,7 +7,6 @@ using ObjectPooling;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
-    public event Action OnDestroyEvent;
     protected DirectionEnum direction;
     protected Transform _visualTrm;
 
@@ -18,6 +17,9 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
     public DirectionEnum BuildingDirection =>direction;
+
+
+    public event Action OnDestroyEvent;
 
     protected virtual void Awake()
     {
@@ -63,11 +65,6 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         Destroy(gameObject);
     }
 
-    public void ReadyDestroy()
-    {
-
-    }
-
     public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
     {
         transform.position = MapManager.Instance.GetWorldPos(position);
@@ -78,6 +75,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 
         MapManager.Instance.AddBuilding(this, save);
     }
+
 
     public Building GetInformation() => this;
 }

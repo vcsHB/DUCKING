@@ -11,7 +11,7 @@ public class Drill : Source, IMineable
     [SerializeField] private float _miningTime = 3f;
     [SerializeField] private int _miningCnt = 2;
 
-    private List<ResourceType> _resources;
+    private List<ResourceType> _resources = new List<ResourceType>();
 
     private int _resourceCnt;
     private float _curMiningTime = 0f;

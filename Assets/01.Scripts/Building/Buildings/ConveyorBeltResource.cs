@@ -8,28 +8,10 @@ using UnityEngine.UIElements;
 public class ConveyorBeltResource : MonoBehaviour
 {
     [SerializeField] private ResourceInfoGroupSO _resourceGroup;
+    [SerializeField] private SpriteRenderer _visual;
     private Resource _resource;
     private Vector2 _from, _to, _center;
-    private SpriteRenderer _visual;
     private float _speed, _process = 0;
-    private bool _isLast;
-
-    private void Awake()
-    {
-        _visual = GetComponentInChildren<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        if (_process >= 1)
-        {
-            if (_isLast) ItemDropManager.Instance.GenerateDropItem((int)_resource.type, _resource.amount, _to);
-            Destroy(gameObject);
-        }
-
-        _process += Time.deltaTime * _speed;
-        Move(_process);
-    }
 
     /// <summary>
     /// Process of Resource's Move
@@ -49,7 +31,7 @@ public class ConveyorBeltResource : MonoBehaviour
 
     public void DisableResource() => gameObject.SetActive(false);
 
-    public void Init(Vector2 center, Vector2 from, Vector2 to, Resource resource, float speed, bool lastBelt)
+    public void Init(Vector2 center, Vector2 from, Vector2 to, Resource resource, float speed)
     {
         if (resource.type == ResourceType.None) return;
 
@@ -62,6 +44,5 @@ public class ConveyorBeltResource : MonoBehaviour
         _from = from;
         _to = to;
         _speed = speed;
-        _isLast = lastBelt;
     }
 }
