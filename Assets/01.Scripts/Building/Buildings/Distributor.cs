@@ -1,26 +1,29 @@
 using BuildingManage;
 using ResourceSystem;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
 public class Distributor : Transfortation
 {
     [SerializeField] private float _speed;
+
+    private Resource _container = new Resource(ResourceType.None, 0);
+    private float _process = 0;
     private int _curOutput = 0;
 
     private void Update()
     {
-        for (int i = 0; i < _processes.Count; i++)
+        if (_container.type == ResourceType.None || _container.amount <= 0) return;
+
+        if (_process >= 1)
         {
-            if (_processes[i] >= 1)
-            {
-                _processes[i] = 1;
-                TransferResource();
-            }
-            else
-            {
-                _processes[i] += Time.deltaTime * _speed;
-            }
+            _process = 1;
+            TransferResource();
+        }
+        else
+        {
+            _process += Time.deltaTime * _speed;
         }
     }
 
@@ -39,22 +42,15 @@ public class Distributor : Transfortation
         //방향을 반대로 돌려서 input에 TryInsertResource를 호출해줘
         DirectionEnum opposite = Direction.GetOpposite(dir);
 
-        for (int j = 0; j < _processes.Count; j++)
+        input.TryInsertResource(_container, opposite, out Resource remain);
+        if (remain.type == ResourceType.None || remain.amount <= 0)
         {
-            if (_processes[j] < 1) continue;
-
-            input.TryInsertResource(_container[j], opposite, out Resource remain);
-            if (remain.type == ResourceType.None || remain.amount <= 0)
-            {
-                _processes.RemoveAt(j);
-                _container.RemoveAt(j);
-                j--;
-            }
-            else
-            {
-                _container[j] = remain;
-            }
-            break;
+            _process = 0;
+            _container = new Resource(ResourceType.None, 0);
+        }
+        else
+        {
+            _container = remain;
         }
 
         //base.TransferResource();
@@ -62,14 +58,24 @@ public class Distributor : Transfortation
 
     public override bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
     {
-        return base.TryInsertResource(resource, inputDir, out remain);
+        if (!_inputDirection.Contains(inputDir) 
+            || _container.type != ResourceType.None || _container.amount > 0)
+        {
+            remain = resource;
+            return false;
+        }
+
+        _process = 0;
+        _container = resource;
+        remain = new Resource(ResourceType.None, 0);
+        return true;
     }
 
     protected override void CheckNeighbor(Vector2Int position)
     {
+        //이미 인풋이 있다면
         if (_inputDirection.Count > 0) return;
 
-        _inputDirection.Clear();
         for (int i = 0; i < 4; i++)
         {
             Vector2Int connected = position + Direction.directionsInt[i];

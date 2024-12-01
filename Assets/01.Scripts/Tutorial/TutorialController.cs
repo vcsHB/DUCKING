@@ -1,14 +1,14 @@
 using Dialog;
 using InputManage;
-using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.IO;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
 
 public class TutorialController : MonoBehaviour
 {
+    private string _path;
+    private int _currentTutorialProgress = 0;
+
     [SerializeField] private DialogPlayer _dialogPlayer;
     [SerializeField] private List<DialogSO> _dialogSO;
     [SerializeField] private TutorialGoal _goal;
@@ -18,20 +18,33 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private PlayerInputSO _playerInput;
     private bool _isPlaying = false;
 
-    //�ϴ� �ӽ÷� �ϴ� ����
+
     private void OnEnable()
     {
-        if (!PlayerPrefs.HasKey("Tutorial"))
+        _path = Path.Combine(Application.dataPath, "Saves/Tutorial.json");
+
+        if (!File.Exists(_path))
         {
+            File.WriteAllText(_path, "1");
             PlayDialog();
-            PlayerPrefs.SetInt("Tutorial", 0);
+        }
+        else
+        {
+            string data = File.ReadAllText(_path);
+            int.TryParse(data, out _currentTutorialProgress);
+
+            if (_currentTutorialProgress == 0)
+            {
+                File.WriteAllText(_path, "1");
+                PlayDialog();
+            }
         }
     }
 
     [ContextMenu("ResetTutorial")]
     public void ResetTutorial()
     {
-        PlayerPrefs.DeleteKey("Tutorial");
+        File.WriteAllText(_path, "0");
     }
 
     public void PlayDialog()
@@ -76,19 +89,24 @@ public class TutorialController : MonoBehaviour
 
     private void OnMoveComplete()
     {
-        _goal.OnMoveGoal -= OnMoveComplete;
+        RemoveMoveGoal();
         PlayDialog();
     }
+
+    private void RemoveMoveGoal() => _goal.OnMoveGoal -= OnMoveComplete;
 
     private void OnSpaceBar()
     {
-        _goal.OnSpaceBarGoal -= OnSpaceBar;
+        RemoveSpaceBarGoal();
         PlayDialog();
     }
+    private void RemoveSpaceBarGoal() => _goal.OnSpaceBarGoal -= OnSpaceBar;
 
     private void OnBuild()
     {
-        _goal.OnBuildGoal -= OnBuild;
+        RemoveBuildGoal();
         PlayDialog();
     }
+
+    private void RemoveBuildGoal() => _goal.OnBuildGoal -= OnBuild;
 }

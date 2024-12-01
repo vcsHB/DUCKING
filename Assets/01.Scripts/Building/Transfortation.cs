@@ -1,30 +1,24 @@
 using BuildingManage;
-using ItemSystem;
 using ResourceSystem;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Transfortation : Building, IResourceInput, IResourceOutput
+public abstract class Transfortation : Building, IResourceInput, IResourceOutput
 {
     public event Action OnTransferResource;
-    protected List<Resource> _container = new List<Resource>(); //(ResourceType.None, 0);
-    protected List<float> _processes = new List<float>();
 
     protected List<DirectionEnum> _inputDirection = new List<DirectionEnum>();
     protected List<DirectionEnum> _outputDirection = new List<DirectionEnum>();
 
     protected virtual void OnEnable()
     {
-        MapManager.Instance.BuildController.OnBuildingChange += UpdateInputs;
+        MapManager.Instance.BuildController.OnBuildingChange += UpdateInputOutput;
     }
     protected virtual void OnDisable()
     {
         if (!MapManager.IsDestroyed)
-            MapManager.Instance.BuildController.OnBuildingChange -= UpdateInputs;
+            MapManager.Instance.BuildController.OnBuildingChange -= UpdateInputOutput;
     }
 
     public override void Build(Vector2Int position, DirectionEnum direction, bool save = false)
@@ -51,72 +45,62 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
         base.Destroy();
     }
 
-    public virtual void TransferResource()
-    {
-        _outputDirection.ForEach(dir =>
-        {
-            //다음 위치를 가져오는 부분 1x1 사이즈 일때만 유효한 부분임
-            Vector2Int nextPosition = Position.min + Direction.GetTileDirection(dir);
+    //public virtual void TransferResource()
+    //{
+    //    _outputDirection.ForEach(dir =>
+    //    {
+    //        //다음 위치를 가져오는 부분 1x1 사이즈 일때만 유효한 부분임
+    //        Vector2Int nextPosition = Position.min + Direction.GetTileDirection(dir);
 
-            //그 부분에 건물이 있고 그 건물이 IResourceInput을 가지고 있다면
-            bool buildingExsist =
-                MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
+    //        //그 부분에 건물이 있고 그 건물이 IResourceInput을 가지고 있다면
+    //        bool buildingExsist =
+    //            MapManager.Instance.TryGetBuilding(nextPosition, out Building connectedBuilding);
 
-            if (!buildingExsist)
-            {
-                //OnGenerateDropItem();
-                return;
-            }
+    //        if (!buildingExsist || !connectedBuilding.TryGetComponent(out IResourceInput input)) return;
 
-            if (!connectedBuilding.TryGetComponent(out IResourceInput input)) return;
+    //        //방향을 반대로 돌려서 input에 TryInsertResource를 호출해줘
+    //        DirectionEnum opposite = Direction.GetOpposite(dir);
 
-            //방향을 반대로 돌려서 input에 TryInsertResource를 호출해줘
-            DirectionEnum opposite = Direction.GetOpposite(dir);
+    //        for (int i = 0; i < _processes.Count; i++)
+    //        {
+    //            if (_processes[i] < 1) continue;
 
-            for (int i = 0; i < _processes.Count; i++)
-            {
-                if (_processes[i] < 1) continue;
+    //            input.TryInsertResource(_container, opposite, out Resource remain);
+    //            if (remain.type == ResourceType.None)
+    //            {
+    //                _processes.RemoveAt(i);
+    //                _container.RemoveAt(i);
+    //                i--;
+    //            }
+    //        }
+    //    });
+    //}
 
-                input.TryInsertResource(_container[i], opposite, out Resource remain);
-                if (remain.type == ResourceType.None)
-                {
-                    _processes.RemoveAt(i);
-                    _container.RemoveAt(i);
-                    i--;
-                }
-            }
-        });
-    }
+    //public virtual bool TryInsertResource(Resource _container, DirectionEnum inputDir, out Resource remain)
+    //{
+    //    if (!_inputDirection.Contains(inputDir) || _container.)
+    //    {
+    //        remain = _container;
+    //        return false;
+    //    }
 
-    public virtual bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain)
-    {
-        if (!_inputDirection.Contains(inputDir))
-        {
-            remain = resource;
-            return false;
-        }
+    //    remain = new Resource(ResourceType.None, 0);
+    //    _container.Add(_container);
+    //    _processes.Add(0);
+    //    return true;
+    //}
 
-        remain = new Resource(ResourceType.None, 0);
-        _container.Add(resource);
-        _processes.Add(0);
-        Debug.Log("밍?");
-        return true;
-    }
-
-    protected virtual void OnGenerateDropItem()
-    {
-
-    }
-
-    protected virtual void UpdateInputs()
+    protected virtual void UpdateInputOutput()
     {
         if (Position != null) CheckNeighbor(Position.min);
     }
 
-    protected virtual void CheckNeighbor(Vector2Int position)
-    {
-        
-    }
+    protected abstract void CheckNeighbor(Vector2Int position);
+
+    public abstract bool TryInsertResource(Resource resource, DirectionEnum inputDir, out Resource remain);
+
+    public abstract void TransferResource();
+
 
     #region Directions
 
@@ -151,6 +135,7 @@ public class Transfortation : Building, IResourceInput, IResourceOutput
     {
         return _inputDirection.Contains(directionEnum);
     }
+
 
     #endregion
 }

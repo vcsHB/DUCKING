@@ -2,7 +2,6 @@ using ResourceSystem;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Random = UnityEngine.Random;
 
 namespace BuildingManage
 {
