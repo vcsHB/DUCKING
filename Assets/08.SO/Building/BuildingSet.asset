@@ -142,6 +142,33 @@ MonoBehaviour:
   needResource:
   - type: 0
     amount: 35
+--- !u!114 &-1877544775008723905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675433b8a8464d73b50a4f3771f026e2, type: 3}
+  m_Name: LogicConveyorBelt
+  m_EditorClassIdentifier: 
+  buildingTypeStr: LogicConveyorBelt
+  buildingType: 16
+  buildingName: LogicConveyorBelt
+  description: "\uB85C\uC9C1\uC774 \uC801\uC6A9\uB418\uB294 \uCEE8\uBCA0\uC774\uC5B4
+    \uBCA8\uD2B8\uC785\uB2C8\uB2E4.\\n\uB85C\uC9C1\uC774 \uC633\uB2E4\uBA74 \uC815\uBA74\uC73C\uB85C
+    \uADF8\uB807\uC9C0 \uC54A\uB2E4\uBA74 \uC88C\uC6B0\uB85C \uB098\uB204\uC5B4\uC838
+    \uC774\uB3D9\uD569\uB2C8\uB2E4."
+  buildingIconSprite: {fileID: 535841939, guid: e8c1598ecdcf9f34693d4bb249a42fb5, type: 3}
+  buildingPf: {fileID: 69590849315439108, guid: efc2cc75eb16f034da070d99b1302824, type: 3}
+  tileSize: 1
+  canRotate: 1
+  health: 10
+  needResource:
+  - type: 0
+    amount: 5
 --- !u!114 &-1788406485346520784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +249,7 @@ MonoBehaviour:
   - {fileID: 4927787034152436895}
   - {fileID: -787399723527794349}
   - {fileID: -2621741454662930447}
+  - {fileID: -1877544775008723905}
 --- !u!114 &425899237081745883
 MonoBehaviour:
   m_ObjectHideFlags: 0

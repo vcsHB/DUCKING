@@ -101,7 +101,7 @@ namespace BuildingManage
             base._outputDirection.Clear();
             base._outputDirection.Add(direction);
 
-            base.direction = direction;
+            base._direction = direction;
             CustomRuleTile selectedRule = null;
 
             foreach (var r in _rules)
@@ -159,7 +159,7 @@ namespace BuildingManage
 
             foreach (var r in _rules)
             {
-                if (r.outputDirection == direction)
+                if (r.outputDirection == _direction)
                 {
                     bool isSelected = true;
 
@@ -197,6 +197,8 @@ namespace BuildingManage
 
         protected override void CheckNeighbor(Vector2Int position)
         {
+            _inputDirection.Clear();
+
             for (int i = 0; i < 4; i++)
             {
                 Vector2Int connected = position + Direction.directionsInt[i];
@@ -208,6 +210,13 @@ namespace BuildingManage
 
                 if (building is Transfortation transfortation)
                 {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        DirectionEnum direction = (DirectionEnum)j;
+                        Debug.Log(direction.ToString() + " " + transfortation.ContainOutput(direction));
+                    }
+
+
                     //연결된놈, 현재 컨베이어 벨트의 방향확인
                     if (!transfortation.ContainOutput(Direction.GetOpposite((DirectionEnum)i))
                         || ContainOutput((DirectionEnum)i)) continue;
@@ -227,7 +236,7 @@ namespace BuildingManage
             //시작 부분, 끝 부분
             Vector2 offset = Vector2.up * 0.5f;
             Vector2 from = Position.center + (Vector2)Direction.GetTileDirection(inputDir) / 2f + offset;
-            Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(direction) / 2f + offset;
+            Vector2 to = Position.center + (Vector2)Direction.GetTileDirection(_direction) / 2f + offset;
             Vector2 center = Position.center + offset;
 
             _beltResource.gameObject.SetActive(true);
