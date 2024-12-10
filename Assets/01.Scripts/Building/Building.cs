@@ -7,7 +7,7 @@ using ObjectPooling;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
-    protected DirectionEnum direction;
+    protected DirectionEnum _direction;
     protected Transform _visualTrm;
 
     protected Health _healthCompo;
@@ -16,7 +16,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
-    public DirectionEnum BuildingDirection =>direction;
+    public DirectionEnum BuildingDirection =>_direction;
 
 
     public event Action OnDestroyEvent;
@@ -44,7 +44,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
         _visualTrm.rotation = rotation;
-        this.direction = direction;
+        this._direction = direction;
 
         MapManager.Instance.RotateBuilding(Position.min, direction);
     }
