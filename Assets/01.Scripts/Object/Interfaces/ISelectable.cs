@@ -3,6 +3,6 @@
     public interface ISelectable
     {
         public Building GetInformation();
-        
+        public void UnSelect();
     }
 }

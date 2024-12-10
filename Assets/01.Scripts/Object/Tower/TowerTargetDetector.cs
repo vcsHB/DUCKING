@@ -8,6 +8,7 @@ namespace BuildingManage.Tower
         [SerializeField] private float _detectRange = 7f;
         [SerializeField] private Vector2 _offset;
         [SerializeField] private LayerMask _targetLayer;
+        [SerializeField] private Transform _rangeVisualTrm;
 
         public bool CheckTarget(out Vector2 targetPos)
         {
@@ -23,6 +24,12 @@ namespace BuildingManage.Tower
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere((Vector2)transform.position + _offset, _detectRange);
+        }
+
+        public void HandleSetRangeVisualActive(bool value)
+        {
+            _rangeVisualTrm.gameObject.SetActive(value);
+            _rangeVisualTrm.localScale = Vector3.one * _detectRange * 2;
         }
 
 

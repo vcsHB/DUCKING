@@ -6,8 +6,6 @@ using ItemSystem;
 using ResourceSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 namespace BuildingManage
 {

@@ -40,9 +40,6 @@ public class SuicideEnemyMoveState : EnemyState
 
     private void CheckTarget()
     {
-        Debug.Log(_targetDetector);
-        Debug.Log(_targetDetector.IsTargeting);
-
         if (_targetDetector.IsTargeting)
         {
             bomber.SetTartget(_targetDetector.CurrentTarget);

@@ -20,8 +20,8 @@ public class PathFinder
 
     public static void FindPath(Vector2 start, Vector2 target)
     {
-        int errorCount = 0; // 연산 한계치
-        // A* 알고리즘 초기화
+        int errorCount = 0; // Calc Limit
+        // A* Paths Reset
         path.Clear();
         //pathIndex = 0;
 

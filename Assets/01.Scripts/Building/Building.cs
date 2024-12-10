@@ -7,7 +7,9 @@ using ObjectPooling;
 public abstract class Building : MonoBehaviour, IBuildable, ISelectable
 {
     [SerializeField] protected BuildingSO _buildingInfo;
-    protected DirectionEnum _direction;
+    public event Action<bool> OnSelectEvent;
+    public event Action OnDestroyEvent;
+    protected DirectionEnum direction;
     protected Transform _visualTrm;
 
     protected Health _healthCompo;
@@ -16,10 +18,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
     public BuildingSize Position { get; protected set; }
     public BuildingSO BuildingInfo => _buildingInfo;
     public BuildingEnum BuildingType => _buildingInfo.buildingType;
-    public DirectionEnum BuildingDirection =>_direction;
-
-
-    public event Action OnDestroyEvent;
+    public DirectionEnum BuildingDirection =>direction;
 
     protected virtual void Awake()
     {
@@ -44,7 +43,7 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         Quaternion rotation = Quaternion.Euler(Direction.GetDirection(direction));
 
         _visualTrm.rotation = rotation;
-        this._direction = direction;
+        this.direction = direction;
 
         MapManager.Instance.RotateBuilding(Position.min, direction);
     }
@@ -65,19 +64,32 @@ public abstract class Building : MonoBehaviour, IBuildable, ISelectable
         Destroy(gameObject);
     }
 
-    public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
+    public void ReadyDestroy()
     {
-        transform.position = MapManager.Instance.GetWorldPos(position);
-        transform.rotation = Quaternion.identity;
 
-        SetPosition(position);
-        SetRotation(direction);
-
-        MapManager.Instance.AddBuilding(this, save);
     }
 
+    public virtual void Build(Vector2Int position, DirectionEnum direction, bool save = false)
+    {
+        Vector2 worldPos = MapManager.Instance.GetWorldPos(position);
 
-    public Building GetInformation() => this;
+        Building buildingInstance = Instantiate(this, worldPos, Quaternion.identity);
+        buildingInstance.SetPosition(position);
+        buildingInstance.SetRotation(direction);
+
+        MapManager.Instance.AddBuilding(buildingInstance, save);
+    }
+
+    public Building GetInformation()
+    {
+        OnSelectEvent?.Invoke(true);
+        return this;
+    }
+
+    public void UnSelect()
+    {
+        OnSelectEvent?.Invoke(false);
+    }
 }
 
 [Serializable]
