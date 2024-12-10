@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211a10845ff363b48880333165d803ec, type: 3}
   m_Name: BiomSO
   m_EditorClassIdentifier: 
-  seed: 1279
+  seed: 10000
   scale: 0.52
   chunkSize: 10
   bioms:

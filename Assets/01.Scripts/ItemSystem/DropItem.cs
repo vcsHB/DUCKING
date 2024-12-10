@@ -10,6 +10,7 @@ namespace ItemSystem
         public GameObject ObjectPrefab => gameObject;
         public void ResetItem()
         {
+            _currentTime = 0;
         }
 
         [SerializeField] private ItemData _itemData;
@@ -21,6 +22,8 @@ namespace ItemSystem
 
         private SpriteRenderer _spriteRenderer;
         private ItemInfoSO _itemInfo;
+        private float _collectTerm = 0.2f;
+        private float _currentTime = 0;
 
         private void Awake()
         {
@@ -36,12 +39,16 @@ namespace ItemSystem
 
         private void Update()
         {
+            _currentTime += Time.deltaTime;
             CheckCollector();
         }
 
 
         private void CheckCollector()
         {
+            if(_currentTime < _collectTerm)
+                return;
+
             Collider2D hit = Physics2D.OverlapCircle(transform.position, _detectRadius, _detectMask);
             if (hit == null) return;
 
