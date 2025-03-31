@@ -251,5 +251,4 @@ namespace BuildingManage
         public List<DirectionEnum> inputDirection;
         public Sprite sprite;
     }
-
 }
