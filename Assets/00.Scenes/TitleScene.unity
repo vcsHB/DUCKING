@@ -196,9 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!1 &39648457
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,9 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!1 &91011187
 GameObject:
   m_ObjectHideFlags: 0
@@ -27712,9 +27708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!1 &1669678494
 GameObject:
   m_ObjectHideFlags: 0
@@ -86010,9 +86004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!1 &2059363309
 GameObject:
   m_ObjectHideFlags: 0
@@ -86266,9 +86258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!114 &121600901618713920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108650,9 +108640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceGroup: {fileID: 0}
-  _from: {x: 0, y: 0}
-  _to: {x: 0, y: 0}
-  _center: {x: 0, y: 0}
+  _visual: {fileID: 0}
 --- !u!4 &7838088394829763622
 Transform:
   m_ObjectHideFlags: 0
