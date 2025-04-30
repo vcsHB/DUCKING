@@ -9,23 +9,18 @@ using UnityEngine.Tilemaps;
 public class CorrosiumController : MonoBehaviour
 {
     private string _path;
+    private System.Random _random;
 
     [SerializeField] private EncorrosiumSO _corrosiumSO;
     [SerializeField] private MapInfoSO _mapInfo;
     [SerializeField] private Tilemap _corrosiveTilemap;
     [SerializeField] private Transform _centerTrm;
-    private System.Random _random;
 
-    private bool[,] _isCorrosive;
-
-    public List<Vector2Int> EncorrosiveAreaEdges { get; private set; }
+    public List<CorrosiumRectangle> EncorrosiveAreaEdges { get; private set; }
 
     public void SetRandomEncorrosiveArea(int seed)
     {
-        Vector2Int size = _mapInfo.mapSize;
-        _isCorrosive = new bool[size.x + 1, size.y + 1];
-        EncorrosiveAreaEdges = new List<Vector2Int>();
-
+        EncorrosiveAreaEdges = new List<CorrosiumRectangle>();
         _path = Path.Combine(Application.dataPath, "Saves/Corrosive.json");
 
         if (File.Exists(_path))
@@ -33,20 +28,19 @@ public class CorrosiumController : MonoBehaviour
             Load();
             return;
         }
-        Debug.Log("นึ...");
+
         _random = new System.Random(seed);
 
-        int hSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
-        int vSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
+        int horizontalSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
+        int verticalSize = _random.Next(_corrosiumSO.minSize, _corrosiumSO.maxSize);
 
-        int left = _random.Next(0, hSize), right = hSize - left;
-        int bottom = _random.Next(0, vSize), top = vSize - bottom;
+        int left = _random.Next(0, horizontalSize), right = horizontalSize - left;
+        int bottom = _random.Next(0, verticalSize), top = verticalSize - bottom;
 
         Vector2Int goalCenter = new Vector2Int((int)_centerTrm.position.x, (int)_centerTrm.position.y);
-        AddEncorrosive(goalCenter + new Vector2Int(-left, top));
-        AddEncorrosive(goalCenter + new Vector2Int(-left, -bottom));
-        AddEncorrosive(goalCenter + new Vector2Int(right, top));
-        AddEncorrosive(goalCenter + new Vector2Int(right, -bottom));
+        Vector2Int min = goalCenter + new Vector2Int(-left, -bottom);
+        Vector2Int max = goalCenter + new Vector2Int(right, top);
+        AddEncorrosive(min, max);
 
         _corrosiumSO.shapes.ForEach(shape =>
         {
@@ -58,95 +52,61 @@ public class CorrosiumController : MonoBehaviour
                 int number = _random.Next(0, 5);
                 int sizeX = _random.Next(shape.minSize, shape.maxSize);
                 int sizeY = _random.Next(shape.minSize, shape.maxSize);
+                Vector2Int min, max;
 
                 switch (number)
                 {
                     case 0:
-                        center = center + new Vector2Int(-left, _random.Next(-bottom, top + 1));
+                        center += new Vector2Int(-left, _random.Next(-bottom, top + 1));
 
-                        AddEncorrosive(center + new Vector2Int(0, sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(0, -sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(-sizeX, sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(-sizeX, -sizeY / 2));
+                        min = center + new Vector2Int(-sizeX, -sizeY / 2);
+                        max = center + new Vector2Int(0, sizeY / 2);
+                        AddEncorrosive(min, max);
+
                         break;
                     case 1:
-                        center = center + new Vector2Int(right, _random.Next(-bottom, top + 1));
+                        center += new Vector2Int(right, _random.Next(-bottom, top + 1));
 
-                        AddEncorrosive(center + new Vector2Int(0, sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(0, -sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(sizeX, sizeY / 2));
-                        AddEncorrosive(center + new Vector2Int(sizeX, -sizeY / 2));
+                        min = center + new Vector2Int(0, -sizeY / 2);
+                        max = center + new Vector2Int(sizeX, sizeY / 2);
+                        AddEncorrosive(min, max);
+
                         break;
                     case 2:
                         center = center + new Vector2Int(_random.Next(-left, right + 1), -bottom);
 
-                        AddEncorrosive(center + new Vector2Int(sizeX / 2, 0));
-                        AddEncorrosive(center + new Vector2Int(-sizeX / 2, 0));
-                        AddEncorrosive(center + new Vector2Int(sizeX / 2, -sizeY));
-                        AddEncorrosive(center + new Vector2Int(-sizeX / 2, -sizeY));
+                        min = center + new Vector2Int(-sizeX / 2, -sizeY);
+                        max = center + new Vector2Int(sizeX / 2, 0);
+                        AddEncorrosive(min, max);
+
                         break;
                     case 3:
-                        center = center + new Vector2Int(_random.Next(-left, right + 1), top);
+                        center += new Vector2Int(_random.Next(-left, right + 1), top);
 
-                        AddEncorrosive(center + new Vector2Int(sizeX / 2, 0));
-                        AddEncorrosive(center + new Vector2Int(-sizeX / 2, 0));
-                        AddEncorrosive(center + new Vector2Int(sizeX / 2, sizeY));
-                        AddEncorrosive(center + new Vector2Int(-sizeX / 2, sizeY));
+                        min = center + new Vector2Int(-sizeX / 2, 0);
+                        max = center + new Vector2Int(sizeX / 2, sizeY);
+                        AddEncorrosive(min, max);
+
                         break;
                 }
             }
         });
 
-        SetCorrosive();
-        Save();
-    }
-
-    public void AddEncorrosive(Vector2Int edge)
-    {
-        if (EncorrosiveAreaEdges.Contains(edge)) return;
-        EncorrosiveAreaEdges.Add(edge);
+        UpdateTile();
         Save();
     }
 
     public void AddEncorrosive(Vector2Int min, Vector2Int max)
     {
-        Vector2Int size = _mapInfo.mapSize;
-        Vector2Int leftUp = new Vector2Int(min.x, max.y);
-        Vector2Int rightDown = new Vector2Int(max.x, min.y);
+        if (min.x == max.x || min.y == max.y) return;
 
-        if (!EncorrosiveAreaEdges.Contains(min)) EncorrosiveAreaEdges.Add(min);
-        if (!EncorrosiveAreaEdges.Contains(max)) EncorrosiveAreaEdges.Add(max);
-        if (!EncorrosiveAreaEdges.Contains(leftUp)) EncorrosiveAreaEdges.Add(leftUp);
-        if (!EncorrosiveAreaEdges.Contains(rightDown)) EncorrosiveAreaEdges.Add(rightDown);
-
-        Vector2Int position;
-        for (int i = min.x; i < max.x; i++)
-        {
-            for (int j = min.y; j < max.y; j++)
-            {
-                position = new Vector2Int(i + size.x / 2, j + size.y / 2);
-                _isCorrosive[position.x, position.y] = true;
-
-                _corrosiveTilemap.SetTile(new Vector3Int(i, j), null);
-            }
-        }
-
+        EncorrosiveAreaEdges.Add(new CorrosiumRectangle(min, max));
         Save();
     }
 
-    public void SetCorrosive()
+    public void UpdateTile()
     {
         Vector2Int size = _mapInfo.mapSize;
-
-        for (int i = 0; i <= size.x; i++)
-        {
-            for (int j = 0; j <= size.y; j++)
-            {
-                _isCorrosive[i, j] = true;
-            }
-        }
-
-        EncorrosiveAreaEdges.ForEach(e => SetDiagonal(e));
 
         for (int i = 0; i <= size.x; i++)
         {
@@ -154,43 +114,35 @@ public class CorrosiumController : MonoBehaviour
             {
                 int x = i - (size.x / 2);
                 int y = j - (size.y / 2);
-
-                if (_isCorrosive[i, j])
-                {
-                    _corrosiveTilemap.SetTile
-                        (new Vector3Int(x, y), _corrosiumSO.corrosiumTile);
-                }
-                else
-                {
-                    _corrosiveTilemap.SetTile(new Vector3Int(x, y), null);
-                }
+                _corrosiveTilemap.SetTile(new Vector3Int(x, y), _corrosiumSO.corrosiumTile);
             }
         }
-    }
 
-    private void SetDiagonal(Vector2Int edge)
-    {
-        int minX = int.MinValue;
-        int minY = int.MinValue;
-
-        EncorrosiveAreaEdges.Where(e => edge != e && e.x == edge.x && e.y > edge.y)
-            .ToList().ForEach(e => minY = Mathf.Max(minY, e.y));
-        EncorrosiveAreaEdges.Where(e => edge != e && e.y == edge.y && e.x > edge.x)
-            .ToList().ForEach(e => minX = Mathf.Max(minX, e.x));
-
-        if (minX == int.MinValue || minY == int.MinValue) return;
-
-        for (int i = edge.x; i <= minX; i++)
+        EncorrosiveAreaEdges.ForEach(rect =>
         {
-            for (int j = edge.y; j <= minY; j++)
+            for (int i = rect.min.x; i < rect.max.x; i++)
             {
-                int x = i + (_mapInfo.mapSize.x / 2);
-                int y = j + (_mapInfo.mapSize.y / 2);
-
-                _isCorrosive[x, y] = false;
+                for (int j = rect.min.y; j < rect.max.y; j++)
+                {
+                    _corrosiveTilemap.SetTile(new Vector3Int(i, j), null);
+                }
             }
-        }
+        });
+
     }
+
+    //Move All CorrosiumArea
+    public void MoveCorrosive(Vector2Int direction)
+    {
+        EncorrosiveAreaEdges.ForEach(rect =>
+        {
+            rect.min += direction;
+            rect.max += direction;
+        });
+    }
+
+
+    #region Save&Load
 
     public void Save()
     {
@@ -205,21 +157,44 @@ public class CorrosiumController : MonoBehaviour
     {
         string json = File.ReadAllText(_path);
         CorrosiumSave save = JsonUtility.FromJson<CorrosiumSave>(json);
+        EncorrosiveAreaEdges = save.edges;
 
-        EncorrosiveAreaEdges = new List<Vector2Int>();
-        save.edges.ForEach(e => EncorrosiveAreaEdges.Add(e));
-        SetCorrosive();
+        UpdateTile();
     }
 
     public void ResetSaveData()
     {
-        if(File.Exists(_path))
-            File.Delete(_path);
+        if (File.Exists(_path)) File.Delete(_path);
     }
+
+    #endregion
 }
 
 [Serializable]
 public class CorrosiumSave
 {
-    public List<Vector2Int> edges = new();
+    public List<CorrosiumRectangle> edges = new();
+}
+
+[Serializable]
+public struct CorrosiumRectangle
+{
+    public Vector2Int min;
+    public Vector2Int max;
+
+    public CorrosiumRectangle(Vector2Int min, Vector2Int max)
+    {
+        this.min = min;
+        this.max = max;
+    }
+
+    public bool IsOverlap(CorrosiumRectangle rect)
+    {
+        if (min.x < rect.min.x && max.x > rect.min.x && min.y < rect.min.y && max.y > rect.min.y) return true;
+        if (min.x < rect.min.x && max.x > rect.min.x && min.y < rect.max.y && max.y > rect.max.y) return true;
+        if (min.x < rect.max.x && max.x > rect.max.x && min.y < rect.min.y && max.y > rect.min.y) return true;
+        if (min.x < rect.max.x && max.x > rect.max.x && min.y < rect.max.y && max.y > rect.max.y) return true;
+
+        return false;
+    }
 }
